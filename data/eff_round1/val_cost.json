@@ -1,0 +1,172 @@
+{
+ "run": "eff_round1",
+ "config": "iter4 (argument-eviction)",
+ "baseline": "bare harness (v1bare_val_iter0)",
+ "split": "held-out val",
+ "n_tasks": 30,
+ "source": "recomputed from per-task val rollout metrics.json on the eval host (not in the original data bundle)",
+ "input_tokens": {
+  "iter4": {
+   "mean": 3427754,
+   "median": 2124658
+  },
+  "bare": {
+   "mean": 3975237,
+   "median": 2634776
+  },
+  "delta": {
+   "mean_pct": -13.8,
+   "median_pct": -19.4
+  }
+ },
+ "total_tokens": {
+  "iter4": {
+   "mean": 3491883,
+   "median": 2166733
+  },
+  "bare": {
+   "mean": 4037333,
+   "median": 2682770
+  },
+  "delta": {
+   "mean_pct": -13.5,
+   "median_pct": -19.2
+  }
+ },
+ "turn_count": {
+  "iter4": {
+   "mean": 32,
+   "median": 22
+  },
+  "bare": {
+   "mean": 29,
+   "median": 25
+  },
+  "delta": {
+   "mean_pct": 10.3,
+   "median_pct": -12.0
+  }
+ },
+ "per_task": {
+  "antitrust-competition_draft-market-definition-analysis-memorandum__da39a3ee5e": {
+   "iter4": 2169780,
+   "bare": 2955747
+  },
+  "banking-finance_identify-issues-in-borrower-financial-statements__da39a3ee5e": {
+   "iter4": 1098593,
+   "bare": 1427263
+  },
+  "capital-markets_draft-current-report-on-form-8__da39a3ee5e": {
+   "iter4": 2583763,
+   "bare": 2725835
+  },
+  "capital-markets_review-form-10__da39a3ee5e": {
+   "iter4": 1206978,
+   "bare": 2325493
+  },
+  "contracts_banking_credit-support-annex-term-negotiation__da39a3ee5e": {
+   "iter4": 5330813,
+   "bare": 4113589
+  },
+  "contracts_banking_repo-securities-lending-subsequent-turn-redline_scenario-02__da39a3ee5e": {
+   "iter4": 11395352,
+   "bare": 10173302
+  },
+  "contracts_commercial-vendor-customer_vendor-services-agreement-first-turn-redline_scenario-01__da39a3ee5e": {
+   "iter4": 15859385,
+   "bare": 21719152
+  },
+  "contracts_employment-compensation_equity-incentive-plan-first-draft__da39a3ee5e": {
+   "iter4": 10454756,
+   "bare": 7326132
+  },
+  "contracts_ip-licensing_license-agreement-subsequent-turn-redline_scenario-03__da39a3ee5e": {
+   "iter4": 6933649,
+   "bare": 16359448
+  },
+  "contracts_pe-funds_fund-side-letter-subsequent-turn-redline__da39a3ee5e": {
+   "iter4": 2732812,
+   "bare": 3448152
+  },
+  "corporate-governance_draft-response-to-government-information-request__da39a3ee5e": {
+   "iter4": 1520105,
+   "bare": 1508811
+  },
+  "corporate-governance_identify-issues-in-entity-compliance-checklist__da39a3ee5e": {
+   "iter4": 1649714,
+   "bare": 1372614
+  },
+  "corporate-ma_analyze-term-sheet-markup_scenario-01__da39a3ee5e": {
+   "iter4": 930911,
+   "bare": 1168856
+  },
+  "corporate-ma_assess-litigation-and-regulatory-risk-from-targets-pending-matters__da39a3ee5e": {
+   "iter4": 1350774,
+   "bare": 1599142
+  },
+  "corporate-ma_draft-distribution-waterfall-memorandum__da39a3ee5e": {
+   "iter4": 3870230,
+   "bare": 3363314
+  },
+  "corporate-ma_review-governance-diligence_scenario-02__da39a3ee5e": {
+   "iter4": 1574213,
+   "bare": 2685935
+  },
+  "emerging-companies-venture-capital_draft-convertible-note-purchase-agreement__da39a3ee5e": {
+   "iter4": 2069343,
+   "bare": 3211260
+  },
+  "intellectual-property_analyze-restrictive-covenant-enforceability-across-multiple-jurisdictions__da39a3ee5e": {
+   "iter4": 3575741,
+   "bare": 4693685
+  },
+  "intellectual-property_extract-filing-dates-from-patent-schedule__da39a3ee5e": {
+   "iter4": 2142536,
+   "bare": 3932191
+  },
+  "intellectual-property_extract-license-grant-terms-from-executed-technology-agreements__da39a3ee5e": {
+   "iter4": 4170367,
+   "bare": 2309551
+  },
+  "intellectual-property_extract-open-source-license-obligations-from-targets-disclosure-schedule__da39a3ee5e": {
+   "iter4": 1052951,
+   "bare": 1057508
+  },
+  "intellectual-property_review-patent-complaint__da39a3ee5e": {
+   "iter4": 901560,
+   "bare": 1923837
+  },
+  "litigation-dispute-resolution_categorize-document-production-set-by-relevance-and-privilege__da39a3ee5e": {
+   "iter4": 2106781,
+   "bare": 2583617
+  },
+  "litigation-dispute-resolution_extract-privileged-communications-from-production-set__da39a3ee5e": {
+   "iter4": 1751454,
+   "bare": 3395017
+  },
+  "litigation-dispute-resolution_extract-scope-terms-from-matter-plan__da39a3ee5e": {
+   "iter4": 2217734,
+   "bare": 1508255
+  },
+  "structured-finance-securitization_compare-closing-checklist-against-transaction-documents__da39a3ee5e": {
+   "iter4": 2536785,
+   "bare": 2347024
+  },
+  "structured-finance-securitization_draft-security-agreement__da39a3ee5e": {
+   "iter4": 1908889,
+   "bare": 1824163
+  },
+  "structured-finance-securitization_identify-issues-in-sale-and-contribution-agreement__da39a3ee5e": {
+   "iter4": 1139088,
+   "bare": 1942815
+  },
+  "tax_identify-tax-issues-in-irs-closing-agreement__da39a3ee5e": {
+   "iter4": 1141029,
+   "bare": 992647
+  },
+  "trusts-estates-private-client_draft-markup-of-counterparty-prenuptial-agreement__da39a3ee5e": {
+   "iter4": 5456524,
+   "bare": 3262754
+  }
+ }
+}
