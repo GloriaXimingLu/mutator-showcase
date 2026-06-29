@@ -367,7 +367,7 @@ section{margin:40px 0 10px}
 "use strict";
 var BOOT = JSON.parse(document.getElementById("bootstrap").textContent);
 var RUN = BOOT.run, IX = BOOT.index, NARR = BOOT.iter_narr, NOISE = IX.noise || 0.013;
-var DATADIR = "../../data/" + RUN + "/";        // page lives in site/runs/, data in data/
+var DATADIR = "../data/" + RUN + "/";        // page lives in site/runs/, data in data/
 var _cache = {};                                  // path -> Promise(json)
 
 function fetchJSON(rel) {
