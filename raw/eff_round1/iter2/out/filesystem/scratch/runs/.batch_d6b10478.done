@@ -1,0 +1,7 @@
+wrote /workspace/scratch/runs/litigation-dispute-resolution_draft-motion-to-dismiss-brief/deliverable.md  turns=30  input_tokens=3037466  total_tokens=3099702
+wrote /workspace/scratch/runs/contracts_corporate-ma_joint-venture-agreement-term-negotiation_scenario-02/deliverable.md  turns=21  input_tokens=2791455  total_tokens=2846958
+wrote /workspace/scratch/runs/corporate-ma_analyze-cim-deal-teaser_scenario-02/deliverable.md  turns=14  input_tokens=849777  total_tokens=893280
+wrote /workspace/scratch/runs/tax_review-iss-tax-transaction-structure/deliverable.md  turns=18  input_tokens=1574912  total_tokens=1625591
+wrote /workspace/scratch/runs/corporate-ma_review-governance-diligence_scenario-01/deliverable.md  turns=23  input_tokens=1754802  total_tokens=1805707
+THRASH CHECK: clean — no task here runs >=1.5x bare turns/tokens.
+ran 5/5 task(s), remaining $155.00

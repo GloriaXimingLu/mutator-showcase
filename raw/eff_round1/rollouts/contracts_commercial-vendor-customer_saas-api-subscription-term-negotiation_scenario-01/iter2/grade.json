@@ -1,0 +1,34 @@
+{
+ "task": "contracts/commercial-vendor-customer/saas-api-subscription-term-negotiation/scenario-01",
+ "ens_pass_rate": 0.9,
+ "n_graded": 50,
+ "n_failed": 5,
+ "failed_criteria": [
+  {
+   "id": "C-005",
+   "title": "Rationale explains uncapped liability is unattainable",
+   "match_criteria": "PASS if the rationale explains that uncapped liability (Customer's opening position) is unattainable \u2014 referencing that Cognitive Foundry never offers uncapped liability per their contract standards \u2014 while explaining why an elevated super-cap still protects Meridian. FAIL if the rationale does not address why uncapped is unattainable or why the super-cap is adequate protection."
+  },
+  {
+   "id": "C-008",
+   "title": "Audit rights: annual independent Tier 2 audit with semi-annual Tier 1 reports",
+   "match_criteria": "PASS if the audit rights compromise provides for at least an annual independent third-party audit at Langford Tier 2 level (model architecture documentation, training data provenance, validation results, test query capability) with semi-annual Tier 1 monitoring reports. FAIL if routine audits are less frequent than annual, or if the Tier 2 scope elements are not specified, or if semi-annual Tier 1 reports are omitted."
+  },
+  {
+   "id": "C-014",
+   "title": "Data usage: opt-out notice period between 30 and 90 days (60-day landing zone)",
+   "match_criteria": "PASS if the opt-out notice period is between 30 and 90 days exclusive of both endpoints (i.e., longer than the playbook's 30 days but shorter than the Vendor standard's 90 days; the 60-day Vendor counter is the natural landing zone). FAIL if the opt-out period is 30 days or less, or 90 days or more."
+  },
+  {
+   "id": "C-022",
+   "title": "SLA: quarterly measurement with escalating service credits below 5\u201315% range",
+   "match_criteria": "PASS if benchmarks are measured quarterly with escalating service credits that are meaningful but below the Customer's proposed 5%\u201315% of quarterly fees range. FAIL if measurement is not quarterly, or if credits are at or above the 5%\u201315% range, or if there are no credits at all."
+  },
+  {
+   "id": "C-031",
+   "title": "Termination rationale: explains why flat 50%/75% ETF is economically prohibitive",
+   "match_criteria": "PASS if the rationale explains why a flat 50% or 75% ETF on remaining contract value makes exit economically prohibitive, violating Sutter's red line. FAIL if this analysis is absent."
+  }
+ ],
+ "error": null
+}

@@ -1,0 +1,54 @@
+{
+ "task": "international-trade-sanctions/draft-ofac-specific-license-application",
+ "ens_pass_rate": 0.859375,
+ "n_graded": 64,
+ "n_failed": 9,
+ "failed_criteria": [
+  {
+   "id": "C-001",
+   "title": "Output includes cover letter to OFAC",
+   "match_criteria": "PASS if the output contains a cover letter addressed to OFAC (Office of Foreign Assets Control, U.S. Department of the Treasury) summarizing the license request. FAIL if there is no identifiable cover letter component."
+  },
+  {
+   "id": "C-002",
+   "title": "Cover letter on Ashford & Whitmore LLP letterhead",
+   "match_criteria": "PASS if the cover letter identifies or is presented as being on behalf of Ashford & Whitmore LLP, 1700 K Street NW, Suite 950, Washington, DC 20006. FAIL if the firm name or letterhead identification is missing."
+  },
+  {
+   "id": "C-021",
+   "title": "ISSUE_001: Discrepancy between client email and screening memo flagged",
+   "match_criteria": "PASS if the issues memo identifies that the client's email/transaction summary describes ARMPC as 'fully cleared' or 'no sanctions concerns' while the compliance screening memo identifies a positive SDN hit for Khoury, and calls out this discrepancy. FAIL if this document inconsistency is not flagged."
+  },
+  {
+   "id": "C-029",
+   "title": "ISSUE_004: Turkey transshipment re-export risk identified",
+   "match_criteria": "PASS if the output identifies that routing U.S.-origin goods through Turkey for re-export to Syria creates a re-export compliance concern and that the OFAC license must also cover the Turkey-to-Syria re-export leg. FAIL if the Turkey transshipment is described without flagging any re-export compliance issue."
+  },
+  {
+   "id": "C-030",
+   "title": "ISSUE_004: BIS/EAR re-export controls addressed",
+   "match_criteria": "PASS if the output addresses the interplay between OFAC licensing and BIS/EAR re-export controls for the Turkey-to-Syria leg (e.g., mentioning 15 CFR \u00a7 746.9, Syria humanitarian license exceptions, or BIS licensing requirements for re-export of EAR99 items to Syria). FAIL if BIS/EAR re-export requirements are not mentioned at all in connection with the Turkey routing."
+  },
+  {
+   "id": "C-033",
+   "title": "ISSUE_006: Shelf life vs. license duration/processing mismatch identified",
+   "match_criteria": "PASS if the output identifies that the reagent kits have an 18-month shelf life and that OFAC processing could take 90\u2013180 days, meaning kits manufactured before the license is granted could expire before reaching DCUH, especially with 6\u20138 weeks transit time. FAIL if the shelf life timing issue is not raised."
+  },
+  {
+   "id": "C-034",
+   "title": "ISSUE_006: Proposed solution for shelf life timing issue",
+   "match_criteria": "PASS if the output proposes a solution such as requesting rolling/staggered shipments timed to manufacturing dates, requesting authorization for multiple shipments rather than a single bulk shipment, or otherwise addressing how to ensure kits do not expire in transit. FAIL if the shelf life issue is identified but no practical solution is proposed."
+  },
+  {
+   "id": "C-035",
+   "title": "ISSUE_007: $1.2M vs. $1,280,000 discrepancy flagged",
+   "match_criteria": "PASS if the issues memo identifies that the client email states the total deal value as approximately '$1.2 million' while the purchase order line items total $1,280,000, and that the correct figure is $1,280,000. FAIL if this discrepancy is not flagged."
+  },
+  {
+   "id": "C-038",
+   "title": "ISSUE_008: Issues memo flags overstatement of prior license precedent",
+   "match_criteria": "PASS if the issues memo notes that the client's characterization of the prior license as strong precedent overstates its relevance, given the differences in end-user, product type, transaction value, and the SDN-adjacent counterparty not present in the prior deal. FAIL if the issues memo does not flag this overstatement concern."
+  }
+ ],
+ "error": null
+}

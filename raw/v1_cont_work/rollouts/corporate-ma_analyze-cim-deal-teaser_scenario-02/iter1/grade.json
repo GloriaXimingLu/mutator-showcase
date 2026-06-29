@@ -1,0 +1,39 @@
+{
+ "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+ "ens_pass_rate": 0.8536585365853658,
+ "n_graded": 41,
+ "n_failed": 6,
+ "failed_criteria": [
+  {
+   "id": "C-004",
+   "title": "ISSUE_002: Recalculates defensible owner compensation add-back",
+   "match_criteria": "PASS if the memo recalculates the owner compensation add-back using a more realistic replacement CEO salary, arriving at a defensible add-back lower than $1.9M (e.g., approximately $1.2M\u2013$1.6M), thereby reducing Adjusted EBITDA by roughly $0.3M\u2013$0.7M. FAIL if no recalculation is provided."
+  },
+  {
+   "id": "C-011",
+   "title": "ISSUE_005: Recommends AR aging analysis based on DSO discrepancy",
+   "match_criteria": "PASS if the memo recommends requesting a detailed accounts receivable aging analysis to investigate the DSO discrepancy and assess potential collection issues or bad debt exposure. FAIL if no AR aging or receivables-related diligence request is made in connection with the DSO issue."
+  },
+  {
+   "id": "C-018",
+   "title": "ISSUE_008: Flags disconnect between projected capex decline and revenue growth",
+   "match_criteria": "PASS if the memo identifies the disconnect between projected FY2025 capex of $4.5M (a 37.5% decline from FY2024's $7.2M) and simultaneous projected revenue growth of 12.8%, suggesting either capex deferral to boost cash flow or artificial classification of growth vs. maintenance capex. FAIL if this capex-revenue disconnect is not identified."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_009b: Notes Prewitt lacks employment agreement or non-compete",
+   "match_criteria": "PASS if the memo notes that Janet Prewitt has no employment agreement or non-compete. FAIL if the absence of an employment agreement or non-compete for Prewitt is not mentioned."
+  },
+  {
+   "id": "C-028",
+   "title": "ISSUE_012: Flags Meridian Lumber MSA expiration before expected closing",
+   "match_criteria": "PASS if the memo identifies that Meridian Lumber & Paper (#4 customer, $5.8M or 6.6% of revenue) has an MSA expiring December 2025, which is before or around the expected closing in Q4 2025. FAIL if the Meridian Lumber MSA expiration timing is not flagged."
+  },
+  {
+   "id": "C-029",
+   "title": "ISSUE_012: Quantifies revenue at risk from expired/expiring/at-will contracts",
+   "match_criteria": "PASS if the memo quantifies the combined revenue at risk from customers with expired (PNR $18.7M), expiring (Meridian $5.8M), or month-to-month (Willamette $4.9M) arrangements, totaling approximately $29-30M or roughly 34% of revenue. FAIL if the aggregate revenue at risk is not quantified."
+  }
+ ],
+ "error": null
+}

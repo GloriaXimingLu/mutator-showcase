@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+"""Thin client: run the frozen Harvey agent on ONE TRAIN task, via the host broker.
+
+Usage:  .claude/tools/run_harvey_agent <task_id>
+
+Sends your whole `harness/` tree to the broker, which overlays it onto the bare Harvey checkout,
+runs the rollout host-side (the rollout code + creds + task data are not in this container), and
+returns the deliverable (written to scratch/runs/<task_id>/deliverable.md). So your edits to
+system_prompt.md / tools.py / agent_loop.py actually take effect in the run.
+
+Train-only by construction: the broker refuses any non-TRAIN task id (the held-out val set is
+unreachable). Metered: ~$1/run; an OVER_BUDGET response is your "commit now" signal.
+"""
+import json
+import os
+import sys
+import urllib.error
+import urllib.request
+
+BROKER = os.environ.get("BROKER_URL", "http://172.17.0.1:4100")
+WS = os.environ.get("MUTATOR_WORKSPACE", "/workspace")
+
+
+def post(path, obj, timeout=2400):
+    req = urllib.request.Request(
+        BROKER + path,
+        data=json.dumps(obj).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.status, json.load(r)
+    except urllib.error.HTTPError as e:
+        return e.code, json.load(e)
+    except urllib.error.URLError as e:  # broker down / refused / DNS — a clean signal, not a traceback
+        print(
+            "broker unreachable at %s (%s) — is the experiment broker up?" % (BROKER, getattr(e, "reason", e)),
+            file=sys.stderr,
+        )
+        sys.exit(5)
+
+
+def main():
+    if len(sys.argv) != 2:
+        print("usage: run_harvey_agent <task_id>", file=sys.stderr)
+        sys.exit(2)
+    task_id = sys.argv[1]
+    hroot = os.path.join(WS, "harness")
+    harness = {}
+    for dirpath, _dirs, files in os.walk(hroot):
+        for fn in files:
+            fp = os.path.join(dirpath, fn)
+            try:
+                harness[os.path.relpath(fp, hroot)] = open(fp, encoding="utf-8").read()
+            except (OSError, UnicodeDecodeError):
+                pass  # skip unreadable / binary files
+    if not harness:
+        print("no harness files under %s — is the workspace seeded?" % hroot, file=sys.stderr)
+        sys.exit(2)
+    code, body = post("/run_harvey_agent", {"task_id": task_id, "harness": harness})
+    if code == 402:
+        print(
+            "OVER_BUDGET (remaining $%.2f) — commit your best edit now, don't retry." % body.get("remaining", 0.0),
+            file=sys.stderr,
+        )
+        sys.exit(3)
+    if code == 403:
+        print("REFUSED — %s" % body.get("detail", "not a TRAIN task"), file=sys.stderr)
+        sys.exit(4)
+    if code != 200:
+        print("ERROR %s — %s" % (code, body), file=sys.stderr)
+        sys.exit(1)
+    out = os.path.join(WS, "scratch/runs", task_id.replace("/", "_"))
+    os.makedirs(out, exist_ok=True)
+    dpath = os.path.join(out, "deliverable.md")
+    open(dpath, "w", encoding="utf-8").write(body.get("deliverable", ""))
+    print("wrote %s  (cost $%.2f, remaining $%.2f)" % (dpath, body.get("cost", 0.0), body.get("remaining", 0.0)))
+    print("DELIVERABLE_PATH=%s" % dpath)
+
+
+if __name__ == "__main__":
+    main()

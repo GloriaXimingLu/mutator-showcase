@@ -1,0 +1,114 @@
+{
+ "task": "immigration/identify-h1b-qualification-issues",
+ "ens_pass_rate": 0.6666666666666666,
+ "n_graded": 39,
+ "n_failed": 13,
+ "failed_criteria": [
+  {
+   "id": "C-008",
+   "title": "Issue 3 Identified: Immigration status gap / potential unauthorized work",
+   "match_criteria": "PASS if the memo identifies a concern about Rajesh's immigration status during the period between approximately mid-2020 and September 2023, noting that his F-1 OPT/STEM OPT through NovaStar would have expired and there is no explanation of what visa status authorized work as an independent consultant. FAIL if the potential immigration status gap or unauthorized employment concern is not raised."
+  },
+  {
+   "id": "C-009",
+   "title": "Issue 3 Detail: Risk assessment for unlawful presence or unauthorized employment",
+   "match_criteria": "PASS if the memo discusses potential consequences of unauthorized employment or unlawful presence during the gap period, such as admissibility issues, unlawful presence bars, or negative impact on H-1B eligibility. FAIL if the memo flags the status gap but does not discuss any potential immigration consequences."
+  },
+  {
+   "id": "C-010",
+   "title": "Issue 3 Recommendation: Clarify immigration history for gap period",
+   "match_criteria": "PASS if the memo recommends requesting clarification or documentation of Rajesh's immigration status during the approximately August 2020 \u2013 September 2023 period before filing. FAIL if no recommendation to investigate or clarify the immigration history is provided."
+  },
+  {
+   "id": "C-014",
+   "title": "Issue 5 Identified: Alternative qualification language undermines specialty occupation",
+   "match_criteria": "PASS if the memo identifies that the employer support letter's language accepting 'a Bachelor's degree in any engineering discipline combined with 5 years of progressive experience' as an alternative qualification undermines the specialty occupation argument by suggesting no specific degree field is required. FAIL if this problematic language is not flagged."
+  },
+  {
+   "id": "C-015",
+   "title": "Issue 5 Detail: Explains why broad degree acceptance hurts H-1B eligibility",
+   "match_criteria": "PASS if the memo explains that USCIS uses the specialty occupation analysis (under 8 CFR 214.2(h)(4)(ii) or equivalent regulatory framework) to determine whether a specific degree is required, and that accepting 'any engineering discipline' suggests the position does not require a specific specialty, which could lead to denial. FAIL if the memo flags the language but does not explain its legal significance for specialty occupation analysis."
+  },
+  {
+   "id": "C-016",
+   "title": "Issue 5 Recommendation: Remove or narrow the alternative qualification language",
+   "match_criteria": "PASS if the memo recommends removing the alternative qualification language or narrowing it to specify particular related degree fields rather than 'any engineering discipline.' FAIL if no recommendation to modify this language is provided."
+  },
+  {
+   "id": "C-021",
+   "title": "Issue 8 Identified: SOC code may not best match the position duties",
+   "match_criteria": "PASS if the memo identifies that SOC code 15-2051 (Data Scientists) on the LCA may not be the best match for the described duties, which emphasize ML model deployment, software engineering, cloud infrastructure management, and team leadership \u2014 duties that could align with SOC 15-1252 (Software Developers) or another code. FAIL if the potential SOC code mismatch is not flagged."
+  },
+  {
+   "id": "C-022",
+   "title": "Issue 8 Detail: Notes PWD would be invalid if SOC code is wrong",
+   "match_criteria": "PASS if the memo notes that if USCIS determines the SOC code is incorrect, the prevailing wage determination and LCA could be invalidated, requiring refiling. FAIL if the downstream consequences of a wrong SOC code are not discussed."
+  },
+  {
+   "id": "C-026",
+   "title": "Issue 11 Identified: No documented experience with TensorFlow, PyTorch, or AWS SageMaker",
+   "match_criteria": "PASS if the memo identifies that the job requirements specify experience with TensorFlow, PyTorch, and cloud-based ML deployment (AWS SageMaker), but the NovaStar experience letter only mentions scikit-learn, Python, and Tableau \u2014 and the only evidence of the required frameworks comes from the uncorroborated consulting period on the resume. FAIL if this gap in documented technical skills is not flagged."
+  },
+  {
+   "id": "C-027",
+   "title": "Issue 11 Document Citation: References NovaStar letter and/or resume",
+   "match_criteria": "PASS if the memo references the NovaStar experience letter (showing only scikit-learn, not TensorFlow/PyTorch/SageMaker) and/or the resume (where the required frameworks appear only in the uncorroborated consulting period) when discussing this skills gap. FAIL if neither document is cited in connection with this issue."
+  },
+  {
+   "id": "C-028",
+   "title": "Distractor 3: Does NOT flag OPT expiration vs. H-1B start date as a gap issue",
+   "match_criteria": "PASS if the memo does NOT flag the gap between Rajesh's OPT expiration (August 14, 2025) and the H-1B start date (October 1, 2025) as a problem, OR correctly explains that the cap-gap provision automatically extends F-1 status through September 30, 2025. FAIL if the memo identifies this timing as a problem or gap in status without acknowledging the cap-gap extension."
+  },
+  {
+   "id": "C-029",
+   "title": "Non-issues section: Identifies at least one non-issue with explanation",
+   "match_criteria": "PASS if the memo includes a section or discussion noting items that appear potentially problematic but are actually standard or acceptable (non-issues), with at least one example and a brief explanation of why it is not a concern. Examples include: the cap-gap provision covering the OPT-to-H-1B transition, the wage amount exceeding the prevailing wage, the 4-year degree being equivalent to a U.S. bachelor's, or employer ability to pay. FAIL if the memo contains no discussion of non-issues or items that are acceptable."
+  },
+  {
+   "id": "C-034",
+   "title": "Issue 3 Severity: Rated Critical or High",
+   "match_criteria": "PASS if the immigration status gap / potential unauthorized employment issue is rated as Critical or High severity (or equivalent highest-tier rating). Potential unlawful presence or unauthorized employment is a serious admissibility concern. FAIL if it is rated as Medium, Low, or not given a severity rating."
+  }
+ ],
+ "per_criterion": {
+  "C-001": "pass",
+  "C-002": "pass",
+  "C-003": "pass",
+  "C-004": "pass",
+  "C-005": "pass",
+  "C-006": "pass",
+  "C-007": "pass",
+  "C-008": "fail",
+  "C-009": "fail",
+  "C-010": "fail",
+  "C-011": "pass",
+  "C-012": "pass",
+  "C-013": "pass",
+  "C-014": "fail",
+  "C-015": "fail",
+  "C-016": "fail",
+  "C-017": "pass",
+  "C-018": "pass",
+  "C-019": "pass",
+  "C-020": "pass",
+  "C-021": "fail",
+  "C-022": "fail",
+  "C-023": "pass",
+  "C-024": "pass",
+  "C-025": "pass",
+  "C-026": "fail",
+  "C-027": "fail",
+  "C-028": "fail",
+  "C-029": "fail",
+  "C-030": "pass",
+  "C-031": "pass",
+  "C-032": "pass",
+  "C-033": "pass",
+  "C-034": "fail",
+  "C-035": "pass",
+  "C-036": "pass",
+  "C-037": "pass",
+  "C-038": "pass",
+  "C-039": "pass"
+ }
+}

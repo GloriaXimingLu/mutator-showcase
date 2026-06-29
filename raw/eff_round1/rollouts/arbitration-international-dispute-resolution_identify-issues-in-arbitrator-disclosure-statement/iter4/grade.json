@@ -1,0 +1,34 @@
+{
+ "task": "arbitration-international-dispute-resolution/identify-issues-in-arbitrator-disclosure-statement",
+ "ens_pass_rate": 0.868421052631579,
+ "n_graded": 38,
+ "n_failed": 5,
+ "failed_criteria": [
+  {
+   "id": "C-021",
+   "title": "ISSUE_009: Raises prejudgment risk from subject matter expertise combined with CLE",
+   "match_criteria": "PASS if the memo discusses the risk that Fairhaven may have pre-formed views on key legal issues in this arbitration, based on the combination of her subject matter credentials (LL.M. in IP or Technology Case Management panel membership) and her CLE co-panelist appearance on the topic of IP licensing disputes in arbitration. FAIL if the memo does not raise the prejudgment or pre-formed views concern."
+  },
+  {
+   "id": "C-028",
+   "title": "DISTRACTOR_004: Recognizes that balanced referral disclosure masks asymmetry",
+   "match_criteria": "PASS if the memo recognizes that Fairhaven's disclosure of Lakeview receiving referrals from 'both' firms appears balanced on its surface but actually masks the significant asymmetry in volume and fees (48% vs. ~13% of income from the two firms respectively, or the $1,020,000 vs. $280,000 figures). FAIL if the memo accepts the 'both firms' referral disclosure at face value as adequate without noting the underlying asymmetry."
+  },
+  {
+   "id": "C-030",
+   "title": "ISSUE_001 rated as critical or high severity",
+   "match_criteria": "PASS if the indirect financial interest via Northbridge/Whitmore Fund II (ISSUE_001) is rated as critical, high severity, or the most serious category used by the memo. FAIL if it is rated as minor, low, or a non-serious category."
+  },
+  {
+   "id": "C-035",
+   "title": "ISSUE_004: Contrasts B&T income share with Fielding Marsh income share",
+   "match_criteria": "PASS if the memo contrasts the approximately 48% of income from Barrow & Thistlewood matters with the approximately 13% from Fielding Marsh matters (or provides the dollar figures ~$1,020,000 vs. ~$280,000) to demonstrate the asymmetry. FAIL if only the B&T figure is cited without comparison to the Fielding Marsh figure or overall total."
+  },
+  {
+   "id": "C-036",
+   "title": "Memo identifies non-problematic items as instructed by the task",
+   "match_criteria": "PASS if the memo includes a section or discussion identifying items in the disclosure that may appear problematic but are actually standard or acceptable (as the task prompt requires), addressing at least one such item (e.g., prior arbitrations with both firms being normal, LL.M. as qualification, husband's profession alone being fine). FAIL if the memo does not include any discussion of items that are not true issues."
+  }
+ ],
+ "error": null
+}

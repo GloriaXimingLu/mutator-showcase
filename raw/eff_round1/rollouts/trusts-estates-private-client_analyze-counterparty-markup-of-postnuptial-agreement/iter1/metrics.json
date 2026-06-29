@@ -1,0 +1,31 @@
+{
+  "model": "glm-5p2",
+  "task": "trusts-estates-private-client/analyze-counterparty-markup-of-postnuptial-agreement",
+  "run_id": "effround1_train_iter1/trusts-estates-private-client_analyze-counterparty-markup-of-postnuptial-agreement__da39a3ee5e",
+  "turn_count": 28,
+  "input_tokens": 1861931,
+  "output_tokens": 52247,
+  "total_tokens": 1914178,
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "wall_clock_seconds": 752.6,
+  "finished_cleanly": true,
+  "completed_at": "2026-06-28T10:34:23.076253+00:00",
+  "documents_read": 6,
+  "documents_read_list": [
+    "original-postnuptial-agreement.docx",
+    "redlined-postnuptial-agreement.docx",
+    "client-intake-memo.docx",
+    "transmittal-email-husband-counsel.eml",
+    "financial-disclosure-summary.xlsx",
+    "practice-valuation-report.docx"
+  ],
+  "documents_skipped": 0,
+  "documents_skipped_list": [],
+  "total_documents": 6,
+  "bash_commands": 19,
+  "files_written": 2,
+  "files_edited": 4,
+  "glob_searches": 0,
+  "grep_searches": 0
+}

@@ -1,0 +1,84 @@
+{
+ "task": "capital-markets/draft-registration-statement-on-form-s",
+ "ens_pass_rate": 0.8333333333333334,
+ "n_graded": 90,
+ "n_failed": 15,
+ "failed_criteria": [
+  {
+   "id": "C-011",
+   "title": "ISSUE_004: Discusses when EGC status may be lost",
+   "match_criteria": "PASS if either deliverable discusses conditions under which Crestline may lose EGC status, including at least one of: (a) revenue reaching $1.235 billion, (b) fifth anniversary of first equity sale, or (c) becoming a large accelerated filer (public float \u2265 $700M). FAIL if no mention is made of when EGC status could be lost."
+  },
+  {
+   "id": "C-016",
+   "title": "ISSUE_006: Flags preferred stock mezzanine classification issue",
+   "match_criteria": "PASS if the issues memorandum identifies that the CFO memo incorrectly refers to the $385.0M redeemable convertible preferred stock as part of 'total equity,' when it should be classified in mezzanine equity (between liabilities and stockholders' equity) on the historical balance sheet, and that the pro forma capitalization must show the reclassification upon IPO conversion. FAIL if this classification discrepancy is not flagged."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_007: S-1 discloses Section 409A exposure in risk factors or notes",
+   "match_criteria": "PASS if the S-1 includes disclosure (in risk factors, financial statement notes, or both) addressing the potential Section 409A issue with the Q1 2023 option grants, including the risk of excise tax penalties and/or any tax indemnification obligations. FAIL if the S-1 contains no disclosure of the 409A valuation concern."
+  },
+  {
+   "id": "C-021",
+   "title": "ISSUE_008: Addresses ESPP Section 423 qualification requirements",
+   "match_criteria": "PASS if either deliverable addresses the requirements for the 2024 ESPP to qualify under IRC Section 423, discussing at least two of the following: (a) maximum purchase discount of 15%, (b) $25,000 annual purchase limitation, (c) offering period limitation of no more than 27 months, (d) broad employee eligibility requirements. FAIL if Section 423 qualification requirements are not discussed in either deliverable."
+  },
+  {
+   "id": "C-023",
+   "title": "ISSUE_009: S-1 principal stockholders table addresses Aldersgate gap",
+   "match_criteria": "PASS if the S-1 principal stockholders table either (a) includes Aldersgate Capital with its current ownership if above 5%, (b) notes that Aldersgate's status needs to be confirmed, or (c) explicitly addresses the disposition of Aldersgate's Series B shares. FAIL if Aldersgate Capital's absence is not addressed at all in the principal stockholders discussion."
+  },
+  {
+   "id": "C-024",
+   "title": "ISSUE_010: Issues memo addresses term loan change-of-control provision and IPO non-trigger",
+   "match_criteria": "PASS if the issues memorandum identifies the term loan change-of-control provision and confirms or discusses that it is not triggered by the IPO because existing holders retain ~71.8% voting power (above the 50% threshold). FAIL if the change-of-control provision is not discussed."
+  },
+  {
+   "id": "C-031",
+   "title": "ISSUE_013: Addresses federal forum provision for Securities Act claims",
+   "match_criteria": "PASS if the S-1 discloses the exclusive forum provision designating federal district courts for Securities Act claims (as distinct from the Delaware Court of Chancery for state-law corporate claims), and references or acknowledges the legal basis for enforceability (Salzberg v. Sciabacucchi or the general permissibility of federal forum provisions under Delaware law). FAIL if the federal forum provision for Securities Act claims is not disclosed or discussed."
+  },
+  {
+   "id": "C-032",
+   "title": "ISSUE_013: Issues memo discusses forum selection clause implications",
+   "match_criteria": "PASS if the issues memorandum discusses the exclusive forum provision for Securities Act claims in the charter, referencing the legal landscape (Cyan v. Beaver County on concurrent jurisdiction and/or Salzberg v. Sciabacucchi on enforceability of federal forum provisions). FAIL if the forum selection clause is not discussed in the issues memorandum."
+  },
+  {
+   "id": "C-052",
+   "title": "S-1 Management section lists CRO Chen with age and bio",
+   "match_criteria": "PASS if the S-1 Management section lists Chen (CRO) with age and biographical information. FAIL if Chen is omitted."
+  },
+  {
+   "id": "C-053",
+   "title": "S-1 Management section lists non-employee directors",
+   "match_criteria": "PASS if the S-1 Management section lists >=4 of the following 5 non-employee directors with ages and biographical information: Venkatesh, Moreno, Park, Kwon, Obi. FAIL if fewer than 4 are listed."
+  },
+  {
+   "id": "C-061",
+   "title": "S-1 includes Shares Eligible for Future Sale section discussing lock-up and Rule 144",
+   "match_criteria": "PASS if the S-1 includes a section discussing shares eligible for future sale, including the 180-day lock-up period and Rule 144 restrictions. FAIL if this section is absent or omits both the lock-up period and Rule 144 discussion."
+  },
+  {
+   "id": "C-071",
+   "title": "Financial figures: Gross proceeds at midpoint correctly stated as $360M",
+   "match_criteria": "PASS if gross proceeds at the midpoint price of $24.00 are stated as $360.0 million (15,000,000 \u00d7 $24.00). FAIL if a materially different gross proceeds figure is used."
+  },
+  {
+   "id": "C-075",
+   "title": "S-1 discloses term loan details",
+   "match_criteria": "PASS if the S-1 discloses the $50M term loan facility with Silicon Valley Credit Partners ($40M drawn), maturing December 2027, bearing interest at SOFR + 3.25%, with financial covenants (minimum liquidity $30M and ARR-based leverage ratio \u2264 2.0x). FAIL if the term loan is not disclosed or key terms are materially misstated."
+  },
+  {
+   "id": "C-083",
+   "title": "S-1 discloses office lease obligations",
+   "match_criteria": "PASS if the S-1 discloses lease obligations for at least 3 of the following 4 offices: (1) Austin HQ (expiring August 2029, $3.8M/year), (2) San Francisco (expiring March 2027, $2.1M/year), (3) London (expiring January 2028, \u00a3680,000/year), and (4) Bangalore (expiring June 2026, \u20b942M/year). FAIL if fewer than 3 of the 4 leases are disclosed."
+  },
+  {
+   "id": "C-088",
+   "title": "S-1 discloses GDPR and CCPA compliance programs",
+   "match_criteria": "PASS if the S-1 mentions GDPR compliance for EU operations and CCPA compliance for California customers. FAIL if neither regulatory compliance program is disclosed."
+  }
+ ],
+ "error": null
+}

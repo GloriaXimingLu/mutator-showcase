@@ -1,0 +1,39 @@
+{
+ "task": "litigation-dispute-resolution/draft-interrogatories",
+ "ens_pass_rate": 0.88,
+ "n_graded": 50,
+ "n_failed": 6,
+ "failed_criteria": [
+  {
+   "id": "C-007",
+   "title": "Definitions section defines 'Identify' for persons",
+   "match_criteria": "PASS if the Definitions section includes a definition of 'Identify' (or 'Identification') that, when applied to persons, requires providing the person's full name, title/position, employer, and contact information or address. FAIL if there is no definition of 'Identify' or it does not specify what information is required when identifying a person."
+  },
+  {
+   "id": "C-015",
+   "title": "Definitions section defines 'Describe'",
+   "match_criteria": "PASS if the Definitions section includes a definition of 'Describe' requiring a detailed narrative or factual account. FAIL if 'Describe' is not defined in the Definitions section."
+  },
+  {
+   "id": "C-019",
+   "title": "Total interrogatory count does not exceed 25 including subparts",
+   "match_criteria": "PASS if the total number of interrogatories, counting discrete subparts as separate interrogatories where they ask for different categories of information (consistent with FRCP 33(a)(1)), does not exceed 25. FAIL if a reasonable count of interrogatories including discrete subparts exceeds 25."
+  },
+  {
+   "id": "C-027",
+   "title": "Interrogatory re: document preservation / litigation hold",
+   "match_criteria": "PASS if at least one interrogatory asks Veridian to describe its document preservation efforts, including whether and when a litigation hold was issued, the scope of the hold, and/or what steps were taken to preserve electronically stored information (ESI). FAIL if no interrogatory addresses document preservation or litigation hold implementation."
+  },
+  {
+   "id": "C-032",
+   "title": "Contention interrogatories either absent, deferred per FRCP 33(a)(2), or framed as factual inquiries",
+   "match_criteria": "PASS if the document either (a) does not include interrogatories that ask Veridian to state all facts supporting each of its affirmative defenses or legal contentions without limitation, OR (b) includes such interrogatories but expressly references FRCP 33(a)(2) or states that the court may defer the response, OR (c) frames contention-style questions by asking for specific factual information rather than asking the defendant to marshal all facts for a legal position. FAIL if the document includes one or more interrogatories in the form 'State all facts supporting [affirmative defense/legal contention]' with no reference to FRCP 33(a)(2) deferral and no factual framing."
+  },
+  {
+   "id": "C-046",
+   "title": "Interrogatory re: communications between Veridian and Oshiro before his resignation",
+   "match_criteria": "PASS if at least one interrogatory asks Veridian to identify or describe all communications between Veridian (including any of its officers, employees, or agents) and Ryan Oshiro prior to his resignation from CMT on February 14, 2024, or prior to his last day at CMT on March 1, 2024. FAIL if no interrogatory specifically targets pre-resignation communications between Veridian and Oshiro."
+  }
+ ],
+ "error": null
+}

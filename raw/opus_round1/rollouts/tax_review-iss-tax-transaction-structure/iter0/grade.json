@@ -1,0 +1,19 @@
+{
+ "task": "tax/review-iss-tax-transaction-structure",
+ "ens_pass_rate": 0.9285714285714286,
+ "n_graded": 28,
+ "n_failed": 2,
+ "failed_criteria": [
+  {
+   "id": "C-015",
+   "title": "ISSUE_008a: Identifies missing California state tax analysis for California-resident shareholders",
+   "match_criteria": "PASS if the report identifies that the memorandum fails to analyze California-specific tax consequences for the two California-resident shareholders, including at least one of the following: California's 1.5% entity-level S corporation tax, gain pass-through apportionment to California, or the risk that if Prism's S election were found invalid, California would retroactively impose C corporation taxes. FAIL if the report does not flag any missing California shareholder tax analysis."
+  },
+  {
+   "id": "C-016",
+   "title": "ISSUE_008b: Notes California retroactive C corp tax risk if S election invalid",
+   "match_criteria": "PASS if the report notes the risk that if Prism's S election were found invalid, California could retroactively impose C corporation taxes. FAIL if this specific California retroactive risk is not mentioned."
+  }
+ ],
+ "error": null
+}

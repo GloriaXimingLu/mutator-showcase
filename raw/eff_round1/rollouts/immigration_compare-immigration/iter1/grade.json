@@ -1,0 +1,59 @@
+{
+ "task": "immigration/compare-immigration",
+ "ens_pass_rate": 0.7674418604651163,
+ "n_graded": 43,
+ "n_failed": 10,
+ "failed_criteria": [
+  {
+   "id": "C-007",
+   "title": "Identifies Evalpoint role as pre-master's and not countable",
+   "match_criteria": "PASS if the memo identifies that the Evalpoint Technologies role (July 2013 \u2013 July 2016) is pre-master's experience and should not be counted toward the 5-year post-master's experience requirement. FAIL if the memo counts the Evalpoint role toward the 5-year requirement or fails to address its timing."
+  },
+  {
+   "id": "C-010",
+   "title": "Identifies job title discrepancy \u2014 Data Scientist titles vs. ML Engineer requirement",
+   "match_criteria": "PASS if the memo flags that Dr. Mehrotra's job titles at DataBridge ('Data Scientist I' and 'Data Scientist II') do not match the PERM requirement of experience in 'machine learning engineering or a closely related occupation,' and that she has never held the title 'Machine Learning Engineer.' FAIL if this title discrepancy at DataBridge is not identified."
+  },
+  {
+   "id": "C-011",
+   "title": "Identifies Evalpoint 'Software Engineer' title as not matching ML Engineer requirement",
+   "match_criteria": "PASS if the memo flags that Dr. Mehrotra's title at Evalpoint ('Software Engineer') does not match the PERM requirement of experience in 'machine learning engineering or a closely related occupation.' FAIL if the Evalpoint title discrepancy is not identified."
+  },
+  {
+   "id": "C-012",
+   "title": "Recommends remedial action for job title discrepancy (ISSUE_004)",
+   "match_criteria": "PASS if the memo recommends actions to address the title discrepancy, such as: obtaining a supplemental letter from the employer describing duties that map to ML engineering, securing an expert opinion letter, or ensuring the experience letters detail ML engineering duties. FAIL if no remedial action is recommended for the title gap."
+  },
+  {
+   "id": "C-018",
+   "title": "Identifies Apache Spark experience timing limitation (ISSUE_007)",
+   "match_criteria": "PASS if the memo identifies that Dr. Mehrotra's Apache Spark experience began only after her promotion to Data Scientist II in January 2021, meaning she has approximately 4-4.5 years of Spark experience rather than the full span of her post-master's career. FAIL if the timing limitation of Spark experience is not mentioned."
+  },
+  {
+   "id": "C-019",
+   "title": "Analyzes whether PERM requires Spark for full 5 years",
+   "match_criteria": "PASS if the memo analyzes whether the PERM language requires Apache Spark experience for the full 5 years of required experience or merely that the candidate possesses Spark skills among the required special skills. FAIL if no analysis of how USCIS might interpret the Spark experience duration requirement is provided."
+  },
+  {
+   "id": "C-023",
+   "title": "Identifies SOC code classification risk (ISSUE_009)",
+   "match_criteria": "PASS if the memo flags that the position is titled 'Senior Machine Learning Engineer' but classified under SOC 15-2051 (Data Scientists), and raises the concern that USCIS or DOL may question whether the role is more accurately classified under a different SOC code such as 15-1252 (Software Developers) or 15-1299 (Computer Occupations, All Other). FAIL if the SOC code classification issue is not raised."
+  },
+  {
+   "id": "C-024",
+   "title": "Discusses SOC code misclassification consequences",
+   "match_criteria": "PASS if the memo discusses the potential consequences of SOC code misclassification, such as invalidation of the prevailing wage determination and/or the PERM certification. FAIL if consequences are not mentioned."
+  },
+  {
+   "id": "C-026",
+   "title": "Identifies supervised-title mismatch \u2014 data scientists vs. ML engineers",
+   "match_criteria": "PASS if the memo identifies that the PERM states the position supervises ML engineers, but Dr. Mehrotra supervised data scientists (not ML engineers) at DataBridge \u2014 a mismatch in the titles/roles of those supervised. FAIL if this title mismatch in supervised staff is not identified."
+  },
+  {
+   "id": "C-041",
+   "title": "Discusses the IAE credential evaluation's limited scope",
+   "match_criteria": "PASS if the memo notes that the IAE credential evaluation report evaluates only the B.Tech degree from MIT-Pune and finds it equivalent to a U.S. bachelor's in Electronics and Communication Engineering \u2014 not in Computer Science \u2014 and discusses the implication of this limited evaluation scope. FAIL if the credential evaluation report's contents are not analyzed."
+  }
+ ],
+ "error": null
+}

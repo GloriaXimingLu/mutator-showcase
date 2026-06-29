@@ -1,0 +1,14 @@
+{
+ "task": "litigation-dispute-resolution/draft-interrogatories",
+ "ens_pass_rate": 0.98,
+ "n_graded": 50,
+ "n_failed": 1,
+ "failed_criteria": [
+  {
+   "id": "C-019",
+   "title": "Total interrogatory count does not exceed 25 including subparts",
+   "match_criteria": "PASS if the total number of interrogatories, counting discrete subparts as separate interrogatories where they ask for different categories of information (consistent with FRCP 33(a)(1)), does not exceed 25. FAIL if a reasonable count of interrogatories including discrete subparts exceeds 25."
+  }
+ ],
+ "error": null
+}

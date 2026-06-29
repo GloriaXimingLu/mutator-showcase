@@ -1,0 +1,34 @@
+{
+ "task": "litigation-dispute-resolution/draft-interrogatories",
+ "ens_pass_rate": 0.9,
+ "n_graded": 50,
+ "n_failed": 5,
+ "failed_criteria": [
+  {
+   "id": "C-010",
+   "title": "Definitions section defines 'You/Your' as Veridian",
+   "match_criteria": "PASS if the Definitions section defines 'You' and/or 'Your' to mean Veridian Health Systems, LLC, including its officers, directors, employees, agents, and representatives (or substantially similar scope). FAIL if 'You/Your' is not defined or does not encompass Veridian and its agents/employees."
+  },
+  {
+   "id": "C-015",
+   "title": "Definitions section defines 'Describe'",
+   "match_criteria": "PASS if the Definitions section includes a definition of 'Describe' requiring a detailed narrative or factual account. FAIL if 'Describe' is not defined in the Definitions section."
+  },
+  {
+   "id": "C-019",
+   "title": "Total interrogatory count does not exceed 25 including subparts",
+   "match_criteria": "PASS if the total number of interrogatories, counting discrete subparts as separate interrogatories where they ask for different categories of information (consistent with FRCP 33(a)(1)), does not exceed 25. FAIL if a reasonable count of interrogatories including discrete subparts exceeds 25."
+  },
+  {
+   "id": "C-027",
+   "title": "Interrogatory re: document preservation / litigation hold",
+   "match_criteria": "PASS if at least one interrogatory asks Veridian to describe its document preservation efforts, including whether and when a litigation hold was issued, the scope of the hold, and/or what steps were taken to preserve electronically stored information (ESI). FAIL if no interrogatory addresses document preservation or litigation hold implementation."
+  },
+  {
+   "id": "C-032",
+   "title": "Contention interrogatories either absent, deferred per FRCP 33(a)(2), or framed as factual inquiries",
+   "match_criteria": "PASS if the document either (a) does not include interrogatories that ask Veridian to state all facts supporting each of its affirmative defenses or legal contentions without limitation, OR (b) includes such interrogatories but expressly references FRCP 33(a)(2) or states that the court may defer the response, OR (c) frames contention-style questions by asking for specific factual information rather than asking the defendant to marshal all facts for a legal position. FAIL if the document includes one or more interrogatories in the form 'State all facts supporting [affirmative defense/legal contention]' with no reference to FRCP 33(a)(2) deferral and no factual framing."
+  }
+ ],
+ "error": null
+}

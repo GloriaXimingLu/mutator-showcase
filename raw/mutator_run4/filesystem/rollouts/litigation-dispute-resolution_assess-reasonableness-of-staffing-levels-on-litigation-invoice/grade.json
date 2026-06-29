@@ -1,0 +1,99 @@
+{
+ "task": "litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice",
+ "ens_pass_rate": 0.8367346938775511,
+ "n_graded": 49,
+ "n_failed": 8,
+ "failed_criteria": [
+  {
+   "id": "C-003",
+   "title": "Calculates Barros dollar impact as $21,375.00",
+   "match_criteria": "PASS if the memo states that Nina Barros's time at risk is $21,375.00 (45.0 hours \u00d7 $475/hr). FAIL if this amount is not calculated or is materially incorrect."
+  },
+  {
+   "id": "C-009",
+   "title": "Calculates Sengupta dollar impact as $10,312.50",
+   "match_criteria": "PASS if the memo states Priya Sengupta's time at risk is $10,312.50 (27.5 hours \u00d7 $375/hr). FAIL if this amount is not calculated or is materially incorrect."
+  },
+  {
+   "id": "C-012",
+   "title": "Calculates Tate rate overcharge as $1,200.00",
+   "match_criteria": "PASS if the memo calculates the Tate rate reduction as $1,200.00 ($10/hr overcharge \u00d7 120 hours). FAIL if the reduction amount is not stated or is materially incorrect."
+  },
+  {
+   "id": "C-020",
+   "title": "Calculates rate reduction for Hargrove May 5 document review",
+   "match_criteria": "PASS if the memo calculates a dollar amount for the rate reduction on Hargrove's 4.5 hours of document review on May 5 by reducing from $985/hr to a stated lower rate (e.g., contract attorney at $185/hr yielding ~$3,600 reduction, or junior associate at $375/hr yielding ~$2,745 reduction), and states both the rate used and the dollar amount of the reduction. FAIL if no dollar calculation for the reduction is provided."
+  },
+  {
+   "id": "C-032",
+   "title": "Calculates overage above 115% threshold as approximately $3,622.50",
+   "match_criteria": "PASS if the memo calculates the amount exceeding the $189,750 threshold as approximately $3,622.50 ($193,372.50 \u2212 $189,750.00). FAIL if this specific overage amount is not calculated or is materially incorrect (more than $100 off)."
+  },
+  {
+   "id": "C-034",
+   "title": "Calculates Hargrove's excess hours and fee impact",
+   "match_criteria": "PASS if the memo calculates the excess as 13.5 hours above the 25-hour cap, representing approximately $13,297.50 in fees above the plan ceiling. FAIL if no calculation of excess hours or dollar impact is provided."
+  },
+  {
+   "id": "C-040",
+   "title": "Analyzes whether three-attorney deposition staffing is justified given witness role and industry norms",
+   "match_criteria": "PASS if the memo evaluates whether having three attorneys at Dr. Liu's deposition was justified by referencing at least one of the following: (a) Dr. Liu's role as a former Pinnacle data scientist central to the trade-secret claims, (b) a stated norm for the number of attorneys typically attending a fact witness deposition (e.g., one or two). FAIL if the memo flags the deposition staffing concern (per C-034) but provides no analysis of whether the staffing level was justified."
+  },
+  {
+   "id": "C-049",
+   "title": "Calculates budget overage percentage as approximately 17%",
+   "match_criteria": "PASS if the memo calculates the percentage by which the attorney fee subtotal ($193,372.50) exceeds the approved budget ceiling ($165,000) as approximately 17% (exact figure is 17.2%). FAIL if no percentage overage calculation is provided or if the percentage stated is materially incorrect (off by more than 2 percentage points)."
+  }
+ ],
+ "per_criterion": {
+  "C-001": "pass",
+  "C-002": "pass",
+  "C-003": "fail",
+  "C-004": "pass",
+  "C-005": "pass",
+  "C-006": "pass",
+  "C-007": "pass",
+  "C-008": "pass",
+  "C-009": "fail",
+  "C-010": "pass",
+  "C-011": "pass",
+  "C-012": "fail",
+  "C-013": "pass",
+  "C-014": "pass",
+  "C-015": "pass",
+  "C-016": "pass",
+  "C-017": "pass",
+  "C-018": "pass",
+  "C-019": "pass",
+  "C-020": "fail",
+  "C-021": "pass",
+  "C-022": "pass",
+  "C-023": "pass",
+  "C-024": "pass",
+  "C-025": "pass",
+  "C-026": "pass",
+  "C-027": "pass",
+  "C-028": "pass",
+  "C-029": "pass",
+  "C-030": "pass",
+  "C-031": "pass",
+  "C-032": "fail",
+  "C-033": "pass",
+  "C-034": "fail",
+  "C-035": "pass",
+  "C-036": "pass",
+  "C-037": "pass",
+  "C-038": "pass",
+  "C-039": "pass",
+  "C-040": "fail",
+  "C-041": "pass",
+  "C-042": "pass",
+  "C-043": "pass",
+  "C-044": "pass",
+  "C-045": "pass",
+  "C-046": "pass",
+  "C-047": "pass",
+  "C-048": "pass",
+  "C-049": "fail"
+ }
+}

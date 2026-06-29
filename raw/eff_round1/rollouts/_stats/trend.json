@@ -1,0 +1,1672 @@
+{
+ "latest_iter": 4,
+ "n_tasks": 30,
+ "iters": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "train_mean_by_iter": {
+  "0": 0.8423,
+  "1": 0.8158,
+  "2": 0.8261,
+  "3": 0.8349,
+  "4": 0.8376
+ },
+ "baseline_iter": 0,
+ "trend": {
+  "arbitration-international-dispute-resolution/identify-arbitration-agreement-issues": {
+   "category": "arbitration-international-dispute-resolution",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.9,
+    0.825,
+    0.825,
+    0.9,
+    0.9
+   ],
+   "latest": 0.9,
+   "delta_prev": 0.0,
+   "delta_bare": 0.0,
+   "min": 0.825,
+   "max": 0.9,
+   "span": 0.075
+  },
+  "arbitration-international-dispute-resolution/identify-issues-in-arbitrator-disclosure-statement": {
+   "category": "arbitration-international-dispute-resolution",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.9736842105263158,
+    0.8947368421052632,
+    0.9210526315789473,
+    0.8947368421052632,
+    0.868421052631579
+   ],
+   "latest": 0.868421052631579,
+   "delta_prev": -0.0263,
+   "delta_bare": -0.1053,
+   "min": 0.868421052631579,
+   "max": 0.9736842105263158,
+   "span": 0.1053
+  },
+  "capital-markets/draft-registration-statement-on-form-s": {
+   "category": "capital-markets",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.7888888888888889,
+    0.8333333333333334,
+    0.8666666666666667,
+    0.8444444444444444,
+    0.9
+   ],
+   "latest": 0.9,
+   "delta_prev": 0.0556,
+   "delta_bare": 0.1111,
+   "min": 0.7888888888888889,
+   "max": 0.9,
+   "span": 0.1111
+  },
+  "capital-markets/draft-underwriting-agreement": {
+   "category": "capital-markets",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.9058823529411765,
+    0.8588235294117647,
+    0.8823529411764706,
+    0.8352941176470589,
+    0.8941176470588236
+   ],
+   "latest": 0.8941176470588236,
+   "delta_prev": 0.0588,
+   "delta_bare": -0.0118,
+   "min": 0.8352941176470589,
+   "max": 0.9058823529411765,
+   "span": 0.0706
+  },
+  "contracts/banking/intercreditor-agreement-term-negotiation": {
+   "category": "contracts",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.8269230769230769,
+    0.8461538461538461,
+    0.8461538461538461,
+    0.8076923076923077,
+    0.8269230769230769
+   ],
+   "latest": 0.8269230769230769,
+   "delta_prev": 0.0192,
+   "delta_bare": 0.0,
+   "min": 0.8076923076923077,
+   "max": 0.8461538461538461,
+   "span": 0.0385
+  },
+  "contracts/commercial-vendor-customer/saas-api-subscription-term-negotiation/scenario-01": {
+   "category": "contracts",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.92,
+    0.92,
+    0.9,
+    0.88,
+    0.94
+   ],
+   "latest": 0.94,
+   "delta_prev": 0.06,
+   "delta_bare": 0.02,
+   "min": 0.88,
+   "max": 0.94,
+   "span": 0.06
+  },
+  "contracts/corporate-ma/joint-venture-agreement-term-negotiation/scenario-02": {
+   "category": "contracts",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.7678571428571429,
+    0.7321428571428571,
+    0.8035714285714286,
+    0.8035714285714286,
+    0.8214285714285714
+   ],
+   "latest": 0.8214285714285714,
+   "delta_prev": 0.0179,
+   "delta_bare": 0.0536,
+   "min": 0.7321428571428571,
+   "max": 0.8214285714285714,
+   "span": 0.0893
+  },
+  "corporate-governance/assess-impact-of-sec-cybersecurity-disclosure-rule-on-incident-response-procedures": {
+   "category": "corporate-governance",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.8444444444444444,
+    0.8222222222222222,
+    0.7555555555555555,
+    0.8,
+    0.8
+   ],
+   "latest": 0.8,
+   "delta_prev": 0.0,
+   "delta_bare": -0.0444,
+   "min": 0.7555555555555555,
+   "max": 0.8444444444444444,
+   "span": 0.0889
+  },
+  "corporate-governance/compare-state-paid-leave-requirements-across-seven-jurisdictions": {
+   "category": "corporate-governance",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.9666666666666667,
+    0.9333333333333333,
+    0.9166666666666666,
+    0.7333333333333333,
+    0.95
+   ],
+   "latest": 0.95,
+   "delta_prev": 0.2167,
+   "delta_bare": -0.0167,
+   "min": 0.7333333333333333,
+   "max": 0.9666666666666667,
+   "span": 0.2333
+  },
+  "corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application": {
+   "category": "corporate-governance",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.8235294117647058,
+    0.7352941176470589,
+    0.75,
+    0.7794117647058824,
+    0.7941176470588235
+   ],
+   "latest": 0.7941176470588235,
+   "delta_prev": 0.0147,
+   "delta_bare": -0.0294,
+   "min": 0.7352941176470589,
+   "max": 0.8235294117647058,
+   "span": 0.0882
+  },
+  "corporate-ma/analyze-cim-deal-teaser/scenario-02": {
+   "category": "corporate-ma",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.8536585365853658,
+    0.8048780487804879,
+    0.8048780487804879,
+    0.8536585365853658,
+    0.8536585365853658
+   ],
+   "latest": 0.8536585365853658,
+   "delta_prev": 0.0,
+   "delta_bare": 0.0,
+   "min": 0.8048780487804879,
+   "max": 0.8536585365853658,
+   "span": 0.0488
+  },
+  "corporate-ma/review-governance-diligence/scenario-01": {
+   "category": "corporate-ma",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.9629629629629629,
+    0.9444444444444444,
+    0.8703703703703703,
+    0.9444444444444444,
+    0.8703703703703703
+   ],
+   "latest": 0.8703703703703703,
+   "delta_prev": -0.0741,
+   "delta_bare": -0.0926,
+   "min": 0.8703703703703703,
+   "max": 0.9629629629629629,
+   "span": 0.0926
+  },
+  "data-privacy-cybersecurity/audit-privacy-policy-compliance/scenario-01": {
+   "category": "data-privacy-cybersecurity",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.86,
+    0.86,
+    0.88,
+    0.9,
+    0.86
+   ],
+   "latest": 0.86,
+   "delta_prev": -0.04,
+   "delta_bare": 0.0,
+   "min": 0.86,
+   "max": 0.9,
+   "span": 0.04
+  },
+  "employment-labor/draft-markup-of-settlement-agreement": {
+   "category": "employment-labor",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.5961538461538461,
+    0.5576923076923077,
+    0.5961538461538461,
+    0.4807692307692308,
+    0.5384615384615384
+   ],
+   "latest": 0.5384615384615384,
+   "delta_prev": 0.0577,
+   "delta_bare": -0.0577,
+   "min": 0.4807692307692308,
+   "max": 0.5961538461538461,
+   "span": 0.1154
+  },
+  "environmental-esg/identify-issues-in-phase-one-environmental-site-assessment": {
+   "category": "environmental-esg",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.16981132075471697,
+    0.11320754716981132,
+    0.09433962264150944,
+    0.49056603773584906,
+    0.1320754716981132
+   ],
+   "latest": 0.1320754716981132,
+   "delta_prev": -0.3585,
+   "delta_bare": -0.0377,
+   "min": 0.09433962264150944,
+   "max": 0.49056603773584906,
+   "span": 0.3962
+  },
+  "funds-asset-management/draft-fund-closing-certificate": {
+   "category": "funds-asset-management",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.8947368421052632,
+    0.8421052631578947,
+    0.9122807017543859,
+    0.8771929824561403,
+    0.9473684210526315
+   ],
+   "latest": 0.9473684210526315,
+   "delta_prev": 0.0702,
+   "delta_bare": 0.0526,
+   "min": 0.8421052631578947,
+   "max": 0.9473684210526315,
+   "span": 0.1053
+  },
+  "healthcare-life-sciences/identify-issues-in-fda-pre": {
+   "category": "healthcare-life-sciences",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.8936170212765957,
+    0.8723404255319149,
+    0.8723404255319149,
+    0.851063829787234,
+    0.8723404255319149
+   ],
+   "latest": 0.8723404255319149,
+   "delta_prev": 0.0213,
+   "delta_bare": -0.0213,
+   "min": 0.851063829787234,
+   "max": 0.8936170212765957,
+   "span": 0.0426
+  },
+  "immigration/compare-immigration": {
+   "category": "immigration",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.813953488372093,
+    0.7674418604651163,
+    0.7674418604651163,
+    0.8372093023255814,
+    0.7906976744186046
+   ],
+   "latest": 0.7906976744186046,
+   "delta_prev": -0.0465,
+   "delta_bare": -0.0233,
+   "min": 0.7674418604651163,
+   "max": 0.8372093023255814,
+   "span": 0.0698
+  },
+  "immigration/identify-h1b-qualification-issues": {
+   "category": "immigration",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.7435897435897436,
+    0.8461538461538461,
+    0.8717948717948718,
+    0.8974358974358975,
+    0.8461538461538461
+   ],
+   "latest": 0.8461538461538461,
+   "delta_prev": -0.0513,
+   "delta_bare": 0.1026,
+   "min": 0.7435897435897436,
+   "max": 0.8974358974358975,
+   "span": 0.1538
+  },
+  "intellectual-property/extract-key-terms-from-technology-licensing-term-sheet": {
+   "category": "intellectual-property",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.9841269841269841,
+    0.9523809523809523,
+    0.9682539682539683,
+    0.9841269841269841,
+    1.0
+   ],
+   "latest": 1.0,
+   "delta_prev": 0.0159,
+   "delta_bare": 0.0159,
+   "min": 0.9523809523809523,
+   "max": 1.0,
+   "span": 0.0476
+  },
+  "intellectual-property/rnw-ip-license-renewal": {
+   "category": "intellectual-property",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.8529411764705882,
+    0.8382352941176471,
+    0.8823529411764706,
+    0.8529411764705882,
+    0.8676470588235294
+   ],
+   "latest": 0.8676470588235294,
+   "delta_prev": 0.0147,
+   "delta_bare": 0.0147,
+   "min": 0.8382352941176471,
+   "max": 0.8823529411764706,
+   "span": 0.0441
+  },
+  "international-trade-sanctions/draft-ofac-specific-license-application": {
+   "category": "international-trade-sanctions",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.921875,
+    0.890625,
+    0.859375,
+    0.90625,
+    0.921875
+   ],
+   "latest": 0.921875,
+   "delta_prev": 0.0156,
+   "delta_bare": 0.0,
+   "min": 0.859375,
+   "max": 0.921875,
+   "span": 0.0625
+  },
+  "litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice": {
+   "category": "litigation-dispute-resolution",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.8367346938775511,
+    0.8979591836734694,
+    0.8979591836734694,
+    0.8367346938775511,
+    0.8163265306122449
+   ],
+   "latest": 0.8163265306122449,
+   "delta_prev": -0.0204,
+   "delta_bare": -0.0204,
+   "min": 0.8163265306122449,
+   "max": 0.8979591836734694,
+   "span": 0.0816
+  },
+  "litigation-dispute-resolution/draft-interrogatories": {
+   "category": "litigation-dispute-resolution",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.94,
+    0.9,
+    0.88,
+    0.92,
+    0.96
+   ],
+   "latest": 0.96,
+   "delta_prev": 0.04,
+   "delta_bare": 0.02,
+   "min": 0.88,
+   "max": 0.96,
+   "span": 0.08
+  },
+  "litigation-dispute-resolution/draft-motion-to-dismiss-brief": {
+   "category": "litigation-dispute-resolution",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.898876404494382,
+    0.8651685393258427,
+    0.9438202247191011,
+    0.9101123595505618,
+    0.9550561797752809
+   ],
+   "latest": 0.9550561797752809,
+   "delta_prev": 0.0449,
+   "delta_bare": 0.0562,
+   "min": 0.8651685393258427,
+   "max": 0.9550561797752809,
+   "span": 0.0899
+  },
+  "real-estate/draft-development-agreement": {
+   "category": "real-estate",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.9134615384615384,
+    0.8653846153846154,
+    0.9038461538461539,
+    0.9038461538461539,
+    0.9038461538461539
+   ],
+   "latest": 0.9038461538461539,
+   "delta_prev": 0.0,
+   "delta_bare": -0.0096,
+   "min": 0.8653846153846154,
+   "max": 0.9134615384615384,
+   "span": 0.0481
+  },
+  "real-estate/draft-settlement-statement": {
+   "category": "real-estate",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.8064516129032258,
+    0.8064516129032258,
+    0.7903225806451613,
+    0.7741935483870968,
+    0.8387096774193549
+   ],
+   "latest": 0.8387096774193549,
+   "delta_prev": 0.0645,
+   "delta_bare": 0.0323,
+   "min": 0.7741935483870968,
+   "max": 0.8387096774193549,
+   "span": 0.0645
+  },
+  "tax/review-iss-tax-transaction-structure": {
+   "category": "tax",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.9285714285714286,
+    0.7857142857142857,
+    0.8571428571428571,
+    0.8571428571428571,
+    0.8214285714285714
+   ],
+   "latest": 0.8214285714285714,
+   "delta_prev": -0.0357,
+   "delta_bare": -0.1071,
+   "min": 0.7857142857142857,
+   "max": 0.9285714285714286,
+   "span": 0.1429
+  },
+  "trusts-estates-private-client/analyze-counterparty-markup-of-postnuptial-agreement": {
+   "category": "trusts-estates-private-client",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.9130434782608695,
+    0.9130434782608695,
+    0.9130434782608695,
+    0.9565217391304348,
+    0.8695652173913043
+   ],
+   "latest": 0.8695652173913043,
+   "delta_prev": -0.087,
+   "delta_bare": -0.0435,
+   "min": 0.8695652173913043,
+   "max": 0.9565217391304348,
+   "span": 0.087
+  },
+  "trusts-estates-private-client/extract-key-exhibits-from-document-production": {
+   "category": "trusts-estates-private-client",
+   "iters": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "grades": [
+    0.7666666666666667,
+    0.75,
+    0.75,
+    0.7333333333333333,
+    0.7666666666666667
+   ],
+   "latest": 0.7666666666666667,
+   "delta_prev": 0.0333,
+   "delta_bare": 0.0,
+   "min": 0.7333333333333333,
+   "max": 0.7666666666666667,
+   "span": 0.0333
+  }
+ },
+ "improved_vs_prev": [
+  {
+   "task": "corporate-governance/compare-state-paid-leave-requirements-across-seven-jurisdictions",
+   "category": "corporate-governance",
+   "grades": [
+    0.9666666666666667,
+    0.9333333333333333,
+    0.9166666666666666,
+    0.7333333333333333,
+    0.95
+   ],
+   "delta_prev": 0.2167
+  },
+  {
+   "task": "funds-asset-management/draft-fund-closing-certificate",
+   "category": "funds-asset-management",
+   "grades": [
+    0.8947368421052632,
+    0.8421052631578947,
+    0.9122807017543859,
+    0.8771929824561403,
+    0.9473684210526315
+   ],
+   "delta_prev": 0.0702
+  },
+  {
+   "task": "real-estate/draft-settlement-statement",
+   "category": "real-estate",
+   "grades": [
+    0.8064516129032258,
+    0.8064516129032258,
+    0.7903225806451613,
+    0.7741935483870968,
+    0.8387096774193549
+   ],
+   "delta_prev": 0.0645
+  },
+  {
+   "task": "contracts/commercial-vendor-customer/saas-api-subscription-term-negotiation/scenario-01",
+   "category": "contracts",
+   "grades": [
+    0.92,
+    0.92,
+    0.9,
+    0.88,
+    0.94
+   ],
+   "delta_prev": 0.06
+  },
+  {
+   "task": "capital-markets/draft-underwriting-agreement",
+   "category": "capital-markets",
+   "grades": [
+    0.9058823529411765,
+    0.8588235294117647,
+    0.8823529411764706,
+    0.8352941176470589,
+    0.8941176470588236
+   ],
+   "delta_prev": 0.0588
+  },
+  {
+   "task": "employment-labor/draft-markup-of-settlement-agreement",
+   "category": "employment-labor",
+   "grades": [
+    0.5961538461538461,
+    0.5576923076923077,
+    0.5961538461538461,
+    0.4807692307692308,
+    0.5384615384615384
+   ],
+   "delta_prev": 0.0577
+  },
+  {
+   "task": "capital-markets/draft-registration-statement-on-form-s",
+   "category": "capital-markets",
+   "grades": [
+    0.7888888888888889,
+    0.8333333333333334,
+    0.8666666666666667,
+    0.8444444444444444,
+    0.9
+   ],
+   "delta_prev": 0.0556
+  },
+  {
+   "task": "litigation-dispute-resolution/draft-motion-to-dismiss-brief",
+   "category": "litigation-dispute-resolution",
+   "grades": [
+    0.898876404494382,
+    0.8651685393258427,
+    0.9438202247191011,
+    0.9101123595505618,
+    0.9550561797752809
+   ],
+   "delta_prev": 0.0449
+  },
+  {
+   "task": "litigation-dispute-resolution/draft-interrogatories",
+   "category": "litigation-dispute-resolution",
+   "grades": [
+    0.94,
+    0.9,
+    0.88,
+    0.92,
+    0.96
+   ],
+   "delta_prev": 0.04
+  },
+  {
+   "task": "trusts-estates-private-client/extract-key-exhibits-from-document-production",
+   "category": "trusts-estates-private-client",
+   "grades": [
+    0.7666666666666667,
+    0.75,
+    0.75,
+    0.7333333333333333,
+    0.7666666666666667
+   ],
+   "delta_prev": 0.0333
+  },
+  {
+   "task": "healthcare-life-sciences/identify-issues-in-fda-pre",
+   "category": "healthcare-life-sciences",
+   "grades": [
+    0.8936170212765957,
+    0.8723404255319149,
+    0.8723404255319149,
+    0.851063829787234,
+    0.8723404255319149
+   ],
+   "delta_prev": 0.0213
+  },
+  {
+   "task": "contracts/banking/intercreditor-agreement-term-negotiation",
+   "category": "contracts",
+   "grades": [
+    0.8269230769230769,
+    0.8461538461538461,
+    0.8461538461538461,
+    0.8076923076923077,
+    0.8269230769230769
+   ],
+   "delta_prev": 0.0192
+  },
+  {
+   "task": "contracts/corporate-ma/joint-venture-agreement-term-negotiation/scenario-02",
+   "category": "contracts",
+   "grades": [
+    0.7678571428571429,
+    0.7321428571428571,
+    0.8035714285714286,
+    0.8035714285714286,
+    0.8214285714285714
+   ],
+   "delta_prev": 0.0179
+  },
+  {
+   "task": "intellectual-property/extract-key-terms-from-technology-licensing-term-sheet",
+   "category": "intellectual-property",
+   "grades": [
+    0.9841269841269841,
+    0.9523809523809523,
+    0.9682539682539683,
+    0.9841269841269841,
+    1.0
+   ],
+   "delta_prev": 0.0159
+  },
+  {
+   "task": "international-trade-sanctions/draft-ofac-specific-license-application",
+   "category": "international-trade-sanctions",
+   "grades": [
+    0.921875,
+    0.890625,
+    0.859375,
+    0.90625,
+    0.921875
+   ],
+   "delta_prev": 0.0156
+  },
+  {
+   "task": "corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application",
+   "category": "corporate-governance",
+   "grades": [
+    0.8235294117647058,
+    0.7352941176470589,
+    0.75,
+    0.7794117647058824,
+    0.7941176470588235
+   ],
+   "delta_prev": 0.0147
+  },
+  {
+   "task": "intellectual-property/rnw-ip-license-renewal",
+   "category": "intellectual-property",
+   "grades": [
+    0.8529411764705882,
+    0.8382352941176471,
+    0.8823529411764706,
+    0.8529411764705882,
+    0.8676470588235294
+   ],
+   "delta_prev": 0.0147
+  }
+ ],
+ "harmed_vs_prev": [
+  {
+   "task": "environmental-esg/identify-issues-in-phase-one-environmental-site-assessment",
+   "category": "environmental-esg",
+   "grades": [
+    0.16981132075471697,
+    0.11320754716981132,
+    0.09433962264150944,
+    0.49056603773584906,
+    0.1320754716981132
+   ],
+   "delta_prev": -0.3585
+  },
+  {
+   "task": "trusts-estates-private-client/analyze-counterparty-markup-of-postnuptial-agreement",
+   "category": "trusts-estates-private-client",
+   "grades": [
+    0.9130434782608695,
+    0.9130434782608695,
+    0.9130434782608695,
+    0.9565217391304348,
+    0.8695652173913043
+   ],
+   "delta_prev": -0.087
+  },
+  {
+   "task": "corporate-ma/review-governance-diligence/scenario-01",
+   "category": "corporate-ma",
+   "grades": [
+    0.9629629629629629,
+    0.9444444444444444,
+    0.8703703703703703,
+    0.9444444444444444,
+    0.8703703703703703
+   ],
+   "delta_prev": -0.0741
+  },
+  {
+   "task": "immigration/identify-h1b-qualification-issues",
+   "category": "immigration",
+   "grades": [
+    0.7435897435897436,
+    0.8461538461538461,
+    0.8717948717948718,
+    0.8974358974358975,
+    0.8461538461538461
+   ],
+   "delta_prev": -0.0513
+  },
+  {
+   "task": "immigration/compare-immigration",
+   "category": "immigration",
+   "grades": [
+    0.813953488372093,
+    0.7674418604651163,
+    0.7674418604651163,
+    0.8372093023255814,
+    0.7906976744186046
+   ],
+   "delta_prev": -0.0465
+  },
+  {
+   "task": "data-privacy-cybersecurity/audit-privacy-policy-compliance/scenario-01",
+   "category": "data-privacy-cybersecurity",
+   "grades": [
+    0.86,
+    0.86,
+    0.88,
+    0.9,
+    0.86
+   ],
+   "delta_prev": -0.04
+  },
+  {
+   "task": "tax/review-iss-tax-transaction-structure",
+   "category": "tax",
+   "grades": [
+    0.9285714285714286,
+    0.7857142857142857,
+    0.8571428571428571,
+    0.8571428571428571,
+    0.8214285714285714
+   ],
+   "delta_prev": -0.0357
+  },
+  {
+   "task": "arbitration-international-dispute-resolution/identify-issues-in-arbitrator-disclosure-statement",
+   "category": "arbitration-international-dispute-resolution",
+   "grades": [
+    0.9736842105263158,
+    0.8947368421052632,
+    0.9210526315789473,
+    0.8947368421052632,
+    0.868421052631579
+   ],
+   "delta_prev": -0.0263
+  },
+  {
+   "task": "litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice",
+   "category": "litigation-dispute-resolution",
+   "grades": [
+    0.8367346938775511,
+    0.8979591836734694,
+    0.8979591836734694,
+    0.8367346938775511,
+    0.8163265306122449
+   ],
+   "delta_prev": -0.0204
+  }
+ ],
+ "improved_vs_bare": [
+  {
+   "task": "capital-markets/draft-registration-statement-on-form-s",
+   "category": "capital-markets",
+   "grades": [
+    0.7888888888888889,
+    0.8333333333333334,
+    0.8666666666666667,
+    0.8444444444444444,
+    0.9
+   ],
+   "delta_bare": 0.1111
+  },
+  {
+   "task": "immigration/identify-h1b-qualification-issues",
+   "category": "immigration",
+   "grades": [
+    0.7435897435897436,
+    0.8461538461538461,
+    0.8717948717948718,
+    0.8974358974358975,
+    0.8461538461538461
+   ],
+   "delta_bare": 0.1026
+  },
+  {
+   "task": "litigation-dispute-resolution/draft-motion-to-dismiss-brief",
+   "category": "litigation-dispute-resolution",
+   "grades": [
+    0.898876404494382,
+    0.8651685393258427,
+    0.9438202247191011,
+    0.9101123595505618,
+    0.9550561797752809
+   ],
+   "delta_bare": 0.0562
+  },
+  {
+   "task": "contracts/corporate-ma/joint-venture-agreement-term-negotiation/scenario-02",
+   "category": "contracts",
+   "grades": [
+    0.7678571428571429,
+    0.7321428571428571,
+    0.8035714285714286,
+    0.8035714285714286,
+    0.8214285714285714
+   ],
+   "delta_bare": 0.0536
+  },
+  {
+   "task": "funds-asset-management/draft-fund-closing-certificate",
+   "category": "funds-asset-management",
+   "grades": [
+    0.8947368421052632,
+    0.8421052631578947,
+    0.9122807017543859,
+    0.8771929824561403,
+    0.9473684210526315
+   ],
+   "delta_bare": 0.0526
+  },
+  {
+   "task": "real-estate/draft-settlement-statement",
+   "category": "real-estate",
+   "grades": [
+    0.8064516129032258,
+    0.8064516129032258,
+    0.7903225806451613,
+    0.7741935483870968,
+    0.8387096774193549
+   ],
+   "delta_bare": 0.0323
+  },
+  {
+   "task": "contracts/commercial-vendor-customer/saas-api-subscription-term-negotiation/scenario-01",
+   "category": "contracts",
+   "grades": [
+    0.92,
+    0.92,
+    0.9,
+    0.88,
+    0.94
+   ],
+   "delta_bare": 0.02
+  },
+  {
+   "task": "litigation-dispute-resolution/draft-interrogatories",
+   "category": "litigation-dispute-resolution",
+   "grades": [
+    0.94,
+    0.9,
+    0.88,
+    0.92,
+    0.96
+   ],
+   "delta_bare": 0.02
+  },
+  {
+   "task": "intellectual-property/extract-key-terms-from-technology-licensing-term-sheet",
+   "category": "intellectual-property",
+   "grades": [
+    0.9841269841269841,
+    0.9523809523809523,
+    0.9682539682539683,
+    0.9841269841269841,
+    1.0
+   ],
+   "delta_bare": 0.0159
+  },
+  {
+   "task": "intellectual-property/rnw-ip-license-renewal",
+   "category": "intellectual-property",
+   "grades": [
+    0.8529411764705882,
+    0.8382352941176471,
+    0.8823529411764706,
+    0.8529411764705882,
+    0.8676470588235294
+   ],
+   "delta_bare": 0.0147
+  }
+ ],
+ "harmed_vs_bare": [
+  {
+   "task": "tax/review-iss-tax-transaction-structure",
+   "category": "tax",
+   "grades": [
+    0.9285714285714286,
+    0.7857142857142857,
+    0.8571428571428571,
+    0.8571428571428571,
+    0.8214285714285714
+   ],
+   "delta_bare": -0.1071
+  },
+  {
+   "task": "arbitration-international-dispute-resolution/identify-issues-in-arbitrator-disclosure-statement",
+   "category": "arbitration-international-dispute-resolution",
+   "grades": [
+    0.9736842105263158,
+    0.8947368421052632,
+    0.9210526315789473,
+    0.8947368421052632,
+    0.868421052631579
+   ],
+   "delta_bare": -0.1053
+  },
+  {
+   "task": "corporate-ma/review-governance-diligence/scenario-01",
+   "category": "corporate-ma",
+   "grades": [
+    0.9629629629629629,
+    0.9444444444444444,
+    0.8703703703703703,
+    0.9444444444444444,
+    0.8703703703703703
+   ],
+   "delta_bare": -0.0926
+  },
+  {
+   "task": "employment-labor/draft-markup-of-settlement-agreement",
+   "category": "employment-labor",
+   "grades": [
+    0.5961538461538461,
+    0.5576923076923077,
+    0.5961538461538461,
+    0.4807692307692308,
+    0.5384615384615384
+   ],
+   "delta_bare": -0.0577
+  },
+  {
+   "task": "corporate-governance/assess-impact-of-sec-cybersecurity-disclosure-rule-on-incident-response-procedures",
+   "category": "corporate-governance",
+   "grades": [
+    0.8444444444444444,
+    0.8222222222222222,
+    0.7555555555555555,
+    0.8,
+    0.8
+   ],
+   "delta_bare": -0.0444
+  },
+  {
+   "task": "trusts-estates-private-client/analyze-counterparty-markup-of-postnuptial-agreement",
+   "category": "trusts-estates-private-client",
+   "grades": [
+    0.9130434782608695,
+    0.9130434782608695,
+    0.9130434782608695,
+    0.9565217391304348,
+    0.8695652173913043
+   ],
+   "delta_bare": -0.0435
+  },
+  {
+   "task": "environmental-esg/identify-issues-in-phase-one-environmental-site-assessment",
+   "category": "environmental-esg",
+   "grades": [
+    0.16981132075471697,
+    0.11320754716981132,
+    0.09433962264150944,
+    0.49056603773584906,
+    0.1320754716981132
+   ],
+   "delta_bare": -0.0377
+  },
+  {
+   "task": "corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application",
+   "category": "corporate-governance",
+   "grades": [
+    0.8235294117647058,
+    0.7352941176470589,
+    0.75,
+    0.7794117647058824,
+    0.7941176470588235
+   ],
+   "delta_bare": -0.0294
+  },
+  {
+   "task": "immigration/compare-immigration",
+   "category": "immigration",
+   "grades": [
+    0.813953488372093,
+    0.7674418604651163,
+    0.7674418604651163,
+    0.8372093023255814,
+    0.7906976744186046
+   ],
+   "delta_bare": -0.0233
+  },
+  {
+   "task": "healthcare-life-sciences/identify-issues-in-fda-pre",
+   "category": "healthcare-life-sciences",
+   "grades": [
+    0.8936170212765957,
+    0.8723404255319149,
+    0.8723404255319149,
+    0.851063829787234,
+    0.8723404255319149
+   ],
+   "delta_bare": -0.0213
+  },
+  {
+   "task": "litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice",
+   "category": "litigation-dispute-resolution",
+   "grades": [
+    0.8367346938775511,
+    0.8979591836734694,
+    0.8979591836734694,
+    0.8367346938775511,
+    0.8163265306122449
+   ],
+   "delta_bare": -0.0204
+  },
+  {
+   "task": "corporate-governance/compare-state-paid-leave-requirements-across-seven-jurisdictions",
+   "category": "corporate-governance",
+   "grades": [
+    0.9666666666666667,
+    0.9333333333333333,
+    0.9166666666666666,
+    0.7333333333333333,
+    0.95
+   ],
+   "delta_bare": -0.0167
+  },
+  {
+   "task": "capital-markets/draft-underwriting-agreement",
+   "category": "capital-markets",
+   "grades": [
+    0.9058823529411765,
+    0.8588235294117647,
+    0.8823529411764706,
+    0.8352941176470589,
+    0.8941176470588236
+   ],
+   "delta_bare": -0.0118
+  },
+  {
+   "task": "real-estate/draft-development-agreement",
+   "category": "real-estate",
+   "grades": [
+    0.9134615384615384,
+    0.8653846153846154,
+    0.9038461538461539,
+    0.9038461538461539,
+    0.9038461538461539
+   ],
+   "delta_bare": -0.0096
+  }
+ ],
+ "stuck": [
+  {
+   "task": "environmental-esg/identify-issues-in-phase-one-environmental-site-assessment",
+   "max": 0.49056603773584906,
+   "grades": [
+    0.16981132075471697,
+    0.11320754716981132,
+    0.09433962264150944,
+    0.49056603773584906,
+    0.1320754716981132
+   ]
+  }
+ ],
+ "volatile": [
+  {
+   "task": "environmental-esg/identify-issues-in-phase-one-environmental-site-assessment",
+   "span": 0.3962,
+   "grades": [
+    0.16981132075471697,
+    0.11320754716981132,
+    0.09433962264150944,
+    0.49056603773584906,
+    0.1320754716981132
+   ]
+  }
+ ],
+ "by_type": {
+  "arbitration-international-dispute-resolution": {
+   "0": 0.9368,
+   "1": 0.8599,
+   "2": 0.873,
+   "3": 0.8974,
+   "4": 0.8842
+  },
+  "capital-markets": {
+   "0": 0.8474,
+   "1": 0.8461,
+   "2": 0.8745,
+   "3": 0.8399,
+   "4": 0.8971
+  },
+  "contracts": {
+   "0": 0.8383,
+   "1": 0.8328,
+   "2": 0.8499,
+   "3": 0.8304,
+   "4": 0.8628
+  },
+  "corporate-governance": {
+   "0": 0.8782,
+   "1": 0.8303,
+   "2": 0.8074,
+   "3": 0.7709,
+   "4": 0.848
+  },
+  "corporate-ma": {
+   "0": 0.9083,
+   "1": 0.8747,
+   "2": 0.8376,
+   "3": 0.8991,
+   "4": 0.862
+  },
+  "data-privacy-cybersecurity": {
+   "0": 0.86,
+   "1": 0.86,
+   "2": 0.88,
+   "3": 0.9,
+   "4": 0.86
+  },
+  "employment-labor": {
+   "0": 0.5962,
+   "1": 0.5577,
+   "2": 0.5962,
+   "3": 0.4808,
+   "4": 0.5385
+  },
+  "environmental-esg": {
+   "0": 0.1698,
+   "1": 0.1132,
+   "2": 0.0943,
+   "3": 0.4906,
+   "4": 0.1321
+  },
+  "funds-asset-management": {
+   "0": 0.8947,
+   "1": 0.8421,
+   "2": 0.9123,
+   "3": 0.8772,
+   "4": 0.9474
+  },
+  "healthcare-life-sciences": {
+   "0": 0.8936,
+   "1": 0.8723,
+   "2": 0.8723,
+   "3": 0.8511,
+   "4": 0.8723
+  },
+  "immigration": {
+   "0": 0.7788,
+   "1": 0.8068,
+   "2": 0.8196,
+   "3": 0.8673,
+   "4": 0.8184
+  },
+  "intellectual-property": {
+   "0": 0.9185,
+   "1": 0.8953,
+   "2": 0.9253,
+   "3": 0.9185,
+   "4": 0.9338
+  },
+  "international-trade-sanctions": {
+   "0": 0.9219,
+   "1": 0.8906,
+   "2": 0.8594,
+   "3": 0.9062,
+   "4": 0.9219
+  },
+  "litigation-dispute-resolution": {
+   "0": 0.8919,
+   "1": 0.8877,
+   "2": 0.9073,
+   "3": 0.8889,
+   "4": 0.9105
+  },
+  "real-estate": {
+   "0": 0.86,
+   "1": 0.8359,
+   "2": 0.8471,
+   "3": 0.839,
+   "4": 0.8713
+  },
+  "tax": {
+   "0": 0.9286,
+   "1": 0.7857,
+   "2": 0.8571,
+   "3": 0.8571,
+   "4": 0.8214
+  },
+  "trusts-estates-private-client": {
+   "0": 0.8399,
+   "1": 0.8315,
+   "2": 0.8315,
+   "3": 0.8449,
+   "4": 0.8181
+  }
+ },
+ "cost_thrash": [
+  {
+   "task": "intellectual-property_extract-key-terms-from-technology-licensing-term-sheet",
+   "at_iter": 4,
+   "turn_ratio": 1.93,
+   "token_ratio": 2.74,
+   "worst": 2.744492633695829
+  },
+  {
+   "task": "contracts_banking_intercreditor-agreement-term-negotiation",
+   "at_iter": 4,
+   "turn_ratio": 1.17,
+   "token_ratio": 1.81,
+   "worst": 1.806190633243023
+  },
+  {
+   "task": "corporate-governance_compare-state-paid-leave-requirements-across-seven-jurisdictions",
+   "at_iter": 4,
+   "turn_ratio": 1.48,
+   "token_ratio": 1.59,
+   "worst": 1.5851199572693957
+  }
+ ],
+ "cost_n_tasks": 30,
+ "cost_landscape": [
+  {
+   "task": "litigation-dispute-resolution_draft-motion-to-dismiss-brief",
+   "input_tokens": 5616265,
+   "wall_clock_s": 2011.94,
+   "turns": 39
+  },
+  {
+   "task": "contracts_corporate-ma_joint-venture-agreement-term-negotiation_scenario-02",
+   "input_tokens": 3487923,
+   "wall_clock_s": 420.93,
+   "turns": 32
+  },
+  {
+   "task": "employment-labor_draft-markup-of-settlement-agreement",
+   "input_tokens": 3293455,
+   "wall_clock_s": 1108.89,
+   "turns": 40
+  },
+  {
+   "task": "corporate-ma_analyze-cim-deal-teaser_scenario-02",
+   "input_tokens": 3277003,
+   "wall_clock_s": 1735.38,
+   "turns": 34
+  },
+  {
+   "task": "contracts_commercial-vendor-customer_saas-api-subscription-term-negotiation_scenario-01",
+   "input_tokens": 3068967,
+   "wall_clock_s": 537.62,
+   "turns": 20
+  },
+  {
+   "task": "contracts_banking_intercreditor-agreement-term-negotiation",
+   "input_tokens": 2795546,
+   "wall_clock_s": 964.07,
+   "turns": 29
+  },
+  {
+   "task": "corporate-governance_extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application",
+   "input_tokens": 2613652,
+   "wall_clock_s": 975.44,
+   "turns": 22
+  },
+  {
+   "task": "capital-markets_draft-underwriting-agreement",
+   "input_tokens": 2448832,
+   "wall_clock_s": 726.8,
+   "turns": 26
+  },
+  {
+   "task": "capital-markets_draft-registration-statement-on-form-s",
+   "input_tokens": 2406717,
+   "wall_clock_s": 617.21,
+   "turns": 21
+  },
+  {
+   "task": "real-estate_draft-settlement-statement",
+   "input_tokens": 2309819,
+   "wall_clock_s": 526.0,
+   "turns": 25
+  },
+  {
+   "task": "funds-asset-management_draft-fund-closing-certificate",
+   "input_tokens": 2046278,
+   "wall_clock_s": 680.12,
+   "turns": 23
+  },
+  {
+   "task": "real-estate_draft-development-agreement",
+   "input_tokens": 1921859,
+   "wall_clock_s": 630.03,
+   "turns": 22
+  },
+  {
+   "task": "litigation-dispute-resolution_assess-reasonableness-of-staffing-levels-on-litigation-invoice",
+   "input_tokens": 1895726,
+   "wall_clock_s": 966.82,
+   "turns": 22
+  },
+  {
+   "task": "intellectual-property_rnw-ip-license-renewal",
+   "input_tokens": 1829171,
+   "wall_clock_s": 358.21,
+   "turns": 20
+  },
+  {
+   "task": "corporate-governance_compare-state-paid-leave-requirements-across-seven-jurisdictions",
+   "input_tokens": 1752374,
+   "wall_clock_s": 552.64,
+   "turns": 23
+  },
+  {
+   "task": "environmental-esg_identify-issues-in-phase-one-environmental-site-assessment",
+   "input_tokens": 1740992,
+   "wall_clock_s": 463.19,
+   "turns": 18
+  },
+  {
+   "task": "tax_review-iss-tax-transaction-structure",
+   "input_tokens": 1642271,
+   "wall_clock_s": 768.08,
+   "turns": 17
+  },
+  {
+   "task": "litigation-dispute-resolution_draft-interrogatories",
+   "input_tokens": 1420760,
+   "wall_clock_s": 357.47,
+   "turns": 19
+  },
+  {
+   "task": "corporate-ma_review-governance-diligence_scenario-01",
+   "input_tokens": 1374991,
+   "wall_clock_s": 517.5,
+   "turns": 18
+  },
+  {
+   "task": "trusts-estates-private-client_analyze-counterparty-markup-of-postnuptial-agreement",
+   "input_tokens": 1118056,
+   "wall_clock_s": 733.85,
+   "turns": 15
+  },
+  {
+   "task": "healthcare-life-sciences_identify-issues-in-fda-pre",
+   "input_tokens": 961899,
+   "wall_clock_s": 419.16,
+   "turns": 15
+  },
+  {
+   "task": "international-trade-sanctions_draft-ofac-specific-license-application",
+   "input_tokens": 938569,
+   "wall_clock_s": 483.21,
+   "turns": 23
+  },
+  {
+   "task": "trusts-estates-private-client_extract-key-exhibits-from-document-production",
+   "input_tokens": 913767,
+   "wall_clock_s": 358.97,
+   "turns": 18
+  },
+  {
+   "task": "data-privacy-cybersecurity_audit-privacy-policy-compliance_scenario-01",
+   "input_tokens": 895743,
+   "wall_clock_s": 338.63,
+   "turns": 18
+  },
+  {
+   "task": "corporate-governance_assess-impact-of-sec-cybersecurity-disclosure-rule-on-incident-response-procedures",
+   "input_tokens": 844563,
+   "wall_clock_s": 397.35,
+   "turns": 14
+  },
+  {
+   "task": "arbitration-international-dispute-resolution_identify-arbitration-agreement-issues",
+   "input_tokens": 759009,
+   "wall_clock_s": 376.99,
+   "turns": 14
+  },
+  {
+   "task": "arbitration-international-dispute-resolution_identify-issues-in-arbitrator-disclosure-statement",
+   "input_tokens": 631483,
+   "wall_clock_s": 386.68,
+   "turns": 13
+  },
+  {
+   "task": "immigration_compare-immigration",
+   "input_tokens": 592406,
+   "wall_clock_s": 374.43,
+   "turns": 17
+  },
+  {
+   "task": "immigration_identify-h1b-qualification-issues",
+   "input_tokens": 563431,
+   "wall_clock_s": 354.83,
+   "turns": 16
+  },
+  {
+   "task": "intellectual-property_extract-key-terms-from-technology-licensing-term-sheet",
+   "input_tokens": 511179,
+   "wall_clock_s": 295.61,
+   "turns": 14
+  }
+ ]
+}

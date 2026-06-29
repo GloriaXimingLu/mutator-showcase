@@ -1,0 +1,29 @@
+{
+ "task": "tax/review-iss-tax-transaction-structure",
+ "ens_pass_rate": 0.8571428571428571,
+ "n_graded": 28,
+ "n_failed": 4,
+ "failed_criteria": [
+  {
+   "id": "C-005",
+   "title": "ISSUE_002: Identifies rollover equity conflict with 338(h)(10) election",
+   "match_criteria": "PASS if the report identifies that Dr. Chandra's $37 million rollover equity creates a complication for the Section 338(h)(10) election because a 338(h)(10) election treats 100% of the stock as sold in a deemed asset sale \u2014 there is no partial transaction \u2014 and the rollover must be analyzed for whether it occurs before or after the deemed sale, or whether it could be recharacterized (e.g., as boot in a reorganization). FAIL if the report does not identify the tension between rollover equity and the 338(h)(10) deemed complete sale treatment."
+  },
+  {
+   "id": "C-016",
+   "title": "ISSUE_008b: Notes California retroactive C corp tax risk if S election invalid",
+   "match_criteria": "PASS if the report notes the risk that if Prism's S election were found invalid, California could retroactively impose C corporation taxes. FAIL if this specific California retroactive risk is not mentioned."
+  },
+  {
+   "id": "C-021",
+   "title": "ISSUE_012a: Identifies missing New York state conformity analysis for 338(h)(10)",
+   "match_criteria": "PASS if the report identifies that the memorandum fails to analyze whether New York conforms to the federal Section 338(h)(10) election for S corporations, despite Prism having operations and employees in New York. FAIL if the report does not flag the missing New York state conformity analysis."
+  },
+  {
+   "id": "C-022",
+   "title": "ISSUE_012b: Identifies missing Virginia state conformity analysis for 338(h)(10)",
+   "match_criteria": "PASS if the report identifies that the memorandum fails to analyze whether Virginia conforms to the federal Section 338(h)(10) election for S corporations, despite Prism having operations and employees in Virginia. FAIL if the report does not flag the missing Virginia state conformity analysis."
+  }
+ ],
+ "error": null
+}

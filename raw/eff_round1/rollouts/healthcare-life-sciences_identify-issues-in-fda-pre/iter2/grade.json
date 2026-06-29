@@ -1,0 +1,39 @@
+{
+ "task": "healthcare-life-sciences/identify-issues-in-fda-pre",
+ "ens_pass_rate": 0.8723404255319149,
+ "n_graded": 47,
+ "n_failed": 6,
+ "failed_criteria": [
+  {
+   "id": "C-007",
+   "title": "Each issue cites a regulatory or legal basis",
+   "match_criteria": "PASS if each identified issue cites or references the regulatory or legal basis for why it is a problem (e.g., relevant CFR sections, ISO standards, FDA guidance documents, ASTM standards). FAIL if regulatory bases are generally absent from issue descriptions."
+  },
+  {
+   "id": "C-033",
+   "title": "ISSUE_010: Identifies missing PE risk warning in labeling",
+   "match_criteria": "PASS if the memo identifies that the draft IFU warnings section does not address the risk of pulmonary embolism (PE) from thrombus fragmentation and distal embolization during mechanical thrombectomy of large iliofemoral DVT. FAIL if this omission is not identified."
+  },
+  {
+   "id": "C-035",
+   "title": "ISSUE_012a: Identifies missing DSMB in clinical study",
+   "match_criteria": "PASS if the memo identifies that the proposed clinical study lacks a Data Safety Monitoring Board (DSMB) or equivalent independent safety oversight body, despite involving a high-risk intravascular intervention with simultaneous drug administration. FAIL if the DSMB omission is not identified."
+  },
+  {
+   "id": "C-036",
+   "title": "ISSUE_012b: Identifies missing adverse event reporting procedures",
+   "match_criteria": "PASS if the memo identifies that the clinical study protocol does not address adverse event (AE) reporting procedures. FAIL if this omission is not identified."
+  },
+  {
+   "id": "C-037",
+   "title": "ISSUE_012c: Identifies missing tPA contraindication exclusion criteria",
+   "match_criteria": "PASS if the memo identifies that the clinical study exclusion criteria do not include patients with contraindications to tPA (such as recent stroke, intracranial neoplasm, active bleeding diathesis, or similar), despite the study protocol involving tPA administration. FAIL if this omission is not identified."
+  },
+  {
+   "id": "C-039",
+   "title": "ISSUE_013: Identifies incomplete contraindications list",
+   "match_criteria": "PASS if the memo identifies that the draft IFU lists only three contraindications (active internal bleeding, allergy to catheter materials, vessel diameter <6 mm) and that this is insufficient for a pharmacomechanical thrombectomy device, noting the need for additional contraindications such as contraindications to thrombolytic therapy, venous stenosis/occlusion proximal to treatment site, uncorrectable coagulopathy, or similar clinical contraindications. FAIL if the sparse contraindications list is not flagged as deficient."
+  }
+ ],
+ "error": null
+}

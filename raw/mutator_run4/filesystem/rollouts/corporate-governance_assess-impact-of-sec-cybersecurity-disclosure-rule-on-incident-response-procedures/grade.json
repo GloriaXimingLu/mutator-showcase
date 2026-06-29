@@ -1,0 +1,90 @@
+{
+ "task": "corporate-governance/assess-impact-of-sec-cybersecurity-disclosure-rule-on-incident-response-procedures",
+ "ens_pass_rate": 0.8444444444444444,
+ "n_graded": 45,
+ "n_failed": 7,
+ "failed_criteria": [
+  {
+   "id": "C-003",
+   "title": "Identifies that the 8-K filing deadline is imminent or already expired",
+   "match_criteria": "PASS if the memo concludes that the four-business-day filing deadline has likely already started \u2014 arguably by December 1, 2024, when Thorngate confirmed customer banking data exfiltration (making December 5, 2024 the fourth business day and thus the deadline is today/imminent/already expired) \u2014 and that Vantage must file immediately. FAIL if the memo does not analyze the specific timing or suggests the company has significant additional time before filing."
+  },
+  {
+   "id": "C-010",
+   "title": "IRT composition gap \u2014 excludes Legal, Finance, IR, and Board",
+   "match_criteria": "PASS if the memo identifies that the CIRP's Incident Response Team includes only IT, IT Security, Facilities, and HR, and that Legal, Finance, Investor Relations, and/or Board/committee representatives are excluded. FAIL if this IRT composition deficiency is not identified."
+  },
+  {
+   "id": "C-011",
+   "title": "IRT composition gap flagged as critical",
+   "match_criteria": "PASS if the memo identifies the exclusion of Legal/Finance/IR/Board from the IRT as a critical gap (or uses equivalent severity language). FAIL if the gap is mentioned but not flagged as significant or critical."
+  },
+  {
+   "id": "C-014",
+   "title": "FY2023 10-K Item 1C Audit Committee oversight disclosure is misleading",
+   "match_criteria": "PASS if the memo identifies that the 10-K Item 1C statement that the 'Audit Committee receives quarterly updates on the Company's cybersecurity posture' is potentially misleading because: (a) the updates consist of only a single PowerPoint slide within a broader CTO technology presentation, (b) the Audit Committee has never received a dedicated cybersecurity briefing, and/or (c) Audit Committee minutes do not reflect substantive cybersecurity discussion. FAIL if this discrepancy is not identified."
+  },
+  {
+   "id": "C-023",
+   "title": "CIRP lacks legal hold or record preservation protocol",
+   "match_criteria": "PASS if the memo identifies that the CIRP contains no legal hold, evidence preservation, or chain-of-custody protocol, and flags this as a gap in light of potential SEC inquiries, shareholder litigation, or state AG investigations. FAIL if this gap is not identified."
+  },
+  {
+   "id": "C-024",
+   "title": "Recommends immediate implementation of litigation hold",
+   "match_criteria": "PASS if the memo recommends immediate implementation of a litigation hold or legal hold to preserve all incident-related communications, forensic evidence, and documents. FAIL if no such recommendation is made."
+  },
+  {
+   "id": "C-034",
+   "title": "Immediate recommendation: File Form 8-K Item 1.05 immediately/today",
+   "match_criteria": "PASS if the memo recommends filing a Form 8-K Item 1.05 disclosure immediately or within the next 24-48 hours as a top-priority immediate action item. FAIL if the 8-K filing is treated as a non-urgent or longer-term action item."
+  }
+ ],
+ "per_criterion": {
+  "C-001": "pass",
+  "C-002": "pass",
+  "C-003": "fail",
+  "C-004": "pass",
+  "C-005": "pass",
+  "C-006": "pass",
+  "C-007": "pass",
+  "C-008": "pass",
+  "C-009": "pass",
+  "C-010": "fail",
+  "C-011": "fail",
+  "C-012": "pass",
+  "C-013": "pass",
+  "C-014": "fail",
+  "C-015": "pass",
+  "C-016": "pass",
+  "C-017": "pass",
+  "C-018": "pass",
+  "C-019": "pass",
+  "C-020": "pass",
+  "C-021": "pass",
+  "C-022": "pass",
+  "C-023": "fail",
+  "C-024": "fail",
+  "C-025": "pass",
+  "C-026": "pass",
+  "C-027": "pass",
+  "C-028": "pass",
+  "C-029": "pass",
+  "C-030": "pass",
+  "C-031": "pass",
+  "C-032": "pass",
+  "C-033": "pass",
+  "C-034": "fail",
+  "C-035": "pass",
+  "C-036": "pass",
+  "C-037": "pass",
+  "C-038": "pass",
+  "C-039": "pass",
+  "C-040": "pass",
+  "C-041": "pass",
+  "C-042": "pass",
+  "C-043": "pass",
+  "C-044": "pass",
+  "C-045": "pass"
+ }
+}

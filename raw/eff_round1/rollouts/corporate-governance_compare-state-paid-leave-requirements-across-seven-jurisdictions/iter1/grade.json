@@ -1,0 +1,29 @@
+{
+ "task": "corporate-governance/compare-state-paid-leave-requirements-across-seven-jurisdictions",
+ "ens_pass_rate": 0.9333333333333333,
+ "n_graded": 60,
+ "n_failed": 4,
+ "failed_criteria": [
+  {
+   "id": "C-009",
+   "title": "ISSUE_003: Discusses frontloading as an alternative compliance approach",
+   "match_criteria": "PASS if the memo mentions frontloading of sick leave at the beginning of the year as a permissible alternative to carryover in some jurisdictions, explaining that employers who frontload the full amount may not be required to allow carryover. FAIL if frontloading is not mentioned as an alternative compliance strategy."
+  },
+  {
+   "id": "C-021",
+   "title": "ISSUE_008: Identifies 2-day doctor's note threshold as non-compliant in NJ",
+   "match_criteria": "PASS if the memo identifies that requiring a doctor's note for sick leave absences exceeding 2 consecutive days violates New Jersey's Earned Sick Leave Act, which limits employer documentation requests to absences of 3 or more consecutive days. FAIL if this NJ-specific documentation threshold issue is not identified."
+  },
+  {
+   "id": "C-033",
+   "title": "ISSUE_013: References internal email about CO remote employees asking about PTO payout",
+   "match_criteria": "PASS if the memo references the internal email thread where Marcus Delgado flagged that three Colorado employees being hired as remote workers before the facility opens have asked about PTO payout on termination under CO law. FAIL if the email evidence of the CO PTO payout concern is not referenced."
+  },
+  {
+   "id": "C-054",
+   "title": "Both deliverables are produced",
+   "match_criteria": "PASS if the agent produces both a compliance matrix (multi-state-compliance-matrix.xlsx) and a gap analysis memo (gap-analysis-memo.docx). FAIL if either deliverable is missing."
+  }
+ ],
+ "error": null
+}

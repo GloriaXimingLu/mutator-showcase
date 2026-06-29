@@ -1,0 +1,64 @@
+{
+ "task": "contracts/corporate-ma/joint-venture-agreement-term-negotiation/scenario-02",
+ "ens_pass_rate": 0.8035714285714286,
+ "n_graded": 56,
+ "n_failed": 11,
+ "failed_criteria": [
+  {
+   "id": "C-012",
+   "title": "Minimum interest floor with put right",
+   "match_criteria": "PASS if the compromise includes a minimum interest floor (a specified percentage below which a non-funding member cannot be diluted) coupled with a put right allowing the non-funding member to sell its interest rather than being trapped in a de minimis position. FAIL if there is no minimum floor or no put right at the floor."
+  },
+  {
+   "id": "C-016",
+   "title": "Non-compete product scope includes pipeline products meeting R&D-spend threshold",
+   "match_criteria": "PASS if the product scope includes pipeline products that meet a defined R&D-spend threshold (not just products already sold at exit). FAIL if pipeline products are excluded entirely or included without any qualifying threshold."
+  },
+  {
+   "id": "C-017",
+   "title": "Non-compete carve-outs for Kastor's legacy European chemical business and raw-material sales",
+   "match_criteria": "PASS if the non-compete includes carve-outs protecting Kastor's legacy European chemical business and/or raw-material sales, per kastor-position-summary.docx. FAIL if no carve-outs are provided for Kastor's broader business activities outside the JV scope."
+  },
+  {
+   "id": "C-018",
+   "title": "Non-compete geography defaults to North America (U.S., Canada, Mexico)",
+   "match_criteria": "PASS if the default geographic scope is North America (U.S., Canada, Mexico), consistent with Meridian's position per mkpoly-jva-v3-clean.docx. FAIL if the default geography is worldwide, or limited only to territories where JV had active sales (Kastor's position)."
+  },
+  {
+   "id": "C-019",
+   "title": "Non-compete includes product-by-product geographic narrowing mechanism",
+   "match_criteria": "PASS if the provision includes a product-by-product narrowing mechanism that limits geography for product lines sold in fewer than all three North American countries (a concession to Kastor). FAIL if the North America default applies uniformly to all products without narrowing."
+  },
+  {
+   "id": "C-023",
+   "title": "Appraiser selection mechanism: each party selects one, those two select a third",
+   "match_criteria": "PASS if the appraisal process includes a selection mechanism where, if the parties cannot agree on one appraiser, each selects one and those two select a third. FAIL if the mechanism is absent or uses a different process."
+  },
+  {
+   "id": "C-024",
+   "title": "Baseball-style bracketing for appraisal",
+   "match_criteria": "PASS if the appraisal process includes baseball-style bracketing (the appraiser's final value cannot be outside the range of the two parties' submitted values). FAIL if the appraiser has unconstrained discretion or no bracketing mechanism is specified."
+  },
+  {
+   "id": "C-025",
+   "title": "Buy-sell includes shoot-out/Russian roulette mechanic",
+   "match_criteria": "PASS if the buy-sell provision includes a shoot-out (Russian roulette) mechanic where the triggering party names a price and the receiving party may elect to buy or sell at that price, providing bilateral price discipline. FAIL if no such mechanic is included."
+  },
+  {
+   "id": "C-032",
+   "title": "Sublicensing to controlled affiliates freely permitted within territory",
+   "match_criteria": "PASS if sublicenses to controlled affiliates are permitted freely within each party's licensed territory. FAIL if affiliate sublicensing requires consent or is prohibited."
+  },
+  {
+   "id": "C-033",
+   "title": "Third-party sublicensing requires other member's consent (not unreasonably withheld)",
+   "match_criteria": "PASS if sublicenses to third parties (non-affiliates) require the other member's consent, with such consent not to be unreasonably withheld. FAIL if third-party sublicensing is freely permitted or absolutely prohibited without a consent mechanism."
+  },
+  {
+   "id": "C-035",
+   "title": "Transitional cross-license for contributed IP in existing JV products at royalty rate",
+   "match_criteria": "PASS if the compromise includes a transitional cross-license for contributed IP embedded in existing JV products, at a royalty rate, for a defined wind-down period following dissolution or exit. FAIL if there is no transitional license for contributed IP (Meridian's position of automatic reversion with no transition) or if the transition license is royalty-free."
+  }
+ ],
+ "error": null
+}

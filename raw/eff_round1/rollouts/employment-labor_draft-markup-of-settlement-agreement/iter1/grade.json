@@ -1,0 +1,124 @@
+{
+ "task": "employment-labor/draft-markup-of-settlement-agreement",
+ "ens_pass_rate": 0.5576923076923077,
+ "n_graded": 52,
+ "n_failed": 23,
+ "failed_criteria": [
+  {
+   "id": "C-001",
+   "title": "ISSUE_001: Flags overbroad release includes workers' comp claims",
+   "match_criteria": "PASS if the agent identifies that the draft settlement agreement's general release improperly includes a release of workers' compensation claims. The output must flag this as a problem in either the markup or the cover memo (or both). FAIL if there is no mention of the workers' compensation release issue."
+  },
+  {
+   "id": "C-002",
+   "title": "ISSUE_001: Cites ORS 656.236 or Oregon WC Board approval requirement",
+   "match_criteria": "PASS if the agent references ORS 656.236 or otherwise explains that under Oregon law, workers' compensation claims cannot be released in a private settlement agreement without Workers' Compensation Board approval. FAIL if neither the statute nor the legal requirement of Board approval is mentioned."
+  },
+  {
+   "id": "C-003",
+   "title": "ISSUE_001: Proposes striking or carving out workers' comp from release",
+   "match_criteria": "PASS if the markup proposes to strike workers' compensation claims from the general release or add a carve-out/exclusion for workers' compensation claims. FAIL if no revision to the release language regarding workers' compensation is proposed."
+  },
+  {
+   "id": "C-017",
+   "title": "ISSUE_004: References company policy requiring regulatory carve-out",
+   "match_criteria": "PASS if the agent references Greenleaf's internal settlement policy as requiring a carve-out for truthful factual information to regulatory agencies in non-disparagement provisions. FAIL if the company policy basis is not mentioned."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_006: Identifies confidentiality obligation is one-sided",
+   "match_criteria": "PASS if the agent identifies that the draft's confidentiality provision binds only Delano (is unilateral) and should be mutual per Greenleaf's internal settlement policy. FAIL if the one-sided nature of the confidentiality clause is not flagged."
+  },
+  {
+   "id": "C-021",
+   "title": "ISSUE_006: Revises confidentiality to be mutual",
+   "match_criteria": "PASS if the markup revises the confidentiality provision to bind both parties (make it mutual). FAIL if the markup does not propose mutual confidentiality."
+  },
+  {
+   "id": "C-022",
+   "title": "ISSUE_006: Identifies missing liquidated damages for breach",
+   "match_criteria": "PASS if the agent identifies that the draft's confidentiality clause lacks a liquidated damages provision, which is required by Greenleaf's internal policy at $25,000 per breach. FAIL if the missing liquidated damages are not flagged."
+  },
+  {
+   "id": "C-023",
+   "title": "ISSUE_006: Adds $25,000 per breach liquidated damages provision",
+   "match_criteria": "PASS if the markup inserts a liquidated damages provision specifying $25,000 per breach of the confidentiality obligation. FAIL if no liquidated damages language is added or the amount differs from $25,000."
+  },
+  {
+   "id": "C-024",
+   "title": "ISSUE_007: Flags impermissible employment reference commitment",
+   "match_criteria": "PASS if the agent identifies that Section 11 of the draft (requiring Greenleaf to provide a 'positive, neutral, or at minimum non-negative' employment reference) violates Greenleaf's internal policy, which prohibits references beyond confirming dates of employment and final title. FAIL if this issue is not flagged."
+  },
+  {
+   "id": "C-025",
+   "title": "ISSUE_007: Replaces reference provision with dates/title only",
+   "match_criteria": "PASS if the markup strikes the 'positive, neutral, or non-negative' reference language and replaces it with language limiting Greenleaf to confirming only dates of employment and final title. FAIL if the original reference language is not revised to conform to company policy."
+  },
+  {
+   "id": "C-026",
+   "title": "ISSUE_008: Flags re-employment eligibility provision",
+   "match_criteria": "PASS if the agent identifies that Section 14 of the draft (stating Delano shall not be barred from future employment and shall be considered for open positions) conflicts with Greenleaf's policy that the company never agrees to re-employment eligibility provisions. FAIL if this issue is not identified."
+  },
+  {
+   "id": "C-027",
+   "title": "ISSUE_008: Strikes re-employment eligibility provision",
+   "match_criteria": "PASS if the markup strikes or deletes Section 14's re-employment eligibility language entirely. FAIL if the re-employment provision is left intact or merely modified rather than removed."
+  },
+  {
+   "id": "C-028",
+   "title": "ISSUE_009: Identifies absence of Section 409A compliance language",
+   "match_criteria": "PASS if the agent identifies that the draft lacks any IRC Section 409A savings clause or compliance language, which is needed given the RSU acceleration and potential deferred compensation elements. FAIL if the absence of 409A language is not flagged."
+  },
+  {
+   "id": "C-029",
+   "title": "ISSUE_009: Adds Section 409A savings/compliance provision",
+   "match_criteria": "PASS if the markup inserts a Section 409A savings clause or compliance provision (e.g., language stating the agreement is intended to comply with or be exempt from 409A, and/or providing for the 20% penalty tax risk if non-compliant). FAIL if no 409A provision is added."
+  },
+  {
+   "id": "C-030",
+   "title": "ISSUE_009: References IRC Section 409A or the 20% penalty tax",
+   "match_criteria": "PASS if the agent references IRC Section 409A by name or number, and/or mentions the risk of a 20% penalty tax plus interest for noncompliance. FAIL if neither 409A nor its penalty consequences are mentioned."
+  },
+  {
+   "id": "C-031",
+   "title": "ISSUE_010: Identifies tax indemnification gap",
+   "match_criteria": "PASS if the agent identifies the risk in Section 8 that Greenleaf disclaims all tax indemnification while simultaneously characterizing $275,000 as non-wage 'compensatory damages,' and notes that if the IRS reclassifies any portion as wages, there is a gap in tax indemnification protection for Greenleaf. FAIL if this tax characterization risk and indemnification gap is not flagged."
+  },
+  {
+   "id": "C-032",
+   "title": "ISSUE_010: Proposes tax indemnification provision (Delano to Greenleaf)",
+   "match_criteria": "PASS if the markup adds or proposes a tax indemnification provision running from Delano to Greenleaf, covering the scenario where the IRS determines additional withholding or different tax treatment was required. FAIL if no such indemnification language is proposed."
+  },
+  {
+   "id": "C-033",
+   "title": "ISSUE_011: Flags non-compete duration exceeds 12-month policy cap",
+   "match_criteria": "PASS if the agent identifies that the draft's 18-month non-compete exceeds Greenleaf's internal policy maximum of 12 months. FAIL if the non-compete duration issue is not flagged."
+  },
+  {
+   "id": "C-034",
+   "title": "ISSUE_011: Reduces non-compete to 12 months in markup",
+   "match_criteria": "PASS if the markup revises the non-compete period from 18 months to 12 months (or less). FAIL if the non-compete period is not reduced to 12 months or less."
+  },
+  {
+   "id": "C-035",
+   "title": "ISSUE_011: Flags overbroad geographic scope of non-compete",
+   "match_criteria": "PASS if the agent identifies that the geographic scope of the non-compete (Oregon, Washington, Idaho, and California) is broader than Greenleaf's actual market (Pacific Northwest and Northern California) and proposes tightening it. FAIL if the geographic overbreadth is not addressed."
+  },
+  {
+   "id": "C-038",
+   "title": "ISSUE_012: Identifies missing IP assignment confirmation",
+   "match_criteria": "PASS if the agent identifies that the draft lacks a provision confirming assignment of intellectual property developed by Delano during his employment. FAIL if the missing IP assignment confirmation is not flagged."
+  },
+  {
+   "id": "C-039",
+   "title": "ISSUE_012: Drafts and inserts IP assignment confirmation provision",
+   "match_criteria": "PASS if the markup includes proposed new language confirming Delano's assignment of intellectual property developed during employment. FAIL if no IP assignment language is drafted and inserted."
+  },
+  {
+   "id": "C-044",
+   "title": "Cover memo flags total settlement exceeds board-approved range",
+   "match_criteria": "PASS if the cover memo explicitly notes that the total settlement amount (either $525,000 as drafted or $537,500 as corrected) exceeds Greenleaf's board-approved settlement range of $275,000 to $425,000, and flags this as requiring further client discussion or Compensation Committee approval. FAIL if the cover memo does not address the settlement amount exceeding the board-approved range."
+  }
+ ],
+ "error": null
+}

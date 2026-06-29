@@ -1,0 +1,198 @@
+{
+ "dev_score_bare": 0.807943,
+ "cost_bare": {
+  "mean_input_tokens": 4482674,
+  "mean_total_tokens": 4542241,
+  "mean_turns": 31
+ },
+ "cost_coverage": {
+  "input_tokens": 30,
+  "total_tokens": 30,
+  "turns": 30,
+  "of": 30
+ },
+ "n": 30,
+ "per_task": {
+  "intellectual-property/draft-motion-for-enhanced-damages": {
+   "accuracy": 0.17647058823529413,
+   "input_tokens": 2265015,
+   "total_tokens": 2304898,
+   "turns": 22
+  },
+  "tax/draft-transfer-pricing-documentation": {
+   "accuracy": 0.5324675324675324,
+   "input_tokens": 4106833,
+   "total_tokens": 4154283,
+   "turns": 19
+  },
+  "intellectual-property/identify-weaknesses-in-counterpartys-summary-judgment-brief": {
+   "accuracy": 0.71875,
+   "input_tokens": 1973421,
+   "total_tokens": 2021740,
+   "turns": 19
+  },
+  "white-collar-defense-investigations/identify-government-subpoena-issues": {
+   "accuracy": 0.74,
+   "input_tokens": 800181,
+   "total_tokens": 825052,
+   "turns": 16
+  },
+  "healthcare-life-sciences/identify-compliance-issues-in-medicare-enrollment-application-package": {
+   "accuracy": 0.7692307692307693,
+   "input_tokens": 977607,
+   "total_tokens": 1009192,
+   "turns": 16
+  },
+  "insurance/compare-reinsurance-treaty-against-underlying-policy": {
+   "accuracy": 0.7692307692307693,
+   "input_tokens": 1087311,
+   "total_tokens": 1117872,
+   "turns": 16
+  },
+  "litigation-dispute-resolution/extract-key-obligations-from-litigation-hold-and-document-preservation-notice": {
+   "accuracy": 0.7884615384615384,
+   "input_tokens": 1005782,
+   "total_tokens": 1039819,
+   "turns": 17
+  },
+  "capital-markets/draft-comfort-letter-request": {
+   "accuracy": 0.7941176470588235,
+   "input_tokens": 1955323,
+   "total_tokens": 2012208,
+   "turns": 19
+  },
+  "contracts/disputes/settlement-agreement-and-release-term-negotiation": {
+   "accuracy": 0.8076923076923077,
+   "input_tokens": 3402091,
+   "total_tokens": 3431612,
+   "turns": 20
+  },
+  "contracts/financing/credit-lending-subsequent-turn-redline/scenario-02": {
+   "accuracy": 0.8214285714285714,
+   "input_tokens": 12416212,
+   "total_tokens": 12534539,
+   "turns": 68
+  },
+  "tax/extract-tax-attributes-from-audited-financial-statements": {
+   "accuracy": 0.821917808219178,
+   "input_tokens": 1266411,
+   "total_tokens": 1310479,
+   "turns": 16
+  },
+  "real-estate/identify-issues-in-environmental-site-assessment": {
+   "accuracy": 0.8269230769230769,
+   "input_tokens": 1010143,
+   "total_tokens": 1028341,
+   "turns": 14
+  },
+  "healthcare-life-sciences/draft-fda-regulatory-submission-cover-letter": {
+   "accuracy": 0.8297872340425532,
+   "input_tokens": 1378786,
+   "total_tokens": 1417537,
+   "turns": 22
+  },
+  "contracts/banking/isda-confirmation-counterparty-paper-review": {
+   "accuracy": 0.8301886792452831,
+   "input_tokens": 7667849,
+   "total_tokens": 7784523,
+   "turns": 48
+  },
+  "data-privacy-cybersecurity/extract-document-requests-from-regulatory-inquiry-letter": {
+   "accuracy": 0.8461538461538461,
+   "input_tokens": 808541,
+   "total_tokens": 830510,
+   "turns": 17
+  },
+  "environmental-esg/draft-markup-of-administrative-settlement-agreement": {
+   "accuracy": 0.8490566037735849,
+   "input_tokens": 5485363,
+   "total_tokens": 5570822,
+   "turns": 54
+  },
+  "contracts/commercial-vendor-customer/master-services-agreement-term-negotiation/scenario-02": {
+   "accuracy": 0.8571428571428571,
+   "input_tokens": 2412605,
+   "total_tokens": 2497264,
+   "turns": 18
+  },
+  "contracts/commercial-channel-partnerships/strategic-partnership-co-sell-term-negotiation/scenario-03": {
+   "accuracy": 0.8653846153846154,
+   "input_tokens": 2850740,
+   "total_tokens": 2910770,
+   "turns": 21
+  },
+  "antitrust-competition/draft-pre-notification-briefing-paper": {
+   "accuracy": 0.8666666666666667,
+   "input_tokens": 3801938,
+   "total_tokens": 3856511,
+   "turns": 39
+  },
+  "contracts/commercial-vendor-customer/master-services-agreement-first-draft/scenario-05": {
+   "accuracy": 0.8666666666666667,
+   "input_tokens": 31960250,
+   "total_tokens": 32107373,
+   "turns": 119
+  },
+  "intellectual-property/compare-executed-technology-license-agreement-against-last-negotiation-draft": {
+   "accuracy": 0.8679245283018868,
+   "input_tokens": 2445298,
+   "total_tokens": 2495751,
+   "turns": 29
+  },
+  "contracts/financing/investor-rights-agreement-term-negotiation": {
+   "accuracy": 0.8723404255319149,
+   "input_tokens": 2479573,
+   "total_tokens": 2517171,
+   "turns": 19
+  },
+  "contracts/banking/isda-master-pack-term-negotiation/scenario-02": {
+   "accuracy": 0.8727272727272727,
+   "input_tokens": 2287051,
+   "total_tokens": 2338941,
+   "turns": 18
+  },
+  "contracts/corporate-ma/transition-intercompany-services-subsequent-turn-redline": {
+   "accuracy": 0.8833333333333333,
+   "input_tokens": 13175303,
+   "total_tokens": 13317492,
+   "turns": 72
+  },
+  "intellectual-property/draft-international-trade-commission-section-337-complaint": {
+   "accuracy": 0.8888888888888888,
+   "input_tokens": 2894909,
+   "total_tokens": 2941394,
+   "turns": 25
+  },
+  "employment-labor/identify-issues-in-non": {
+   "accuracy": 0.8918918918918919,
+   "input_tokens": 710008,
+   "total_tokens": 745790,
+   "turns": 15
+  },
+  "contracts/corporate-ma/loi-mou-term-negotiation/scenario-01": {
+   "accuracy": 0.8947368421052632,
+   "input_tokens": 3261448,
+   "total_tokens": 3307619,
+   "turns": 21
+  },
+  "corporate-ma/compare-fund-term-sheet-against-side-letter-terms": {
+   "accuracy": 0.8947368421052632,
+   "input_tokens": 824949,
+   "total_tokens": 861688,
+   "turns": 16
+  },
+  "corporate-governance/draft-batch-nda-generation": {
+   "accuracy": 0.8969072164948454,
+   "input_tokens": 2855752,
+   "total_tokens": 2907033,
+   "turns": 37
+  },
+  "contracts/commercial-vendor-customer/vendor-services-agreement-first-turn-redline/scenario-03": {
+   "accuracy": 0.8970588235294118,
+   "input_tokens": 14913516,
+   "total_tokens": 15068997,
+   "turns": 80
+  }
+ },
+ "source": "standard_eval_dev_fresh100 (bare glm-5p2, ensemble); 30 hardest of FRESH-100 minus previously-referenced"
+}

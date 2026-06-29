@@ -1,0 +1,22 @@
+{
+ "train": [
+  {
+   "iter": 0,
+   "combined_score": 0.842304
+  },
+  {
+   "iter": 1,
+   "combined_score": 0.8230605998628665
+  }
+ ],
+ "val": [
+  {
+   "iter": 0,
+   "combined_score": 0.775926
+  },
+  {
+   "iter": 1,
+   "combined_score": 0.8021586013559431
+  }
+ ]
+}

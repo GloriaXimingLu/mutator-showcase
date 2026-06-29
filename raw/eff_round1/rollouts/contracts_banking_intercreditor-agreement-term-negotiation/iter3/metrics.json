@@ -1,0 +1,42 @@
+{
+  "model": "glm-5p2",
+  "task": "contracts/banking/intercreditor-agreement-term-negotiation",
+  "run_id": "effround1_train_iter3/contracts_banking_intercreditor-agreement-term-negotiation__da39a3ee5e",
+  "turn_count": 33,
+  "input_tokens": 2949139,
+  "output_tokens": 47989,
+  "total_tokens": 2997128,
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "wall_clock_seconds": 582.7,
+  "finished_cleanly": true,
+  "completed_at": "2026-06-28T21:39:25.854579+00:00",
+  "documents_read": 14,
+  "documents_read_list": [
+    "cartwright-position-letter.docx",
+    "ridgeline-position-letter.docx",
+    "buchanan-internal-summary-email.eml",
+    "oduya-internal-summary-email.eml",
+    "tanaka-engagement-email.eml",
+    "ica-market-survey.xlsx",
+    "meridian-capital-structure-summary.xlsx",
+    "draft-intercreditor-agreement.docx",
+    "lender-appraisal-summary.docx",
+    "first-lien-credit-agreement.docx",
+    "/workspace/scratch/flca.txt",
+    "/workspace/scratch/slca.txt",
+    "/workspace/scratch/sfica.txt",
+    "/workspace/skills/docx/scripts/generate_from_md.py"
+  ],
+  "documents_skipped": 2,
+  "documents_skipped_list": [
+    "second-lien-credit-agreement.docx",
+    "standard-form-ica.docx"
+  ],
+  "total_documents": 12,
+  "bash_commands": 22,
+  "files_written": 2,
+  "files_edited": 0,
+  "glob_searches": 0,
+  "grep_searches": 3
+}

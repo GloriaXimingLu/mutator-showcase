@@ -1,0 +1,54 @@
+{
+ "task": "litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice",
+ "ens_pass_rate": 0.8163265306122449,
+ "n_graded": 49,
+ "n_failed": 9,
+ "failed_criteria": [
+  {
+   "id": "C-003",
+   "title": "Calculates Barros dollar impact as $21,375.00",
+   "match_criteria": "PASS if the memo states that Nina Barros's time at risk is $21,375.00 (45.0 hours \u00d7 $475/hr). FAIL if this amount is not calculated or is materially incorrect."
+  },
+  {
+   "id": "C-009",
+   "title": "Calculates Sengupta dollar impact as $10,312.50",
+   "match_criteria": "PASS if the memo states Priya Sengupta's time at risk is $10,312.50 (27.5 hours \u00d7 $375/hr). FAIL if this amount is not calculated or is materially incorrect."
+  },
+  {
+   "id": "C-012",
+   "title": "Calculates Tate rate overcharge as $1,200.00",
+   "match_criteria": "PASS if the memo calculates the Tate rate reduction as $1,200.00 ($10/hr overcharge \u00d7 120 hours). FAIL if the reduction amount is not stated or is materially incorrect."
+  },
+  {
+   "id": "C-026",
+   "title": "Calculates 25% block billing reduction for Cho May 19",
+   "match_criteria": "PASS if the memo calculates a 25% reduction on Karen Cho's May 19 block-billed entry of $4,062.50 (6.5 hrs \u00d7 $625), yielding approximately $1,015.63 in reduction. FAIL if the 25% reduction amount is not calculated or is materially incorrect (more than $50 off)."
+  },
+  {
+   "id": "C-027",
+   "title": "Calculates 25% block billing reduction for Hargrove May 27",
+   "match_criteria": "PASS if the memo calculates a 25% reduction on David Hargrove's May 27 block-billed entry of $5,910.00 (6.0 hrs \u00d7 $985), yielding approximately $1,477.50 in reduction. FAIL if the 25% reduction amount is not calculated or is materially incorrect (more than $50 off)."
+  },
+  {
+   "id": "C-034",
+   "title": "Calculates Hargrove's excess hours and fee impact",
+   "match_criteria": "PASS if the memo calculates the excess as 13.5 hours above the 25-hour cap, representing approximately $13,297.50 in fees above the plan ceiling. FAIL if no calculation of excess hours or dollar impact is provided."
+  },
+  {
+   "id": "C-036",
+   "title": "Calculates Webb document review rate reduction as approximately $665",
+   "match_criteria": "PASS if the memo calculates a rate reduction for Webb's 3.5 hours of document review from $375/hr to $185/hr (contract attorney rate), yielding a reduction of approximately $665.00 (3.5 \u00d7 $190). FAIL if no dollar reduction is calculated for this entry."
+  },
+  {
+   "id": "C-040",
+   "title": "Analyzes whether three-attorney deposition staffing is justified given witness role and industry norms",
+   "match_criteria": "PASS if the memo evaluates whether having three attorneys at Dr. Liu's deposition was justified by referencing at least one of the following: (a) Dr. Liu's role as a former Pinnacle data scientist central to the trade-secret claims, (b) a stated norm for the number of attorneys typically attending a fact witness deposition (e.g., one or two). FAIL if the memo flags the deposition staffing concern (per C-034) but provides no analysis of whether the staffing level was justified."
+  },
+  {
+   "id": "C-049",
+   "title": "Calculates budget overage percentage as approximately 17%",
+   "match_criteria": "PASS if the memo calculates the percentage by which the attorney fee subtotal ($193,372.50) exceeds the approved budget ceiling ($165,000) as approximately 17% (exact figure is 17.2%). FAIL if no percentage overage calculation is provided or if the percentage stated is materially incorrect (off by more than 2 percentage points)."
+  }
+ ],
+ "error": null
+}

@@ -1,0 +1,19 @@
+{
+ "task": "tax/review-iss-tax-transaction-structure",
+ "ens_pass_rate": 0.9285714285714286,
+ "n_graded": 28,
+ "n_failed": 2,
+ "failed_criteria": [
+  {
+   "id": "C-005",
+   "title": "ISSUE_002: Identifies rollover equity conflict with 338(h)(10) election",
+   "match_criteria": "PASS if the report identifies that Dr. Chandra's $37 million rollover equity creates a complication for the Section 338(h)(10) election because a 338(h)(10) election treats 100% of the stock as sold in a deemed asset sale \u2014 there is no partial transaction \u2014 and the rollover must be analyzed for whether it occurs before or after the deemed sale, or whether it could be recharacterized (e.g., as boot in a reorganization). FAIL if the report does not identify the tension between rollover equity and the 338(h)(10) deemed complete sale treatment."
+  },
+  {
+   "id": "C-015",
+   "title": "ISSUE_008a: Identifies missing California state tax analysis for California-resident shareholders",
+   "match_criteria": "PASS if the report identifies that the memorandum fails to analyze California-specific tax consequences for the two California-resident shareholders, including at least one of the following: California's 1.5% entity-level S corporation tax, gain pass-through apportionment to California, or the risk that if Prism's S election were found invalid, California would retroactively impose C corporation taxes. FAIL if the report does not flag any missing California shareholder tax analysis."
+  }
+ ],
+ "error": null
+}

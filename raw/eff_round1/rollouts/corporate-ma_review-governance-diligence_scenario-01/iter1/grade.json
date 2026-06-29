@@ -1,0 +1,24 @@
+{
+ "task": "corporate-ma/review-governance-diligence/scenario-01",
+ "ens_pass_rate": 0.9444444444444444,
+ "n_graded": 54,
+ "n_failed": 3,
+ "failed_criteria": [
+  {
+   "id": "C-002",
+   "title": "Authorized Preferred Stock classes correctly stated",
+   "match_criteria": "PASS if the memo states authorized preferred shares including 5,000,000 shares of Series A Preferred, 7,000,000 shares of Series B Preferred, and 10,000,000 shares of Series C Preferred. FAIL if any of these three authorized preferred share counts are materially wrong or missing."
+  },
+  {
+   "id": "C-003",
+   "title": "Total authorized shares correctly stated as 72,000,000",
+   "match_criteria": "PASS if the memo states total authorized shares of 72,000,000 (or figures that sum to 72,000,000). FAIL if the total is materially wrong or missing."
+  },
+  {
+   "id": "C-037",
+   "title": "ISSUE_011: Bylaws 66\u2154% amendment threshold noted",
+   "match_criteria": "PASS if the memo identifies that the Bylaws require a 66\u2154% stockholder vote (or Board action) for amendment, and discusses whether any pre-closing Bylaws amendments may be needed for the transaction and the implications of this supermajority threshold. FAIL if the Bylaws amendment threshold is not mentioned in connection with transaction planning."
+  }
+ ],
+ "error": null
+}

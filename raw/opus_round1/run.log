@@ -1,0 +1,167 @@
+[launch 19:14:30] starting Opus round1 (iter1 from reused bare)
+=== mutator backend: opus (claude-opus-4-8 @ https://api.anthropic.com) ===
+cleared 2 stale run-dir(s) under /home/ubuntu/ttt/baseline-submodules/harvey-labs/results (run_tag=opusround1)
+=== launch experiment broker (cap $50.00, port 4100) ===
+=== ITER 1 : OUTER (mutate; carry-everything=False) ===
++ (cd /home/ubuntu/ttt-nanorollout-v1) uv run python -m nanorollout.adapters.mutator.run_mutator_claude --seed /home/ubuntu/opus_round1/iter1/seed
+2026-06-27 19:14:35,616 - nanorollout.runner - INFO - [harvey-mutator-v0] Starting environment: docker
+2026-06-27 19:14:36,968 - nanorollout.runner - INFO - [harvey-mutator-v0] Running mutator-claude-v0
+2026-06-27 19:35:53,939 - nanorollout.runner - INFO - [harvey-mutator-v0] Running eval
+seeded bare harness from /home/ubuntu/ttt/baseline-submodules/harvey-labs: ['system_prompt.md', 'tools.py', 'agent_loop.py'] (kept carried files)
+{
+  "exit_status": "finished",
+  "structural_gate_pass": true,
+  "mutated_workspace": "/home/ubuntu/opus_round1/iter1/out/filesystem",
+  "trace_messages": 80,
+  "output_dir": "/home/ubuntu/opus_round1/iter1/out"
+}
+
+Mutated workspace: /home/ubuntu/opus_round1/iter1/out/filesystem
+Inspect the edit:  diff -ru /home/ubuntu/opus_round1/iter1/seed /home/ubuntu/opus_round1/iter1/out/filesystem
+=== ITER 1 : gate=True broker_spent=$6.2599999999999945 ===
+=== ITER 1 : INNER eval (train+val, materialized overlay) ===
++ standard_eval --prefix opusround1_train_iter1 (root=/tmp/harvey_overlay_bxcw4389)
++ standard_eval --prefix opusround1_val_iter1 (root=/tmp/harvey_overlay_bxcw4389)
+STANDARD EVAL  skill=/tmp/tmpe25vteyb.md  prefix=opusround1_train_iter1  tasks=30
+STANDARD EVAL  skill=/tmp/tmpuh3hl549.md  prefix=opusround1_val_iter1  tasks=30
+[launch 19:44:52] starting Opus round1 (iter1, effort=xhigh, timeout=4h, budget=150)
+=== mutator backend: opus (claude-opus-4-8 @ https://api.anthropic.com) ===
+cleared 2 stale run-dir(s) under /home/ubuntu/ttt/baseline-submodules/harvey-labs/results (run_tag=opusround1)
+=== launch experiment broker (cap $50.00, port 4100) ===
+=== ITER 1 : OUTER (mutate; carry-everything=False) ===
++ (cd /home/ubuntu/ttt-nanorollout-v1) uv run python -m nanorollout.adapters.mutator.run_mutator_claude --seed /home/ubuntu/opus_round1/iter1/seed
+2026-06-27 19:44:56,995 - nanorollout.runner - INFO - [harvey-mutator-v0] Starting environment: docker
+2026-06-27 19:44:58,346 - nanorollout.runner - INFO - [harvey-mutator-v0] Running mutator-claude-v0
+2026-06-27 20:19:18,815 - nanorollout.runner - INFO - [harvey-mutator-v0] Running eval
+seeded bare harness from /home/ubuntu/ttt/baseline-submodules/harvey-labs: ['system_prompt.md', 'tools.py', 'agent_loop.py'] (kept carried files)
+{
+  "exit_status": "finished",
+  "structural_gate_pass": true,
+  "mutated_workspace": "/home/ubuntu/opus_round1/iter1/out/filesystem",
+  "trace_messages": 109,
+  "output_dir": "/home/ubuntu/opus_round1/iter1/out"
+}
+
+Mutated workspace: /home/ubuntu/opus_round1/iter1/out/filesystem
+Inspect the edit:  diff -ru /home/ubuntu/opus_round1/iter1/seed /home/ubuntu/opus_round1/iter1/out/filesystem
+=== ITER 1 : gate=True broker_spent=$12.259999999999994 ===
+=== ITER 1 : INNER eval (train+val, materialized overlay) ===
++ standard_eval --prefix opusround1_train_iter1 (root=/tmp/harvey_overlay_t9bumapr)
++ standard_eval --prefix opusround1_val_iter1 (root=/tmp/harvey_overlay_t9bumapr)
+STANDARD EVAL  skill=/tmp/tmpu8qasj0d.md  prefix=opusround1_train_iter1  tasks=30
+STANDARD EVAL  skill=/tmp/tmpwlqs9vln.md  prefix=opusround1_val_iter1  tasks=30
+  done antitrust-competition/draft-market-definition-analys pass=0.309
+  done structured-finance-securitization/identify-issues-in pass=0.474
+  done immigration/compare-immigration                      pass=0.791
+  done real-estate/draft-settlement-statement               pass=0.823
+  done immigration/identify-h1b-qualification-issues        pass=0.744
+  done trusts-estates-private-client/extract-key-exhibits-f pass=0.717
+  done environmental-esg/identify-issues-in-phase-one-envir pass=0.132
+  done structured-finance-securitization/draft-security-agr pass=0.778
+  done banking-finance/identify-issues-in-borrower-financia pass=0.742
+  done contracts/corporate-ma/joint-venture-agreement-term- pass=0.714
+  done intellectual-property/extract-filing-dates-from-pate pass=0.738
+  done corporate-ma/draft-distribution-waterfall-memorandum pass=0.788
+  done tax/identify-tax-issues-in-irs-closing-agreement     pass=0.515
+  done employment-labor/draft-markup-of-settlement-agreemen pass=0.635
+  done corporate-governance/identify-issues-in-entity-compl pass=0.788
+  done arbitration-international-dispute-resolution/identif pass=0.947
+  done arbitration-international-dispute-resolution/identif pass=0.9
+  done contracts/banking/intercreditor-agreement-term-negot pass=0.808
+  done capital-markets/draft-registration-statement-on-form pass=0.833
+  done corporate-governance/extract-compliance-requirements pass=0.75
+  done corporate-governance/draft-response-to-government-in pass=0.771
+  done corporate-governance/assess-impact-of-sec-cybersecur pass=0.844
+  done litigation-dispute-resolution/categorize-document-pr pass=0.627
+  done trusts-estates-private-client/draft-markup-of-counte pass=0.875
+  done litigation-dispute-resolution/assess-reasonableness- pass=0.898
+  done capital-markets/review-form-10                       pass=0.816
+  done intellectual-property/extract-open-source-license-ob pass=0.873
+  done intellectual-property/analyze-restrictive-covenant-e pass=0.746
+  done data-privacy-cybersecurity/audit-privacy-policy-comp pass=0.9
+  done capital-markets/draft-underwriting-agreement         pass=0.882
+  done contracts/commercial-vendor-customer/vendor-services pass=0.926
+  done structured-finance-securitization/compare-closing-ch pass=0.925
+  done corporate-ma/review-governance-diligence/scenario-01 pass=0.815
+  done healthcare-life-sciences/identify-issues-in-fda-pre  pass=0.809
+  done corporate-governance/compare-state-paid-leave-requir pass=0.717
+  done contracts/commercial-vendor-customer/saas-api-subscr pass=0.94
+  done corporate-ma/analyze-cim-deal-teaser/scenario-02     pass=0.756
+  done capital-markets/draft-current-report-on-form-8       pass=0.896
+  done funds-asset-management/draft-fund-closing-certificat pass=0.947
+  done intellectual-property/rnw-ip-license-renewal         pass=0.897
+  done intellectual-property/extract-key-terms-from-technol pass=0.984
+  done intellectual-property/review-patent-complaint        pass=0.882
+  done contracts/ip-licensing/license-agreement-subsequent- pass=0.82
+  done litigation-dispute-resolution/extract-privileged-com pass=0.773
+  done litigation-dispute-resolution/extract-scope-terms-fr pass=0.974
+  done litigation-dispute-resolution/draft-interrogatories  pass=0.94
+  done international-trade-sanctions/draft-ofac-specific-li pass=0.953
+  done tax/review-iss-tax-transaction-structure             pass=0.857
+  done real-estate/draft-development-agreement              pass=0.904
+  done corporate-ma/review-governance-diligence/scenario-02 pass=0.864
+  done intellectual-property/extract-license-grant-terms-fr pass=0.891
+  done litigation-dispute-resolution/draft-motion-to-dismis pass=0.899
+  done corporate-ma/analyze-term-sheet-markup/scenario-01   pass=0.953
+  done trusts-estates-private-client/analyze-counterparty-m pass=0.957
+=== combined_score (mean ensemble pass-rate) = 0.8231 over 30 tasks -> /home/ubuntu/opus_round1/results/standard_eval_opusround1_train_iter1.json ===
+STANDARD_EVAL_DONE
+  done corporate-ma/assess-litigation-and-regulatory-risk-f pass=0.816
+  done contracts/employment-compensation/equity-incentive-p pass=0.871
+  done contracts/banking/credit-support-annex-term-negotiat pass=0.896
+  done contracts/pe-funds/fund-side-letter-subsequent-turn- pass=0.889
+  done emerging-companies-venture-capital/draft-convertible pass=0.886
+  done contracts/banking/repo-securities-lending-subsequent pass=0.963
+=== combined_score (mean ensemble pass-rate) = 0.8022 over 30 tasks -> /home/ubuntu/opus_round1/results/standard_eval_opusround1_val_iter1.json ===
+STANDARD_EVAL_DONE
+ITER1_RESULT: train=0.8230605998628665 val=0.8021586013559431 | best_by_val=iter1(0.8021586013559431)
+LOOP_DONE
+[launch 21:17:48] driver exited with status 0
+[launch 21:36:43] starting Opus round1 ITER2 (build on iter1; effort=xhigh; ambition manual)
+=== mutator backend: opus (claude-opus-4-8 @ https://api.anthropic.com) ===
+cleared 2 stale run-dir(s) under /home/ubuntu/ttt/baseline-submodules/harvey-labs/results (run_tag=opusround1)
+=== launch experiment broker (cap $50.00, port 4100) ===
+=== ITER 2 : OUTER (mutate; carry-everything=True) ===
++ (cd /home/ubuntu/ttt-nanorollout-v1) uv run python -m nanorollout.adapters.mutator.run_mutator_claude --seed /home/ubuntu/opus_round1/iter2/seed
+2026-06-27 21:36:47,956 - nanorollout.runner - INFO - [harvey-mutator-v0] Starting environment: docker
+2026-06-27 21:36:49,710 - nanorollout.runner - INFO - [harvey-mutator-v0] Running mutator-claude-v0
+2026-06-27 23:59:54,644 - nanorollout.runner - INFO - [harvey-mutator-v0] Running eval
+seeded bare harness from /home/ubuntu/ttt/baseline-submodules/harvey-labs: [] (kept carried files)
+{
+  "exit_status": "finished",
+  "structural_gate_pass": true,
+  "mutated_workspace": "/home/ubuntu/opus_round1/iter2/out/filesystem",
+  "trace_messages": 217,
+  "output_dir": "/home/ubuntu/opus_round1/iter2/out"
+}
+
+Mutated workspace: /home/ubuntu/opus_round1/iter2/out/filesystem
+Inspect the edit:  diff -ru /home/ubuntu/opus_round1/iter2/seed /home/ubuntu/opus_round1/iter2/out/filesystem
+=== ITER 2 : gate=True broker_spent=$34.62000000000001 ===
+=== ITER 2 : INNER eval (train+val, materialized overlay) ===
++ standard_eval --prefix opusround1_val_iter2 (root=/tmp/harvey_overlay_eeon0ake)
++ standard_eval --prefix opusround1_train_iter2 (root=/tmp/harvey_overlay_eeon0ake)
+STANDARD EVAL  skill=/tmp/tmp6q47capg.md  prefix=opusround1_train_iter2  tasks=30
+STANDARD EVAL  skill=/tmp/tmpixtea702.md  prefix=opusround1_val_iter2  tasks=30
+  done antitrust-competition/draft-market-definition-analys pass=0.291
+  done immigration/identify-h1b-qualification-issues        pass=0.923
+  done environmental-esg/identify-issues-in-phase-one-envir pass=0.528
+  done immigration/compare-immigration                      pass=0.744
+  done structured-finance-securitization/draft-security-agr pass=0.827
+  done trusts-estates-private-client/extract-key-exhibits-f pass=0.733
+  done real-estate/draft-settlement-statement               pass=0.823
+  done banking-finance/identify-issues-in-borrower-financia pass=0.71
+  done structured-finance-securitization/identify-issues-in pass=0.474
+  done tax/identify-tax-issues-in-irs-closing-agreement     pass=0.576
+  done contracts/corporate-ma/joint-venture-agreement-term- pass=0.821
+  done intellectual-property/extract-filing-dates-from-pate pass=0.762
+  done capital-markets/draft-registration-statement-on-form pass=0.767
+  done corporate-governance/identify-issues-in-entity-compl pass=0.727
+  done corporate-governance/assess-impact-of-sec-cybersecur pass=0.689
+  done arbitration-international-dispute-resolution/identif pass=0.85
+  done corporate-governance/draft-response-to-government-in pass=0.857
+  done contracts/banking/intercreditor-agreement-term-negot pass=0.808
+  done arbitration-international-dispute-resolution/identif pass=0.895
+  done corporate-governance/extract-compliance-requirements pass=0.794
+  done litigation-dispute-resolution/assess-reasonableness- pass=0.878
+  done litigation-dispute-resolution/categorize-document-pr pass=0.821

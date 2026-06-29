@@ -1,0 +1,54 @@
+{
+ "task": "contracts/banking/intercreditor-agreement-term-negotiation",
+ "ens_pass_rate": 0.8269230769230769,
+ "n_graded": 52,
+ "n_failed": 9,
+ "failed_criteria": [
+  {
+   "id": "C-003",
+   "title": "Early termination trigger: 1L obligations paid in full",
+   "match_criteria": "PASS if the standstill clause includes an automatic early termination event upon payment in full of the First Lien Obligations. FAIL if this trigger is absent."
+  },
+  {
+   "id": "C-004",
+   "title": "Early termination trigger: 1L Agent failure to pursue enforcement (~60 days)",
+   "match_criteria": "PASS if the standstill clause includes an automatic early termination event triggered by the 1L Agent's failure to diligently pursue enforcement action for a stated consecutive-day period of approximately 60 days. FAIL if this trigger is absent or no consecutive-day period is stated."
+  },
+  {
+   "id": "C-005",
+   "title": "Early termination trigger: 2L payment default at stated maturity (~30-day notice)",
+   "match_criteria": "PASS if the standstill clause includes an automatic early termination event for a payment default on the Second Lien Obligations at stated final maturity (not by acceleration) continuing for a stated notice/cure period of approximately 30 days. FAIL if this trigger is absent or references acceleration rather than stated maturity."
+  },
+  {
+   "id": "C-006",
+   "title": "Early termination trigger: bankruptcy filing with 1L Agent inaction (~5 Business Days)",
+   "match_criteria": "PASS if the standstill clause includes an automatic early termination event triggered by a bankruptcy filing where the 1L Agent fails to seek adequate protection within a short window of approximately 5 Business Days. FAIL if this trigger is absent."
+  },
+  {
+   "id": "C-019",
+   "title": "Restrictiveness test narrowed to lien/collateral and subordination/priority provisions only",
+   "match_criteria": "PASS if the Permitted Refinancing restrictiveness test is narrowed to apply only to lien/collateral provisions and subordination/priority provisions of the ICA (not a blanket 'no more restrictive in any material respect' test on all terms, and not no test at all). FAIL if the test is either a blanket test covering all terms or is entirely absent."
+  },
+  {
+   "id": "C-021",
+   "title": "MFN response window of approximately 45 days",
+   "match_criteria": "PASS if the MFN right includes a response/election window of approximately 45 days for 1L lenders to adopt the more restrictive covenants. FAIL if no response window is specified or if it is materially different from 45 days."
+  },
+  {
+   "id": "C-036",
+   "title": "Recommends short response deadline for both agents",
+   "match_criteria": "PASS if the memorandum recommends a short response deadline (e.g., approximately 5 Business Days) for both agents to respond to the compromise package. FAIL if no response deadline is recommended."
+  },
+  {
+   "id": "C-044",
+   "title": "Purchase Right exercise triggers: acceleration or bankruptcy only",
+   "match_criteria": "PASS if the Purchase Right is exercisable only upon (a) acceleration of 1L Obligations following an Event of Default, or (b) commencement of a bankruptcy proceeding \u2014 not upon mere Event of Default without acceleration or at will. FAIL if the exercise triggers are broader (e.g., any Event of Default without acceleration) or narrower (e.g., bankruptcy only)."
+  },
+  {
+   "id": "C-050",
+   "title": "Weighted average life to maturity (WAL) test for Permitted Refinancing",
+   "match_criteria": "PASS if the Permitted Refinancing provision includes a weighted average life to maturity (WAL) test requiring that the WAL of refinancing indebtedness is not shorter than the WAL of the refinanced obligations, as an additional structural protection alongside the stated final maturity test. FAIL if no WAL test is included."
+  }
+ ],
+ "error": null
+}

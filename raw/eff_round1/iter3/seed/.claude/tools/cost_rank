@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+"""cost_rank — localize the carried-input cost across TRAIN rollouts.
+
+Reads rollouts/**/metrics.json and (optionally) transcript.jsonl to rank tasks
+by total input_tokens and to show *where* the carried context balloons.
+
+Usage:
+  cost_rank                 # rank all tasks by input_tokens (one line each)
+  cost_rank <task_substr>   # per-turn breakdown for the first matching task:
+                            #   per-turn prompt size, tool results, and an
+                            #   estimate of how much "resident raw read/bash
+                            #   output" is being re-carried each turn.
+
+The key cost model (verified): metrics.input_tokens == sum over turns of the
+per-turn prompt size. Context grows as docs are read and is re-sent every later
+turn, so big early reads dominate. This tool surfaces that.
+"""
+import json, sys, glob, os
+
+ROOT = os.path.join(os.path.dirname(__file__), "..", "..", "rollouts")
+ROOT = os.path.abspath(ROOT)
+
+
+def rank_all():
+    rows = []
+    for mp in glob.glob(os.path.join(ROOT, "*", "iter0", "metrics.json")):
+        task = mp.split("/")[-3]
+        try:
+            m = json.load(open(mp))
+        except Exception:
+            continue
+        it = m.get("input_tokens", 0)
+        ot = m.get("output_tokens", 0)
+        tc = m.get("turn_count", 0)
+        dr = m.get("documents_read", 0)
+        # crude: input per turn ~ avg resident context; ratio in/out shows how
+        # input-bound the task is.
+        rows.append((it, ot, tc, dr, task))
+    rows.sort(reverse=True)
+    tot = sum(r[0] for r in rows)
+    print(f"{'input_tok':>12} {'out_tok':>9} {'turns':>5} {'docs':>4} {'in/out':>6}  task")
+    for it, ot, tc, dr, task in rows:
+        ratio = (it / ot) if ot else 0
+        print(f"{it:>12,} {ot:>9,} {tc:>5} {dr:>4} {ratio:>6.0f}  {task[:64]}")
+    print(f"\nTOTAL input_tokens across {len(rows)} tasks: {tot:,}  (mean {tot//max(1,len(rows)):,})")
+
+
+def breakdown(substr):
+    cand = [d for d in glob.glob(os.path.join(ROOT, "*", "iter0"))
+            if substr in d]
+    if not cand:
+        print(f"no task dir matching '{substr}'")
+        return
+    tdir = cand[0]
+    task = tdir.split("/")[-2]
+    tpath = os.path.join(tdir, "transcript.jsonl")
+    print(f"== {task} ==")
+    # Track running estimate of resident "raw output" bytes (read/bash results).
+    resident_chars = 0
+    cum_in = 0
+    print(f"{'turn':>4} {'in_tok':>9} {'cum_in':>11} {'tools':<22} {'resultlen':>10}")
+    cur_turn = None
+    pending = []  # (name, reslen) within a turn
+    for line in open(tpath):
+        d = json.loads(line)
+        role = d.get("role")
+        if role == "assistant":
+            it = d.get("input_tokens") or 0
+            cum_in += it
+            tcs = d.get("tool_calls") or []
+            names = ",".join(t["name"] for t in tcs)
+            print(f"{d.get('turn'):>4} {it:>9,} {cum_in:>11,} {names:<22}")
+        elif role == "tool":
+            rl = len(d.get("result") or "")
+            nm = d.get("tool_name", "")
+            if rl > 2000:
+                print(f"{'':>4} {'':>9} {'':>11} {'  -> '+nm:<22} {rl:>10,}")
+    print(f"\ntotal input_tokens (sum per turn) = {cum_in:,}")
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        breakdown(sys.argv[1])
+    else:
+        rank_all()

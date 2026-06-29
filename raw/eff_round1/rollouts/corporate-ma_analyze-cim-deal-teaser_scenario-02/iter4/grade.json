@@ -1,0 +1,39 @@
+{
+ "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+ "ens_pass_rate": 0.8536585365853658,
+ "n_graded": 41,
+ "n_failed": 6,
+ "failed_criteria": [
+  {
+   "id": "C-018",
+   "title": "ISSUE_008: Flags disconnect between projected capex decline and revenue growth",
+   "match_criteria": "PASS if the memo identifies the disconnect between projected FY2025 capex of $4.5M (a 37.5% decline from FY2024's $7.2M) and simultaneous projected revenue growth of 12.8%, suggesting either capex deferral to boost cash flow or artificial classification of growth vs. maintenance capex. FAIL if this capex-revenue disconnect is not identified."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_009b: Notes Prewitt lacks employment agreement or non-compete",
+   "match_criteria": "PASS if the memo notes that Janet Prewitt has no employment agreement or non-compete. FAIL if the absence of an employment agreement or non-compete for Prewitt is not mentioned."
+  },
+  {
+   "id": "C-024",
+   "title": "ISSUE_011: Flags backlog composition ambiguity (firm vs. soft)",
+   "match_criteria": "PASS if the memo identifies that the CIM's $42.6M contracted backlog figure does not distinguish between firm backlog (fully executed contracts with defined scope) and soft backlog (LOIs, verbal commitments, unissued task orders), undermining the credibility of revenue projections. FAIL if the backlog ambiguity is not flagged."
+  },
+  {
+   "id": "C-027",
+   "title": "ISSUE_012: Flags Willamette Steel month-to-month arrangement",
+   "match_criteria": "PASS if the memo identifies that Willamette Steel Corp (#5 customer, $4.9M or 5.6% of revenue) has been on a month-to-month arrangement since 2023, contributing to revenue fragility. FAIL if the Willamette Steel month-to-month status is not mentioned."
+  },
+  {
+   "id": "C-029",
+   "title": "ISSUE_012: Quantifies revenue at risk from expired/expiring/at-will contracts",
+   "match_criteria": "PASS if the memo quantifies the combined revenue at risk from customers with expired (PNR $18.7M), expiring (Meridian $5.8M), or month-to-month (Willamette $4.9M) arrangements, totaling approximately $29-30M or roughly 34% of revenue. FAIL if the aggregate revenue at risk is not quantified."
+  },
+  {
+   "id": "C-038",
+   "title": "Correctly reports PFAS revenue trajectory (FY2022-FY2024)",
+   "match_criteria": "PASS if the memo reports at least two of the following three historical PFAS revenue figures within 10% of stated values: FY2022 ~$1.1M, FY2023 ~$3.4M, FY2024 ~$6.2M. FAIL if PFAS historical revenue is not referenced or fewer than two figures are within 10% of stated values."
+  }
+ ],
+ "error": null
+}

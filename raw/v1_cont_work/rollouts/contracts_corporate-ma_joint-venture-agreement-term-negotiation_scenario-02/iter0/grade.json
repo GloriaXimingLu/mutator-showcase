@@ -1,0 +1,74 @@
+{
+ "task": "contracts/corporate-ma/joint-venture-agreement-term-negotiation/scenario-02",
+ "ens_pass_rate": 0.7678571428571429,
+ "n_graded": 56,
+ "n_failed": 13,
+ "failed_criteria": [
+  {
+   "id": "C-007",
+   "title": "Deadlock buy-sell trigger limited to subset of most significant Reserved Matters",
+   "match_criteria": "PASS if the buy-sell trigger on deadlock is limited to a subset of the most significant Reserved Matters (not triggered by all operational disputes or all deadlocks). FAIL if any deadlock on any matter triggers a buy-sell right."
+  },
+  {
+   "id": "C-009",
+   "title": "Capital call window structured as advance notice period plus cure period",
+   "match_criteria": "PASS if the ~75-day total window is structured as two or more distinct periods (e.g., advance notice period plus cure period, or similar multi-step structure). FAIL if it is a single undifferentiated period."
+  },
+  {
+   "id": "C-012",
+   "title": "Minimum interest floor with put right",
+   "match_criteria": "PASS if the compromise includes a minimum interest floor (a specified percentage below which a non-funding member cannot be diluted) coupled with a put right allowing the non-funding member to sell its interest rather than being trapped in a de minimis position. FAIL if there is no minimum floor or no put right at the floor."
+  },
+  {
+   "id": "C-016",
+   "title": "Non-compete product scope includes pipeline products meeting R&D-spend threshold",
+   "match_criteria": "PASS if the product scope includes pipeline products that meet a defined R&D-spend threshold (not just products already sold at exit). FAIL if pipeline products are excluded entirely or included without any qualifying threshold."
+  },
+  {
+   "id": "C-018",
+   "title": "Non-compete geography defaults to North America (U.S., Canada, Mexico)",
+   "match_criteria": "PASS if the default geographic scope is North America (U.S., Canada, Mexico), consistent with Meridian's position per mkpoly-jva-v3-clean.docx. FAIL if the default geography is worldwide, or limited only to territories where JV had active sales (Kastor's position)."
+  },
+  {
+   "id": "C-019",
+   "title": "Non-compete includes product-by-product geographic narrowing mechanism",
+   "match_criteria": "PASS if the provision includes a product-by-product narrowing mechanism that limits geography for product lines sold in fewer than all three North American countries (a concession to Kastor). FAIL if the North America default applies uniformly to all products without narrowing."
+  },
+  {
+   "id": "C-023",
+   "title": "Appraiser selection mechanism: each party selects one, those two select a third",
+   "match_criteria": "PASS if the appraisal process includes a selection mechanism where, if the parties cannot agree on one appraiser, each selects one and those two select a third. FAIL if the mechanism is absent or uses a different process."
+  },
+  {
+   "id": "C-025",
+   "title": "Buy-sell includes shoot-out/Russian roulette mechanic",
+   "match_criteria": "PASS if the buy-sell provision includes a shoot-out (Russian roulette) mechanic where the triggering party names a price and the receiving party may elect to buy or sell at that price, providing bilateral price discipline. FAIL if no such mechanic is included."
+  },
+  {
+   "id": "C-032",
+   "title": "Sublicensing to controlled affiliates freely permitted within territory",
+   "match_criteria": "PASS if sublicenses to controlled affiliates are permitted freely within each party's licensed territory. FAIL if affiliate sublicensing requires consent or is prohibited."
+  },
+  {
+   "id": "C-033",
+   "title": "Third-party sublicensing requires other member's consent (not unreasonably withheld)",
+   "match_criteria": "PASS if sublicenses to third parties (non-affiliates) require the other member's consent, with such consent not to be unreasonably withheld. FAIL if third-party sublicensing is freely permitted or absolutely prohibited without a consent mechanism."
+  },
+  {
+   "id": "C-034",
+   "title": "Sole-discretion veto for sublicenses to Restricted Competitors",
+   "match_criteria": "PASS if the provision includes a sole-discretion veto (i.e., consent may be withheld for any reason) for sublicenses to 'Restricted Competitors' as defined on a schedule, addressing Cordero's red line that Kastor must not sublicense co-developed IP to Meridian's North American competitors per cordero-to-falk-internal-guidance.eml. FAIL if Restricted Competitors are not carved out for heightened consent requirements."
+  },
+  {
+   "id": "C-035",
+   "title": "Transitional cross-license for contributed IP in existing JV products at royalty rate",
+   "match_criteria": "PASS if the compromise includes a transitional cross-license for contributed IP embedded in existing JV products, at a royalty rate, for a defined wind-down period following dissolution or exit. FAIL if there is no transitional license for contributed IP (Meridian's position of automatic reversion with no transition) or if the transition license is royalty-free."
+  },
+  {
+   "id": "C-036",
+   "title": "Improvements to contributed IP treated as co-developed IP for license-back purposes",
+   "match_criteria": "PASS if the compromise addresses improvements to contributed IP made by the JV, specifically providing that improvements funded by the JV or the other member are treated as co-developed IP for license-back purposes (even though ownership stays with the contributor), per the improvements gap flagged in mkpoly-jva-v4-redline-tracked.docx. FAIL if improvements are not addressed or if all improvements belong solely to the contributor without license-back."
+  }
+ ],
+ "error": null
+}

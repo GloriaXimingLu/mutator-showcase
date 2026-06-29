@@ -1,0 +1,59 @@
+{
+ "task": "real-estate/draft-settlement-statement",
+ "ens_pass_rate": 0.8387096774193549,
+ "n_graded": 62,
+ "n_failed": 10,
+ "failed_criteria": [
+  {
+   "id": "C-004",
+   "title": "ISSUE_001: Delinquent tax interest correctly calculated at $2,558.40",
+   "match_criteria": "PASS if the settlement statement uses $2,558.40 as the delinquent tax interest amount (based on 6.5 months \u00d7 1.5%/month \u00d7 $26,240.00), NOT the $2,362.80 figure from the municipal payoff statement. FAIL if the agent uses $2,362.80 or any figure other than $2,558.40 (or a figure within $1 of $2,558.40 due to rounding)."
+  },
+  {
+   "id": "C-005",
+   "title": "ISSUE_001: Discrepancy in tax interest flagged in notes",
+   "match_criteria": "PASS if the notes memorandum identifies a discrepancy between the City of Bridgeport's stated delinquent tax interest ($2,362.80) and the agent's independently calculated figure ($2,558.40), explaining that the city used 6 months but the correct period is 6.5 months (January 2 through July 15, 2025). FAIL if no discrepancy is noted or the agent simply accepts the city's figure without question."
+  },
+  {
+   "id": "C-007",
+   "title": "Total delinquent taxes plus interest is $28,798.40 on seller side",
+   "match_criteria": "PASS if the total delinquent property tax obligation charged to the seller (principal plus interest) equals $28,798.40 ($26,240.00 + $2,558.40), whether shown as one combined line or two separate lines. FAIL if a different total is used."
+  },
+  {
+   "id": "C-008",
+   "title": "ISSUE_002: Residential security deposit interest of $270.02 included",
+   "match_criteria": "PASS if the settlement statement includes accrued interest on residential security deposits totaling $270.02 (or an amount within $1 of $270.02) as part of the security deposit transfer credit to the buyer, in addition to the $18,000.00 principal. FAIL if only the principal deposit amounts are transferred without any interest, or if interest is omitted entirely."
+  },
+  {
+   "id": "C-012",
+   "title": "Total security deposit transfer is $32,670.02",
+   "match_criteria": "PASS if the grand total security deposit transfer (residential principal $18,000 + residential interest $270.02 + commercial $14,400) equals $32,670.02 (or within $2 due to rounding). FAIL if the total is materially different."
+  },
+  {
+   "id": "C-034",
+   "title": "Seller's next-year property tax proration credit to buyer is $2,012.60",
+   "match_criteria": "PASS if the seller's share of the next fiscal year's (July 1, 2025 \u2013 June 30, 2026) property taxes is $2,012.60 (14/365 \u00d7 $52,480.00), shown as a credit to the buyer / charge to the seller. FAIL if the amount is materially different or the proration is omitted."
+  },
+  {
+   "id": "C-049",
+   "title": "Cash due from buyer at closing is approximately $1,083,294.84",
+   "match_criteria": "PASS if the total cash due from the buyer at closing is $1,083,294.84 (or within $20 of this figure, allowing for minor rounding differences). FAIL if the amount is materially different (more than $20 variance)."
+  },
+  {
+   "id": "C-050",
+   "title": "Net proceeds to seller approximately $2,864,198.55",
+   "match_criteria": "PASS if the net proceeds to the seller are $2,864,198.55 (or within $20 of this figure, allowing for minor rounding differences). FAIL if the amount is materially different (more than $20 variance)."
+  },
+  {
+   "id": "C-054",
+   "title": "Buyer's total credits approximately $2,884,472.16",
+   "match_criteria": "PASS if the total buyer credits are approximately $2,884,472.16 (within $50). FAIL if the total is materially different."
+  },
+  {
+   "id": "C-056",
+   "title": "Seller's total debits approximately $1,036,494.45",
+   "match_criteria": "PASS if the total seller debits/charges are approximately $1,036,494.45 (within $50). FAIL if the total is materially different."
+  }
+ ],
+ "error": null
+}

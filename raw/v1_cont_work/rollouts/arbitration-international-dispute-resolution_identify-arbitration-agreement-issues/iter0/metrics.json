@@ -1,0 +1,30 @@
+{
+  "model": "glm-5p2",
+  "task": "arbitration-international-dispute-resolution/identify-arbitration-agreement-issues",
+  "run_id": "cont_train_iter0/arbitration-international-dispute-resolution_identify-arbitration-agreement-issues__da39a3ee5e",
+  "turn_count": 33,
+  "input_tokens": 2784382,
+  "output_tokens": 60397,
+  "total_tokens": 2844779,
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "wall_clock_seconds": 799.14,
+  "finished_cleanly": true,
+  "completed_at": "2026-06-26T23:34:04.548284+00:00",
+  "documents_read": 5,
+  "documents_read_list": [
+    "hg-markup-summary.docx",
+    "internal-email-chain.eml",
+    "ip-license-agreement.docx",
+    "qa-side-letter.docx",
+    "supply-agreement-execution-draft.docx"
+  ],
+  "documents_skipped": 0,
+  "documents_skipped_list": [],
+  "total_documents": 5,
+  "bash_commands": 25,
+  "files_written": 2,
+  "files_edited": 5,
+  "glob_searches": 0,
+  "grep_searches": 0
+}

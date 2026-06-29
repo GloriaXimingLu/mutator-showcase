@@ -1,0 +1,24 @@
+{
+ "task": "litigation-dispute-resolution/draft-interrogatories",
+ "ens_pass_rate": 0.94,
+ "n_graded": 50,
+ "n_failed": 3,
+ "failed_criteria": [
+  {
+   "id": "C-010",
+   "title": "Definitions section defines 'You/Your' as Veridian",
+   "match_criteria": "PASS if the Definitions section defines 'You' and/or 'Your' to mean Veridian Health Systems, LLC, including its officers, directors, employees, agents, and representatives (or substantially similar scope). FAIL if 'You/Your' is not defined or does not encompass Veridian and its agents/employees."
+  },
+  {
+   "id": "C-015",
+   "title": "Definitions section defines 'Describe'",
+   "match_criteria": "PASS if the Definitions section includes a definition of 'Describe' requiring a detailed narrative or factual account. FAIL if 'Describe' is not defined in the Definitions section."
+  },
+  {
+   "id": "C-027",
+   "title": "Interrogatory re: document preservation / litigation hold",
+   "match_criteria": "PASS if at least one interrogatory asks Veridian to describe its document preservation efforts, including whether and when a litigation hold was issued, the scope of the hold, and/or what steps were taken to preserve electronically stored information (ESI). FAIL if no interrogatory addresses document preservation or litigation hold implementation."
+  }
+ ],
+ "error": null
+}

@@ -1,0 +1,19 @@
+{
+ "task": "trusts-estates-private-client/analyze-counterparty-markup-of-postnuptial-agreement",
+ "ens_pass_rate": 0.9565217391304348,
+ "n_graded": 46,
+ "n_failed": 2,
+ "failed_criteria": [
+  {
+   "id": "C-008",
+   "title": "Analyzes ISSUE_003: Asymmetric impact \u2014 appears to help Wife but actually limits her protection",
+   "match_criteria": "PASS if the memorandum explains that while the $200,000 threshold currently disqualifies Husband (who earns $305,000), the provision applies equally to both spouses. If Wife's income ever drops below $200,000 (reduced hours, medical leave, early retirement), she would receive only 3 years of maintenance. Given Wife is the higher earner at $487,000, this change primarily limits Husband's exposure while offering Wife little practical protection. FAIL if this asymmetric analysis is missing."
+  },
+  {
+   "id": "C-029",
+   "title": "Identifies ISSUE_012: Cumulative unconscionability risk under Illinois law",
+   "match_criteria": "PASS if the memorandum identifies that the cumulative effect of all or most of Husband's proposed changes could render the agreement vulnerable to an unconscionability challenge under Illinois law, specifically in the context of postnuptial agreements where heightened scrutiny applies due to the fiduciary relationship between spouses. FAIL if cumulative enforceability risk is not addressed."
+  }
+ ],
+ "error": null
+}

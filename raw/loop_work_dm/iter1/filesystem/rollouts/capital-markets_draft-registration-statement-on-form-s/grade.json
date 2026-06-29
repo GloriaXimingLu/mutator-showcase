@@ -1,0 +1,185 @@
+{
+ "task": "capital-markets/draft-registration-statement-on-form-s",
+ "ens_pass_rate": 0.8111111111111111,
+ "n_graded": 90,
+ "n_failed": 17,
+ "failed_criteria": [
+  {
+   "id": "C-008",
+   "title": "ISSUE_003: S-1 states whether company intends to rely on controlled company exemption",
+   "match_criteria": "PASS if the S-1 states whether the company intends to rely on the controlled company exemption. FAIL if the S-1 does not state the company's intention regarding reliance on the exemption."
+  },
+  {
+   "id": "C-016",
+   "title": "ISSUE_006: Flags preferred stock mezzanine classification issue",
+   "match_criteria": "PASS if the issues memorandum identifies that the CFO memo incorrectly refers to the $385.0M redeemable convertible preferred stock as part of 'total equity,' when it should be classified in mezzanine equity (between liabilities and stockholders' equity) on the historical balance sheet, and that the pro forma capitalization must show the reclassification upon IPO conversion. FAIL if this classification discrepancy is not flagged."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_007: S-1 discloses Section 409A exposure in risk factors or notes",
+   "match_criteria": "PASS if the S-1 includes disclosure (in risk factors, financial statement notes, or both) addressing the potential Section 409A issue with the Q1 2023 option grants, including the risk of excise tax penalties and/or any tax indemnification obligations. FAIL if the S-1 contains no disclosure of the 409A valuation concern."
+  },
+  {
+   "id": "C-021",
+   "title": "ISSUE_008: Addresses ESPP Section 423 qualification requirements",
+   "match_criteria": "PASS if either deliverable addresses the requirements for the 2024 ESPP to qualify under IRC Section 423, discussing at least two of the following: (a) maximum purchase discount of 15%, (b) $25,000 annual purchase limitation, (c) offering period limitation of no more than 27 months, (d) broad employee eligibility requirements. FAIL if Section 423 qualification requirements are not discussed in either deliverable."
+  },
+  {
+   "id": "C-023",
+   "title": "ISSUE_009: S-1 principal stockholders table addresses Aldersgate gap",
+   "match_criteria": "PASS if the S-1 principal stockholders table either (a) includes Aldersgate Capital with its current ownership if above 5%, (b) notes that Aldersgate's status needs to be confirmed, or (c) explicitly addresses the disposition of Aldersgate's Series B shares. FAIL if Aldersgate Capital's absence is not addressed at all in the principal stockholders discussion."
+  },
+  {
+   "id": "C-040",
+   "title": "S-1 includes Use of Proceeds section",
+   "match_criteria": "PASS if the S-1 includes a Use of Proceeds section stating estimated net proceeds at midpoint of approximately $331.8M (or $336.6M before offering expenses) and describes intended uses. FAIL if Use of Proceeds section is absent or states materially incorrect net proceeds figures."
+  },
+  {
+   "id": "C-041",
+   "title": "S-1 includes Capitalization table with actual and pro forma columns",
+   "match_criteria": "PASS if the S-1 includes a Capitalization section with a table showing at minimum an actual (historical) column and a pro forma as-adjusted (post-IPO) column. FAIL if the Capitalization section or table is absent or lacks both columns."
+  },
+  {
+   "id": "C-042",
+   "title": "S-1 Capitalization table includes key line items",
+   "match_criteria": "PASS if the S-1 Capitalization table includes line items for at least 4 of the following 5: cash, debt (term loan $40M), preferred stock ($385M), common stock/stockholders' equity, and total capitalization. FAIL if fewer than 4 of these line items are present."
+  },
+  {
+   "id": "C-052",
+   "title": "S-1 Management section lists CRO Chen with age and bio",
+   "match_criteria": "PASS if the S-1 Management section lists Chen (CRO) with age and biographical information. FAIL if Chen is omitted."
+  },
+  {
+   "id": "C-053",
+   "title": "S-1 Management section lists non-employee directors",
+   "match_criteria": "PASS if the S-1 Management section lists >=4 of the following 5 non-employee directors with ages and biographical information: Venkatesh, Moreno, Park, Kwon, Obi. FAIL if fewer than 4 are listed."
+  },
+  {
+   "id": "C-056",
+   "title": "S-1 Principal Stockholders table shows Ramaswamy and Litvak ownership",
+   "match_criteria": "PASS if the S-1 Principal Stockholders table shows pre- and post-IPO beneficial ownership for Ramaswamy (11.6% pre-IPO) and Litvak (9.2% pre-IPO). FAIL if either founder is omitted from the table."
+  },
+  {
+   "id": "C-061",
+   "title": "S-1 includes Shares Eligible for Future Sale section discussing lock-up and Rule 144",
+   "match_criteria": "PASS if the S-1 includes a section discussing shares eligible for future sale, including the 180-day lock-up period and Rule 144 restrictions. FAIL if this section is absent or omits both the lock-up period and Rule 144 discussion."
+  },
+  {
+   "id": "C-065",
+   "title": "S-1 includes Legal Matters section",
+   "match_criteria": "PASS if the S-1 includes a Legal Matters section identifying Thorncroft & Wexler LLP as issuer's counsel and Whitaker & Simms LLP as underwriters' counsel. FAIL if Legal Matters section is absent or omits counsel identification."
+  },
+  {
+   "id": "C-069",
+   "title": "Financial figures: Post-IPO shares outstanding correctly stated",
+   "match_criteria": "PASS if post-IPO shares outstanding (base, no over-allotment) is stated as approximately 102,416,667 shares (52,000,000 common + 35,416,667 preferred converting + 15,000,000 new shares). FAIL if a materially different figure is used (deviation >500,000 shares)."
+  },
+  {
+   "id": "C-071",
+   "title": "Financial figures: Gross proceeds at midpoint correctly stated as $360M",
+   "match_criteria": "PASS if gross proceeds at the midpoint price of $24.00 are stated as $360.0 million (15,000,000 \u00d7 $24.00). FAIL if a materially different gross proceeds figure is used."
+  },
+  {
+   "id": "C-074",
+   "title": "S-1 discloses the ESPP with 2,500,000 shares reserved",
+   "match_criteria": "PASS if the S-1 discloses the 2024 Employee Stock Purchase Plan with 2,500,000 shares reserved, intended to qualify under IRC Section 423, becoming effective upon IPO. FAIL if the ESPP is not disclosed."
+  },
+  {
+   "id": "C-075",
+   "title": "S-1 discloses term loan details",
+   "match_criteria": "PASS if the S-1 discloses the $50M term loan facility with Silicon Valley Credit Partners ($40M drawn), maturing December 2027, bearing interest at SOFR + 3.25%, with financial covenants (minimum liquidity $30M and ARR-based leverage ratio \u2264 2.0x). FAIL if the term loan is not disclosed or key terms are materially misstated."
+  }
+ ],
+ "per_criterion": {
+  "C-001": "pass",
+  "C-002": "pass",
+  "C-003": "pass",
+  "C-004": "pass",
+  "C-005": "pass",
+  "C-006": "pass",
+  "C-007": "pass",
+  "C-008": "fail",
+  "C-009": "pass",
+  "C-010": "pass",
+  "C-011": "pass",
+  "C-012": "pass",
+  "C-013": "pass",
+  "C-014": "pass",
+  "C-015": "pass",
+  "C-016": "fail",
+  "C-017": "pass",
+  "C-018": "pass",
+  "C-019": "pass",
+  "C-020": "fail",
+  "C-021": "fail",
+  "C-022": "pass",
+  "C-023": "fail",
+  "C-024": "pass",
+  "C-025": "pass",
+  "C-026": "pass",
+  "C-027": "pass",
+  "C-028": "pass",
+  "C-029": "pass",
+  "C-030": "pass",
+  "C-031": "pass",
+  "C-032": "pass",
+  "C-033": "pass",
+  "C-034": "pass",
+  "C-035": "pass",
+  "C-036": "pass",
+  "C-037": "pass",
+  "C-038": "pass",
+  "C-039": "pass",
+  "C-040": "fail",
+  "C-041": "fail",
+  "C-042": "fail",
+  "C-043": "pass",
+  "C-044": "pass",
+  "C-045": "pass",
+  "C-046": "pass",
+  "C-047": "pass",
+  "C-048": "pass",
+  "C-049": "pass",
+  "C-050": "pass",
+  "C-051": "pass",
+  "C-052": "fail",
+  "C-053": "fail",
+  "C-054": "pass",
+  "C-055": "pass",
+  "C-056": "fail",
+  "C-057": "pass",
+  "C-058": "pass",
+  "C-059": "pass",
+  "C-060": "pass",
+  "C-061": "fail",
+  "C-062": "pass",
+  "C-063": "pass",
+  "C-064": "pass",
+  "C-065": "fail",
+  "C-066": "pass",
+  "C-067": "pass",
+  "C-068": "pass",
+  "C-069": "fail",
+  "C-070": "pass",
+  "C-071": "fail",
+  "C-072": "pass",
+  "C-073": "pass",
+  "C-074": "fail",
+  "C-075": "fail",
+  "C-076": "pass",
+  "C-077": "pass",
+  "C-078": "pass",
+  "C-079": "pass",
+  "C-080": "pass",
+  "C-081": "pass",
+  "C-082": "pass",
+  "C-083": "pass",
+  "C-084": "pass",
+  "C-085": "pass",
+  "C-086": "pass",
+  "C-087": "pass",
+  "C-088": "pass",
+  "C-089": "pass",
+  "C-090": "pass"
+ }
+}

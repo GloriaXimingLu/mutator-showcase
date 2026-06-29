@@ -1,0 +1,13 @@
+2026-06-25 01:16:19,181 - nanorollout.runner - INFO - [harvey-mutator-v0] Starting environment: docker
+2026-06-25 01:16:20,459 - nanorollout.runner - INFO - [harvey-mutator-v0] Running harvey-mutator-claude-v0
+2026-06-25 01:17:32,462 - nanorollout.runner - INFO - [harvey-mutator-v0] Running eval
+{
+  "exit_status": "finished",
+  "structural_gate_pass": true,
+  "mutated_workspace": "/home/ubuntu/mutator_run1/filesystem",
+  "trace_messages": 30,
+  "output_dir": "/home/ubuntu/mutator_run1"
+}
+
+Mutated workspace: /home/ubuntu/mutator_run1/filesystem
+Inspect the edit:  diff -ru /home/ubuntu/ttt-nanorollout/nanorollout/adapters/outer_loop/seed_workspace /home/ubuntu/mutator_run1/filesystem

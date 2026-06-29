@@ -1,0 +1,1 @@
+- [Coverage Ledger method](coverage-ledger-method.md) — v0 skill edit; generic ledger + compute/cite/verdict/scoping discipline targets the omissions failure mode

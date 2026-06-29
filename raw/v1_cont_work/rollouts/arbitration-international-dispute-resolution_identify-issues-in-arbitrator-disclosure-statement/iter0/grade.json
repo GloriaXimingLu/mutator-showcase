@@ -1,0 +1,24 @@
+{
+ "task": "arbitration-international-dispute-resolution/identify-issues-in-arbitrator-disclosure-statement",
+ "ens_pass_rate": 0.9210526315789473,
+ "n_graded": 38,
+ "n_failed": 3,
+ "failed_criteria": [
+  {
+   "id": "C-021",
+   "title": "ISSUE_009: Raises prejudgment risk from subject matter expertise combined with CLE",
+   "match_criteria": "PASS if the memo discusses the risk that Fairhaven may have pre-formed views on key legal issues in this arbitration, based on the combination of her subject matter credentials (LL.M. in IP or Technology Case Management panel membership) and her CLE co-panelist appearance on the topic of IP licensing disputes in arbitration. FAIL if the memo does not raise the prejudgment or pre-formed views concern."
+  },
+  {
+   "id": "C-022",
+   "title": "ISSUE_009: Notes disclosure does not address prior published or expressed views",
+   "match_criteria": "PASS if the memo notes that Fairhaven's disclosure does not address whether she has published or expressed views on legal theories relevant to this arbitration. FAIL if the memo does not flag the absence of disclosure regarding prior published or expressed views."
+  },
+  {
+   "id": "C-023",
+   "title": "ISSUE_009: References IBA Guidelines Orange List \u00b6 3.5.2 or equivalent standard",
+   "match_criteria": "PASS if the memo references the IBA Guidelines Orange List (\u00b6 3.5.2 or similar provision) regarding an arbitrator who has publicly expressed legal opinions on issues in the arbitration, or references another applicable standard requiring disclosure of prior public statements on issues at stake. FAIL if no standard is cited for the prejudgment risk concern."
+  }
+ ],
+ "error": null
+}

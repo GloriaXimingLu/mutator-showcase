@@ -1,0 +1,34 @@
+{
+ "task": "litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice",
+ "ens_pass_rate": 0.8979591836734694,
+ "n_graded": 49,
+ "n_failed": 5,
+ "failed_criteria": [
+  {
+   "id": "C-003",
+   "title": "Calculates Barros dollar impact as $21,375.00",
+   "match_criteria": "PASS if the memo states that Nina Barros's time at risk is $21,375.00 (45.0 hours \u00d7 $475/hr). FAIL if this amount is not calculated or is materially incorrect."
+  },
+  {
+   "id": "C-009",
+   "title": "Calculates Sengupta dollar impact as $10,312.50",
+   "match_criteria": "PASS if the memo states Priya Sengupta's time at risk is $10,312.50 (27.5 hours \u00d7 $375/hr). FAIL if this amount is not calculated or is materially incorrect."
+  },
+  {
+   "id": "C-012",
+   "title": "Calculates Tate rate overcharge as $1,200.00",
+   "match_criteria": "PASS if the memo calculates the Tate rate reduction as $1,200.00 ($10/hr overcharge \u00d7 120 hours). FAIL if the reduction amount is not stated or is materially incorrect."
+  },
+  {
+   "id": "C-034",
+   "title": "Calculates Hargrove's excess hours and fee impact",
+   "match_criteria": "PASS if the memo calculates the excess as 13.5 hours above the 25-hour cap, representing approximately $13,297.50 in fees above the plan ceiling. FAIL if no calculation of excess hours or dollar impact is provided."
+  },
+  {
+   "id": "C-049",
+   "title": "Calculates budget overage percentage as approximately 17%",
+   "match_criteria": "PASS if the memo calculates the percentage by which the attorney fee subtotal ($193,372.50) exceeds the approved budget ceiling ($165,000) as approximately 17% (exact figure is 17.2%). FAIL if no percentage overage calculation is provided or if the percentage stated is materially incorrect (off by more than 2 percentage points)."
+  }
+ ],
+ "error": null
+}

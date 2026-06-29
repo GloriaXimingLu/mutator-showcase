@@ -1,0 +1,59 @@
+{
+ "task": "real-estate/draft-development-agreement",
+ "ens_pass_rate": 0.9038461538461539,
+ "n_graded": 104,
+ "n_failed": 10,
+ "failed_criteria": [
+  {
+   "id": "C-002",
+   "title": "ISSUE_001: Percentage (20%) is the controlling affordable housing standard",
+   "match_criteria": "PASS if the draft establishes the 20% percentage as the controlling standard for affordable housing (not a fixed unit count), so that if unit counts change during design development the affordable obligation adjusts proportionally. FAIL if the draft uses only a fixed unit count (e.g., 100 or 106 units) without tying it to the 20% percentage."
+  },
+  {
+   "id": "C-003",
+   "title": "ISSUE_001: Recalculation mechanism if unit counts change",
+   "match_criteria": "PASS if the draft includes a mechanism or provision for recalculating the number of required affordable units if total residential unit counts change during design development or phase rescoping. FAIL if there is no such recalculation mechanism."
+  },
+  {
+   "id": "C-005",
+   "title": "ISSUE_002: Allocates who performs remediation",
+   "match_criteria": "PASS if the draft assigns responsibility for performing the environmental remediation work (whether Developer, City, or a third party) for Parcel 016 (petroleum hydrocarbon contamination) and Parcel 017 (engineered barrier). FAIL if the draft is silent on who performs remediation."
+  },
+  {
+   "id": "C-027",
+   "title": "ISSUE_009: Identifies LEED certification timing vs. Substantial Completion",
+   "match_criteria": "PASS if the draft identifies the issue that LEED Gold certification (Resolution condition #6) typically occurs months after building completion due to post-construction verification, and that tying LEED certification to Substantial Completion could disrupt the phasing timeline (since the next phase's commencement deadline runs from Substantial Completion). FAIL if this timing issue is not identified."
+  },
+  {
+   "id": "C-029",
+   "title": "ISSUE_009: Separate LEED certification deadline post-completion",
+   "match_criteria": "PASS if the draft establishes a separate deadline for achieving LEED Gold certification after Substantial Completion (e.g., 12 months post-Substantial Completion or similar reasonable period). FAIL if there is no separate LEED certification deadline."
+  },
+  {
+   "id": "C-030",
+   "title": "ISSUE_009: Consequences for failure to achieve LEED Gold",
+   "match_criteria": "PASS if the draft specifies consequences for failure to achieve LEED Gold certification (e.g., cure periods, acceptance of alternative certifications/equivalents, financial penalties, or liquidated damages). FAIL if no consequences are specified."
+  },
+  {
+   "id": "C-035",
+   "title": "ISSUE_011: Clarifies force majeure cap application (per-phase)",
+   "match_criteria": "PASS if the draft clarifies that the force majeure extension cap applies on a per-phase basis (or otherwise addresses the cascading delay risk across phases), rather than leaving an ambiguous project-wide aggregate cap. FAIL if the draft simply recites '18-month aggregate' without clarifying per-phase vs. project-wide application."
+  },
+  {
+   "id": "C-037",
+   "title": "ISSUE_012: Identifies tax abatement limited to Phase I only",
+   "match_criteria": "PASS if the draft identifies or flags that the property tax abatement (75%/50%/25% over 12 years) applies only to Phase I improvements, creating a financing asymmetry for Phases II-IV which bear full property tax burden from completion. FAIL if this limitation is not identified or flagged."
+  },
+  {
+   "id": "C-038",
+   "title": "ISSUE_012: Addresses abatement asymmetry for later phases",
+   "match_criteria": "PASS if the draft includes a provision addressing the tax abatement asymmetry \u2014 such as requiring the City to consider in good faith extending abatement to later phases, acknowledging that TIF reimbursement is expected to offset the absence of abatement for later phases, or otherwise flagging this as an open negotiation point. FAIL if the abatement is limited to Phase I with no acknowledgment of the asymmetry or any provision regarding later phases."
+  },
+  {
+   "id": "C-073",
+   "title": "Includes equity demonstration requirement ($85M within 60 days)",
+   "match_criteria": "PASS if the draft includes a requirement that Developer demonstrate committed equity of at least $85,000,000 within 60 days of the resolution (i.e., by approximately April 19, 2025), consistent with Resolution condition #1. FAIL if this requirement is omitted or the amount/timeline is incorrect."
+  }
+ ],
+ "error": null
+}

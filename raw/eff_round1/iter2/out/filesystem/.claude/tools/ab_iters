@@ -1,0 +1,81 @@
+#!/usr/bin/env python3
+"""ab_iters — free A/B of bare (iter0) vs an edited iter (iterN) across TRAIN.
+
+Every train task dir under rollouts/<task>/ holds iter0 (BARE baseline) and, once
+an edit is harvested, iter1/iter2/... Each iter has metrics.json (input_tokens,
+turn_count) and grade.json (ens_pass_rate). This tool joins them so you can SEE,
+for free, what a committed/harvested edit actually did to BOTH cost and accuracy
+on the train pool — before spending a dollar on run_harvey or dev_eval.
+
+Usage:
+  ab_iters              # compare iter1 vs iter0 (default)
+  ab_iters 2            # compare iter2 vs iter0
+  ab_iters 2 1          # compare iter2 vs iter1
+
+Reads only rollouts/**; writes nothing. THRASH = >=2x bare turns or tokens;
+watch = 1.5-2x. mean dAcc is the (noisy, 1-rollout) accuracy signal — the dev
+gate is the real verdict, but this localizes WHERE an edit helps/hurts.
+"""
+import json, sys, glob, os
+
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "rollouts"))
+
+
+def load(task, it):
+    base = os.path.join(ROOT, task, it)
+    mp, gp = os.path.join(base, "metrics.json"), os.path.join(base, "grade.json")
+    if not os.path.exists(mp):
+        return None
+    m = json.load(open(mp))
+    acc = None
+    if os.path.exists(gp):
+        try:
+            acc = json.load(open(gp)).get("ens_pass_rate")
+        except Exception:
+            pass
+    return {"in": m.get("input_tokens", 0), "tn": m.get("turn_count", 0), "acc": acc}
+
+
+def main():
+    new = "iter" + (sys.argv[1] if len(sys.argv) > 1 else "1")
+    base = "iter" + (sys.argv[2] if len(sys.argv) > 2 else "0")
+    rows = []
+    for d in sorted(glob.glob(os.path.join(ROOT, "*", ""))):
+        task = os.path.basename(d.rstrip("/"))
+        if task == "_stats":
+            continue
+        b, n = load(task, base), load(task, new)
+        if not b or not n:
+            continue
+        rows.append((task, b, n))
+    if not rows:
+        print(f"no tasks with both {base} and {new}")
+        return
+    print(f"comparing {new} vs {base}  ({len(rows)} tasks)\n")
+    print(f"{'task':50} {'in_'+base:>10} {'in_'+new:>10} {'tok%':>6} "
+          f"{'tn':>7} {'dAcc':>7}  flag")
+    ti_b = ti_n = da_sum = 0
+    n_acc = thrash = watch = 0
+    for task, b, n in rows:
+        pct = (n["in"] - b["in"]) / b["in"] * 100 if b["in"] else 0
+        ti_b += b["in"]; ti_n += n["in"]
+        da = ""
+        if b["acc"] is not None and n["acc"] is not None:
+            d = n["acc"] - b["acc"]; da = f"{d:+.3f}"; da_sum += d; n_acc += 1
+        flag = ""
+        if n["in"] >= 2 * b["in"] or n["tn"] >= 2 * b["tn"]:
+            flag = "THRASH"; thrash += 1
+        elif n["in"] >= 1.5 * b["in"] or n["tn"] >= 1.5 * b["tn"]:
+            flag = "watch"; watch += 1
+        print(f"{task[:50]:50} {b['in']:>10,} {n['in']:>10,} {pct:>5.0f}% "
+              f"{b['tn']:>3}->{n['tn']:<3} {da:>7}  {flag}")
+    print()
+    print(f"TOTAL input  {base}={ti_b:,}  {new}={ti_n:,}  "
+          f"change = {(ti_n - ti_b) / ti_b * 100:+.1f}%")
+    if n_acc:
+        print(f"mean dAcc over {n_acc} graded = {da_sum / n_acc:+.4f}")
+    print(f"THRASH={thrash}  watch={watch}")
+
+
+if __name__ == "__main__":
+    main()

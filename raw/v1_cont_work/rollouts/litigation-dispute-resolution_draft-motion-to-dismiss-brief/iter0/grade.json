@@ -1,0 +1,69 @@
+{
+ "task": "litigation-dispute-resolution/draft-motion-to-dismiss-brief",
+ "ens_pass_rate": 0.8651685393258427,
+ "n_graded": 89,
+ "n_failed": 12,
+ "failed_criteria": [
+  {
+   "id": "C-007",
+   "title": "Motion brief \u2014 table of contents included",
+   "match_criteria": "PASS if the motion brief includes a table of contents listing the major sections/headings of the brief. FAIL if no table of contents is present."
+  },
+  {
+   "id": "C-008",
+   "title": "Motion brief \u2014 table of authorities included",
+   "match_criteria": "PASS if the motion brief includes a table of authorities listing cases, statutes, and other legal authorities cited. FAIL if no table of authorities is present."
+  },
+  {
+   "id": "C-019",
+   "title": "ISSUE_002 \u2014 Identifies FAC's failure to name specific individuals",
+   "match_criteria": "PASS if the motion brief argues that the FAC fails Rule 9(b) in part because it attributes statements generically to 'Meridian's sales team' or similar group pleading rather than identifying specific individuals who made the alleged misrepresentations. FAIL if this specificity deficiency is not raised."
+  },
+  {
+   "id": "C-027",
+   "title": "ISSUE_004 \u2014 Exploits FAC/$30M infrastructure contradiction",
+   "match_criteria": "PASS if the motion brief identifies and exploits the contradiction between the FAC's own allegation that Arcadia has 'substantial infrastructure investments exceeding $30 million' (suggesting assets exceed $25 million) and/or the contradiction with Arcadia's DTPA reply letter claiming only $23.8 million in assets. FAIL if neither the FAC's $30 million allegation nor the inconsistency with the $23.8 million figure is used to support the \u00a7 17.49(f) argument."
+  },
+  {
+   "id": "C-041",
+   "title": "ISSUE_010 \u2014 Causation deficiency re: Linden Park responsibility",
+   "match_criteria": "PASS if the motion brief argues that the FAC fails to adequately plead that Meridian (rather than Linden Park Consulting or Arcadia itself) was the proximate cause of the alleged damages, noting that SOW-1 Section 3.2 allocated data migration responsibility to Arcadia and that many implementation failures are attributable to Linden Park. FAIL if the third-party causation / Linden Park argument is not raised."
+  },
+  {
+   "id": "C-043",
+   "title": "ISSUE_010 \u2014 References CO-004 as evidence of Linden Park errors",
+   "match_criteria": "PASS if the motion brief references Change Order CO-004 ($900,000 for data remediation) as evidence that the implementation failures were caused by Linden Park's data migration errors, not by Meridian's software or services. FAIL if CO-004 is not cited in this context."
+  },
+  {
+   "id": "C-044",
+   "title": "ISSUE_010 \u2014 Notes FAC's failure to name Linden Park",
+   "match_criteria": "PASS if the motion brief argues or notes that the FAC attributes all implementation failures to 'Meridian and its agents' without acknowledging or naming Linden Park Consulting as Arcadia's own independently retained third-party integrator. FAIL if this omission from the FAC is not highlighted."
+  },
+  {
+   "id": "C-045",
+   "title": "ISSUE_010 \u2014 References Arcadia's own delays contributing to Go-Live delay",
+   "match_criteria": "PASS if the motion brief identifies Arcadia's own contributing failures, including the 45-day Project Manager gap (Kevin Liu's departure) and/or the 75-day late API specifications, as causes of the Go-Live delay. FAIL if Arcadia's own contributory delays are not mentioned."
+  },
+  {
+   "id": "C-054",
+   "title": "Motion brief \u2014 references Schreiber memo to undermine reliance",
+   "match_criteria": "PASS if the motion brief references Martin Schreiber's internal due diligence memo (acknowledging 'Integration complexity is manageable but will require a skilled SI partner') as evidence that Arcadia conducted its own investigation and was aware of implementation complexities. FAIL if the Schreiber memo is not cited."
+  },
+  {
+   "id": "C-058",
+   "title": "Motion brief \u2014 no oral modifications clause (Section 12.3) cited",
+   "match_criteria": "PASS if the motion brief references Section 12.3 (No Oral Modifications) as supporting the argument that pre-sale oral statements cannot modify or supplement the written agreement. FAIL if Section 12.3 is not cited."
+  },
+  {
+   "id": "C-075",
+   "title": "Factual accuracy \u2014 47 support tickets breakdown correct",
+   "match_criteria": "PASS if the motion brief references the support ticket data with substantially correct figures (e.g., 47 total tickets, 31 resolved within SLA, 12 related to data quality/Linden Park Consulting, 4 software defects patched). FAIL if the ticket data is cited but materially misstated."
+  },
+  {
+   "id": "C-082",
+   "title": "Motion brief \u2014 references negotiation emails showing Arcadia's awareness",
+   "match_criteria": "PASS if the motion brief references the contract negotiation email chain (Exhibit D / Bates Nos. MCS-00004217 through MCS-00004248) showing that Arcadia's counsel (Jonathan Breckenridge of Wexford Hale LLP) attempted to negotiate removal of the consequential damages waiver and expanded warranty terms, demonstrating Arcadia's awareness and acceptance of the contractual risk allocation. FAIL if the negotiation history is not cited."
+  }
+ ],
+ "error": null
+}

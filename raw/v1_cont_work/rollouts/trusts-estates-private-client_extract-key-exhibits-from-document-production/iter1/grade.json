@@ -1,0 +1,64 @@
+{
+ "task": "trusts-estates-private-client/extract-key-exhibits-from-document-production",
+ "ens_pass_rate": 0.8166666666666667,
+ "n_graded": 60,
+ "n_failed": 11,
+ "failed_criteria": [
+  {
+   "id": "C-015",
+   "title": "ISSUE_004: States rental property equity of approximately $123,300",
+   "match_criteria": "PASS if the memo calculates or states the equity in the Elm Street rental property as approximately $123,300 ($365,000 estimated value minus $241,700 mortgage balance). FAIL if the equity figure is missing or materially incorrect (more than $5,000 off from $123,300)."
+  },
+  {
+   "id": "C-017",
+   "title": "ISSUE_005: Identifies $23,400 in luxury spending (May\u2013Aug 2024) as potential dissipation",
+   "match_criteria": "PASS if the memo identifies approximately $23,400 in luxury spending from credit card statements between May and August 2024 and flags it as potential dissipation of marital assets. FAIL if the luxury spending total is not mentioned or not flagged as dissipation."
+  },
+  {
+   "id": "C-027",
+   "title": "ISSUE_009: Flags Darren's ability to set own compensation at NovaBridge",
+   "match_criteria": "PASS if the memo notes that Darren, as 60% majority member of NovaBridge, has the ability to set his own compensation (per the operating agreement or manager discretion) without independent oversight, and flags this as a concern for income determination. FAIL if self-set compensation is not mentioned as an issue."
+  },
+  {
+   "id": "C-028",
+   "title": "ISSUE_009: Discusses scrutiny of owner compensation against market benchmarks",
+   "match_criteria": "PASS if the memo discusses or recommends that Darren's $185,000 W-2 salary should be evaluated against industry or market benchmarks for a CTO of a similarly-sized software consulting firm, as courts scrutinize owner-employee compensation in divorce cases. FAIL if there is no mention of benchmarking or scrutinizing the reasonableness of Darren's salary."
+  },
+  {
+   "id": "C-029",
+   "title": "ISSUE_010: Identifies retained earnings of $193,200 as potential marital asset or imputed income",
+   "match_criteria": "PASS if the memo identifies that NovaBridge retained $193,200 of Darren's allocated K-1 income in 2023 ($367,200 allocated minus $174,000 distributed) and discusses whether these retained earnings should be treated as a marital asset for equitable distribution or imputed as income for support purposes. FAIL if retained earnings are not discussed as a separate issue from the income understatement."
+  },
+  {
+   "id": "C-030",
+   "title": "ISSUE_010: Notes risk of double-counting retained earnings",
+   "match_criteria": "PASS if the memo notes (even briefly) the risk of double-counting \u2014 that retained earnings captured in the business valuation should not also be counted as income for support, or vice versa. FAIL if no mention is made of avoiding double-counting between business valuation and income imputation."
+  },
+  {
+   "id": "C-042",
+   "title": "Asset summary includes rental property at 1035 Elm Street",
+   "match_criteria": "PASS if the marital asset summary includes the rental property at 1035 Elm Street with equity of approximately $123,300. FAIL if the rental property is omitted from the asset summary."
+  },
+  {
+   "id": "C-052",
+   "title": "Correctly states total real property equity as approximately $619,900",
+   "match_criteria": "PASS if the memo calculates or states total real property equity as approximately $619,900 ($496,600 marital home + $123,300 rental property). FAIL if total real property equity is not computed or is materially incorrect (more than $10,000 off)."
+  },
+  {
+   "id": "C-053",
+   "title": "Correctly states Elm Street mortgage balance as $241,700",
+   "match_criteria": "PASS if the memo states the Elm Street rental property mortgage balance as $241,700. FAIL if this figure is missing or materially incorrect."
+  },
+  {
+   "id": "C-054",
+   "title": "Notes NovaBridge was formed during marriage (January 15, 2016)",
+   "match_criteria": "PASS if the memo notes that NovaBridge Solutions LLC was formed during the marriage (on or around January 15, 2016), establishing it as a marital asset. FAIL if the formation date is not mentioned or the marital character of the business is not addressed."
+  },
+  {
+   "id": "C-055",
+   "title": "Identifies Sapphire Sky Travel charge on credit card as trip Melinda did not attend",
+   "match_criteria": "PASS if the memo notes or implies that the Sapphire Sky Travel expenditure represents a trip that was not a joint marital expense (e.g., Melinda did not participate, or it appears to be a personal trip by Darren alone). FAIL if the travel charge is mentioned but no indication is given that it was not a shared marital expense."
+  }
+ ],
+ "error": null
+}

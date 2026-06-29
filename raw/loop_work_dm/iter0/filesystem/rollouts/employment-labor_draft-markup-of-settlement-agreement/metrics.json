@@ -1,0 +1,30 @@
+{
+  "model": "glm-5p2",
+  "task": "employment-labor/draft-markup-of-settlement-agreement",
+  "run_id": "dm_train_iter0/employment-labor_draft-markup-of-settlement-agreement__5d76f67847",
+  "turn_count": 47,
+  "input_tokens": 3975163,
+  "output_tokens": 99250,
+  "total_tokens": 4074413,
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "wall_clock_seconds": 934.31,
+  "finished_cleanly": true,
+  "completed_at": "2026-06-26T00:31:29.574686+00:00",
+  "documents_read": 5,
+  "documents_read_list": [
+    "draft-settlement-agreement.docx",
+    "delano-employment-summary.xlsx",
+    "/workspace/skills/docx/scripts/redline.py",
+    "/workspace/skills/docx/scripts/generate_from_md.py",
+    "/workspace/output/cover-memo-to-gc.md"
+  ],
+  "documents_skipped": 0,
+  "documents_skipped_list": [],
+  "total_documents": 2,
+  "bash_commands": 38,
+  "files_written": 3,
+  "files_edited": 3,
+  "glob_searches": 0,
+  "grep_searches": 0
+}

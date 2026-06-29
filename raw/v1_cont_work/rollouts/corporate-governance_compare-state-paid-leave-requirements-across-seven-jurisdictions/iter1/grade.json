@@ -1,0 +1,49 @@
+{
+ "task": "corporate-governance/compare-state-paid-leave-requirements-across-seven-jurisdictions",
+ "ens_pass_rate": 0.8666666666666667,
+ "n_graded": 60,
+ "n_failed": 8,
+ "failed_criteria": [
+  {
+   "id": "C-006",
+   "title": "ISSUE_002: Matrix includes waiting period comparison across all seven states",
+   "match_criteria": "PASS if the compliance matrix includes a row or dimension for sick leave waiting period/eligibility to use, comparing the company's 120-day policy against the requirements of all seven jurisdictions. FAIL if the waiting period dimension is absent from the matrix."
+  },
+  {
+   "id": "C-009",
+   "title": "ISSUE_003: Discusses frontloading as an alternative compliance approach",
+   "match_criteria": "PASS if the memo mentions frontloading of sick leave at the beginning of the year as a permissible alternative to carryover in some jurisdictions, explaining that employers who frontload the full amount may not be required to allow carryover. FAIL if frontloading is not mentioned as an alternative compliance strategy."
+  },
+  {
+   "id": "C-021",
+   "title": "ISSUE_008: Identifies 2-day doctor's note threshold as non-compliant in NJ",
+   "match_criteria": "PASS if the memo identifies that requiring a doctor's note for sick leave absences exceeding 2 consecutive days violates New Jersey's Earned Sick Leave Act, which limits employer documentation requests to absences of 3 or more consecutive days. FAIL if this NJ-specific documentation threshold issue is not identified."
+  },
+  {
+   "id": "C-022",
+   "title": "ISSUE_008: Notes documentation restrictions in other states beyond NJ",
+   "match_criteria": "PASS if the memo notes that other states besides NJ also restrict when employers may require medical documentation for sick leave use (e.g., Oregon restricts verification requests, NY guidance discourages excessive documentation). FAIL if the documentation issue is flagged only for NJ without mentioning potential issues in other jurisdictions."
+  },
+  {
+   "id": "C-033",
+   "title": "ISSUE_013: References internal email about CO remote employees asking about PTO payout",
+   "match_criteria": "PASS if the memo references the internal email thread where Marcus Delgado flagged that three Colorado employees being hired as remote workers before the facility opens have asked about PTO payout on termination under CO law. FAIL if the email evidence of the CO PTO payout concern is not referenced."
+  },
+  {
+   "id": "C-034",
+   "title": "ISSUE_013: Matrix includes PTO payout on separation comparison across all seven states",
+   "match_criteria": "PASS if the compliance matrix includes a dimension for PTO/vacation payout upon separation, comparing the company's current policy against requirements in all seven jurisdictions. FAIL if PTO payout on separation is absent from the matrix."
+  },
+  {
+   "id": "C-054",
+   "title": "Both deliverables are produced",
+   "match_criteria": "PASS if the agent produces both a compliance matrix (multi-state-compliance-matrix.xlsx) and a gap analysis memo (gap-analysis-memo.docx). FAIL if either deliverable is missing."
+  },
+  {
+   "id": "C-059",
+   "title": "Memo addresses the pending NJ DOL complaint as requiring immediate action",
+   "match_criteria": "PASS if the memo identifies the pending NJ DOL complaint (Carla Mu\u00f1oz, Case No. NJ-ESL-2025-04117) as requiring immediate/urgent action in the remediation plan, separate from the broader policy revision project. FAIL if the complaint is not mentioned in the remediation plan or is not flagged as requiring immediate attention."
+  }
+ ],
+ "error": null
+}

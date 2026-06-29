@@ -1,0 +1,39 @@
+dev_score=0.817054   ACCURACY GATE (mean ENSEMBLE pass-rate over 30/30 dev tasks)
+cost: mean_input_tokens=3221029  mean_total_tokens=3280636  mean_turns=30   <- the EFFICIENCY objective
+COMMIT only if ALL THREE hold: dev_score >= bare-noise (accuracy, HARD) AND mean_input_tokens clearly below bare (cost) AND no per-task THRASH below (a >=2x re-fetch loop is a reject). bare baseline: rollouts/_stats/dev_baseline.json.
+THRASH CHECK: 3 task(s) at 1.5-2x bare (watch, not yet thrash).
+  (turns AND tokens up = re-fetch LOOP -> fix; tokens up with turns ~flat = one-time re-read -> weigh vs savings)
+  watch  turns=1.3x tokens=1.6x  tax/extract-tax-attributes-from-audited-financial-statements
+  watch  turns=1.5x tokens=1.5x  intellectual-property/identify-weaknesses-in-counterpartys-summary-judgment-brief
+  watch  turns=1.2x tokens=1.5x  data-privacy-cybersecurity/extract-document-requests-from-regulatory-inquiry-letter
+  acc=0.883  in_tok=1831781  turns=23  antitrust-competition/draft-pre-notification-briefing-paper
+  acc=0.809  in_tok=1928771  turns=19  capital-markets/draft-comfort-letter-request
+  acc=0.906  in_tok=6344320  turns=66  contracts/banking/isda-confirmation-counterparty-paper-review
+  acc=0.927  in_tok=2541485  turns=24  contracts/banking/isda-master-pack-term-negotiation/scenario-02
+  acc=0.865  in_tok=2867894  turns=23  contracts/commercial-channel-partnerships/strategic-partnership-co-sell-term-negotiation/scenario-03
+  acc=0.990  in_tok=4262748  turns=45  contracts/commercial-vendor-customer/master-services-agreement-first-draft/scenario-05
+  acc=0.825  in_tok=2973636  turns=20  contracts/commercial-vendor-customer/master-services-agreement-term-negotiation/scenario-02
+  acc=0.941  in_tok=11495322  turns=79  contracts/commercial-vendor-customer/vendor-services-agreement-first-turn-redline/scenario-03
+  acc=0.895  in_tok=4776866  turns=30  contracts/corporate-ma/loi-mou-term-negotiation/scenario-01
+  acc=0.933  in_tok=8133392  turns=64  contracts/corporate-ma/transition-intercompany-services-subsequent-turn-redline
+  acc=0.788  in_tok=4662190  turns=25  contracts/disputes/settlement-agreement-and-release-term-negotiation
+  acc=0.768  in_tok=6236477  turns=56  contracts/financing/credit-lending-subsequent-turn-redline/scenario-02
+  acc=0.851  in_tok=3321334  turns=23  contracts/financing/investor-rights-agreement-term-negotiation
+  acc=0.856  in_tok=3109376  turns=47  corporate-governance/draft-batch-nda-generation
+  acc=0.947  in_tok=643482  turns=14  corporate-ma/compare-fund-term-sheet-against-side-letter-terms
+  acc=0.865  in_tok=1245872  turns=21  data-privacy-cybersecurity/extract-document-requests-from-regulatory-inquiry-letter
+  acc=0.838  in_tok=699576  turns=15  employment-labor/identify-issues-in-non
+  acc=0.887  in_tok=7081311  turns=64  environmental-esg/draft-markup-of-administrative-settlement-agreement
+  acc=0.830  in_tok=1115327  turns=18  healthcare-life-sciences/draft-fda-regulatory-submission-cover-letter
+  acc=0.615  in_tok=1299345  turns=18  healthcare-life-sciences/identify-compliance-issues-in-medicare-enrollment-application-package
+  acc=0.744  in_tok=1120868  turns=16  insurance/compare-reinsurance-treaty-against-underlying-policy
+  acc=0.887  in_tok=975691  turns=15  intellectual-property/compare-executed-technology-license-agreement-against-last-negotiation-draft
+  acc=0.889  in_tok=3380338  turns=29  intellectual-property/draft-international-trade-commission-section-337-complaint
+  acc=0.235  in_tok=1848874  turns=19  intellectual-property/draft-motion-for-enhanced-damages
+  acc=0.688  in_tok=3056657  turns=28  intellectual-property/identify-weaknesses-in-counterpartys-summary-judgment-brief
+  acc=0.808  in_tok=906238  turns=16  litigation-dispute-resolution/extract-key-obligations-from-litigation-hold-and-document-preservation-notice
+  acc=0.827  in_tok=1162733  turns=16  real-estate/identify-issues-in-environmental-site-assessment
+  acc=0.584  in_tok=4572635  turns=23  tax/draft-transfer-pricing-documentation
+  acc=0.849  in_tok=2087019  turns=21  tax/extract-tax-attributes-from-audited-financial-statements
+  acc=0.780  in_tok=949317  turns=18  white-collar-defense-investigations/identify-government-subpoena-issues
+remaining $88.88

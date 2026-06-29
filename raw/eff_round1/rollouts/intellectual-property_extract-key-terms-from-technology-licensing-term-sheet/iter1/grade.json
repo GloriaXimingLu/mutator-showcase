@@ -1,0 +1,24 @@
+{
+ "task": "intellectual-property/extract-key-terms-from-technology-licensing-term-sheet",
+ "ens_pass_rate": 0.9523809523809523,
+ "n_graded": 63,
+ "n_failed": 3,
+ "failed_criteria": [
+  {
+   "id": "C-001",
+   "title": "Identifies derivative works joint ownership as critical IP risk",
+   "match_criteria": "PASS if the memo identifies that KBI's right to create 'derivative works' from PredictIQ's API layer with joint ownership is a critical IP risk for Whitmore, explaining that joint ownership would allow KBI to exploit or sublicense derivative works without Whitmore's consent or accounting obligation, potentially enabling creation of competitive technology. FAIL if derivative works joint ownership is not flagged or not identified as a significant risk."
+  },
+  {
+   "id": "C-024",
+   "title": "Flags source code escrow 90-day maintenance gap trigger as too broad",
+   "match_criteria": "PASS if the memo flags the escrow release condition of 'failure to provide maintenance and support for 90 consecutive days' as dangerously broad, noting that it does not exclude force majeure events, disputes over maintenance scope, or KBI-caused disruptions (such as KBI's failure to pay maintenance fees), meaning source code could be released even where Whitmore is not at fault. FAIL if this escrow trigger is not identified as problematic."
+  },
+  {
+   "id": "C-049",
+   "title": "Rates derivative works joint ownership as Critical or High risk",
+   "match_criteria": "PASS if the memo rates the derivative works joint ownership issue as Critical or High severity (or equivalent top-tier risk rating). FAIL if it is rated Medium or lower, or not rated."
+  }
+ ],
+ "error": null
+}

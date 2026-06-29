@@ -1,0 +1,59 @@
+{
+ "task": "immigration/identify-h1b-qualification-issues",
+ "ens_pass_rate": 0.7435897435897436,
+ "n_graded": 39,
+ "n_failed": 10,
+ "failed_criteria": [
+  {
+   "id": "C-008",
+   "title": "Issue 3 Identified: Immigration status gap / potential unauthorized work",
+   "match_criteria": "PASS if the memo identifies a concern about Rajesh's immigration status during the period between approximately mid-2020 and September 2023, noting that his F-1 OPT/STEM OPT through NovaStar would have expired and there is no explanation of what visa status authorized work as an independent consultant. FAIL if the potential immigration status gap or unauthorized employment concern is not raised."
+  },
+  {
+   "id": "C-009",
+   "title": "Issue 3 Detail: Risk assessment for unlawful presence or unauthorized employment",
+   "match_criteria": "PASS if the memo discusses potential consequences of unauthorized employment or unlawful presence during the gap period, such as admissibility issues, unlawful presence bars, or negative impact on H-1B eligibility. FAIL if the memo flags the status gap but does not discuss any potential immigration consequences."
+  },
+  {
+   "id": "C-010",
+   "title": "Issue 3 Recommendation: Clarify immigration history for gap period",
+   "match_criteria": "PASS if the memo recommends requesting clarification or documentation of Rajesh's immigration status during the approximately August 2020 \u2013 September 2023 period before filing. FAIL if no recommendation to investigate or clarify the immigration history is provided."
+  },
+  {
+   "id": "C-015",
+   "title": "Issue 5 Detail: Explains why broad degree acceptance hurts H-1B eligibility",
+   "match_criteria": "PASS if the memo explains that USCIS uses the specialty occupation analysis (under 8 CFR 214.2(h)(4)(ii) or equivalent regulatory framework) to determine whether a specific degree is required, and that accepting 'any engineering discipline' suggests the position does not require a specific specialty, which could lead to denial. FAIL if the memo flags the language but does not explain its legal significance for specialty occupation analysis."
+  },
+  {
+   "id": "C-022",
+   "title": "Issue 8 Detail: Notes PWD would be invalid if SOC code is wrong",
+   "match_criteria": "PASS if the memo notes that if USCIS determines the SOC code is incorrect, the prevailing wage determination and LCA could be invalidated, requiring refiling. FAIL if the downstream consequences of a wrong SOC code are not discussed."
+  },
+  {
+   "id": "C-024",
+   "title": "Issue 9 Recommendation: Document promotion or role evolution",
+   "match_criteria": "PASS if the memo recommends documenting the promotion, role change, or evolution from Data Scientist to Senior Machine Learning Engineer (e.g., through a promotion letter, updated offer letter, or internal HR documentation). FAIL if no recommendation to document the title change is provided."
+  },
+  {
+   "id": "C-026",
+   "title": "Issue 11 Identified: No documented experience with TensorFlow, PyTorch, or AWS SageMaker",
+   "match_criteria": "PASS if the memo identifies that the job requirements specify experience with TensorFlow, PyTorch, and cloud-based ML deployment (AWS SageMaker), but the NovaStar experience letter only mentions scikit-learn, Python, and Tableau \u2014 and the only evidence of the required frameworks comes from the uncorroborated consulting period on the resume. FAIL if this gap in documented technical skills is not flagged."
+  },
+  {
+   "id": "C-027",
+   "title": "Issue 11 Document Citation: References NovaStar letter and/or resume",
+   "match_criteria": "PASS if the memo references the NovaStar experience letter (showing only scikit-learn, not TensorFlow/PyTorch/SageMaker) and/or the resume (where the required frameworks appear only in the uncorroborated consulting period) when discussing this skills gap. FAIL if neither document is cited in connection with this issue."
+  },
+  {
+   "id": "C-031",
+   "title": "Memo includes overall risk assessment of the petition",
+   "match_criteria": "PASS if the memo includes an overall risk assessment section or concluding evaluation of the petition's readiness and likelihood of RFE or denial in its current state. FAIL if the memo only lists individual issues without any holistic/overall assessment of the petition's filing risk."
+  },
+  {
+   "id": "C-034",
+   "title": "Issue 3 Severity: Rated Critical or High",
+   "match_criteria": "PASS if the immigration status gap / potential unauthorized employment issue is rated as Critical or High severity (or equivalent highest-tier rating). Potential unlawful presence or unauthorized employment is a serious admissibility concern. FAIL if it is rated as Medium, Low, or not given a severity rating."
+  }
+ ],
+ "error": null
+}

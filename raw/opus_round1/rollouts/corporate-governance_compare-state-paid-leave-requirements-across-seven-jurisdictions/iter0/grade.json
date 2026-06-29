@@ -1,0 +1,19 @@
+{
+ "task": "corporate-governance/compare-state-paid-leave-requirements-across-seven-jurisdictions",
+ "ens_pass_rate": 0.9666666666666667,
+ "n_graded": 60,
+ "n_failed": 2,
+ "failed_criteria": [
+  {
+   "id": "C-021",
+   "title": "ISSUE_008: Identifies 2-day doctor's note threshold as non-compliant in NJ",
+   "match_criteria": "PASS if the memo identifies that requiring a doctor's note for sick leave absences exceeding 2 consecutive days violates New Jersey's Earned Sick Leave Act, which limits employer documentation requests to absences of 3 or more consecutive days. FAIL if this NJ-specific documentation threshold issue is not identified."
+  },
+  {
+   "id": "C-059",
+   "title": "Memo addresses the pending NJ DOL complaint as requiring immediate action",
+   "match_criteria": "PASS if the memo identifies the pending NJ DOL complaint (Carla Mu\u00f1oz, Case No. NJ-ESL-2025-04117) as requiring immediate/urgent action in the remediation plan, separate from the broader policy revision project. FAIL if the complaint is not mentioned in the remediation plan or is not flagged as requiring immediate attention."
+  }
+ ],
+ "error": null
+}

@@ -1,0 +1,34 @@
+{
+ "task": "corporate-governance/compare-state-paid-leave-requirements-across-seven-jurisdictions",
+ "ens_pass_rate": 0.9166666666666666,
+ "n_graded": 60,
+ "n_failed": 5,
+ "failed_criteria": [
+  {
+   "id": "C-006",
+   "title": "ISSUE_002: Matrix includes waiting period comparison across all seven states",
+   "match_criteria": "PASS if the compliance matrix includes a row or dimension for sick leave waiting period/eligibility to use, comparing the company's 120-day policy against the requirements of all seven jurisdictions. FAIL if the waiting period dimension is absent from the matrix."
+  },
+  {
+   "id": "C-009",
+   "title": "ISSUE_003: Discusses frontloading as an alternative compliance approach",
+   "match_criteria": "PASS if the memo mentions frontloading of sick leave at the beginning of the year as a permissible alternative to carryover in some jurisdictions, explaining that employers who frontload the full amount may not be required to allow carryover. FAIL if frontloading is not mentioned as an alternative compliance strategy."
+  },
+  {
+   "id": "C-021",
+   "title": "ISSUE_008: Identifies 2-day doctor's note threshold as non-compliant in NJ",
+   "match_criteria": "PASS if the memo identifies that requiring a doctor's note for sick leave absences exceeding 2 consecutive days violates New Jersey's Earned Sick Leave Act, which limits employer documentation requests to absences of 3 or more consecutive days. FAIL if this NJ-specific documentation threshold issue is not identified."
+  },
+  {
+   "id": "C-044",
+   "title": "Matrix includes column showing current Vantage policy for comparison",
+   "match_criteria": "PASS if the compliance matrix includes a column, row, or clear annotation showing Vantage's current company policy for each dimension, enabling side-by-side comparison with state requirements. FAIL if the company's current policy provisions are not displayed alongside the state requirements."
+  },
+  {
+   "id": "C-050",
+   "title": "Memo correctly states company headcount figures",
+   "match_criteria": "PASS if the memo correctly references the company's employee counts: total current 2,140 employees, with NJ (890), NY (680), CT (570), and planned expansion adding approximately 420 employees (MA 130, CO 95, OR 110, WA 85) for a projected total of approximately 2,560. Minor rounding is acceptable; material errors in headcount figures are a FAIL."
+  }
+ ],
+ "error": null
+}

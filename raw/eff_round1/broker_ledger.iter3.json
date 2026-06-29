@@ -1,0 +1,66 @@
+{
+ "cap": 160.0,
+ "spent": 5.0,
+ "by_source": {
+  "run_harvey_agent": 5.0,
+  "proxy_eval": 0.0,
+  "dev_eval": 0.0
+ },
+ "events": [
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/corporate-ma_analyze-cim-deal-teaser_scenario-02__glm-5p2__254ed0c569__b90eb513",
+   "input_tokens": 1221748,
+   "output_tokens": 43896,
+   "total_tokens": 1265644,
+   "cache_read_input_tokens": 0,
+   "turns": 19
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "contracts/commercial-vendor-customer/saas-api-subscription-term-negotiation/scenario-01",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/contracts_commercial-vendor-customer_saas-api-subscription-term-negotiation_scenario-01__glm-5p2__254ed0c569__b90eb513",
+   "input_tokens": 3476830,
+   "output_tokens": 37806,
+   "total_tokens": 3514636,
+   "cache_read_input_tokens": 0,
+   "turns": 20
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "contracts/banking/intercreditor-agreement-term-negotiation",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/contracts_banking_intercreditor-agreement-term-negotiation__glm-5p2__254ed0c569__b90eb513",
+   "input_tokens": 4033455,
+   "output_tokens": 55015,
+   "total_tokens": 4088470,
+   "cache_read_input_tokens": 0,
+   "turns": 36
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "litigation-dispute-resolution/draft-motion-to-dismiss-brief",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/litigation-dispute-resolution_draft-motion-to-dismiss-brief__glm-5p2__254ed0c569__b90eb513",
+   "input_tokens": 5369994,
+   "output_tokens": 66382,
+   "total_tokens": 5436376,
+   "cache_read_input_tokens": 0,
+   "turns": 45
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "employment-labor/draft-markup-of-settlement-agreement",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/employment-labor_draft-markup-of-settlement-agreement__glm-5p2__254ed0c569__b90eb513",
+   "input_tokens": 4367591,
+   "output_tokens": 131999,
+   "total_tokens": 4499590,
+   "cache_read_input_tokens": 0,
+   "turns": 39
+  }
+ ]
+}

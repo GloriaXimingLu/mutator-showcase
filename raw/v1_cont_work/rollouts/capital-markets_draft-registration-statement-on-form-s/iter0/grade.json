@@ -1,0 +1,109 @@
+{
+ "task": "capital-markets/draft-registration-statement-on-form-s",
+ "ens_pass_rate": 0.7777777777777778,
+ "n_graded": 90,
+ "n_failed": 20,
+ "failed_criteria": [
+  {
+   "id": "C-008",
+   "title": "ISSUE_003: S-1 states whether company intends to rely on controlled company exemption",
+   "match_criteria": "PASS if the S-1 states whether the company intends to rely on the controlled company exemption. FAIL if the S-1 does not state the company's intention regarding reliance on the exemption."
+  },
+  {
+   "id": "C-016",
+   "title": "ISSUE_006: Flags preferred stock mezzanine classification issue",
+   "match_criteria": "PASS if the issues memorandum identifies that the CFO memo incorrectly refers to the $385.0M redeemable convertible preferred stock as part of 'total equity,' when it should be classified in mezzanine equity (between liabilities and stockholders' equity) on the historical balance sheet, and that the pro forma capitalization must show the reclassification upon IPO conversion. FAIL if this classification discrepancy is not flagged."
+  },
+  {
+   "id": "C-018",
+   "title": "ISSUE_006: S-1 capitalization table shows pro forma preferred stock conversion",
+   "match_criteria": "PASS if the S-1 capitalization table includes a pro forma presentation showing the preferred stock converting into common stock and the $385.0M reclassifying into stockholders' equity. FAIL if the pro forma conversion is not shown."
+  },
+  {
+   "id": "C-019",
+   "title": "ISSUE_007: Flags 409A valuation / discounted option issue",
+   "match_criteria": "PASS if the issues memorandum identifies that 2,400,000 options granted in Q1 2023 at $9.50/share were based on a stale 409A valuation from September 30, 2022, while the contemporaneous March 31, 2023 409A valuation was $14.20/share. The memo should note the potential that these options constitute discounted options under IRC Section 409A, potentially triggering 20% excise tax penalties for option holders. FAIL if the 409A pricing discrepancy and Section 409A risk are not flagged."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_007: S-1 discloses Section 409A exposure in risk factors or notes",
+   "match_criteria": "PASS if the S-1 includes disclosure (in risk factors, financial statement notes, or both) addressing the potential Section 409A issue with the Q1 2023 option grants, including the risk of excise tax penalties and/or any tax indemnification obligations. FAIL if the S-1 contains no disclosure of the 409A valuation concern."
+  },
+  {
+   "id": "C-021",
+   "title": "ISSUE_008: Addresses ESPP Section 423 qualification requirements",
+   "match_criteria": "PASS if either deliverable addresses the requirements for the 2024 ESPP to qualify under IRC Section 423, discussing at least two of the following: (a) maximum purchase discount of 15%, (b) $25,000 annual purchase limitation, (c) offering period limitation of no more than 27 months, (d) broad employee eligibility requirements. FAIL if Section 423 qualification requirements are not discussed in either deliverable."
+  },
+  {
+   "id": "C-024",
+   "title": "ISSUE_010: Issues memo addresses term loan change-of-control provision and IPO non-trigger",
+   "match_criteria": "PASS if the issues memorandum identifies the term loan change-of-control provision and confirms or discusses that it is not triggered by the IPO because existing holders retain ~71.8% voting power (above the 50% threshold). FAIL if the change-of-control provision is not discussed."
+  },
+  {
+   "id": "C-031",
+   "title": "ISSUE_013: Addresses federal forum provision for Securities Act claims",
+   "match_criteria": "PASS if the S-1 discloses the exclusive forum provision designating federal district courts for Securities Act claims (as distinct from the Delaware Court of Chancery for state-law corporate claims), and references or acknowledges the legal basis for enforceability (Salzberg v. Sciabacucchi or the general permissibility of federal forum provisions under Delaware law). FAIL if the federal forum provision for Securities Act claims is not disclosed or discussed."
+  },
+  {
+   "id": "C-032",
+   "title": "ISSUE_013: Issues memo discusses forum selection clause implications",
+   "match_criteria": "PASS if the issues memorandum discusses the exclusive forum provision for Securities Act claims in the charter, referencing the legal landscape (Cyan v. Beaver County on concurrent jurisdiction and/or Salzberg v. Sciabacucchi on enforceability of federal forum provisions). FAIL if the forum selection clause is not discussed in the issues memorandum."
+  },
+  {
+   "id": "C-041",
+   "title": "S-1 includes Capitalization table with actual and pro forma columns",
+   "match_criteria": "PASS if the S-1 includes a Capitalization section with a table showing at minimum an actual (historical) column and a pro forma as-adjusted (post-IPO) column. FAIL if the Capitalization section or table is absent or lacks both columns."
+  },
+  {
+   "id": "C-042",
+   "title": "S-1 Capitalization table includes key line items",
+   "match_criteria": "PASS if the S-1 Capitalization table includes line items for at least 4 of the following 5: cash, debt (term loan $40M), preferred stock ($385M), common stock/stockholders' equity, and total capitalization. FAIL if fewer than 4 of these line items are present."
+  },
+  {
+   "id": "C-043",
+   "title": "S-1 Dilution section states pro forma NTBV per share before offering",
+   "match_criteria": "PASS if the S-1 includes a Dilution section stating pro forma net tangible book value per share before offering of approximately $1.06 (at the midpoint price of $24.00), with tolerance of $0.10. FAIL if the Dilution section is absent or if the before-offering figure deviates by more than $0.10."
+  },
+  {
+   "id": "C-052",
+   "title": "S-1 Management section lists CRO Chen with age and bio",
+   "match_criteria": "PASS if the S-1 Management section lists Chen (CRO) with age and biographical information. FAIL if Chen is omitted."
+  },
+  {
+   "id": "C-054",
+   "title": "S-1 Executive Compensation section discloses CEO Ramaswamy's compensation",
+   "match_criteria": "PASS if the S-1 Executive Compensation section discloses CEO Ramaswamy's compensation including base salary of $425,000, cash bonus of $212,500, and 180,000 RSUs. FAIL if Ramaswamy's compensation details are absent or materially incorrect."
+  },
+  {
+   "id": "C-055",
+   "title": "S-1 Executive Compensation section discloses CFO Hartwell's compensation",
+   "match_criteria": "PASS if the S-1 Executive Compensation section discloses CFO Hartwell's compensation including base salary of $385,000, cash bonus of $173,250, and 120,000 RSUs. FAIL if Hartwell's compensation details are absent or materially incorrect."
+  },
+  {
+   "id": "C-071",
+   "title": "Financial figures: Gross proceeds at midpoint correctly stated as $360M",
+   "match_criteria": "PASS if gross proceeds at the midpoint price of $24.00 are stated as $360.0 million (15,000,000 \u00d7 $24.00). FAIL if a materially different gross proceeds figure is used."
+  },
+  {
+   "id": "C-072",
+   "title": "S-1 discloses 2024 Equity Incentive Plan with shares authorized",
+   "match_criteria": "PASS if the S-1 discloses the 2024 Equity Incentive Plan with 18,500,000 shares authorized. FAIL if the equity incentive plan is not described or the authorized share count is materially incorrect."
+  },
+  {
+   "id": "C-074",
+   "title": "S-1 discloses the ESPP with 2,500,000 shares reserved",
+   "match_criteria": "PASS if the S-1 discloses the 2024 Employee Stock Purchase Plan with 2,500,000 shares reserved, intended to qualify under IRC Section 423, becoming effective upon IPO. FAIL if the ESPP is not disclosed."
+  },
+  {
+   "id": "C-075",
+   "title": "S-1 discloses term loan details",
+   "match_criteria": "PASS if the S-1 discloses the $50M term loan facility with Silicon Valley Credit Partners ($40M drawn), maturing December 2027, bearing interest at SOFR + 3.25%, with financial covenants (minimum liquidity $30M and ARR-based leverage ratio \u2264 2.0x). FAIL if the term loan is not disclosed or key terms are materially misstated."
+  },
+  {
+   "id": "C-083",
+   "title": "S-1 discloses office lease obligations",
+   "match_criteria": "PASS if the S-1 discloses lease obligations for at least 3 of the following 4 offices: (1) Austin HQ (expiring August 2029, $3.8M/year), (2) San Francisco (expiring March 2027, $2.1M/year), (3) London (expiring January 2028, \u00a3680,000/year), and (4) Bangalore (expiring June 2026, \u20b942M/year). FAIL if fewer than 3 of the 4 leases are disclosed."
+  }
+ ],
+ "error": null
+}

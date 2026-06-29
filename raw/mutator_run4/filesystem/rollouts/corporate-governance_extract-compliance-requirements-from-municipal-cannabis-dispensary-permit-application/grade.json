@@ -1,0 +1,138 @@
+{
+ "task": "corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application",
+ "ens_pass_rate": 0.8235294117647058,
+ "n_graded": 68,
+ "n_failed": 12,
+ "failed_criteria": [
+  {
+   "id": "C-005",
+   "title": "Matrix includes required column: Obligation Phase",
+   "match_criteria": "PASS if the matrix/table includes a column categorizing each requirement as pre-submission, pre-issuance, or post-issuance (or equivalent phase classification). FAIL if no such column exists."
+  },
+  {
+   "id": "C-006",
+   "title": "Matrix includes required column: Responsible Party",
+   "match_criteria": "PASS if the matrix/table includes a column identifying the responsible party or action owner for each requirement. FAIL if no such column exists."
+  },
+  {
+   "id": "C-007",
+   "title": "Matrix includes required column: Deadline/Trigger",
+   "match_criteria": "PASS if the matrix/table includes a column for the deadline or trigger event for each requirement. FAIL if no such column exists."
+  },
+  {
+   "id": "C-015",
+   "title": "ISSUE_002: Recommends disclosure with protective cover letter",
+   "match_criteria": "PASS if the agent recommends full disclosure of Okonkwo's expunged conviction while also submitting a cover letter or accompanying explanation citing the ordinance's expungement protection, or recommends raising the inconsistency with the City to avoid scoring prejudice. FAIL if neither approach is recommended."
+  },
+  {
+   "id": "C-026",
+   "title": "ISSUE_006: Notes mentorship overlap with annual permit renewal",
+   "match_criteria": "PASS if the agent identifies that the 2-year mentorship program spans across permit renewal periods (annual renewal at 12 months), and that social equity status is re-verified at each renewal, meaning failure to remain in the mentorship program could jeopardize the social equity designation at the first renewal. FAIL if this timing overlap and renewal risk is not flagged."
+  },
+  {
+   "id": "C-027",
+   "title": "ISSUE_007: Flags Ramachandran residency and social equity qualification",
+   "match_criteria": "PASS if the agent flags that Felix Ramachandran resides in Wilmette (not Evanston), holds 40% ownership, and that the agent recommends verifying whether the City's ordinance or Illinois Cannabis Regulation and Tax Act requires all owners above a certain threshold to individually qualify for social equity status, or whether Okonkwo's 60% qualifying ownership is sufficient. FAIL if Ramachandran's non-Evanston residency is not identified as a potential issue for social equity qualification."
+  },
+  {
+   "id": "C-032",
+   "title": "ISSUE_010: Identifies abbreviated first reporting period",
+   "match_criteria": "PASS if the agent identifies that quarterly compliance self-audit reports are due within 15 days of each calendar quarter end, and that if the permit is issued mid-quarter (e.g., mid-August), the first audit will cover only a partial quarter (e.g., August 15 \u2013 September 30), with results due October 15. The agent should recommend establishing audit procedures immediately upon permit issuance. FAIL if the abbreviated first reporting period issue is not identified."
+  },
+  {
+   "id": "C-041",
+   "title": "Identifies $100,000 state conversion fee obligation",
+   "match_criteria": "PASS if the matrix identifies the $100,000 state license conversion fee due upon converting from conditional to permanent license. FAIL if this fee is not mentioned."
+  },
+  {
+   "id": "C-052",
+   "title": "Identifies special use approval / ZBA process requirement",
+   "match_criteria": "PASS if the matrix includes the requirement for special use approval from the Zoning Board of Appeals (ZBA) for a cannabis dispensary in the C1a Commercial Mixed-Use district, including the multi-step process (application with site plan, notice to property owners within 500 feet, public hearing, ZBA recommendation, City Council vote). FAIL if the special use / ZBA requirement is omitted."
+  },
+  {
+   "id": "C-058",
+   "title": "Identifies Liquor & Cannabis Board public hearing requirement",
+   "match_criteria": "PASS if the matrix includes the requirement for a public hearing before the Liquor & Cannabis Board within 45 days of application completeness determination. FAIL if this requirement is omitted."
+  },
+  {
+   "id": "C-061",
+   "title": "Identifies scoring rubric categories and social equity bonus",
+   "match_criteria": "PASS if the matrix or executive summary references the 250-point scoring rubric (with categories such as Business Plan, Security Plan, Community Benefits, Financial Viability, Diversity Plan, Environmental Plan, Experience/Qualifications) and the 20-point social equity bonus (270 possible). FAIL if the scoring structure is not mentioned at all."
+  },
+  {
+   "id": "C-062",
+   "title": "Identifies Ridgeline Community Bank quarterly attestations",
+   "match_criteria": "PASS if the matrix includes the requirement for quarterly compliance attestations to Ridgeline Community Bank as part of the cannabis banking program. FAIL if this banking compliance obligation is not mentioned."
+  }
+ ],
+ "per_criterion": {
+  "C-001": "pass",
+  "C-002": "pass",
+  "C-003": "pass",
+  "C-004": "pass",
+  "C-005": "fail",
+  "C-006": "fail",
+  "C-007": "fail",
+  "C-008": "pass",
+  "C-009": "pass",
+  "C-010": "pass",
+  "C-011": "pass",
+  "C-012": "pass",
+  "C-013": "pass",
+  "C-014": "pass",
+  "C-015": "fail",
+  "C-016": "pass",
+  "C-017": "pass",
+  "C-018": "pass",
+  "C-019": "pass",
+  "C-020": "pass",
+  "C-021": "pass",
+  "C-022": "pass",
+  "C-023": "pass",
+  "C-024": "pass",
+  "C-025": "pass",
+  "C-026": "fail",
+  "C-027": "fail",
+  "C-028": "pass",
+  "C-029": "pass",
+  "C-030": "pass",
+  "C-031": "pass",
+  "C-032": "fail",
+  "C-033": "pass",
+  "C-034": "pass",
+  "C-035": "pass",
+  "C-036": "pass",
+  "C-037": "pass",
+  "C-038": "pass",
+  "C-039": "pass",
+  "C-040": "pass",
+  "C-041": "fail",
+  "C-042": "pass",
+  "C-043": "pass",
+  "C-044": "pass",
+  "C-045": "pass",
+  "C-046": "pass",
+  "C-047": "pass",
+  "C-048": "pass",
+  "C-049": "pass",
+  "C-050": "pass",
+  "C-051": "pass",
+  "C-052": "fail",
+  "C-053": "pass",
+  "C-054": "pass",
+  "C-055": "pass",
+  "C-056": "pass",
+  "C-057": "pass",
+  "C-058": "fail",
+  "C-059": "pass",
+  "C-060": "pass",
+  "C-061": "fail",
+  "C-062": "fail",
+  "C-063": "pass",
+  "C-064": "pass",
+  "C-065": "pass",
+  "C-066": "pass",
+  "C-067": "pass",
+  "C-068": "pass"
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "task": "corporate-ma/review-governance-diligence/scenario-01",
+ "ens_pass_rate": 0.8703703703703703,
+ "n_graded": 54,
+ "n_failed": 7,
+ "failed_criteria": [
+  {
+   "id": "C-002",
+   "title": "Authorized Preferred Stock classes correctly stated",
+   "match_criteria": "PASS if the memo states authorized preferred shares including 5,000,000 shares of Series A Preferred, 7,000,000 shares of Series B Preferred, and 10,000,000 shares of Series C Preferred. FAIL if any of these three authorized preferred share counts are materially wrong or missing."
+  },
+  {
+   "id": "C-003",
+   "title": "Total authorized shares correctly stated as 72,000,000",
+   "match_criteria": "PASS if the memo states total authorized shares of 72,000,000 (or figures that sum to 72,000,000). FAIL if the total is materially wrong or missing."
+  },
+  {
+   "id": "C-004",
+   "title": "Outstanding share counts by class correctly stated",
+   "match_criteria": "PASS if the memo identifies outstanding shares including approximately 17,400,000 Common Stock, 3,500,000 Series A Preferred, 5,200,000 Series B Preferred, and 7,800,000 Series C Preferred. FAIL if any of these outstanding share counts are materially incorrect or omitted."
+  },
+  {
+   "id": "C-008",
+   "title": "Aggregate liquidation preference approximately $206,400,000",
+   "match_criteria": "PASS if the memo states the aggregate liquidation preference is approximately $206,400,000. FAIL if the aggregate figure is materially incorrect or omitted."
+  },
+  {
+   "id": "C-036",
+   "title": "ISSUE_010: Drag-along cannot override charter-level Series C protective provision",
+   "match_criteria": "PASS if the memo identifies that even if the drag-along in the Stockholders' Agreement is properly triggered, it cannot override the Series C separate class vote protective provision in the Restated Certificate, because under Delaware law charter-level provisions supersede contractual stockholder agreements. The Series C class vote must be independently satisfied. FAIL if the memo does not address the conflict between the drag-along and the charter protective provisions or does not conclude that the charter prevails."
+  },
+  {
+   "id": "C-037",
+   "title": "ISSUE_011: Bylaws 66\u2154% amendment threshold noted",
+   "match_criteria": "PASS if the memo identifies that the Bylaws require a 66\u2154% stockholder vote (or Board action) for amendment, and discusses whether any pre-closing Bylaws amendments may be needed for the transaction and the implications of this supermajority threshold. FAIL if the Bylaws amendment threshold is not mentioned in connection with transaction planning."
+  },
+  {
+   "id": "C-039",
+   "title": "ISSUE_012: Voting Agreement does not obligate vote for Sale unless drag-along triggered",
+   "match_criteria": "PASS if the memo notes that the Voting Agreement obligates parties to vote for board composition but does not independently require them to vote in favor of a Sale of the Company \u2014 the obligation to vote in favor of a sale arises only if the drag-along under the Stockholders' Agreement is properly triggered. FAIL if this distinction is not addressed."
+  }
+ ],
+ "error": null
+}

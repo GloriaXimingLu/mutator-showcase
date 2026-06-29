@@ -1,0 +1,489 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Self-Improving Agent Harnesses — Mutator Runs</title>
+<style>/* base design system — extracted from mutator_report/index.html, extended for the showcase */
+:root{
+    --bg:#0e1116; --panel:#161b22; --panel2:#1c232d; --ink:#e6edf3; --muted:#9aa7b4;
+    --line:#2a323d; --accent:#5aa9ff; --good:#3fb950; --bad:#f85149; --warn:#d29922;
+    --glm:#a371f7; --opus:#f0883e; --code:#0b0f14;
+    --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;font-size:15px}
+  a{color:var(--accent);text-decoration:none}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+  header.hero{padding:50px 0 28px;border-bottom:1px solid var(--line)}
+  .kicker{color:var(--accent);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+  h1{font-size:30px;line-height:1.18;margin:8px 0 12px;letter-spacing:-.01em}
+  h2{font-size:23px;margin:46px 0 6px;letter-spacing:-.01em}
+  h3{font-size:17px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:15.5px;max-width:800px}
+  .summary{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:18px 22px;margin:24px 0}
+  .summary p{margin:.5em 0}
+  .summary .head{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);font-weight:700;margin-bottom:4px}
+  nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 6px}
+  nav.toc a{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:13px;color:var(--muted)}
+  nav.toc a:hover{color:#fff;border-color:var(--accent)}
+  .muted{color:var(--muted)}
+  .legend{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin:14px 0 0;font-size:12.5px;color:var(--muted)}
+  .legend .pill{font-size:11px}
+  .grid{display:grid;gap:16px}
+  @media(min-width:760px){.cols-2{grid-template-columns:1fr 1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .pill{display:inline-block;font-size:11px;font-weight:600;padding:2px 9px;border-radius:999px;vertical-align:middle}
+  .pill.glm{background:rgba(163,113,247,.16);color:#c8a8ff;border:1px solid rgba(163,113,247,.4)}
+  .pill.opus{background:rgba(240,136,62,.16);color:#ffb27a;border:1px solid rgba(240,136,62,.4)}
+  .pill.up{background:rgba(63,185,80,.16);color:#6ee787;border:1px solid rgba(63,185,80,.4)}
+  .pill.bad{background:rgba(248,81,73,.16);color:#ff9a93;border:1px solid rgba(248,81,73,.4)}
+  .pill.null{background:rgba(210,153,34,.14);color:#e3b341;border:1px solid rgba(210,153,34,.4)}
+  .pill.dn{background:rgba(248,81,73,.10);color:#ff9a93;border:1px solid rgba(248,81,73,.3)}
+  .setup{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:16px 0}
+  .setup dl{display:grid;grid-template-columns:max-content 1fr;gap:7px 16px;margin:6px 0 0;font-size:13.5px}
+  .setup dt{color:#c8d3de;font-weight:600;font-family:var(--mono);font-size:12px;padding-top:1px}
+  .setup dd{margin:0;color:var(--muted)}
+  .setup dd b{color:var(--ink)}
+  .note{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:13px 18px;margin:16px 0;font-size:13.5px;color:var(--muted)}
+  .note b{color:var(--ink)}
+  .iter{border:1px solid var(--line);border-radius:12px;margin:16px 0;overflow:hidden}
+  .iter .head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;background:var(--panel2);flex-wrap:wrap}
+  .iter .head .t{font-weight:600;font-size:16px}
+  .iter .body{padding:16px 18px;display:grid;gap:14px}
+  @media(min-width:780px){.iter .body{grid-template-columns:1.18fr .82fr}}
+  .lbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  code,pre{font-family:var(--mono);font-size:12.5px}
+  pre{background:var(--code);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow:auto;color:#cdd9e5;margin:8px 0}
+  pre .c{color:#8b98a5}
+  details{background:var(--code);border:1px solid var(--line);border-radius:8px;margin:8px 0}
+  details summary{cursor:pointer;padding:9px 13px;color:var(--accent);font-size:13px;font-weight:600;user-select:none}
+  details[open] summary{border-bottom:1px solid var(--line)}
+  details .in{padding:4px 14px 12px}
+  .tree{font-family:var(--mono);font-size:12.5px;color:#cdd9e5;white-space:pre;line-height:1.5;overflow:auto}
+  .tree .d{color:var(--accent)} .tree .new{color:var(--good)} .tree .cmt{color:#8b98a5}
+  table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0}
+  th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+  th{background:var(--panel2);color:var(--muted);font-weight:600}
+  td.n{font-variant-numeric:tabular-nums;text-align:right}
+  /* delta chart */
+  .dc{margin:18px 0 6px;border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--panel)}
+  .dc-cap{font-size:13px;color:var(--muted);margin:0 0 12px}
+  .dc-cap b{color:var(--ink)}
+  .dc-ticks{position:relative;height:14px;margin:0 0 4px}
+  .dc-ticks span{position:absolute;transform:translateX(-50%);font-size:10px;color:var(--muted)}
+  .dc-row{margin:11px 0}
+  .dc-name{font-size:12.5px;color:var(--ink);margin-bottom:4px}
+  .dc-name .mut{color:var(--muted)}
+  .dc-track{position:relative;height:22px;background:#0b0f14;border-radius:5px;border:1px solid var(--line)}
+  .dc-band{position:absolute;top:0;bottom:0;background:rgba(210,153,34,.20);border-left:1px dashed rgba(210,153,34,.55);border-right:1px dashed rgba(210,153,34,.55)}
+  .dc-zero{position:absolute;top:-3px;bottom:-3px;width:2px;background:#6b7682}
+  .dc-bar{position:absolute;top:3px;bottom:3px;border-radius:3px}
+  .dc-val{position:absolute;top:3px;font-size:11px;font-weight:700;line-height:16px}
+  .dc-foot{font-size:11.5px;color:var(--muted);margin-top:12px;border-top:1px solid var(--line);padding-top:9px}
+  .obs{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}
+  .obs .num{font-size:22px;font-weight:700;color:var(--accent);min-width:28px;line-height:1.2}
+  .obs h3{margin:0 0 4px;font-size:16px}
+  .tl{position:relative;margin:14px 0 6px;padding-left:22px}
+  .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .tl .step{position:relative;margin:0 0 16px}
+  .tl .step::before{content:"";position:absolute;left:-19px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--bg)}
+  .tag{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  footer{color:var(--muted);font-size:13px;padding:34px 0 60px;border-top:1px solid var(--line);margin-top:40px}
+  .src{border-left:3px solid var(--line);padding:2px 0 2px 14px;color:var(--muted);margin:10px 0;font-size:13px}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 2px}
+  @media(max-width:560px){.flow{grid-template-columns:repeat(2,1fr)}}
+  .flow .b{background:var(--code);border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:12.5px;position:relative}
+  .flow .b::after{content:"→";position:absolute;right:-9px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:14px}
+  .flow .b:nth-child(4)::after{content:""}
+  @media(max-width:560px){.flow .b:nth-child(2)::after{content:""}}
+  .flow .b b{color:var(--ink);font-size:12.5px}
+  .flow .b span{color:var(--muted)}
+
+/* showcase main-page components (extends base.css) */
+section{margin:46px 0 10px}
+section > h2{display:flex;align-items:center;gap:10px}
+section > h2 .pill{width:14px;height:14px;padding:0;border-radius:4px}
+.card.run{padding:0;overflow:hidden;margin:18px 0}
+.runhead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
+  padding:18px 22px;background:var(--panel2);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.runhead h3{font-size:18px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.headline{margin:7px 0 0;color:var(--ink);font-size:14px;max-width:760px;line-height:1.5}
+.effort{font-family:var(--mono);font-size:11px;color:var(--muted);border:1px solid var(--line);
+  border-radius:5px;padding:1px 6px}
+.viewrun{white-space:nowrap;background:var(--panel);border:1px solid var(--accent);border-radius:8px;
+  padding:7px 13px;font-size:13px;font-weight:600;color:var(--accent);align-self:center}
+.viewrun:hover{background:var(--accent);color:#04111f}
+.run .setup{margin:0;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;padding:14px 22px}
+.run .setup dl{grid-template-columns:max-content 1fr}
+.costwin{margin:0;padding:13px 22px;background:rgba(63,185,80,.07);border-bottom:1px solid var(--line);
+  font-size:13.5px;color:#bfe7c6}
+.costwin b{color:#7ee787}
+.iterwrap{padding:8px 22px 4px}
+.itrow{display:flex;gap:14px;padding:13px 0;border-bottom:1px dashed var(--line)}
+.itrow:last-child{border-bottom:0}
+.itn{flex:0 0 26px;height:26px;border-radius:50%;background:var(--code);border:1px solid var(--line);
+  color:var(--accent);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;font-family:var(--mono)}
+.itbody{flex:1;min-width:0}
+.ithead{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:4px}
+.itlabel{font-weight:600;font-size:14.5px}
+.itnums{display:inline-flex;gap:12px;align-items:center;margin-left:auto;flex-wrap:wrap}
+.inum{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.inum b{color:var(--ink)}
+.itdid{font-size:13.5px;color:var(--muted);line-height:1.55}
+.itdid b{color:var(--ink)} .itdid code{color:#cdd9e5;background:var(--code);padding:0 4px;border-radius:4px}
+.itchange{margin-top:6px;font-size:12px}
+.itchange .ck{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-right:6px}
+.itchange code{color:#9db4cc}
+.insight{padding:14px 22px 20px;background:rgba(90,169,255,.04);border-top:1px solid var(--line)}
+.insight ul{margin:6px 0 0;padding-left:20px}
+.insight li{margin:6px 0;font-size:13.5px;color:#cdd9e5;line-height:1.55}
+.insight li b{color:#fff}
+/* loop changes */
+.chg-cat{margin:22px 0}
+.chg-cat-h{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);font-weight:700;
+  margin:0 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.chg{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:15px 18px;margin:11px 0}
+.chg-t{font-weight:600;font-size:15px;margin-bottom:11px}
+.chg-ba{display:grid;grid-template-columns:1fr 26px 1fr;gap:10px;align-items:stretch}
+@media(max-width:680px){.chg-ba{grid-template-columns:1fr;gap:6px}.chg-arrow{transform:rotate(90deg)}}
+.chg-b,.chg-a{background:var(--code);border:1px solid var(--line);border-radius:9px;padding:11px 13px;font-size:13px;line-height:1.5;color:var(--muted)}
+.chg-b{border-left:3px solid var(--bad)} .chg-a{border-left:3px solid var(--good);color:#cdd9e5}
+.chg-a code,.chg-b code{color:#9db4cc;background:rgba(0,0,0,.3);padding:0 4px;border-radius:4px}
+.ba-l{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.chg-b .ba-l{color:#ff9a93} .chg-a .ba-l{color:#7ee787}
+.chg-arrow{align-self:center;text-align:center;color:var(--muted);font-size:18px}
+.chg-why{margin-top:10px;font-size:13px;color:var(--muted)} .chg-why b{color:var(--ink)}
+
+/* ===== overview / at-a-glance ===== */
+.ovstats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 20px}
+@media(max-width:760px){.ovstats{grid-template-columns:1fr 1fr}}
+.ovstat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 16px;
+  border-top:2px solid var(--line)}
+.ovstat.ov-good{border-top-color:var(--good)} .ovstat.ov-warn{border-top-color:var(--warn)}
+.ovstat.ov-muted{border-top-color:var(--muted)}
+.ov-big{font-size:26px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1.1}
+.ov-good .ov-big{color:#6ee787} .ov-warn .ov-big{color:#e3b341} .ov-muted .ov-big{color:#c8d3de}
+.ov-lab{font-size:12.5px;color:var(--ink);font-weight:600;margin:5px 0 3px}
+.ov-sub{font-size:11.5px;color:var(--muted);line-height:1.45}
+.ovcharts{display:grid;gap:16px;margin-top:16px}
+@media(min-width:880px){.ovcharts{grid-template-columns:1fr 1fr}}
+.ovchart{padding:16px 18px;margin:0;min-width:0}
+.ovchart .reslbl{min-height:54px}
+.ovchart-t{font-size:14px;font-weight:700;color:#fff;margin:0 0 8px}
+.cspk-leg .sw.bare{background:none;border-top:2px dashed #6b7682;border-radius:0;height:0;width:18px;align-self:center}
+.ov-lead{margin:0 0 14px;font-size:14px;color:var(--muted);line-height:1.55;max-width:880px}
+.ov-lead b{color:var(--ink)}
+.ov-foot{font-size:11.5px;color:var(--muted);margin-top:12px;border-top:1px solid var(--line);padding-top:9px}
+
+/* ===== sparklines (per-run + combined) ===== */
+.sparkwrap{margin-top:2px}
+.spark{width:100%;height:auto;display:block}
+.cspark{width:100%;height:auto;display:block;overflow:visible}
+.spk-grid{stroke:var(--line);stroke-width:1;opacity:.55}
+.spk-yl{fill:var(--muted);font-size:9.5px;font-family:var(--mono)}
+.spk-xl{fill:var(--muted);font-size:9.5px;font-family:var(--mono)}
+.spk-band{fill:rgba(210,153,34,.16)}
+.spk-bare{stroke:#6b7682;stroke-width:1;stroke-dasharray:3 3}
+.spk-train{fill:none;stroke:var(--muted);stroke-width:1.4;stroke-dasharray:4 3;opacity:.8}
+.spk-val{fill:none;stroke:var(--accent);stroke-width:2.2}
+.spk-dot{fill:var(--accent);stroke:var(--panel);stroke-width:1.4}
+.spk-dot.best{fill:#6ee787;stroke:#0e1116;stroke-width:1.6;r:4.2}
+.spk-dot.of{fill:var(--warn)}
+.spk-star{fill:#f2c544;font-size:13px}
+.spk-ofl{fill:#e3b341;font-size:9px;font-family:var(--mono)}
+.spk-leg{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px;font-size:11px;color:var(--muted);align-items:center}
+.spk-leg .k{display:inline-flex;align-items:center;gap:5px}
+.spk-leg .ln{width:16px;height:0;border-top:2px solid var(--accent);display:inline-block}
+.spk-leg .ln.train{border-top:2px dashed var(--muted)}
+.spk-leg .sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+.spk-leg .sw.band{background:rgba(210,153,34,.4);border:1px dashed rgba(210,153,34,.7)}
+.spk-leg .sw.star{background:none;color:#f2c544;width:auto;height:auto;font-size:12px}
+/* combined chart specifics */
+.cspk-line{fill:none;stroke-width:2.4}
+.cspk-dot{stroke:var(--bg);stroke-width:1.5}
+.cspk-dot.best{stroke:#0e1116;stroke-width:1.8;r:4.4}
+.cspk-dot.of{stroke:#e3b341;stroke-width:2}
+.cspk-rl{font-size:11px;font-weight:600;font-family:var(--sans)}
+.cspk-bare-l{fill:#8b98a5;font-size:10px;font-family:var(--mono)}
+.cspk-leg{display:flex;flex-wrap:wrap;gap:16px;margin-top:10px;font-size:11.5px;color:var(--muted);align-items:center}
+.cspk-leg .k{display:inline-flex;align-items:center;gap:6px}
+.cspk-leg .ln{width:18px;height:0;border-top:2.5px solid;display:inline-block}
+.cspk-leg .ln.glm{border-top-color:var(--glm)} .cspk-leg .ln.opus{border-top-color:var(--opus)}
+.cspk-leg .sw{width:13px;height:13px;border-radius:3px;display:inline-block}
+.cspk-leg .sw.band{background:rgba(210,153,34,.4);border:1px dashed rgba(210,153,34,.7)}
+.cspk-leg .sw.star{background:none;color:#f2c544;width:auto;height:auto;font-size:13px}
+.cspk-leg .sw.of{background:none;border:2px solid #e3b341;border-radius:50%}
+
+/* ===== per-run results block (sparkline + delta bars side by side) ===== */
+.reswrap{padding:6px 22px 8px}
+.reswrap-h{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:700;
+  margin:8px 0 2px}
+.resblock{display:grid;gap:16px;margin:6px 0 4px}
+@media(min-width:860px){.resblock{grid-template-columns:.92fr 1.08fr;align-items:start}}
+.resblock.v0{grid-template-columns:1fr}
+.reschart{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--panel)}
+.reslbl{font-size:12px;color:var(--ink);margin-bottom:10px} .reslbl b{color:var(--ink)} .reslbl .mut{color:var(--muted);font-weight:400}
+.resdelta .dc{margin:0}
+.resnote{grid-column:1/-1;font-size:12.5px;color:var(--muted);background:rgba(63,185,80,.06);
+  border:1px solid var(--line);border-left:3px solid var(--good);border-radius:8px;padding:9px 13px}
+.resnote b{color:#7ee787}
+.dc-cap.noinner{border:1px dashed var(--line);border-radius:10px;padding:13px 16px;background:var(--panel)}
+
+/* iteration row markers */
+.itmark{font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
+.itmark.best{background:rgba(63,185,80,.16);color:#6ee787;border:1px solid rgba(63,185,80,.45)}
+.itmark.of{background:rgba(210,153,34,.14);color:#e3b341;border:1px solid rgba(210,153,34,.4)}
+.itrow.hi{background:rgba(63,185,80,.05);border-radius:9px;margin:0 -8px;padding-left:8px;padding-right:8px}
+
+/* run + group tags */
+.runtag{display:inline-block;margin:6px 0 0;font-family:var(--mono);font-size:11px;color:var(--muted);
+  background:var(--code);border:1px solid var(--line);border-radius:6px;padding:2px 8px}
+.grptag{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--muted);background:var(--panel2);
+  border:1px solid var(--line);border-radius:999px;padding:3px 11px;letter-spacing:0;text-transform:none}
+
+/* ===== per-iteration cost (efficiency runs) ===== */
+.costwrap{padding:0 22px 12px}
+.costwrap .reswrap-h{margin:10px 0 2px}
+.costdc{margin:6px 0 4px}
+.costhead{display:flex;gap:16px;align-items:center;background:rgba(63,185,80,.07);
+  border:1px solid rgba(63,185,80,.3);border-radius:12px;padding:14px 18px;margin:8px 0 2px}
+.costhead-big{font-size:38px;font-weight:800;color:#6ee787;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;line-height:1;flex:0 0 auto}
+.costhead-txt{font-size:13px;color:var(--muted);line-height:1.5} .costhead-txt b{color:var(--ink)}
+
+/* ===== thesis ===== */
+.thgrid{display:grid;gap:14px;margin:18px 0 6px}
+@media(min-width:780px){.thgrid{grid-template-columns:1fr 1fr}}
+.th{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;
+  border-left:3px solid var(--accent)}
+.th-t{font-weight:700;font-size:15px;margin-bottom:8px;color:#fff;line-height:1.35}
+.th-b{font-size:13.5px;color:var(--muted);line-height:1.58} .th-b b{color:var(--ink)}
+</style></head><body>
+<header class="hero"><div class="wrap">
+  <div class="kicker">Self-Improving Agent Harnesses</div>
+  <h1>Self-Improving Agent Harnesses</h1>
+  <p class="sub">A <b>mutator</b> — an LLM agent (Claude Code) — edits the <b>harness</b> (system prompt, tools, control loop; <i>not</i> the weights) of a separate, frozen legal agent (<b>Harvey</b>, GLM-5.2), to make it better or cheaper. This site indexes every run: what the mutator changed per iteration, the measured train/val scores, and a link to each run's artifacts.</p>
+  <div class="setup" style="margin-top:18px"><dl>
+    <dt>benchmark</dt><dd>Harvey LAB — github.com/harveyai/harvey-labs (MIT) · graded by an ensemble judge (GPT-5-mini + GPT-5 → Sonnet on disagreement)</dd>
+    <dt>splits</dt><dd>train = the mutator's workbench · dev = held-out commit gate (ensemble-graded) · val = the invisible verdict the mutator never sees</dd>
+    <dt>noise</dt><dd>GLM-5.2 re-rolls the same harness ±0.013 on held-out val (run-to-run variance).</dd>
+  </dl></div>
+  <nav class="toc"><a href="#overview">Experiments</a><a href="#grp-glm">GLM-5.2 mutator</a><a href="#grp-opus">Opus 4.8 mutator</a><a href="#grp-eff">Opus 4.8 mutator — efficiency</a><a href="#techniques">Techniques</a></nav>
+</div></header>
+<div class="wrap">
+  
+<section id="overview">
+  <h2>Experiments</h2>
+  <table class="exptbl"><thead><tr><th>experiment</th><th>mutator</th><th>family</th><th>iters</th><th>best by val</th><th>overfit iters</th><th></th></tr></thead><tbody><tr><td><a href="runs/v1_cont_work.html"><code>v1_cont_work</code></a></td><td><span class="pill glm">GLM-5.2</span></td><td>GLM-5.2 mutator</td><td class="n">0–1</td><td>iter 1 (val 0.823)</td><td class="n">—</td><td><a href="runs/v1_cont_work.html">artifacts →</a></td></tr><tr><td><a href="runs/opus_round1.html"><code>opus_round1</code></a></td><td><span class="pill opus">Opus 4.8</span> xhigh</td><td>Opus 4.8 mutator</td><td class="n">0–1</td><td>iter 1 (val 0.802)</td><td class="n">—</td><td><a href="runs/opus_round1.html">artifacts →</a></td></tr><tr><td><a href="runs/eff_round1.html"><code>eff_round1</code></a></td><td><span class="pill opus">Opus 4.8</span> xhigh</td><td>Opus 4.8 mutator — efficiency</td><td class="n">0–4</td><td>iter 3 (val 0.808)</td><td class="n">4</td><td><a href="runs/eff_round1.html">artifacts →</a></td></tr></tbody></table>
+  <div class="ovcharts">
+  <div class="card ovchart">
+    <div class="ovchart-t">Accuracy — held-out val by iteration</div>
+    <div class="reslbl">Held-out <b>val</b> combined_score by iteration (runs with an inner train/val loop).
+      Shaded = the ±1% GLM noise band around bare (0.776). ★ = best-by-val; amber ring = overfit.</div>
+    <svg class="cspark" viewBox="0 0 560 320" role="img" aria-label="held-out val trajectory of every accuracy run"><line class="spk-grid" x1="46" y1="290.0" x2="474" y2="290.0"/><text class="spk-yl" x="39" y="293.0" text-anchor="end">0.76</text><line class="spk-grid" x1="46" y1="235.2" x2="474" y2="235.2"/><text class="spk-yl" x="39" y="238.2" text-anchor="end">0.77</text><line class="spk-grid" x1="46" y1="180.4" x2="474" y2="180.4"/><text class="spk-yl" x="39" y="183.4" text-anchor="end">0.79</text><line class="spk-grid" x1="46" y1="125.6" x2="474" y2="125.6"/><text class="spk-yl" x="39" y="128.6" text-anchor="end">0.80</text><line class="spk-grid" x1="46" y1="70.8" x2="474" y2="70.8"/><text class="spk-yl" x="39" y="73.8" text-anchor="end">0.81</text><line class="spk-grid" x1="46" y1="16.0" x2="474" y2="16.0"/><text class="spk-yl" x="39" y="19.0" text-anchor="end">0.83</text><rect class="spk-band" x="46" y="168.6" width="428.0" height="98.6"/><line class="spk-bare" x1="46" y1="217.9" x2="474" y2="217.9"/><text class="cspk-bare-l" x="474" y="212.9" text-anchor="end">bare 0.776</text><text class="spk-xl" x="46.0" y="311" text-anchor="middle">iter 0</text><text class="spk-xl" x="153.0" y="311" text-anchor="middle">iter 1</text><text class="spk-xl" x="260.0" y="311" text-anchor="middle">iter 2</text><text class="spk-xl" x="367.0" y="311" text-anchor="middle">iter 3</text><text class="spk-xl" x="474.0" y="311" text-anchor="middle">iter 4</text><polyline class="cspk-line" style="stroke:var(--opus)" points="46.0,218.2 153.0,194.4 260.0,146.3 367.0,96.0 474.0,96.6"/><circle class="cspk-dot" style="fill:var(--opus)" cx="46.0" cy="218.2" r="3.6"/><circle class="cspk-dot" style="fill:var(--opus)" cx="153.0" cy="194.4" r="3.6"/><circle class="cspk-dot" style="fill:var(--opus)" cx="260.0" cy="146.3" r="3.6"/><circle class="cspk-dot best" style="fill:var(--opus)" cx="367.0" cy="96.0" r="3.6"/><text class="spk-star" x="367.0" y="88.0" text-anchor="middle">★</text><circle class="cspk-dot of" style="fill:var(--opus)" cx="474.0" cy="96.6" r="3.6"/><text class="cspk-rl" style="fill:var(--opus)" x="480.0" y="99.6">eff_round1</text><polyline class="cspk-line" style="stroke:var(--opus)" points="46.0,218.2 153.0,118.7"/><circle class="cspk-dot" style="fill:var(--opus)" cx="46.0" cy="218.2" r="3.6"/><circle class="cspk-dot best" style="fill:var(--opus)" cx="153.0" cy="118.7" r="3.6"/><text class="spk-star" x="153.0" y="110.7" text-anchor="middle">★</text><text class="cspk-rl" style="fill:var(--opus)" x="159.0" y="121.7">opus_round1</text><polyline class="cspk-line" style="stroke:var(--glm)" points="46.0,187.7 153.0,38.8"/><circle class="cspk-dot" style="fill:var(--glm)" cx="46.0" cy="187.7" r="3.6"/><circle class="cspk-dot best" style="fill:var(--glm)" cx="153.0" cy="38.8" r="3.6"/><text class="spk-star" x="153.0" y="30.8" text-anchor="middle">★</text><text class="cspk-rl" style="fill:var(--glm)" x="159.0" y="41.8">v1_cont_work</text></svg>
+    <div class="cspk-leg">
+      <span class="k"><i class="ln glm"></i>GLM</span>
+      <span class="k"><i class="ln opus"></i>Opus</span>
+      <span class="k"><i class="sw band"></i>±1% noise</span>
+      <span class="k"><i class="sw star">★</i>best</span>
+      <span class="k"><i class="sw of"></i>overfit</span>
+    </div>
+    <div class="ov-foot">Runs without an inner train/val loop are not shown.</div>
+  </div>
+  <div class="card ovchart">
+    <div class="ovchart-t">Efficiency — input tokens on the held-out dev gate</div>
+    <div class="reslbl">Mean Harvey-agent <b>input tokens</b> on the held-out <b>dev</b> gate (disjoint from the train
+      tasks the mutator experiments on), as % change from bare. <b>Down = cheaper.</b> ★ = committed iteration.
+      Only the cost-objective run ran a dev cost gate.</div>
+    <svg class="cspark" viewBox="0 0 560 320" role="img" aria-label="held-out dev input-token change per iteration"><line class="spk-grid" x1="52" y1="290.0" x2="464" y2="290.0"/><text class="spk-yl" x="45" y="293.0" text-anchor="end">-33%</text><line class="spk-grid" x1="52" y1="235.2" x2="464" y2="235.2"/><text class="spk-yl" x="45" y="238.2" text-anchor="end">-25%</text><line class="spk-grid" x1="52" y1="180.4" x2="464" y2="180.4"/><text class="spk-yl" x="45" y="183.4" text-anchor="end">-18%</text><line class="spk-grid" x1="52" y1="125.6" x2="464" y2="125.6"/><text class="spk-yl" x="45" y="128.6" text-anchor="end">-10%</text><line class="spk-grid" x1="52" y1="70.8" x2="464" y2="70.8"/><text class="spk-yl" x="45" y="73.8" text-anchor="end">-3%</text><line class="spk-grid" x1="52" y1="16.0" x2="464" y2="16.0"/><text class="spk-yl" x="45" y="19.0" text-anchor="end">+5%</text><line class="spk-bare" x1="52" y1="49.2" x2="464" y2="49.2"/><text class="cspk-bare-l" x="464" y="44.2" text-anchor="end">bare (0%)</text><text class="spk-xl" x="52.0" y="311" text-anchor="middle">iter 0</text><text class="spk-xl" x="189.3" y="311" text-anchor="middle">iter 1</text><text class="spk-xl" x="326.7" y="311" text-anchor="middle">iter 2</text><text class="spk-xl" x="464.0" y="311" text-anchor="middle">iter 3</text><polyline class="cspk-line" style="stroke:var(--opus)" points="52.0,49.2 189.3,200.5 326.7,256.8 464.0,256.8"/><circle class="cspk-dot" style="fill:var(--opus)" cx="52.0" cy="49.2" r="3.6"/><circle class="cspk-dot" style="fill:var(--opus)" cx="189.3" cy="200.5" r="3.6"/><circle class="cspk-dot best" style="fill:var(--opus)" cx="326.7" cy="256.8" r="3.6"/><text class="spk-star" x="326.7" y="272.8" text-anchor="middle">★</text><circle class="cspk-dot" style="fill:var(--opus)" cx="464.0" cy="256.8" r="3.6"/><text class="cspk-rl" style="fill:var(--opus)" x="470.0" y="259.8">eff_round1 (-28%)</text></svg>
+    <div class="cspk-leg">
+      <span class="k"><i class="ln opus"></i>Opus</span>
+      <span class="k"><i class="sw bare"></i>bare = 0%</span>
+      <span class="k"><i class="sw star">★</i>committed</span>
+    </div>
+    <div class="ov-foot">Dev gate (30 ensemble-graded tasks). <b>train</b> rollouts are ~flat (eviction is
+      length-gated to skip short tasks); <b>val</b> was scored for accuracy only, so <b>val token cost was not
+      measured</b>. Pass-rate runs never ran a cost gate.</div>
+  </div>
+  </div>
+</section>
+  
+<section id="grp-glm">
+  <h2><span class="pill glm">&nbsp;</span> GLM-5.2 mutator <span class="grptag">GLM-5.2 · pass-rate · 1 run</span></h2>
+  
+<div class="card run" id="v1_cont_work">
+  <div class="runhead">
+    <div>
+      <h3>v1_cont_work <span class="pill glm">GLM-5.2</span>
+        </h3>
+    </div>
+    <a class="viewrun" href="runs/v1_cont_work.html">artifacts →</a>
+  </div>
+  <div class="setup"><dl><dt>dir</dt><dd>v1_cont_work</dd><dt>mutator</dt><dd>GLM-5.2</dd><dt>objective</dt><dd>Raise Harvey's pass-rate. GLM-5.2 as the mutator (via a LiteLLM shim), v1 continuity loop with host-side cost-capped broker isolation.</dd><dt>budget</dt><dd>broker exp-cap $40 (mutator per-call ceiling --max-budget-usd 60) · ~$17 total spent</dd><dt>loop</dt><dd>held-out val · runaway canary (3× turns → abort)</dd></dl></div>
+  <div class="reswrap"><div class="reswrap-h">Per-iteration results </div>
+    <div class="iterwrap"><div class="itrow"><div class="itn">0</div><div class="itbody"><div class="ithead"><span class="itlabel">bare</span><span class="pill" style="color:var(--muted);border:1px solid var(--line)">baseline</span><span class="itnums"><span class="inum">train <b>0.828</b></span><span class="inum">val <b>0.784</b></span></span></div><div class="itdid">The unmodified harness.</div><div class="itchange"><span class="ck">change</span> <code>—</code></div></div></div><div class="itrow hi"><div class="itn">1</div><div class="itbody"><div class="ithead"><span class="itlabel">completion-gate / self-audit</span><span class="pill up">committed</span><span class="itmark best" title="best by held-out val">★ best</span><span class="itnums"><span class="inum">train <b>0.840</b></span><span class="inum">val <b>0.823</b></span><span class="pill up">▲ +0.039</span></span></div><div class="itdid">A self-audit / completion-gate edit: before finalizing, the agent re-checks its own answer for coverage and missed issues. Held-out val 0.784 → 0.823 (+0.039).</div><div class="itchange"><span class="ck">change</span> <code>harness — completion-gate / self-audit step</code></div></div></div><div class="itrow"><div class="itn">2</div><div class="itbody"><div class="ithead"><span class="itlabel">canary-aborted</span><span class="pill bad">canary-aborted</span><span class="itnums"><span class="inum">train <b>—</b></span><span class="inum">val <b>—</b></span></span></div><div class="itdid">The next edit ran the agent away: the runaway-turns canary tripped on every retry (turns 106 / 75 / 54 vs bare 15 — 7.1× / 5.0× / 3.6× — across attempts 2 / 2b / 2c, one hitting a 124 timeout) and aborted the iteration before the gate (not committed). The edit also tanked canary pass-rate (0.11 on the final attempt).</div><div class="itchange"><span class="ck">change</span> <code>— (aborted by runaway-turns canary)</code></div></div></div></div>
+    <div class="resblock">
+  <div class="reschart">
+    <div class="reslbl">Held-out <b>val</b> &amp; <b>train</b> by iteration <span class="mut">— ±1% noise band shaded around bare</span></div>
+    <div class="sparkwrap"><svg class="spark" viewBox="0 0 300 120" preserveAspectRatio="none" role="img" aria-label="val and train combined_score by iteration"><line class="spk-grid" x1="40" y1="94.0" x2="286" y2="94.0"/><text class="spk-yl" x="34" y="97.0" text-anchor="end">0.77</text><line class="spk-grid" x1="40" y1="54.0" x2="286" y2="54.0"/><text class="spk-yl" x="34" y="57.0" text-anchor="end">0.81</text><line class="spk-grid" x1="40" y1="14.0" x2="286" y2="14.0"/><text class="spk-yl" x="34" y="17.0" text-anchor="end">0.85</text><rect class="spk-band" x="40" y="69.0" width="246.0" height="26.0"/><line class="spk-bare" x1="40" y1="82.0" x2="286" y2="82.0"/><polyline class="spk-train" points="40.0,37.7 286.0,26.0"/><polyline class="spk-val" points="40.0,82.0 286.0,42.8"/><circle class="spk-dot" cx="40.0" cy="82.0" r="3.4"/><circle class="spk-dot best" cx="286.0" cy="42.8" r="3.4"/><text class="spk-star" x="286.0" y="35.8" text-anchor="middle">★</text><text class="spk-xl" x="40.0" y="112" text-anchor="middle">0</text><text class="spk-xl" x="286.0" y="112" text-anchor="middle">1</text><text class="spk-ax" x="163.0" y="120" text-anchor="middle" style="display:none">iter</text></svg><div class="spk-leg"><span class="k"><i class="ln val"></i>val</span><span class="k"><i class="ln train"></i>train</span><span class="k"><i class="sw band"></i>±1% noise</span><span class="k"><i class="sw star">★</i>best&nbsp;by&nbsp;val</span></div></div>
+  </div>
+  <div class="resdelta"><div class="dc"><div class="dc-cap">Held-out <b>val</b> vs the run's bare baseline (<b>0.784</b>). Shaded = the ±1% GLM run-to-run noise band — a bar inside it is not a real move.</div><div class="dc-ticks"><span style="left:10.0%">-4%</span><span style="left:30.0%">-2%</span><span style="left:50.0%">0%</span><span style="left:70.0%">+2%</span><span style="left:90.0%">+4%</span></div><div class="dc-row"><div class="dc-name">iter&nbsp;1 <span class="mut">→ val 0.823</span></div><div class="dc-track"><div class="dc-band" style="left:37.0%;right:37.0%"></div><div class="dc-zero" style="left:50.0%"></div><div class="dc-bar" style="left:50.0%;width:39.26953688834311%;background:var(--good)"></div><div class="dc-val" style="left:90%;color:var(--good)">+0.039</div></div></div><div class="dc-foot">Green = beats bare beyond noise · amber = inside the noise band · red = below bare.</div></div></div>
+  <div class="resnote"><b>best by held-out val:</b> iter 1 (val 0.823).</div>
+</div>
+  </div>
+  
+</div>
+</section>
+<section id="grp-opus">
+  <h2><span class="pill opus">&nbsp;</span> Opus 4.8 mutator <span class="grptag">Opus 4.8 · pass-rate · 1 run</span></h2>
+  
+<div class="card run" id="opus_round1">
+  <div class="runhead">
+    <div>
+      <h3>opus_round1 <span class="pill opus">Opus 4.8</span>
+        <span class="effort">xhigh</span></h3>
+    </div>
+    <a class="viewrun" href="runs/opus_round1.html">artifacts →</a>
+  </div>
+  <div class="setup"><dl><dt>dir</dt><dd>opus_round1</dd><dt>mutator</dt><dd>Opus 4.8 · effort xhigh</dd><dt>objective</dt><dd>Raise Harvey's pass-rate. General (no efficiency constraint), from the bare harness, with an ambition-revised CLAUDE.md + prompt.</dd><dt>budget</dt><dd>exp-cap $50 · ~$35 total</dd><dt>loop</dt><dd>held-out val verdict · best_by_val + overfit detection</dd></dl></div>
+  <div class="reswrap"><div class="reswrap-h">Per-iteration results </div>
+    <div class="iterwrap"><div class="itrow"><div class="itn">0</div><div class="itbody"><div class="ithead"><span class="itlabel">bare</span><span class="pill" style="color:var(--muted);border:1px solid var(--line)">baseline</span><span class="itnums"><span class="inum">train <b>0.842</b></span><span class="inum">val <b>0.776</b></span></span></div><div class="itdid">The unmodified harness.</div><div class="itchange"><span class="ck">change</span> <code>—</code></div></div></div><div class="itrow hi"><div class="itn">1</div><div class="itbody"><div class="ithead"><span class="itlabel">issue-census coverage discipline</span><span class="pill up">committed</span><span class="itmark best" title="best by held-out val">★ best</span><span class="itnums"><span class="inum">train <b>0.823</b></span><span class="inum">val <b>0.802</b></span><span class="pill up">▲ +0.026</span></span></div><div class="itdid">A prose-only edit to <code>system_prompt.md</code> (+47 lines, an <code>## Approach to the work</code> section): an upfront method — read every document in full, fix the scope, then build a complete <b>issue census</b> section-by-section and <b>cross-reference every document against every other</b> (many issues live only in the gap between two documents) before developing each issue. Held-out val 0.776 → 0.802 (+0.026); train down / val up.</div><div class="itchange"><span class="ck">change</span> <code>system_prompt.md — issue-census + cross-reference method (prose, +47)</code></div></div></div><div class="itrow"><div class="itn">2</div><div class="itbody"><div class="ithead"><span class="itlabel">reverted</span><span class="pill dn">reverted</span><span class="itnums"><span class="inum">train <b>—</b></span><span class="inum">val <b>—</b></span></span></div><div class="itdid">Tried to stack more prose discipline; the dev evidence did not support it, so the mutator reverted <code>system_prompt.md</code> to byte-identical bare (not committed).</div><div class="itchange"><span class="ck">change</span> <code>— (reverted to bare)</code></div></div></div></div>
+    <div class="resblock">
+  <div class="reschart">
+    <div class="reslbl">Held-out <b>val</b> &amp; <b>train</b> by iteration <span class="mut">— ±1% noise band shaded around bare</span></div>
+    <div class="sparkwrap"><svg class="spark" viewBox="0 0 300 120" preserveAspectRatio="none" role="img" aria-label="val and train combined_score by iteration"><line class="spk-grid" x1="40" y1="94.0" x2="286" y2="94.0"/><text class="spk-yl" x="34" y="97.0" text-anchor="end">0.76</text><line class="spk-grid" x1="40" y1="54.0" x2="286" y2="54.0"/><text class="spk-yl" x="34" y="57.0" text-anchor="end">0.81</text><line class="spk-grid" x1="40" y1="14.0" x2="286" y2="14.0"/><text class="spk-yl" x="34" y="17.0" text-anchor="end">0.85</text><rect class="spk-band" x="40" y="71.9" width="246.0" height="23.0"/><line class="spk-bare" x1="40" y1="83.4" x2="286" y2="83.4"/><polyline class="spk-train" points="40.0,24.6 286.0,41.7"/><polyline class="spk-val" points="40.0,83.4 286.0,60.2"/><circle class="spk-dot" cx="40.0" cy="83.4" r="3.4"/><circle class="spk-dot best" cx="286.0" cy="60.2" r="3.4"/><text class="spk-star" x="286.0" y="53.2" text-anchor="middle">★</text><text class="spk-xl" x="40.0" y="112" text-anchor="middle">0</text><text class="spk-xl" x="286.0" y="112" text-anchor="middle">1</text><text class="spk-ax" x="163.0" y="120" text-anchor="middle" style="display:none">iter</text></svg><div class="spk-leg"><span class="k"><i class="ln val"></i>val</span><span class="k"><i class="ln train"></i>train</span><span class="k"><i class="sw band"></i>±1% noise</span><span class="k"><i class="sw star">★</i>best&nbsp;by&nbsp;val</span></div></div>
+  </div>
+  <div class="resdelta"><div class="dc"><div class="dc-cap">Held-out <b>val</b> vs the run's bare baseline (<b>0.776</b>). Shaded = the ±1% GLM run-to-run noise band — a bar inside it is not a real move.</div><div class="dc-ticks"><span style="left:10.0%">-4%</span><span style="left:30.0%">-2%</span><span style="left:50.0%">0%</span><span style="left:70.0%">+2%</span><span style="left:90.0%">+4%</span></div><div class="dc-row"><div class="dc-name">iter&nbsp;1 <span class="mut">→ val 0.802</span></div><div class="dc-track"><div class="dc-band" style="left:37.0%;right:37.0%"></div><div class="dc-zero" style="left:50.0%"></div><div class="dc-bar" style="left:50.0%;width:26.232601355943075%;background:var(--good)"></div><div class="dc-val" style="left:77.23260135594307%;color:var(--good)">+0.026</div></div></div><div class="dc-foot">Green = beats bare beyond noise · amber = inside the noise band · red = below bare.</div></div></div>
+  <div class="resnote"><b>best by held-out val:</b> iter 1 (val 0.802).</div>
+</div>
+  </div>
+  
+</div>
+</section>
+<section id="grp-eff">
+  <h2><span class="pill opus">&nbsp;</span> Opus 4.8 mutator — efficiency <span class="grptag">Opus 4.8 · cost · 1 run</span></h2>
+  
+<div class="card run" id="eff_round1">
+  <div class="runhead">
+    <div>
+      <h3>eff_round1 <span class="pill opus">Opus 4.8</span>
+        <span class="effort">xhigh</span></h3>
+    </div>
+    <a class="viewrun" href="runs/eff_round1.html">artifacts →</a>
+  </div>
+  <div class="setup"><dl><dt>dir</dt><dd>eff_round1</dd><dt>mutator</dt><dd>Opus 4.8 · effort xhigh</dd><dt>objective</dt><dd>Cut Harvey's carried-input cost while holding accuracy — commit only if all three: dev accuracy ≥ bare−noise, dev cost &lt; bare, and no per-task re-fetch THRASH.</dd><dt>budget</dt><dd>exp-cap $160 / iter · dev gate ensemble-graded · ~$163 total</dd><dt>loop</dt><dd>continuity loop (carries the whole workspace forward) · per-task THRASH + cost-landscape signals · wall-clock + dollar budget reminders · host-side memory fallback</dd></dl></div>
+  <div class="reswrap"><div class="reswrap-h">Per-iteration results (accuracy)</div>
+    <div class="iterwrap"><div class="itrow"><div class="itn">0</div><div class="itbody"><div class="ithead"><span class="itlabel">bare</span><span class="pill" style="color:var(--muted);border:1px solid var(--line)">baseline</span><span class="itnums"><span class="inum">train <b>0.842</b></span><span class="inum">val <b>0.776</b></span></span></div><div class="itdid">The unmodified Harvey harness — the baseline every iter is scored against.</div><div class="itchange"><span class="ck">change</span> <code>—</code></div></div></div><div class="itrow"><div class="itn">1</div><div class="itbody"><div class="ithead"><span class="itlabel">result-eviction</span><span class="pill up">committed</span><span class="itnums"><span class="inum">train <b>0.816</b></span><span class="inum">val <b>0.782</b></span><span class="pill null">≈ +0.006 (noise)</span></span></div><div class="itdid">Introduced <b>context eviction</b>: once a bulky tool <i>output</i> is distilled, drop the raw bytes from the carried context and leave a re-read handle. Cut cost — but hid a per-task thrasher (one corporate-M&A task re-fetched in a loop, turns 18→73 / tokens 1.4M→7.0M).</div><div class="itchange"><span class="ck">change</span> <code>agent_loop.py — context result-eviction</code></div></div></div><div class="itrow"><div class="itn">2</div><div class="itbody"><div class="ithead"><span class="itlabel">eviction tuned (length-gate + refetch limit)</span><span class="pill up">committed</span><span class="itnums"><span class="inum">train <b>0.826</b></span><span class="inum">val <b>0.795</b></span><span class="pill up">▲ +0.019</span></span></div><div class="itdid">The per-task THRASH flag flagged the iter-1 thrasher (4.4× turns behind a −21% mean). Added length-gated eviction (<code>_EVICT_MIN_TURN=28</code>) and a re-fetch limit (<code>_EVICT_REFETCH_LIMIT=1</code>). Dev gate: −28% dev input tokens, accuracy held, 0 thrash.</div><div class="itchange"><span class="ck">change</span> <code>agent_loop.py — length-gate + refetch kill-switch</code></div></div></div><div class="itrow hi"><div class="itn">3</div><div class="itbody"><div class="ithead"><span class="itlabel">no change committed</span><span class="pill null">committed · no change</span><span class="itmark best" title="best by held-out val">★ best</span><span class="itnums"><span class="inum">train <b>0.835</b></span><span class="inum">val <b>0.808</b></span><span class="pill up">▲ +0.032</span></span></div><div class="itdid">Tested raising the re-fetch limit 1→4 (to evict the giant redlines' cold tail); cost regressed (+33–44% vs bare from churning the re-readers). Committed no change (byte-identical to iter 2). val 0.808 vs iter 2's 0.795 is within the ±0.013 noise band.</div><div class="itchange"><span class="ck">change</span> <code>— (byte-identical to iter 2)</code></div></div></div><div class="itrow"><div class="itn">4</div><div class="itbody"><div class="ithead"><span class="itlabel">argument-eviction</span><span class="pill null">committed · overfit</span><span class="itmark of" title="train up, val flat">overfit</span><span class="itnums"><span class="inum">train <b>0.838</b></span><span class="inum">val <b>0.808</b></span><span class="pill up">▲ +0.032</span></span></div><div class="itdid">Added symmetric <i>argument</i>-eviction — shed the bulky tool-call argument bodies the agent writes (drafts), not just the outputs it reads. Train rose (0.838); val stayed flat (0.808) = overfit. The dev gate never ran ($0 dev_eval): validation was launched as a background sub-agent and the mutator (a single non-interactive session) ended its turn, finishing in 19 min (vs iter 2's 196), so this edit has no measured dev cost. The driver committed the on-disk edit; best-by-val stays iter 3. No lesson was written, so the host-side memory fallback wrote the breadcrumb.</div><div class="itchange"><span class="ck">change</span> <code>agent_loop.py — assistant tool-call argument-eviction (+139 lines)</code></div></div></div></div>
+    <div class="resblock">
+  <div class="reschart">
+    <div class="reslbl">Held-out <b>val</b> &amp; <b>train</b> by iteration <span class="mut">— ±1% noise band shaded around bare</span></div>
+    <div class="sparkwrap"><svg class="spark" viewBox="0 0 300 120" preserveAspectRatio="none" role="img" aria-label="val and train combined_score by iteration"><line class="spk-grid" x1="40" y1="94.0" x2="286" y2="94.0"/><text class="spk-yl" x="34" y="97.0" text-anchor="end">0.76</text><line class="spk-grid" x1="40" y1="54.0" x2="286" y2="54.0"/><text class="spk-yl" x="34" y="57.0" text-anchor="end">0.81</text><line class="spk-grid" x1="40" y1="14.0" x2="286" y2="14.0"/><text class="spk-yl" x="34" y="17.0" text-anchor="end">0.85</text><rect class="spk-band" x="40" y="71.9" width="246.0" height="23.0"/><line class="spk-bare" x1="40" y1="83.4" x2="286" y2="83.4"/><polyline class="spk-train" points="40.0,24.6 101.5,48.1 163.0,39.0 224.5,31.2 286.0,28.8"/><polyline class="spk-val" points="40.0,83.4 101.5,77.8 163.0,66.6 224.5,54.8 286.0,55.0"/><circle class="spk-dot" cx="40.0" cy="83.4" r="3.4"/><circle class="spk-dot" cx="101.5" cy="77.8" r="3.4"/><circle class="spk-dot" cx="163.0" cy="66.6" r="3.4"/><circle class="spk-dot best" cx="224.5" cy="54.8" r="3.4"/><text class="spk-star" x="224.5" y="47.8" text-anchor="middle">★</text><circle class="spk-dot of" cx="286.0" cy="55.0" r="3.4"/><text class="spk-ofl" x="286.0" y="70.0" text-anchor="middle">overfit</text><text class="spk-xl" x="40.0" y="112" text-anchor="middle">0</text><text class="spk-xl" x="101.5" y="112" text-anchor="middle">1</text><text class="spk-xl" x="163.0" y="112" text-anchor="middle">2</text><text class="spk-xl" x="224.5" y="112" text-anchor="middle">3</text><text class="spk-xl" x="286.0" y="112" text-anchor="middle">4</text><text class="spk-ax" x="163.0" y="120" text-anchor="middle" style="display:none">iter</text></svg><div class="spk-leg"><span class="k"><i class="ln val"></i>val</span><span class="k"><i class="ln train"></i>train</span><span class="k"><i class="sw band"></i>±1% noise</span><span class="k"><i class="sw star">★</i>best&nbsp;by&nbsp;val</span></div></div>
+  </div>
+  <div class="resdelta"><div class="dc"><div class="dc-cap">Held-out <b>val</b> vs the run's bare baseline (<b>0.776</b>). Shaded = the ±1% GLM run-to-run noise band — a bar inside it is not a real move.</div><div class="dc-ticks"><span style="left:10.0%">-4%</span><span style="left:30.0%">-2%</span><span style="left:50.0%">0%</span><span style="left:70.0%">+2%</span><span style="left:90.0%">+4%</span></div><div class="dc-row"><div class="dc-name">iter&nbsp;1 <span class="mut">→ val 0.782</span></div><div class="dc-track"><div class="dc-band" style="left:37.0%;right:37.0%"></div><div class="dc-zero" style="left:50.0%"></div><div class="dc-bar" style="left:50.0%;width:6.265272342970803%;background:var(--warn)"></div><div class="dc-val" style="left:57.2652723429708%;color:var(--warn)">+0.006</div></div></div><div class="dc-row"><div class="dc-name">iter&nbsp;2 <span class="mut">→ val 0.795</span></div><div class="dc-track"><div class="dc-band" style="left:37.0%;right:37.0%"></div><div class="dc-zero" style="left:50.0%"></div><div class="dc-bar" style="left:50.0%;width:18.9625746665899%;background:var(--good)"></div><div class="dc-val" style="left:69.9625746665899%;color:var(--good)">+0.019</div></div></div><div class="dc-row"><div class="dc-name">iter&nbsp;3 <span class="mut">→ val 0.808</span></div><div class="dc-track"><div class="dc-band" style="left:37.0%;right:37.0%"></div><div class="dc-zero" style="left:50.0%"></div><div class="dc-bar" style="left:50.0%;width:32.231940385486936%;background:var(--good)"></div><div class="dc-val" style="left:83.23194038548694%;color:var(--good)">+0.032</div></div></div><div class="dc-row"><div class="dc-name">iter&nbsp;4 <span class="mut">→ val 0.808</span></div><div class="dc-track"><div class="dc-band" style="left:37.0%;right:37.0%"></div><div class="dc-zero" style="left:50.0%"></div><div class="dc-bar" style="left:50.0%;width:32.05629479799211%;background:var(--good)"></div><div class="dc-val" style="left:83.05629479799211%;color:var(--good)">+0.032</div></div></div><div class="dc-foot">Green = beats bare beyond noise · amber = inside the noise band · red = below bare.</div></div></div>
+  <div class="resnote"><b>best by held-out val:</b> iter 3 (val 0.808) · overfit at iter 4.</div>
+</div>
+  </div>
+  <div class="costwrap"><div class="reswrap-h">Per-iteration cost (input tokens — the efficiency objective)</div><div class="costhead"><div class="costhead-big">-28%</div><div class="costhead-txt"><b>input tokens at held accuracy</b>, measured on the held-out <b>dev gate</b> (30 ensemble-graded tasks, disjoint from the train set the mutator experiments on) at iter 2 — the committed edit. dev accuracy held (0.817 vs bare 0.808). The per-task re-fetch THRASH check kept a hidden per-task blow-up from passing.</div></div><div class="dc costdc"><div class="dc-cap">Mean Harvey-agent <b>input tokens</b> on the held-out <b>dev</b> gate vs the bare baseline (<b>4.48M</b>). Green = fewer tokens than bare. The dev set holds the cost-dominant "redline giant" tasks (13–15M input each) where length-gated eviction fires.</div><div class="dc-ticks"><span style="left:12.500000000000007%">-30%</span><span style="left:31.250000000000004%">-15%</span><span style="left:50.0%">0%</span><span style="left:68.75%">+15%</span><span style="left:87.5%">+30%</span></div><div class="dc-row"><div class="dc-name">iter&nbsp;1 <span class="mut">→ 3.56M dev in-tok</span></div><div class="dc-track"><div class="dc-zero" style="left:50.0%"></div><div class="dc-bar" style="left:24.36432473117608%;width:25.63567526882392%;background:var(--good)"></div><div class="dc-val" style="left:25.36432473117608%;color:var(--good)">-21%</div></div></div><div class="dc-row"><div class="dc-name">iter&nbsp;2 <span class="mut">→ 3.22M dev in-tok</span> <span class="itmark best">★ committed</span></div><div class="dc-track"><div class="dc-zero" style="left:50.0%"></div><div class="dc-bar" style="left:14.818850311220494%;width:35.181149688779506%;background:var(--good)"></div><div class="dc-val" style="left:15.818850311220494%;color:var(--good)">-28%</div></div></div><div class="dc-row"><div class="dc-name">iter&nbsp;3 <span class="mut">→ 3.22M dev in-tok</span></div><div class="dc-track"><div class="dc-zero" style="left:50.0%"></div><div class="dc-bar" style="left:14.818850311220494%;width:35.181149688779506%;background:var(--good)"></div><div class="dc-val" style="left:15.818850311220494%;color:var(--good)">-28%</div></div></div><div class="dc-foot">Note: the dev gate ran only at iter 1–2; iter 3 is byte-identical to iter 2 (same cost); iter 4 never ran the dev gate, so it has no measured dev cost. The <b>train</b> rollouts are roughly flat (eviction is length-gated to skip short tasks), and <b>val</b> was scored for accuracy only — token cost on the val split was not measured.</div></div></div>
+</div>
+</section>
+  
+<section id="techniques">
+  <h2>Techniques</h2>
+  <p class="sub">The mechanisms built around the mutator — each shown as what it replaced, what it became, and the
+  failure or constraint that motivated it.</p>
+  <div class="chg-cat"><div class="chg-cat-h">Guidance — what the mutator is told</div><div class="chg">
+                  <div class="chg-t">Ambition rewrite of CLAUDE.md</div>
+                  <div class="chg-ba">
+                    <div class="chg-b"><span class="ba-l">before</span>Terse, cautious instructions; the mutator made small, cheap edits and stopped early, under-using its budget.</div>
+                    <div class="chg-arrow">→</div>
+                    <div class="chg-a"><span class="ba-l">after</span>“Exhaust your money and time. Make foundational, diverse moves. Build your own tools. Reserve budget to validate.” Plus a from-scratch framing.</div>
+                  </div>
+                  <div class="chg-why"><b>Why:</b> Early runs under-used their budget and converged on trivial edits.</div>
+                </div><div class="chg">
+                  <div class="chg-t">Efficiency-only objective</div>
+                  <div class="chg-ba">
+                    <div class="chg-b"><span class="ba-l">before</span>Maximize pass-rate (open-ended).</div>
+                    <div class="chg-arrow">→</div>
+                    <div class="chg-a"><span class="ba-l">after</span>Objective = cut the carried-input cost (Harvey re-sends everything it has read every turn), with accuracy as a hard gate. Attack the re-carried context specifically.</div>
+                  </div>
+                  <div class="chg-why"><b>Why:</b> Harvey is input-bound (≈98% input tokens), so cost is the dominant tractable lever.</div>
+                </div><div class="chg">
+                  <div class="chg-t">Diverse levers + anti-plateau nudge</div>
+                  <div class="chg-ba">
+                    <div class="chg-b"><span class="ba-l">before</span>A menu of directions existed, but the mutator hill-climbed the one lever it had already committed.</div>
+                    <div class="chg-arrow">→</div>
+                    <div class="chg-a"><span class="ba-l">after</span>“Read your memory first; if a lever is a tapped-out local optimum, pivot to a different family — don't stop at no-change.” (This is what made eff iter 4 try argument-eviction.)</div>
+                  </div>
+                  <div class="chg-why"><b>Why:</b> eff iters 1–3 all tuned the same eviction lever; the loop needed a cue to diversify.</div>
+                </div></div><div class="chg-cat"><div class="chg-cat-h">Eval signal — what the mutator decides against</div><div class="chg">
+                  <div class="chg-t">Non-overlapping held-out DEV set + val isolation</div>
+                  <div class="chg-ba">
+                    <div class="chg-b"><span class="ba-l">before</span>The mutator could tune against the same tasks it was scored on, which overfits.</div>
+                    <div class="chg-arrow">→</div>
+                    <div class="chg-a"><span class="ba-l">after</span>Three disjoint pools: TRAIN (explore freely), DEV (the commit gate, ensemble-graded), VAL (the verdict the mutator never sees). Val isolation is structural, not honor-system.</div>
+                  </div>
+                  <div class="chg-why"><b>Why:</b> A skill-only v0 mutator demonstrably overfit to the visible tasks; a held-out gate is what catches it.</div>
+                </div><div class="chg">
+                  <div class="chg-t">Per-task THRASH signal (+ loop-gating)</div>
+                  <div class="chg-ba">
+                    <div class="chg-b"><span class="ba-l">before</span>Only the mean cost was reported — a mean cut can sit on top of one task that tripled.</div>
+                    <div class="chg-arrow">→</div>
+                    <div class="chg-a"><span class="ba-l">after</span>Per-task turns/tokens ratio vs bare, flagging a re-fetch loop (turns ≥2× with tokens ≥1.5×, or tokens ≥3× with turns ≥1.5×) as a hard reject; a single-axis rise is a watch.</div>
+                  </div>
+                  <div class="chg-why"><b>Why:</b> eff iter 1's −21% mean hid a 4.4× per-task thrasher; the flag caught it and forced the iter-2 fix.</div>
+                </div><div class="chg">
+                  <div class="chg-t">Runaway / quality canary (pre-gate abort)</div>
+                  <div class="chg-ba">
+                    <div class="chg-b"><span class="ba-l">before</span>A broken harness edit could run the full (slow, costly) dev gate before its breakage was detected.</div>
+                    <div class="chg-arrow">→</div>
+                    <div class="chg-a"><span class="ba-l">after</span>A fast canary on a few tasks runs first; if the edit blows up turns (≥3×) or collapses pass-rate, the iteration is aborted before the dev gate, and the broken edit is never committed.</div>
+                  </div>
+                  <div class="chg-why"><b>Why:</b> v1_cont_work iter 2 broke the agent (canary pass-rate 0.11); the canary caught it across retries and aborted instead of committing.</div>
+                </div></div><div class="chg-cat"><div class="chg-cat-h">Loop mechanism — state &amp; memory</div><div class="chg">
+                  <div class="chg-t">Carry the whole filesystem forward</div>
+                  <div class="chg-ba">
+                    <div class="chg-b"><span class="ba-l">before</span>Each iteration started from scratch.</div>
+                    <div class="chg-arrow">→</div>
+                    <div class="chg-a"><span class="ba-l">after</span>A continuity loop: the mutator's entire workspace (harness + tools + scratch notes + prototypes) carries to the next iteration, so edits and reasoning compound.</div>
+                  </div>
+                  <div class="chg-why"><b>Why:</b> One-shot mutators can't build on their own prior work; compounding needs persistent state.</div>
+                </div><div class="chg">
+                  <div class="chg-t">Mutator-written lessons + host-side fallback</div>
+                  <div class="chg-ba">
+                    <div class="chg-b"><span class="ba-l">before</span>Nothing was persisted between iterations; one GLM run wrote zero lessons.</div>
+                    <div class="chg-arrow">→</div>
+                    <div class="chg-a"><span class="ba-l">after</span>Each iteration ends by writing a <code>.claude/memory</code> lesson, and a host-side fallback writes a factual breadcrumb if the mutator doesn't, so the 'read your memory first' trail never breaks. (The fallback fired on eff iter 4.)</div>
+                  </div>
+                  <div class="chg-why"><b>Why:</b> The next iteration's diversification depends on knowing what's already been tried.</div>
+                </div></div><div class="chg-cat"><div class="chg-cat-h">Budget &amp; time</div><div class="chg">
+                  <div class="chg-t">Higher per-iteration budget</div>
+                  <div class="chg-ba">
+                    <div class="chg-b"><span class="ba-l">before</span>$5–6 per run (the v0 trials) — barely enough to read, let alone experiment.</div>
+                    <div class="chg-arrow">→</div>
+                    <div class="chg-a"><span class="ba-l">after</span>Per-iteration experiment cap raised to $50 → $160, enough to run real train experiments and a full held-out dev gate.</div>
+                  </div>
+                  <div class="chg-why"><b>Why:</b> A trustworthy generalization signal costs money; under-funding it forces commits on noise.</div>
+                </div><div class="chg">
+                  <div class="chg-t">Time + budget reminders</div>
+                  <div class="chg-ba">
+                    <div class="chg-b"><span class="ba-l">before</span>A silent hard timeout — the mutator could start a 90-minute dev gate it couldn't finish, then get killed.</div>
+                    <div class="chg-arrow">→</div>
+                    <div class="chg-a"><span class="ba-l">after</span>A wall-clock soft deadline (<code>MUTATOR_DEADLINE_EPOCH</code>), a <code>budget</code> tool reporting both dollars and time (OK / LOW / CRITICAL), and a dev-gate guard that refuses a gate it can't finish.</div>
+                  </div>
+                  <div class="chg-why"><b>Why:</b> A run started a gate it couldn't finish and was hard-killed mid-refinement.</div>
+                </div></div><div class="chg-cat"><div class="chg-cat-h">Mutator brain</div><div class="chg">
+                  <div class="chg-t">Swappable mutator model (GLM → Opus)</div>
+                  <div class="chg-ba">
+                    <div class="chg-b"><span class="ba-l">before</span>GLM-5.2 only (via a LiteLLM shim).</div>
+                    <div class="chg-arrow">→</div>
+                    <div class="chg-a"><span class="ba-l">after</span><code>--mutator-endpoint {glm, opus}</code> at effort xhigh — the rollouts stay GLM, only the mutator brain changes.</div>
+                  </div>
+                  <div class="chg-why"><b>Why:</b> To separate 'is the loop good?' from 'is the mutator model good?'.</div>
+                </div></div>
+</section>
+</div>
+<footer><div class="wrap">
+  All runs scored on the <a href="https://github.com/harveyai/harvey-labs">Harvey LAB</a> benchmark (MIT) ·
+  agent + grader = GLM-5.2 · scores from each run's <code>series.json</code> / <code>full_stats.json</code>.
+  Each experiment links to its artifacts (filesystem, mutator trajectory, task rollouts).
+</div></footer>
+</body></html>

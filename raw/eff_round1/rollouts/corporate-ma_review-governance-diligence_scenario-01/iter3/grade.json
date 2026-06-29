@@ -1,0 +1,24 @@
+{
+ "task": "corporate-ma/review-governance-diligence/scenario-01",
+ "ens_pass_rate": 0.9444444444444444,
+ "n_graded": 54,
+ "n_failed": 3,
+ "failed_criteria": [
+  {
+   "id": "C-002",
+   "title": "Authorized Preferred Stock classes correctly stated",
+   "match_criteria": "PASS if the memo states authorized preferred shares including 5,000,000 shares of Series A Preferred, 7,000,000 shares of Series B Preferred, and 10,000,000 shares of Series C Preferred. FAIL if any of these three authorized preferred share counts are materially wrong or missing."
+  },
+  {
+   "id": "C-003",
+   "title": "Total authorized shares correctly stated as 72,000,000",
+   "match_criteria": "PASS if the memo states total authorized shares of 72,000,000 (or figures that sum to 72,000,000). FAIL if the total is materially wrong or missing."
+  },
+  {
+   "id": "C-036",
+   "title": "ISSUE_010: Drag-along cannot override charter-level Series C protective provision",
+   "match_criteria": "PASS if the memo identifies that even if the drag-along in the Stockholders' Agreement is properly triggered, it cannot override the Series C separate class vote protective provision in the Restated Certificate, because under Delaware law charter-level provisions supersede contractual stockholder agreements. The Series C class vote must be independently satisfied. FAIL if the memo does not address the conflict between the drag-along and the charter protective provisions or does not conclude that the charter prevails."
+  }
+ ],
+ "error": null
+}

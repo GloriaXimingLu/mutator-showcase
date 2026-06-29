@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+"""Thin client: proxy-grade ONE deliverable with the cheap single judge, via the host broker.
+
+Usage:  .claude/tools/proxy_eval <task_id> [deliverable_path]
+        (deliverable_path defaults to scratch/runs/<task_id>/deliverable.md)
+
+The broker grades host-side with a single mid-tier judge (gpt-5-mini) and returns a pass-rate +
+per-criterion verdicts, written to scratch/runs/<task_id>/proxy_score.json. Metered (~$0.02).
+
+TRIAGE ONLY — this is a noisy private hint to help you rank your own attempts, NEVER the verdict.
+The canonical standard eval runs in the driver on the held-out val set and is not reachable here.
+"""
+import json
+import os
+import sys
+import urllib.error
+import urllib.request
+
+BROKER = os.environ.get("BROKER_URL", "http://172.17.0.1:4100")
+WS = os.environ.get("MUTATOR_WORKSPACE", "/workspace")
+
+
+def post(path, obj, timeout=600):
+    req = urllib.request.Request(
+        BROKER + path,
+        data=json.dumps(obj).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.status, json.load(r)
+    except urllib.error.HTTPError as e:
+        return e.code, json.load(e)
+    except urllib.error.URLError as e:  # broker down / refused / DNS — a clean signal, not a traceback
+        print(
+            "broker unreachable at %s (%s) — is the experiment broker up?" % (BROKER, getattr(e, "reason", e)),
+            file=sys.stderr,
+        )
+        sys.exit(5)
+
+
+def main():
+    if len(sys.argv) < 2:
+        print("usage: proxy_eval <task_id> [deliverable_path]", file=sys.stderr)
+        sys.exit(2)
+    task_id = sys.argv[1]
+    dpath = (
+        sys.argv[2]
+        if len(sys.argv) > 2
+        else os.path.join(WS, "scratch/runs", task_id.replace("/", "_"), "deliverable.md")
+    )
+    try:
+        deliv = open(dpath, encoding="utf-8").read()
+    except OSError:
+        print(
+            "no deliverable at %s — run `run_harvey_agent %s` first, or pass a path." % (dpath, task_id),
+            file=sys.stderr,
+        )
+        sys.exit(2)
+    code, body = post("/proxy_eval", {"task_id": task_id, "deliverable": deliv})
+    if code == 402:
+        print("OVER_BUDGET (remaining $%.2f) — commit now." % body.get("remaining", 0.0), file=sys.stderr)
+        sys.exit(3)
+    if code == 403:
+        print("REFUSED — %s" % body.get("detail", "not a TRAIN task"), file=sys.stderr)
+        sys.exit(4)
+    if code != 200:
+        print("ERROR %s — %s" % (code, body), file=sys.stderr)
+        sys.exit(1)
+    out = os.path.dirname(dpath)
+    json.dump(body, open(os.path.join(out, "proxy_score.json"), "w"), indent=1)
+    print(
+        "proxy pass_rate=%.3f (n=%d, remaining $%.2f) — TRIAGE ONLY, not the verdict; confirm "
+        "across more tasks/seeds before believing it." % (body["pass_rate"], body["n"], body.get("remaining", 0.0))
+    )
+
+
+if __name__ == "__main__":
+    main()

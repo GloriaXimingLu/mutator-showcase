@@ -1,0 +1,30 @@
+{
+  "model": "glm-5p2",
+  "task": "intellectual-property/extract-key-terms-from-technology-licensing-term-sheet",
+  "run_id": "effround1_train_iter4/intellectual-property_extract-key-terms-from-technology-licensing-term-sheet__da39a3ee5e",
+  "turn_count": 27,
+  "input_tokens": 1402927,
+  "output_tokens": 45430,
+  "total_tokens": 1448357,
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "wall_clock_seconds": 453.39,
+  "finished_cleanly": true,
+  "completed_at": "2026-06-29T00:53:38.267832+00:00",
+  "documents_read": 5,
+  "documents_read_list": [
+    "kbi-whitmore-term-sheet.docx",
+    "kbi-mfc-side-letter.docx",
+    "whitmore-internal-emails.eml",
+    "/workspace/skills/docx/scripts/generate_from_md.py",
+    "/workspace/output/key-terms-extraction-memo.docx"
+  ],
+  "documents_skipped": 0,
+  "documents_skipped_list": [],
+  "total_documents": 3,
+  "bash_commands": 21,
+  "files_written": 4,
+  "files_edited": 0,
+  "glob_searches": 0,
+  "grep_searches": 0
+}

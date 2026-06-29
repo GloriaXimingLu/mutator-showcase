@@ -1,0 +1,21 @@
+{
+  "resolved": true,
+  "resolved_status": "EDITED",
+  "reward": 1,
+  "files_changed": [
+    "/workspace/harness/system_prompt.md"
+  ],
+  "files_added": [],
+  "files_removed": [],
+  "files_emptied": [],
+  "lessons_written": [
+    "/workspace/.claude/memory/MEMORY.md",
+    "/workspace/.claude/memory/README.md",
+    "/workspace/.claude/memory/iter0-issue-spotting-method.md",
+    "/workspace/.claude/memory/iter2-additive-method-edits-backfire.md",
+    "/workspace/.claude/memory/run-harvey-agent-must-background.md"
+  ],
+  "instance_id": "harvey-mutator-v0",
+  "error": null,
+  "exit_status": "finished"
+}

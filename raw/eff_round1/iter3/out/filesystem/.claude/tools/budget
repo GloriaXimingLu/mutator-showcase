@@ -1,0 +1,76 @@
+#!/usr/bin/env python3
+"""Thin client: print BOTH budgets — WALL-CLOCK (local) and DOLLARS (host broker). FREE — call before spending.
+
+Usage:  .claude/tools/budget
+
+You have TWO limits, and EITHER one ending your run mid-refinement loses uncommitted work:
+  - WALL-CLOCK : a SOFT deadline (env MUTATOR_DEADLINE_EPOCH); the hard process timeout is ~15 min later.
+  - DOLLARS    : the broker exp-cap (rollouts + dev gates are metered).
+Reserve enough of BOTH to run a FINAL dev gate (~90 min wall / ~$33) AND commit your best. A low
+reading on EITHER is your "commit your best VALIDATED edit now" cue — not a reason to have under-spent.
+"""
+import json
+import os
+import sys
+import time
+import urllib.error
+import urllib.request
+
+BROKER = os.environ.get("BROKER_URL", "http://172.17.0.1:4100")
+GATE_WALL_S = 5400   # ~90 min: wall-clock cost of one full dev gate (30 hardest tasks + ensemble grade)
+COMMIT_WALL_S = 600  # ~10 min: enough to finalize + commit a validated edit (or keep bare)
+
+
+def _fmt(s):
+    s = int(s)
+    sign = "-" if s < 0 else ""
+    s = abs(s)
+    return "%s%dm%02ds" % (sign, s // 60, s % 60)
+
+
+def _wall():
+    raw = os.environ.get("MUTATOR_DEADLINE_EPOCH")
+    try:
+        dead = int(raw) if raw else 0
+    except (TypeError, ValueError):  # corrupt/non-numeric env -> treat as untracked, never crash the tool
+        dead = 0
+    if not dead:
+        print("wall-clock: (no deadline set — unbounded or untracked)")
+        return
+    rem = dead - time.time()
+    print("wall-clock: ~%s remaining to SOFT deadline (the hard process kill is ~15m after that)" % _fmt(rem))
+    start_gate = GATE_WALL_S + COMMIT_WALL_S  # to safely START a gate you need to FINISH it AND commit after
+    if rem < COMMIT_WALL_S:
+        print("  >>> WALL-CLOCK CRITICAL: COMMIT your best VALIDATED edit NOW (or keep bare). No time for more work.")
+    elif rem < start_gate:
+        print("  >>> WALL-CLOCK LOW: NOT enough to finish a fresh full dev gate (~90m) + commit. Do NOT START a")
+        print("      new gate (let any gate ALREADY RUNNING finish) — then commit your best VALIDATED candidate,")
+        print("      or keep bare. Don't commit on a small-sample subset just because time is short.")
+    else:
+        print("  wall-clock OK: room for ~%d more full dev gate(s) before you must commit."
+              % int((rem - COMMIT_WALL_S) // GATE_WALL_S))
+
+
+def _dollars():
+    try:
+        with urllib.request.urlopen(BROKER + "/budget", timeout=30) as r:
+            b = json.load(r)
+    except Exception as e:  # broker down/slow/bad-JSON: dollars are best-effort — never crash (wall-clock already printed)
+        print("dollars: broker read failed at %s (%s)" % (BROKER, e), file=sys.stderr)
+        return
+    print("dollars: spent $%.4f / cap $%.2f  ->  remaining $%.4f" % (b["spent"], b["cap"], b["remaining"]))
+    print("  by source : %s" % b["by_source"])
+    print(
+        "  unit costs: run_harvey_agent $%.2f/task, proxy_eval $%.2f/deliverable"
+        % (b["unit_costs"]["run_harvey_agent"], b["unit_costs"]["proxy_eval"])
+    )
+
+
+def main():
+    _wall()             # local, always available — print first so a broker hiccup can't hide the time signal
+    sys.stdout.flush()  # emit the wall-clock line before the (possibly slow) broker read below
+    _dollars()          # host-authoritative dollar ledger
+
+
+if __name__ == "__main__":
+    main()

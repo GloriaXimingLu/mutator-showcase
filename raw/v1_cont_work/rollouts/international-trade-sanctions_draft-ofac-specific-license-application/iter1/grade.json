@@ -1,0 +1,19 @@
+{
+ "task": "international-trade-sanctions/draft-ofac-specific-license-application",
+ "ens_pass_rate": 0.96875,
+ "n_graded": 64,
+ "n_failed": 2,
+ "failed_criteria": [
+  {
+   "id": "C-035",
+   "title": "ISSUE_007: $1.2M vs. $1,280,000 discrepancy flagged",
+   "match_criteria": "PASS if the issues memo identifies that the client email states the total deal value as approximately '$1.2 million' while the purchase order line items total $1,280,000, and that the correct figure is $1,280,000. FAIL if this discrepancy is not flagged."
+  },
+  {
+   "id": "C-038",
+   "title": "ISSUE_008: Issues memo flags overstatement of prior license precedent",
+   "match_criteria": "PASS if the issues memo notes that the client's characterization of the prior license as strong precedent overstates its relevance, given the differences in end-user, product type, transaction value, and the SDN-adjacent counterparty not present in the prior deal. FAIL if the issues memo does not flag this overstatement concern."
+  }
+ ],
+ "error": null
+}

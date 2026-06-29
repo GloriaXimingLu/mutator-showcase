@@ -1,0 +1,29 @@
+{
+ "task": "arbitration-international-dispute-resolution/identify-arbitration-agreement-issues",
+ "ens_pass_rate": 0.9,
+ "n_graded": 40,
+ "n_failed": 4,
+ "failed_criteria": [
+  {
+   "id": "C-010",
+   "title": "Analyzes interaction of governing law conflicts with integration clause",
+   "match_criteria": "PASS if the memo discusses the tension between the integration/merger clause (Section 15.8 of the SA, stating the SA 'shall control' in event of conflict) and the independent governing law designations in the QA Letter and IPLA, noting the ambiguity about whether New York law should arguably govern the entire suite or whether each agreement's independent choice-of-law clause prevails. FAIL if the governing law conflict is identified but the integration clause's role in creating ambiguity is not discussed."
+  },
+  {
+   "id": "C-012",
+   "title": "Analyzes seat/venue confusion across the document suite",
+   "match_criteria": "PASS if the memo notes that because the IPLA designates London as its seat, the SA's use of London as a hearing venue alongside the IPLA's use of London as a seat creates confusion about whether London functions as a seat or venue across the document suite. FAIL if only the SA's internal seat-venue split is discussed without reference to the cross-document confusion with the IPLA's London seat."
+  },
+  {
+   "id": "C-014",
+   "title": "Explains tension between arbitrator selection and ICC Rules",
+   "match_criteria": "PASS if the memo explains that the SA's hybrid arbitrator selection provision conflicts with or departs from the ICC Rules' own provisions on tribunal constitution (where the ICC Court has discretion over the number of arbitrators or the parties agree), and that this conflict could result in procedural challenges or delay. FAIL if the tension with ICC institutional rules regarding tribunal constitution is not discussed."
+  },
+  {
+   "id": "C-019",
+   "title": "Explains discovery ban conflicts with ICC Rules' tribunal discretion",
+   "match_criteria": "PASS if the memo explains that the blanket discovery prohibition conflicts with the ICC Rules, which grant the tribunal discretion to order production of documents (e.g., Article 25(5) of the 2021 ICC Rules or similar provision), and may impermissibly strip the tribunal of its procedural authority. FAIL if the conflict with ICC institutional rules is not discussed."
+  }
+ ],
+ "error": null
+}

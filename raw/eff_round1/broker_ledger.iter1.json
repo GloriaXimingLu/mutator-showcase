@@ -1,0 +1,893 @@
+{
+ "cap": 90.0,
+ "spent": 78.30000000000001,
+ "by_source": {
+  "run_harvey_agent": 12.0,
+  "proxy_eval": 0.3,
+  "dev_eval": 66.0
+ },
+ "events": [
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/corporate-ma_analyze-cim-deal-teaser_scenario-02__glm-5p2__0ea477b029__2bad7ac8",
+   "input_tokens": 1551132,
+   "output_tokens": 68713,
+   "total_tokens": 1619845,
+   "cache_read_input_tokens": 0,
+   "turns": 27
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/corporate-governance_extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application__glm-5p2__0ea477b029__2bad7ac8",
+   "input_tokens": 2327635,
+   "output_tokens": 68728,
+   "total_tokens": 2396363,
+   "cache_read_input_tokens": 0,
+   "turns": 33
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "contracts/corporate-ma/joint-venture-agreement-term-negotiation/scenario-02",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/contracts_corporate-ma_joint-venture-agreement-term-negotiation_scenario-02__glm-5p2__0ea477b029__2bad7ac8",
+   "input_tokens": 2479695,
+   "output_tokens": 63046,
+   "total_tokens": 2542741,
+   "cache_read_input_tokens": 0,
+   "turns": 42
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "litigation-dispute-resolution/draft-motion-to-dismiss-brief",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/litigation-dispute-resolution_draft-motion-to-dismiss-brief__glm-5p2__0ea477b029__2bad7ac8",
+   "input_tokens": 3029956,
+   "output_tokens": 72585,
+   "total_tokens": 3102541,
+   "cache_read_input_tokens": 0,
+   "turns": 46
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "employment-labor/draft-markup-of-settlement-agreement",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/employment-labor_draft-markup-of-settlement-agreement__glm-5p2__0ea477b029__2bad7ac8",
+   "input_tokens": 4009380,
+   "output_tokens": 111195,
+   "total_tokens": 4120575,
+   "cache_read_input_tokens": 0,
+   "turns": 48
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "litigation-dispute-resolution/draft-motion-to-dismiss-brief",
+   "pass_rate": 0.9325842696629213
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "contracts/corporate-ma/joint-venture-agreement-term-negotiation/scenario-02",
+   "pass_rate": 0.7321428571428571
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "employment-labor/draft-markup-of-settlement-agreement",
+   "pass_rate": 0.5769230769230769
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "employment-labor/draft-markup-of-settlement-agreement",
+   "pass_rate": 0.5961538461538461
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application",
+   "pass_rate": 0.7941176470588235
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+   "pass_rate": 0.8536585365853658
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+   "pass_rate": 0.8048780487804879
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "contracts/corporate-ma/joint-venture-agreement-term-negotiation/scenario-02",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/contracts_corporate-ma_joint-venture-agreement-term-negotiation_scenario-02__glm-5p2__749e4ee382__b158663e",
+   "input_tokens": 2901918,
+   "output_tokens": 41023,
+   "total_tokens": 2942941,
+   "cache_read_input_tokens": 0,
+   "turns": 34
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/corporate-governance_extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application__glm-5p2__749e4ee382__b158663e",
+   "input_tokens": 1961796,
+   "output_tokens": 43366,
+   "total_tokens": 2005162,
+   "cache_read_input_tokens": 0,
+   "turns": 23
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/corporate-ma_analyze-cim-deal-teaser_scenario-02__glm-5p2__749e4ee382__b158663e",
+   "input_tokens": 1379516,
+   "output_tokens": 55844,
+   "total_tokens": 1435360,
+   "cache_read_input_tokens": 0,
+   "turns": 25
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "employment-labor/draft-markup-of-settlement-agreement",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/employment-labor_draft-markup-of-settlement-agreement__glm-5p2__749e4ee382__b158663e",
+   "input_tokens": 2393801,
+   "output_tokens": 71854,
+   "total_tokens": 2465655,
+   "cache_read_input_tokens": 0,
+   "turns": 40
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "employment-labor/draft-markup-of-settlement-agreement",
+   "pass_rate": 0.5384615384615384
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "contracts/corporate-ma/joint-venture-agreement-term-negotiation/scenario-02",
+   "pass_rate": 0.7678571428571429
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application",
+   "pass_rate": 0.8382352941176471
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+   "pass_rate": 0.8536585365853658
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "capital-markets/draft-comfort-letter-request",
+   "pass_rate": 0.8235294117647058,
+   "input_tokens": 2592815,
+   "output_tokens": 70611,
+   "total_tokens": 2663426,
+   "cache_read_input_tokens": 0,
+   "turns": 25
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "antitrust-competition/draft-pre-notification-briefing-paper",
+   "pass_rate": 0.85,
+   "input_tokens": 2497149,
+   "output_tokens": 50929,
+   "total_tokens": 2548078,
+   "cache_read_input_tokens": 0,
+   "turns": 33
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/commercial-vendor-customer/master-services-agreement-first-draft/scenario-05",
+   "pass_rate": 0.9904761904761905,
+   "input_tokens": 6465874,
+   "output_tokens": 76739,
+   "total_tokens": 6542613,
+   "cache_read_input_tokens": 0,
+   "turns": 54
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/banking/isda-confirmation-counterparty-paper-review",
+   "pass_rate": 0.8301886792452831,
+   "input_tokens": 3022238,
+   "output_tokens": 86363,
+   "total_tokens": 3108601,
+   "cache_read_input_tokens": 0,
+   "turns": 46
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/commercial-channel-partnerships/strategic-partnership-co-sell-term-negotiation/scenario-03",
+   "pass_rate": 0.75,
+   "input_tokens": 1843234,
+   "output_tokens": 69581,
+   "total_tokens": 1912815,
+   "cache_read_input_tokens": 0,
+   "turns": 26
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/corporate-ma/loi-mou-term-negotiation/scenario-01",
+   "pass_rate": 0.9473684210526315,
+   "input_tokens": 2756980,
+   "output_tokens": 40367,
+   "total_tokens": 2797347,
+   "cache_read_input_tokens": 0,
+   "turns": 23
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/disputes/settlement-agreement-and-release-term-negotiation",
+   "pass_rate": 0.7884615384615384,
+   "input_tokens": 2224499,
+   "output_tokens": 46119,
+   "total_tokens": 2270618,
+   "cache_read_input_tokens": 0,
+   "turns": 40
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/commercial-vendor-customer/master-services-agreement-term-negotiation/scenario-02",
+   "pass_rate": 0.7777777777777778,
+   "input_tokens": 1559525,
+   "output_tokens": 99902,
+   "total_tokens": 1659427,
+   "cache_read_input_tokens": 0,
+   "turns": 17
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/banking/isda-master-pack-term-negotiation/scenario-02",
+   "pass_rate": 0.9090909090909091,
+   "input_tokens": 7736257,
+   "output_tokens": 151186,
+   "total_tokens": 7887443,
+   "cache_read_input_tokens": 0,
+   "turns": 60
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/financing/investor-rights-agreement-term-negotiation",
+   "pass_rate": 0.8723404255319149,
+   "input_tokens": 2847051,
+   "output_tokens": 56869,
+   "total_tokens": 2903920,
+   "cache_read_input_tokens": 0,
+   "turns": 27
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "corporate-ma/compare-fund-term-sheet-against-side-letter-terms",
+   "pass_rate": 0.8245614035087719,
+   "input_tokens": 1366852,
+   "output_tokens": 44754,
+   "total_tokens": 1411606,
+   "cache_read_input_tokens": 0,
+   "turns": 32
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/corporate-ma/transition-intercompany-services-subsequent-turn-redline",
+   "pass_rate": 0.9166666666666666,
+   "input_tokens": 8457582,
+   "output_tokens": 166468,
+   "total_tokens": 8624050,
+   "cache_read_input_tokens": 0,
+   "turns": 76
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "employment-labor/identify-issues-in-non",
+   "pass_rate": 0.7567567567567568,
+   "input_tokens": 517931,
+   "output_tokens": 30442,
+   "total_tokens": 548373,
+   "cache_read_input_tokens": 0,
+   "turns": 15
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/financing/credit-lending-subsequent-turn-redline/scenario-02",
+   "pass_rate": 0.7321428571428571,
+   "input_tokens": 10480525,
+   "output_tokens": 151127,
+   "total_tokens": 10631652,
+   "cache_read_input_tokens": 0,
+   "turns": 84
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "corporate-governance/draft-batch-nda-generation",
+   "pass_rate": 0.8556701030927835,
+   "input_tokens": 2401790,
+   "output_tokens": 76353,
+   "total_tokens": 2478143,
+   "cache_read_input_tokens": 0,
+   "turns": 37
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "data-privacy-cybersecurity/extract-document-requests-from-regulatory-inquiry-letter",
+   "pass_rate": 0.8461538461538461,
+   "input_tokens": 2052896,
+   "output_tokens": 57155,
+   "total_tokens": 2110051,
+   "cache_read_input_tokens": 0,
+   "turns": 34
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "healthcare-life-sciences/draft-fda-regulatory-submission-cover-letter",
+   "pass_rate": 0.8085106382978723,
+   "input_tokens": 770919,
+   "output_tokens": 53724,
+   "total_tokens": 824643,
+   "cache_read_input_tokens": 0,
+   "turns": 16
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "insurance/compare-reinsurance-treaty-against-underlying-policy",
+   "pass_rate": 0.6923076923076923,
+   "input_tokens": 719314,
+   "output_tokens": 30131,
+   "total_tokens": 749445,
+   "cache_read_input_tokens": 0,
+   "turns": 18
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "healthcare-life-sciences/identify-compliance-issues-in-medicare-enrollment-application-package",
+   "pass_rate": 0.6666666666666666,
+   "input_tokens": 735756,
+   "output_tokens": 32825,
+   "total_tokens": 768581,
+   "cache_read_input_tokens": 0,
+   "turns": 18
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "intellectual-property/compare-executed-technology-license-agreement-against-last-negotiation-draft",
+   "pass_rate": 0.8867924528301887,
+   "input_tokens": 1576966,
+   "output_tokens": 66772,
+   "total_tokens": 1643738,
+   "cache_read_input_tokens": 0,
+   "turns": 31
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/commercial-vendor-customer/vendor-services-agreement-first-turn-redline/scenario-03",
+   "pass_rate": 0.8676470588235294,
+   "input_tokens": 24978461,
+   "output_tokens": 237667,
+   "total_tokens": 25216128,
+   "cache_read_input_tokens": 0,
+   "turns": 107
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "environmental-esg/draft-markup-of-administrative-settlement-agreement",
+   "pass_rate": 0.8113207547169812,
+   "input_tokens": 4819062,
+   "output_tokens": 143065,
+   "total_tokens": 4962127,
+   "cache_read_input_tokens": 0,
+   "turns": 50
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "intellectual-property/draft-international-trade-commission-section-337-complaint",
+   "pass_rate": 0.8888888888888888,
+   "input_tokens": 3605638,
+   "output_tokens": 62705,
+   "total_tokens": 3668343,
+   "cache_read_input_tokens": 0,
+   "turns": 32
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "intellectual-property/draft-motion-for-enhanced-damages",
+   "pass_rate": 0.22058823529411764,
+   "input_tokens": 2151507,
+   "output_tokens": 70267,
+   "total_tokens": 2221774,
+   "cache_read_input_tokens": 0,
+   "turns": 26
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "intellectual-property/identify-weaknesses-in-counterpartys-summary-judgment-brief",
+   "pass_rate": 0.65625,
+   "input_tokens": 2218756,
+   "output_tokens": 66930,
+   "total_tokens": 2285686,
+   "cache_read_input_tokens": 0,
+   "turns": 27
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "real-estate/identify-issues-in-environmental-site-assessment",
+   "pass_rate": 0.8461538461538461,
+   "input_tokens": 871465,
+   "output_tokens": 30714,
+   "total_tokens": 902179,
+   "cache_read_input_tokens": 0,
+   "turns": 21
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "litigation-dispute-resolution/extract-key-obligations-from-litigation-hold-and-document-preservation-notice",
+   "pass_rate": 0.8076923076923077,
+   "input_tokens": 1146897,
+   "output_tokens": 34893,
+   "total_tokens": 1181790,
+   "cache_read_input_tokens": 0,
+   "turns": 23
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "white-collar-defense-investigations/identify-government-subpoena-issues",
+   "pass_rate": 0.72,
+   "input_tokens": 1052250,
+   "output_tokens": 28128,
+   "total_tokens": 1080378,
+   "cache_read_input_tokens": 0,
+   "turns": 23
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "tax/extract-tax-attributes-from-audited-financial-statements",
+   "pass_rate": 0.9041095890410958,
+   "input_tokens": 993482,
+   "output_tokens": 52207,
+   "total_tokens": 1045689,
+   "cache_read_input_tokens": 0,
+   "turns": 17
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "tax/draft-transfer-pricing-documentation",
+   "pass_rate": 0.5194805194805194,
+   "input_tokens": 2436607,
+   "output_tokens": 62515,
+   "total_tokens": 2499122,
+   "cache_read_input_tokens": 0,
+   "turns": 30
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/corporate-governance_extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application__glm-5p2__56ce2a1176__7397bae9",
+   "input_tokens": 1317658,
+   "output_tokens": 41484,
+   "total_tokens": 1359142,
+   "cache_read_input_tokens": 0,
+   "turns": 16
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "contracts/banking/intercreditor-agreement-term-negotiation",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/contracts_banking_intercreditor-agreement-term-negotiation__glm-5p2__56ce2a1176__7397bae9",
+   "input_tokens": 2189202,
+   "output_tokens": 49132,
+   "total_tokens": 2238334,
+   "cache_read_input_tokens": 0,
+   "turns": 27
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "litigation-dispute-resolution/draft-motion-to-dismiss-brief",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/litigation-dispute-resolution_draft-motion-to-dismiss-brief__glm-5p2__56ce2a1176__7397bae9",
+   "input_tokens": 1889134,
+   "output_tokens": 59855,
+   "total_tokens": 1948989,
+   "cache_read_input_tokens": 0,
+   "turns": 21
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "litigation-dispute-resolution/draft-motion-to-dismiss-brief",
+   "pass_rate": 0.8651685393258427
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "contracts/banking/intercreditor-agreement-term-negotiation",
+   "pass_rate": 0.8269230769230769
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application",
+   "pass_rate": 0.8382352941176471
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application",
+   "pass_rate": 0.8088235294117647
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "antitrust-competition/draft-pre-notification-briefing-paper",
+   "pass_rate": 0.8666666666666667,
+   "input_tokens": 2143853,
+   "output_tokens": 50345,
+   "total_tokens": 2194198,
+   "cache_read_input_tokens": 0,
+   "turns": 32
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "capital-markets/draft-comfort-letter-request",
+   "pass_rate": 0.8235294117647058,
+   "input_tokens": 1660444,
+   "output_tokens": 56612,
+   "total_tokens": 1717056,
+   "cache_read_input_tokens": 0,
+   "turns": 19
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/commercial-vendor-customer/master-services-agreement-first-draft/scenario-05",
+   "pass_rate": 0.9809523809523809,
+   "input_tokens": 7468296,
+   "output_tokens": 58320,
+   "total_tokens": 7526616,
+   "cache_read_input_tokens": 0,
+   "turns": 53
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/commercial-channel-partnerships/strategic-partnership-co-sell-term-negotiation/scenario-03",
+   "pass_rate": 0.8269230769230769,
+   "input_tokens": 2419293,
+   "output_tokens": 73949,
+   "total_tokens": 2493242,
+   "cache_read_input_tokens": 0,
+   "turns": 25
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/banking/isda-confirmation-counterparty-paper-review",
+   "pass_rate": 0.8301886792452831,
+   "input_tokens": 4201509,
+   "output_tokens": 75548,
+   "total_tokens": 4277057,
+   "cache_read_input_tokens": 0,
+   "turns": 45
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/disputes/settlement-agreement-and-release-term-negotiation",
+   "pass_rate": 0.8461538461538461,
+   "input_tokens": 2400349,
+   "output_tokens": 31439,
+   "total_tokens": 2431788,
+   "cache_read_input_tokens": 0,
+   "turns": 21
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/corporate-ma/loi-mou-term-negotiation/scenario-01",
+   "pass_rate": 0.8947368421052632,
+   "input_tokens": 3082359,
+   "output_tokens": 47547,
+   "total_tokens": 3129906,
+   "cache_read_input_tokens": 0,
+   "turns": 33
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/banking/isda-master-pack-term-negotiation/scenario-02",
+   "pass_rate": 0.8545454545454545,
+   "input_tokens": 4181205,
+   "output_tokens": 105959,
+   "total_tokens": 4287164,
+   "cache_read_input_tokens": 0,
+   "turns": 29
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/commercial-vendor-customer/master-services-agreement-term-negotiation/scenario-02",
+   "pass_rate": 0.7936507936507936,
+   "input_tokens": 2414812,
+   "output_tokens": 92279,
+   "total_tokens": 2507091,
+   "cache_read_input_tokens": 0,
+   "turns": 20
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "corporate-ma/compare-fund-term-sheet-against-side-letter-terms",
+   "pass_rate": 0.9298245614035088,
+   "input_tokens": 775940,
+   "output_tokens": 33372,
+   "total_tokens": 809312,
+   "cache_read_input_tokens": 0,
+   "turns": 16
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/corporate-ma/transition-intercompany-services-subsequent-turn-redline",
+   "pass_rate": 0.9166666666666666,
+   "input_tokens": 7846980,
+   "output_tokens": 134456,
+   "total_tokens": 7981436,
+   "cache_read_input_tokens": 0,
+   "turns": 70
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "corporate-governance/draft-batch-nda-generation",
+   "pass_rate": 0.8865979381443299,
+   "input_tokens": 4713110,
+   "output_tokens": 70087,
+   "total_tokens": 4783197,
+   "cache_read_input_tokens": 0,
+   "turns": 64
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/financing/investor-rights-agreement-term-negotiation",
+   "pass_rate": 0.8936170212765957,
+   "input_tokens": 2079027,
+   "output_tokens": 64114,
+   "total_tokens": 2143141,
+   "cache_read_input_tokens": 0,
+   "turns": 19
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/commercial-vendor-customer/vendor-services-agreement-first-turn-redline/scenario-03",
+   "pass_rate": 0.9411764705882353,
+   "input_tokens": 9110559,
+   "output_tokens": 153871,
+   "total_tokens": 9264430,
+   "cache_read_input_tokens": 0,
+   "turns": 76
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "data-privacy-cybersecurity/extract-document-requests-from-regulatory-inquiry-letter",
+   "pass_rate": 0.8653846153846154,
+   "input_tokens": 1762964,
+   "output_tokens": 55648,
+   "total_tokens": 1818612,
+   "cache_read_input_tokens": 0,
+   "turns": 26
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "employment-labor/identify-issues-in-non",
+   "pass_rate": 0.8648648648648649,
+   "input_tokens": 866128,
+   "output_tokens": 34819,
+   "total_tokens": 900947,
+   "cache_read_input_tokens": 0,
+   "turns": 18
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "healthcare-life-sciences/draft-fda-regulatory-submission-cover-letter",
+   "pass_rate": 0.8297872340425532,
+   "input_tokens": 1430128,
+   "output_tokens": 44903,
+   "total_tokens": 1475031,
+   "cache_read_input_tokens": 0,
+   "turns": 24
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "contracts/financing/credit-lending-subsequent-turn-redline/scenario-02",
+   "pass_rate": 0.75,
+   "input_tokens": 8241699,
+   "output_tokens": 151644,
+   "total_tokens": 8393343,
+   "cache_read_input_tokens": 0,
+   "turns": 65
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "healthcare-life-sciences/identify-compliance-issues-in-medicare-enrollment-application-package",
+   "pass_rate": 0.7692307692307693,
+   "input_tokens": 1202034,
+   "output_tokens": 38897,
+   "total_tokens": 1240931,
+   "cache_read_input_tokens": 0,
+   "turns": 18
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "insurance/compare-reinsurance-treaty-against-underlying-policy",
+   "pass_rate": 0.717948717948718,
+   "input_tokens": 1755517,
+   "output_tokens": 43196,
+   "total_tokens": 1798713,
+   "cache_read_input_tokens": 0,
+   "turns": 28
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "environmental-esg/draft-markup-of-administrative-settlement-agreement",
+   "pass_rate": 0.8867924528301887,
+   "input_tokens": 4352187,
+   "output_tokens": 100780,
+   "total_tokens": 4452967,
+   "cache_read_input_tokens": 0,
+   "turns": 47
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "intellectual-property/draft-international-trade-commission-section-337-complaint",
+   "pass_rate": 0.9111111111111111,
+   "input_tokens": 1904011,
+   "output_tokens": 42202,
+   "total_tokens": 1946213,
+   "cache_read_input_tokens": 0,
+   "turns": 27
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "intellectual-property/compare-executed-technology-license-agreement-against-last-negotiation-draft",
+   "pass_rate": 0.9056603773584906,
+   "input_tokens": 1158077,
+   "output_tokens": 50647,
+   "total_tokens": 1208724,
+   "cache_read_input_tokens": 0,
+   "turns": 16
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "intellectual-property/draft-motion-for-enhanced-damages",
+   "pass_rate": 0.22058823529411764,
+   "input_tokens": 2091584,
+   "output_tokens": 48037,
+   "total_tokens": 2139621,
+   "cache_read_input_tokens": 0,
+   "turns": 27
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "litigation-dispute-resolution/extract-key-obligations-from-litigation-hold-and-document-preservation-notice",
+   "pass_rate": 0.8076923076923077,
+   "input_tokens": 692374,
+   "output_tokens": 30118,
+   "total_tokens": 722492,
+   "cache_read_input_tokens": 0,
+   "turns": 13
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "intellectual-property/identify-weaknesses-in-counterpartys-summary-judgment-brief",
+   "pass_rate": 0.75,
+   "input_tokens": 1475376,
+   "output_tokens": 66075,
+   "total_tokens": 1541451,
+   "cache_read_input_tokens": 0,
+   "turns": 17
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "tax/draft-transfer-pricing-documentation",
+   "pass_rate": 0.4935064935064935,
+   "input_tokens": 2951970,
+   "output_tokens": 52728,
+   "total_tokens": 3004698,
+   "cache_read_input_tokens": 0,
+   "turns": 23
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "tax/extract-tax-attributes-from-audited-financial-statements",
+   "pass_rate": 0.8493150684931506,
+   "input_tokens": 1316604,
+   "output_tokens": 45521,
+   "total_tokens": 1362125,
+   "cache_read_input_tokens": 0,
+   "turns": 18
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "white-collar-defense-investigations/identify-government-subpoena-issues",
+   "pass_rate": 0.8,
+   "input_tokens": 974540,
+   "output_tokens": 24583,
+   "total_tokens": 999123,
+   "cache_read_input_tokens": 0,
+   "turns": 19
+  },
+  {
+   "source": "dev_eval",
+   "cost": 1.1,
+   "task": "real-estate/identify-issues-in-environmental-site-assessment",
+   "pass_rate": 0.7884615384615384,
+   "input_tokens": 1139172,
+   "output_tokens": 26018,
+   "total_tokens": 1165190,
+   "cache_read_input_tokens": 0,
+   "turns": 17
+  }
+ ]
+}

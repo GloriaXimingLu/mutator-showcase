@@ -1,0 +1,31 @@
+{
+  "model": "glm-5p2",
+  "task": "litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice",
+  "run_id": "effround1_train_iter1/litigation-dispute-resolution_assess-reasonableness-of-staffing-levels-on-litigation-invoice__da39a3ee5e",
+  "turn_count": 27,
+  "input_tokens": 2202176,
+  "output_tokens": 69844,
+  "total_tokens": 2272020,
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "wall_clock_seconds": 768.76,
+  "finished_cleanly": true,
+  "completed_at": "2026-06-28T10:11:24.814176+00:00",
+  "documents_read": 6,
+  "documents_read_list": [
+    "hl-may-2025-invoice.xlsx",
+    "barros-staffing-email.eml",
+    "approved-staffing-plan.docx",
+    "pinnacle-billing-guidelines.docx",
+    "case-status-summary.docx",
+    "/workspace/skills/docx/scripts/generate_from_md.py"
+  ],
+  "documents_skipped": 0,
+  "documents_skipped_list": [],
+  "total_documents": 5,
+  "bash_commands": 19,
+  "files_written": 2,
+  "files_edited": 0,
+  "glob_searches": 0,
+  "grep_searches": 0
+}

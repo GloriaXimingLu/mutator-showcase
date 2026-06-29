@@ -1,0 +1,29 @@
+{
+ "task": "tax/review-iss-tax-transaction-structure",
+ "ens_pass_rate": 0.8571428571428571,
+ "n_graded": 28,
+ "n_failed": 4,
+ "failed_criteria": [
+  {
+   "id": "C-006",
+   "title": "ISSUE_002: Notes all S corp shareholders must consent to 338(h)(10)",
+   "match_criteria": "PASS if the report notes that a Section 338(h)(10) election for an S corporation requires the consent of all shareholders and that the memorandum does not address how this consent interacts with the rollover or confirm that all consents are obtained. FAIL if this shareholder consent requirement is not mentioned."
+  },
+  {
+   "id": "C-010",
+   "title": "ISSUE_005: Flags Beacon ROFR triggered by change of control",
+   "match_criteria": "PASS if the report identifies that the Beacon Insights operating agreement contains a right of first refusal (ROFR) triggered on a change of control of Prism, that the merger constitutes such a change of control, and that the memorandum fails to analyze the tax consequences of a potential forced sale of the Beacon interest as a separate pre-closing taxable event outside the 338(h)(10) framework. FAIL if the report does not flag the Beacon ROFR and its tax implications."
+  },
+  {
+   "id": "C-016",
+   "title": "ISSUE_008b: Notes California retroactive C corp tax risk if S election invalid",
+   "match_criteria": "PASS if the report notes the risk that if Prism's S election were found invalid, California could retroactively impose C corporation taxes. FAIL if this specific California retroactive risk is not mentioned."
+  },
+  {
+   "id": "C-022",
+   "title": "ISSUE_012b: Identifies missing Virginia state conformity analysis for 338(h)(10)",
+   "match_criteria": "PASS if the report identifies that the memorandum fails to analyze whether Virginia conforms to the federal Section 338(h)(10) election for S corporations, despite Prism having operations and employees in Virginia. FAIL if the report does not flag the missing Virginia state conformity analysis."
+  }
+ ],
+ "error": null
+}

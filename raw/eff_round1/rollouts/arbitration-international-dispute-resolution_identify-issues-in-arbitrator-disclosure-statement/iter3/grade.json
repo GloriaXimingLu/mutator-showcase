@@ -1,0 +1,29 @@
+{
+ "task": "arbitration-international-dispute-resolution/identify-issues-in-arbitrator-disclosure-statement",
+ "ens_pass_rate": 0.8947368421052632,
+ "n_graded": 38,
+ "n_failed": 4,
+ "failed_criteria": [
+  {
+   "id": "C-022",
+   "title": "ISSUE_009: Notes disclosure does not address prior published or expressed views",
+   "match_criteria": "PASS if the memo notes that Fairhaven's disclosure does not address whether she has published or expressed views on legal theories relevant to this arbitration. FAIL if the memo does not flag the absence of disclosure regarding prior published or expressed views."
+  },
+  {
+   "id": "C-027",
+   "title": "Strategic tension: Acknowledges Whitmore ranked Fairhaven #1",
+   "match_criteria": "PASS if the memo acknowledges the strategic tension that Whitmore (respondent) ranked Fairhaven #1 during the selection process, making a challenge by respondent's own counsel potentially awkward, counterproductive, or something to consider carefully. FAIL if the memo does not mention or account for the fact that Whitmore ranked Fairhaven as its top choice."
+  },
+  {
+   "id": "C-028",
+   "title": "DISTRACTOR_004: Recognizes that balanced referral disclosure masks asymmetry",
+   "match_criteria": "PASS if the memo recognizes that Fairhaven's disclosure of Lakeview receiving referrals from 'both' firms appears balanced on its surface but actually masks the significant asymmetry in volume and fees (48% vs. ~13% of income from the two firms respectively, or the $1,020,000 vs. $280,000 figures). FAIL if the memo accepts the 'both firms' referral disclosure at face value as adequate without noting the underlying asymmetry."
+  },
+  {
+   "id": "C-030",
+   "title": "ISSUE_001 rated as critical or high severity",
+   "match_criteria": "PASS if the indirect financial interest via Northbridge/Whitmore Fund II (ISSUE_001) is rated as critical, high severity, or the most serious category used by the memo. FAIL if it is rated as minor, low, or a non-serious category."
+  }
+ ],
+ "error": null
+}

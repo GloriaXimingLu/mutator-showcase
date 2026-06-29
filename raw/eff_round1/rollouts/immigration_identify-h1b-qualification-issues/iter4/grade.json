@@ -1,0 +1,39 @@
+{
+ "task": "immigration/identify-h1b-qualification-issues",
+ "ens_pass_rate": 0.8461538461538461,
+ "n_graded": 39,
+ "n_failed": 6,
+ "failed_criteria": [
+  {
+   "id": "C-008",
+   "title": "Issue 3 Identified: Immigration status gap / potential unauthorized work",
+   "match_criteria": "PASS if the memo identifies a concern about Rajesh's immigration status during the period between approximately mid-2020 and September 2023, noting that his F-1 OPT/STEM OPT through NovaStar would have expired and there is no explanation of what visa status authorized work as an independent consultant. FAIL if the potential immigration status gap or unauthorized employment concern is not raised."
+  },
+  {
+   "id": "C-009",
+   "title": "Issue 3 Detail: Risk assessment for unlawful presence or unauthorized employment",
+   "match_criteria": "PASS if the memo discusses potential consequences of unauthorized employment or unlawful presence during the gap period, such as admissibility issues, unlawful presence bars, or negative impact on H-1B eligibility. FAIL if the memo flags the status gap but does not discuss any potential immigration consequences."
+  },
+  {
+   "id": "C-010",
+   "title": "Issue 3 Recommendation: Clarify immigration history for gap period",
+   "match_criteria": "PASS if the memo recommends requesting clarification or documentation of Rajesh's immigration status during the approximately August 2020 \u2013 September 2023 period before filing. FAIL if no recommendation to investigate or clarify the immigration history is provided."
+  },
+  {
+   "id": "C-021",
+   "title": "Issue 8 Identified: SOC code may not best match the position duties",
+   "match_criteria": "PASS if the memo identifies that SOC code 15-2051 (Data Scientists) on the LCA may not be the best match for the described duties, which emphasize ML model deployment, software engineering, cloud infrastructure management, and team leadership \u2014 duties that could align with SOC 15-1252 (Software Developers) or another code. FAIL if the potential SOC code mismatch is not flagged."
+  },
+  {
+   "id": "C-022",
+   "title": "Issue 8 Detail: Notes PWD would be invalid if SOC code is wrong",
+   "match_criteria": "PASS if the memo notes that if USCIS determines the SOC code is incorrect, the prevailing wage determination and LCA could be invalidated, requiring refiling. FAIL if the downstream consequences of a wrong SOC code are not discussed."
+  },
+  {
+   "id": "C-034",
+   "title": "Issue 3 Severity: Rated Critical or High",
+   "match_criteria": "PASS if the immigration status gap / potential unauthorized employment issue is rated as Critical or High severity (or equivalent highest-tier rating). Potential unlawful presence or unauthorized employment is a serious admissibility concern. FAIL if it is rated as Medium, Low, or not given a severity rating."
+  }
+ ],
+ "error": null
+}

@@ -1,0 +1,54 @@
+{
+ "task": "capital-markets/draft-underwriting-agreement",
+ "ens_pass_rate": 0.8941176470588236,
+ "n_graded": 85,
+ "n_failed": 9,
+ "failed_criteria": [
+  {
+   "id": "C-007",
+   "title": "ISSUE_003: Agreement addresses T+1 settlement rule and delayed IPO closing",
+   "match_criteria": "PASS if the underwriting agreement includes language acknowledging that standard settlement is now T+1 under SEC Rule 15c6-1 (effective May 28, 2024) and that the T+3 closing date for this IPO requires specific contractual accommodation, exemption, no-action relief, or party agreement to the delayed delivery timeline. FAIL if the agreement simply states closing on March 24, 2025 (T+3) without any reference to Rule 15c6-1 or the need for delayed settlement accommodation."
+  },
+  {
+   "id": "C-008",
+   "title": "ISSUE_003: Issues memo discusses T+1 vs. T+3 settlement for IPO",
+   "match_criteria": "PASS if the issues memorandum discusses that SEC Rule 15c6-1 now mandates T+1 standard settlement (effective May 28, 2024) and that the T+3 closing timeline for this IPO requires specific contractual or regulatory accommodation. FAIL if the T+1 settlement issue is not discussed."
+  },
+  {
+   "id": "C-011",
+   "title": "ISSUE_005: Issues memo identifies incorrect FINRA filing fee in engagement letter",
+   "match_criteria": "PASS if the issues memorandum identifies that the engagement letter states a FINRA filing fee of $21,780, which is incorrect because FINRA Rule 5110 requires the fee to be calculated on the maximum proposed offering price ($26.00 per share at top of range \u00d7 13,800,000 maximum shares = $358,800,000, yielding a fee of approximately $27,090). FAIL if the FINRA fee error is not identified."
+  },
+  {
+   "id": "C-014",
+   "title": "ISSUE_007: Issues memo identifies indemnification scope discrepancy for selling stockholders",
+   "match_criteria": "PASS if the issues memorandum identifies that the term sheet limits selling stockholder indemnification to 'information furnished in writing by such Selling Stockholder specifically for inclusion in the Registration Statement' (narrower standard) while the engagement letter from Hargrove uses the broader 'any material misstatement or omission in the Registration Statement relating to such Selling Stockholder' formulation, and explains the significance of the difference. FAIL if this discrepancy is not identified."
+  },
+  {
+   "id": "C-016",
+   "title": "ISSUE_008: Agreement includes Section 382 NOL representation",
+   "match_criteria": "PASS if the underwriting agreement includes a representation and warranty that the offering will not trigger a Section 382 ownership change that would limit the Company's ability to utilize its net operating loss carryforwards ($14.2 million in federal NOL carryforwards). FAIL if there is no representation addressing Section 382 or the preservation of NOL carryforwards in connection with the offering."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_010: Issues memo identifies comfort letter change period staleness gap",
+   "match_criteria": "PASS if the issues memorandum identifies that the draft comfort letter's change period review extends only through March 10, 2025, which leaves an 8-day gap before the comfort letter date (March 18) and a 14-day gap before the closing date (March 24), and notes that standard practice requires the change period to extend to within approximately 1-5 business days of the letter date. FAIL if this staleness gap is not identified."
+  },
+  {
+   "id": "C-023",
+   "title": "ISSUE_011: Issues memo flags Regulation M concern for Dr. Krishnamurthy",
+   "match_criteria": "PASS if the issues memorandum discusses Regulation M compliance, particularly noting that Dr. Krishnamurthy as CEO and Selling Stockholder may be considered an 'affiliated purchaser' subject to Regulation M restrictions during the distribution. FAIL if Regulation M is not discussed in the issues memo."
+  },
+  {
+   "id": "C-076",
+   "title": "Agreement includes stabilization/market-making provisions",
+   "match_criteria": "PASS if the underwriting agreement includes provisions authorizing or addressing stabilization transactions, over-allotment, syndicate short sales, penalty bids, or related market-making activities by the underwriters. FAIL if stabilization/market-making provisions are entirely absent."
+  },
+  {
+   "id": "C-077",
+   "title": "Agreement includes default by underwriter provisions",
+   "match_criteria": "PASS if the underwriting agreement includes provisions addressing what happens if one underwriter defaults on its purchase obligation (e.g., non-defaulting underwriters may purchase defaulting underwriter's shares, or the agreement may be terminated if default exceeds a threshold). FAIL if there is no provision for underwriter default."
+  }
+ ],
+ "error": null
+}

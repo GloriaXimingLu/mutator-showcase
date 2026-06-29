@@ -1,0 +1,39 @@
+{
+ "task": "funds-asset-management/draft-fund-closing-certificate",
+ "ens_pass_rate": 0.8947368421052632,
+ "n_graded": 57,
+ "n_failed": 6,
+ "failed_criteria": [
+  {
+   "id": "C-023",
+   "title": "Certificate states equalization interest calculation methodology (8% simple interest)",
+   "match_criteria": "PASS if the certificate describes the equalization interest methodology as 8% per annum simple interest calculated from the date of each prior capital call through the final closing date (January 31, 2025), per LPA Section 3.2(c). FAIL if the methodology is not described or the rate is incorrect."
+  },
+  {
+   "id": "C-024",
+   "title": "Certificate states correct equalization interest on Capital Call #1",
+   "match_criteria": "PASS if the certificate states the equalization interest on Capital Call #1 as approximately $705,863 (calculated as $28,500,000 \u00d7 8% \u00d7 113/365), or uses the correct inputs (catch-up amount of $28,500,000, 113 days from October 10, 2024 to January 31, 2025). FAIL if the certificate uses the administrator's incorrect figure or materially wrong amounts."
+  },
+  {
+   "id": "C-025",
+   "title": "Certificate states correct equalization interest on Capital Call #2",
+   "match_criteria": "PASS if the certificate states the equalization interest on Capital Call #2 as approximately $146,799 (calculated as $14,250,000 \u00d7 8% \u00d7 47/365), using the correct 47-day period from December 15, 2024 to January 31, 2025. FAIL if the certificate uses the administrator's incorrect figure of $143,671 (based on 46 days) or other materially wrong amounts."
+  },
+  {
+   "id": "C-026",
+   "title": "Certificate states correct total equalization interest of approximately $852,662",
+   "match_criteria": "PASS if the certificate states total equalization interest as approximately $852,661.64 (or a figure very close to that sum). FAIL if it uses the administrator's incorrect total of $849,534.24 or another materially wrong figure."
+  },
+  {
+   "id": "C-046",
+   "title": "Certificate correctly identifies ERISA plan investors from final closing",
+   "match_criteria": "PASS if the certificate (in its ERISA section) identifies Meridian State Teachers' Retirement System and Sentry Municipal Employees' Pension Trust as the ERISA/benefit plan investors from the final closing. FAIL if it misidentifies which final closing LPs are ERISA plan investors or omits this detail entirely from the ERISA analysis."
+  },
+  {
+   "id": "C-048",
+   "title": "Certificate notes total amount due from final closing LPs (~$43,602,662)",
+   "match_criteria": "PASS if the certificate states or can be derived to show that the total amount due from final closing LPs at closing is approximately $43,602,661.64 (catch-up capital of $42,750,000 plus equalization interest of approximately $852,661.64). FAIL if the total due is materially misstated."
+  }
+ ],
+ "error": null
+}

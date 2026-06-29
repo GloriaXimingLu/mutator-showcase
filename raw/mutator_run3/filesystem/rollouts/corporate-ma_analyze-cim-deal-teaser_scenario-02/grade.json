@@ -1,0 +1,81 @@
+{
+ "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+ "ens_pass_rate": 0.8536585365853658,
+ "n_graded": 41,
+ "n_failed": 6,
+ "failed_criteria": [
+  {
+   "id": "C-004",
+   "title": "ISSUE_002: Recalculates defensible owner compensation add-back",
+   "match_criteria": "PASS if the memo recalculates the owner compensation add-back using a more realistic replacement CEO salary, arriving at a defensible add-back lower than $1.9M (e.g., approximately $1.2M\u2013$1.6M), thereby reducing Adjusted EBITDA by roughly $0.3M\u2013$0.7M. FAIL if no recalculation is provided."
+  },
+  {
+   "id": "C-018",
+   "title": "ISSUE_008: Flags disconnect between projected capex decline and revenue growth",
+   "match_criteria": "PASS if the memo identifies the disconnect between projected FY2025 capex of $4.5M (a 37.5% decline from FY2024's $7.2M) and simultaneous projected revenue growth of 12.8%, suggesting either capex deferral to boost cash flow or artificial classification of growth vs. maintenance capex. FAIL if this capex-revenue disconnect is not identified."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_009b: Notes Prewitt lacks employment agreement or non-compete",
+   "match_criteria": "PASS if the memo notes that Janet Prewitt has no employment agreement or non-compete. FAIL if the absence of an employment agreement or non-compete for Prewitt is not mentioned."
+  },
+  {
+   "id": "C-024",
+   "title": "ISSUE_011: Flags backlog composition ambiguity (firm vs. soft)",
+   "match_criteria": "PASS if the memo identifies that the CIM's $42.6M contracted backlog figure does not distinguish between firm backlog (fully executed contracts with defined scope) and soft backlog (LOIs, verbal commitments, unissued task orders), undermining the credibility of revenue projections. FAIL if the backlog ambiguity is not flagged."
+  },
+  {
+   "id": "C-029",
+   "title": "ISSUE_012: Quantifies revenue at risk from expired/expiring/at-will contracts",
+   "match_criteria": "PASS if the memo quantifies the combined revenue at risk from customers with expired (PNR $18.7M), expiring (Meridian $5.8M), or month-to-month (Willamette $4.9M) arrangements, totaling approximately $29-30M or roughly 34% of revenue. FAIL if the aggregate revenue at risk is not quantified."
+  },
+  {
+   "id": "C-038",
+   "title": "Correctly reports PFAS revenue trajectory (FY2022-FY2024)",
+   "match_criteria": "PASS if the memo reports at least two of the following three historical PFAS revenue figures within 10% of stated values: FY2022 ~$1.1M, FY2023 ~$3.4M, FY2024 ~$6.2M. FAIL if PFAS historical revenue is not referenced or fewer than two figures are within 10% of stated values."
+  }
+ ],
+ "per_criterion": {
+  "C-001": "pass",
+  "C-002": "pass",
+  "C-003": "pass",
+  "C-004": "fail",
+  "C-005": "pass",
+  "C-006": "pass",
+  "C-007": "pass",
+  "C-008": "pass",
+  "C-009": "pass",
+  "C-010": "pass",
+  "C-011": "pass",
+  "C-012": "pass",
+  "C-013": "pass",
+  "C-014": "pass",
+  "C-015": "pass",
+  "C-016": "pass",
+  "C-017": "pass",
+  "C-018": "fail",
+  "C-019": "pass",
+  "C-020": "fail",
+  "C-021": "pass",
+  "C-022": "pass",
+  "C-023": "pass",
+  "C-024": "fail",
+  "C-025": "pass",
+  "C-026": "pass",
+  "C-027": "pass",
+  "C-028": "pass",
+  "C-029": "fail",
+  "C-030": "pass",
+  "C-031": "pass",
+  "C-032": "pass",
+  "C-033": "pass",
+  "C-034": "pass",
+  "C-035": "pass",
+  "C-036": "pass",
+  "C-037": "pass",
+  "C-038": "fail",
+  "C-039": "pass",
+  "C-040": "pass",
+  "C-041": "pass"
+ }
+}

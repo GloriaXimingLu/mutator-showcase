@@ -1,0 +1,29 @@
+{
+ "task": "litigation-dispute-resolution/draft-motion-to-dismiss-brief",
+ "ens_pass_rate": 0.9550561797752809,
+ "n_graded": 89,
+ "n_failed": 4,
+ "failed_criteria": [
+  {
+   "id": "C-019",
+   "title": "ISSUE_002 \u2014 Identifies FAC's failure to name specific individuals",
+   "match_criteria": "PASS if the motion brief argues that the FAC fails Rule 9(b) in part because it attributes statements generically to 'Meridian's sales team' or similar group pleading rather than identifying specific individuals who made the alleged misrepresentations. FAIL if this specificity deficiency is not raised."
+  },
+  {
+   "id": "C-044",
+   "title": "ISSUE_010 \u2014 Notes FAC's failure to name Linden Park",
+   "match_criteria": "PASS if the motion brief argues or notes that the FAC attributes all implementation failures to 'Meridian and its agents' without acknowledging or naming Linden Park Consulting as Arcadia's own independently retained third-party integrator. FAIL if this omission from the FAC is not highlighted."
+  },
+  {
+   "id": "C-058",
+   "title": "Motion brief \u2014 no oral modifications clause (Section 12.3) cited",
+   "match_criteria": "PASS if the motion brief references Section 12.3 (No Oral Modifications) as supporting the argument that pre-sale oral statements cannot modify or supplement the written agreement. FAIL if Section 12.3 is not cited."
+  },
+  {
+   "id": "C-082",
+   "title": "Motion brief \u2014 references negotiation emails showing Arcadia's awareness",
+   "match_criteria": "PASS if the motion brief references the contract negotiation email chain (Exhibit D / Bates Nos. MCS-00004217 through MCS-00004248) showing that Arcadia's counsel (Jonathan Breckenridge of Wexford Hale LLP) attempted to negotiate removal of the consequential damages waiver and expanded warranty terms, demonstrating Arcadia's awareness and acceptance of the contractual risk allocation. FAIL if the negotiation history is not cited."
+  }
+ ],
+ "error": null
+}

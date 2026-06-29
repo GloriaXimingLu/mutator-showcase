@@ -1,0 +1,314 @@
+{
+ "dev_score": 0.792253,
+ "cost": {
+  "mean_input_tokens": 3563343,
+  "mean_total_tokens": 3638260,
+  "mean_turns": 36
+ },
+ "n_graded": 30,
+ "n_requested": 30,
+ "per_task": [
+  {
+   "task": "antitrust-competition/draft-pre-notification-briefing-paper",
+   "pass_rate": 0.85,
+   "n": 60,
+   "input_tokens": 2497149,
+   "output_tokens": 50929,
+   "total_tokens": 2548078,
+   "cache_read_input_tokens": 0,
+   "turns": 33
+  },
+  {
+   "task": "capital-markets/draft-comfort-letter-request",
+   "pass_rate": 0.8235294117647058,
+   "n": 68,
+   "input_tokens": 2592815,
+   "output_tokens": 70611,
+   "total_tokens": 2663426,
+   "cache_read_input_tokens": 0,
+   "turns": 25
+  },
+  {
+   "task": "contracts/banking/isda-confirmation-counterparty-paper-review",
+   "pass_rate": 0.8301886792452831,
+   "n": 53,
+   "input_tokens": 3022238,
+   "output_tokens": 86363,
+   "total_tokens": 3108601,
+   "cache_read_input_tokens": 0,
+   "turns": 46
+  },
+  {
+   "task": "contracts/banking/isda-master-pack-term-negotiation/scenario-02",
+   "pass_rate": 0.9090909090909091,
+   "n": 55,
+   "input_tokens": 7736257,
+   "output_tokens": 151186,
+   "total_tokens": 7887443,
+   "cache_read_input_tokens": 0,
+   "turns": 60
+  },
+  {
+   "task": "contracts/commercial-channel-partnerships/strategic-partnership-co-sell-term-negotiation/scenario-03",
+   "pass_rate": 0.75,
+   "n": 52,
+   "input_tokens": 1843234,
+   "output_tokens": 69581,
+   "total_tokens": 1912815,
+   "cache_read_input_tokens": 0,
+   "turns": 26
+  },
+  {
+   "task": "contracts/commercial-vendor-customer/master-services-agreement-first-draft/scenario-05",
+   "pass_rate": 0.9904761904761905,
+   "n": 105,
+   "input_tokens": 6465874,
+   "output_tokens": 76739,
+   "total_tokens": 6542613,
+   "cache_read_input_tokens": 0,
+   "turns": 54
+  },
+  {
+   "task": "contracts/commercial-vendor-customer/master-services-agreement-term-negotiation/scenario-02",
+   "pass_rate": 0.7777777777777778,
+   "n": 63,
+   "input_tokens": 1559525,
+   "output_tokens": 99902,
+   "total_tokens": 1659427,
+   "cache_read_input_tokens": 0,
+   "turns": 17
+  },
+  {
+   "task": "contracts/commercial-vendor-customer/vendor-services-agreement-first-turn-redline/scenario-03",
+   "pass_rate": 0.8676470588235294,
+   "n": 68,
+   "input_tokens": 24978461,
+   "output_tokens": 237667,
+   "total_tokens": 25216128,
+   "cache_read_input_tokens": 0,
+   "turns": 107
+  },
+  {
+   "task": "contracts/corporate-ma/loi-mou-term-negotiation/scenario-01",
+   "pass_rate": 0.9473684210526315,
+   "n": 38,
+   "input_tokens": 2756980,
+   "output_tokens": 40367,
+   "total_tokens": 2797347,
+   "cache_read_input_tokens": 0,
+   "turns": 23
+  },
+  {
+   "task": "contracts/corporate-ma/transition-intercompany-services-subsequent-turn-redline",
+   "pass_rate": 0.9166666666666666,
+   "n": 60,
+   "input_tokens": 8457582,
+   "output_tokens": 166468,
+   "total_tokens": 8624050,
+   "cache_read_input_tokens": 0,
+   "turns": 76
+  },
+  {
+   "task": "contracts/disputes/settlement-agreement-and-release-term-negotiation",
+   "pass_rate": 0.7884615384615384,
+   "n": 52,
+   "input_tokens": 2224499,
+   "output_tokens": 46119,
+   "total_tokens": 2270618,
+   "cache_read_input_tokens": 0,
+   "turns": 40
+  },
+  {
+   "task": "contracts/financing/credit-lending-subsequent-turn-redline/scenario-02",
+   "pass_rate": 0.7321428571428571,
+   "n": 56,
+   "input_tokens": 10480525,
+   "output_tokens": 151127,
+   "total_tokens": 10631652,
+   "cache_read_input_tokens": 0,
+   "turns": 84
+  },
+  {
+   "task": "contracts/financing/investor-rights-agreement-term-negotiation",
+   "pass_rate": 0.8723404255319149,
+   "n": 47,
+   "input_tokens": 2847051,
+   "output_tokens": 56869,
+   "total_tokens": 2903920,
+   "cache_read_input_tokens": 0,
+   "turns": 27
+  },
+  {
+   "task": "corporate-governance/draft-batch-nda-generation",
+   "pass_rate": 0.8556701030927835,
+   "n": 97,
+   "input_tokens": 2401790,
+   "output_tokens": 76353,
+   "total_tokens": 2478143,
+   "cache_read_input_tokens": 0,
+   "turns": 37
+  },
+  {
+   "task": "corporate-ma/compare-fund-term-sheet-against-side-letter-terms",
+   "pass_rate": 0.8245614035087719,
+   "n": 57,
+   "input_tokens": 1366852,
+   "output_tokens": 44754,
+   "total_tokens": 1411606,
+   "cache_read_input_tokens": 0,
+   "turns": 32
+  },
+  {
+   "task": "data-privacy-cybersecurity/extract-document-requests-from-regulatory-inquiry-letter",
+   "pass_rate": 0.8461538461538461,
+   "n": 52,
+   "input_tokens": 2052896,
+   "output_tokens": 57155,
+   "total_tokens": 2110051,
+   "cache_read_input_tokens": 0,
+   "turns": 34
+  },
+  {
+   "task": "employment-labor/identify-issues-in-non",
+   "pass_rate": 0.7567567567567568,
+   "n": 37,
+   "input_tokens": 517931,
+   "output_tokens": 30442,
+   "total_tokens": 548373,
+   "cache_read_input_tokens": 0,
+   "turns": 15
+  },
+  {
+   "task": "environmental-esg/draft-markup-of-administrative-settlement-agreement",
+   "pass_rate": 0.8113207547169812,
+   "n": 53,
+   "input_tokens": 4819062,
+   "output_tokens": 143065,
+   "total_tokens": 4962127,
+   "cache_read_input_tokens": 0,
+   "turns": 50
+  },
+  {
+   "task": "healthcare-life-sciences/draft-fda-regulatory-submission-cover-letter",
+   "pass_rate": 0.8085106382978723,
+   "n": 47,
+   "input_tokens": 770919,
+   "output_tokens": 53724,
+   "total_tokens": 824643,
+   "cache_read_input_tokens": 0,
+   "turns": 16
+  },
+  {
+   "task": "healthcare-life-sciences/identify-compliance-issues-in-medicare-enrollment-application-package",
+   "pass_rate": 0.6666666666666666,
+   "n": 39,
+   "input_tokens": 735756,
+   "output_tokens": 32825,
+   "total_tokens": 768581,
+   "cache_read_input_tokens": 0,
+   "turns": 18
+  },
+  {
+   "task": "insurance/compare-reinsurance-treaty-against-underlying-policy",
+   "pass_rate": 0.6923076923076923,
+   "n": 39,
+   "input_tokens": 719314,
+   "output_tokens": 30131,
+   "total_tokens": 749445,
+   "cache_read_input_tokens": 0,
+   "turns": 18
+  },
+  {
+   "task": "intellectual-property/compare-executed-technology-license-agreement-against-last-negotiation-draft",
+   "pass_rate": 0.8867924528301887,
+   "n": 53,
+   "input_tokens": 1576966,
+   "output_tokens": 66772,
+   "total_tokens": 1643738,
+   "cache_read_input_tokens": 0,
+   "turns": 31
+  },
+  {
+   "task": "intellectual-property/draft-international-trade-commission-section-337-complaint",
+   "pass_rate": 0.8888888888888888,
+   "n": 45,
+   "input_tokens": 3605638,
+   "output_tokens": 62705,
+   "total_tokens": 3668343,
+   "cache_read_input_tokens": 0,
+   "turns": 32
+  },
+  {
+   "task": "intellectual-property/draft-motion-for-enhanced-damages",
+   "pass_rate": 0.22058823529411764,
+   "n": 68,
+   "input_tokens": 2151507,
+   "output_tokens": 70267,
+   "total_tokens": 2221774,
+   "cache_read_input_tokens": 0,
+   "turns": 26
+  },
+  {
+   "task": "intellectual-property/identify-weaknesses-in-counterpartys-summary-judgment-brief",
+   "pass_rate": 0.65625,
+   "n": 32,
+   "input_tokens": 2218756,
+   "output_tokens": 66930,
+   "total_tokens": 2285686,
+   "cache_read_input_tokens": 0,
+   "turns": 27
+  },
+  {
+   "task": "litigation-dispute-resolution/extract-key-obligations-from-litigation-hold-and-document-preservation-notice",
+   "pass_rate": 0.8076923076923077,
+   "n": 52,
+   "input_tokens": 1146897,
+   "output_tokens": 34893,
+   "total_tokens": 1181790,
+   "cache_read_input_tokens": 0,
+   "turns": 23
+  },
+  {
+   "task": "real-estate/identify-issues-in-environmental-site-assessment",
+   "pass_rate": 0.8461538461538461,
+   "n": 52,
+   "input_tokens": 871465,
+   "output_tokens": 30714,
+   "total_tokens": 902179,
+   "cache_read_input_tokens": 0,
+   "turns": 21
+  },
+  {
+   "task": "tax/draft-transfer-pricing-documentation",
+   "pass_rate": 0.5194805194805194,
+   "n": 77,
+   "input_tokens": 2436607,
+   "output_tokens": 62515,
+   "total_tokens": 2499122,
+   "cache_read_input_tokens": 0,
+   "turns": 30
+  },
+  {
+   "task": "tax/extract-tax-attributes-from-audited-financial-statements",
+   "pass_rate": 0.9041095890410958,
+   "n": 73,
+   "input_tokens": 993482,
+   "output_tokens": 52207,
+   "total_tokens": 1045689,
+   "cache_read_input_tokens": 0,
+   "turns": 17
+  },
+  {
+   "task": "white-collar-defense-investigations/identify-government-subpoena-issues",
+   "pass_rate": 0.72,
+   "n": 50,
+   "input_tokens": 1052250,
+   "output_tokens": 28128,
+   "total_tokens": 1080378,
+   "cache_read_input_tokens": 0,
+   "turns": 23
+  }
+ ],
+ "skipped_for_budget": [],
+ "remaining": 47.78
+}

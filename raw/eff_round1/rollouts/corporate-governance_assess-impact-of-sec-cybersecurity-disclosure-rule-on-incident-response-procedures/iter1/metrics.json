@@ -1,0 +1,33 @@
+{
+  "model": "glm-5p2",
+  "task": "corporate-governance/assess-impact-of-sec-cybersecurity-disclosure-rule-on-incident-response-procedures",
+  "run_id": "effround1_train_iter1/corporate-governance_assess-impact-of-sec-cybersecurity-disclosure-rule-on-incident-response-procedures__da39a3ee5e",
+  "turn_count": 24,
+  "input_tokens": 1093670,
+  "output_tokens": 24661,
+  "total_tokens": 1118331,
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "wall_clock_seconds": 324.9,
+  "finished_cleanly": true,
+  "completed_at": "2026-06-28T10:04:04.291054+00:00",
+  "documents_read": 8,
+  "documents_read_list": [
+    "10k-item1c-fy2023.docx",
+    "audit-committee-charter.docx",
+    "cirp-june-2022.docx",
+    "customer-contract-excerpts.docx",
+    "gc-to-audit-chair-email.eml",
+    "incident-status-report-dec5.docx",
+    "ridgeline-policy-summary.docx",
+    "thorngate-interim-report-dec1.docx"
+  ],
+  "documents_skipped": 0,
+  "documents_skipped_list": [],
+  "total_documents": 8,
+  "bash_commands": 17,
+  "files_written": 1,
+  "files_edited": 0,
+  "glob_searches": 0,
+  "grep_searches": 0
+}

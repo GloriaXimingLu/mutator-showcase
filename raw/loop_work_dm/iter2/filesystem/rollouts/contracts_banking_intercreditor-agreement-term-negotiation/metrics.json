@@ -1,0 +1,38 @@
+{
+  "model": "glm-5p2",
+  "task": "contracts/banking/intercreditor-agreement-term-negotiation",
+  "run_id": "dm_train_iter2/contracts_banking_intercreditor-agreement-term-negotiation__b4f6bea39e",
+  "turn_count": 29,
+  "input_tokens": 3356674,
+  "output_tokens": 51749,
+  "total_tokens": 3408423,
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "wall_clock_seconds": 749.06,
+  "finished_cleanly": true,
+  "completed_at": "2026-06-26T05:15:45.017765+00:00",
+  "documents_read": 11,
+  "documents_read_list": [
+    "cartwright-position-letter.docx",
+    "ridgeline-position-letter.docx",
+    "buchanan-internal-summary-email.eml",
+    "oduya-internal-summary-email.eml",
+    "tanaka-engagement-email.eml",
+    "draft-intercreditor-agreement.docx",
+    "ica-market-survey.xlsx",
+    "meridian-capital-structure-summary.xlsx",
+    "lender-appraisal-summary.docx",
+    "standard-form-ica.docx",
+    "first-lien-credit-agreement.docx"
+  ],
+  "documents_skipped": 1,
+  "documents_skipped_list": [
+    "second-lien-credit-agreement.docx"
+  ],
+  "total_documents": 12,
+  "bash_commands": 21,
+  "files_written": 1,
+  "files_edited": 0,
+  "glob_searches": 0,
+  "grep_searches": 2
+}

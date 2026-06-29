@@ -1,0 +1,79 @@
+{
+ "task": "capital-markets/draft-registration-statement-on-form-s",
+ "ens_pass_rate": 0.8444444444444444,
+ "n_graded": 90,
+ "n_failed": 14,
+ "failed_criteria": [
+  {
+   "id": "C-011",
+   "title": "ISSUE_004: Discusses when EGC status may be lost",
+   "match_criteria": "PASS if either deliverable discusses conditions under which Crestline may lose EGC status, including at least one of: (a) revenue reaching $1.235 billion, (b) fifth anniversary of first equity sale, or (c) becoming a large accelerated filer (public float \u2265 $700M). FAIL if no mention is made of when EGC status could be lost."
+  },
+  {
+   "id": "C-016",
+   "title": "ISSUE_006: Flags preferred stock mezzanine classification issue",
+   "match_criteria": "PASS if the issues memorandum identifies that the CFO memo incorrectly refers to the $385.0M redeemable convertible preferred stock as part of 'total equity,' when it should be classified in mezzanine equity (between liabilities and stockholders' equity) on the historical balance sheet, and that the pro forma capitalization must show the reclassification upon IPO conversion. FAIL if this classification discrepancy is not flagged."
+  },
+  {
+   "id": "C-019",
+   "title": "ISSUE_007: Flags 409A valuation / discounted option issue",
+   "match_criteria": "PASS if the issues memorandum identifies that 2,400,000 options granted in Q1 2023 at $9.50/share were based on a stale 409A valuation from September 30, 2022, while the contemporaneous March 31, 2023 409A valuation was $14.20/share. The memo should note the potential that these options constitute discounted options under IRC Section 409A, potentially triggering 20% excise tax penalties for option holders. FAIL if the 409A pricing discrepancy and Section 409A risk are not flagged."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_007: S-1 discloses Section 409A exposure in risk factors or notes",
+   "match_criteria": "PASS if the S-1 includes disclosure (in risk factors, financial statement notes, or both) addressing the potential Section 409A issue with the Q1 2023 option grants, including the risk of excise tax penalties and/or any tax indemnification obligations. FAIL if the S-1 contains no disclosure of the 409A valuation concern."
+  },
+  {
+   "id": "C-021",
+   "title": "ISSUE_008: Addresses ESPP Section 423 qualification requirements",
+   "match_criteria": "PASS if either deliverable addresses the requirements for the 2024 ESPP to qualify under IRC Section 423, discussing at least two of the following: (a) maximum purchase discount of 15%, (b) $25,000 annual purchase limitation, (c) offering period limitation of no more than 27 months, (d) broad employee eligibility requirements. FAIL if Section 423 qualification requirements are not discussed in either deliverable."
+  },
+  {
+   "id": "C-023",
+   "title": "ISSUE_009: S-1 principal stockholders table addresses Aldersgate gap",
+   "match_criteria": "PASS if the S-1 principal stockholders table either (a) includes Aldersgate Capital with its current ownership if above 5%, (b) notes that Aldersgate's status needs to be confirmed, or (c) explicitly addresses the disposition of Aldersgate's Series B shares. FAIL if Aldersgate Capital's absence is not addressed at all in the principal stockholders discussion."
+  },
+  {
+   "id": "C-032",
+   "title": "ISSUE_013: Issues memo discusses forum selection clause implications",
+   "match_criteria": "PASS if the issues memorandum discusses the exclusive forum provision for Securities Act claims in the charter, referencing the legal landscape (Cyan v. Beaver County on concurrent jurisdiction and/or Salzberg v. Sciabacucchi on enforceability of federal forum provisions). FAIL if the forum selection clause is not discussed in the issues memorandum."
+  },
+  {
+   "id": "C-052",
+   "title": "S-1 Management section lists CRO Chen with age and bio",
+   "match_criteria": "PASS if the S-1 Management section lists Chen (CRO) with age and biographical information. FAIL if Chen is omitted."
+  },
+  {
+   "id": "C-071",
+   "title": "Financial figures: Gross proceeds at midpoint correctly stated as $360M",
+   "match_criteria": "PASS if gross proceeds at the midpoint price of $24.00 are stated as $360.0 million (15,000,000 \u00d7 $24.00). FAIL if a materially different gross proceeds figure is used."
+  },
+  {
+   "id": "C-072",
+   "title": "S-1 discloses 2024 Equity Incentive Plan with shares authorized",
+   "match_criteria": "PASS if the S-1 discloses the 2024 Equity Incentive Plan with 18,500,000 shares authorized. FAIL if the equity incentive plan is not described or the authorized share count is materially incorrect."
+  },
+  {
+   "id": "C-074",
+   "title": "S-1 discloses the ESPP with 2,500,000 shares reserved",
+   "match_criteria": "PASS if the S-1 discloses the 2024 Employee Stock Purchase Plan with 2,500,000 shares reserved, intended to qualify under IRC Section 423, becoming effective upon IPO. FAIL if the ESPP is not disclosed."
+  },
+  {
+   "id": "C-075",
+   "title": "S-1 discloses term loan details",
+   "match_criteria": "PASS if the S-1 discloses the $50M term loan facility with Silicon Valley Credit Partners ($40M drawn), maturing December 2027, bearing interest at SOFR + 3.25%, with financial covenants (minimum liquidity $30M and ARR-based leverage ratio \u2264 2.0x). FAIL if the term loan is not disclosed or key terms are materially misstated."
+  },
+  {
+   "id": "C-076",
+   "title": "S-1 discloses Class B share allocation between founders",
+   "match_criteria": "PASS if the S-1 states that Ramaswamy holds 12,200,000 Class B shares and Litvak holds 8,600,000 Class B shares (total 20,800,000 Class B shares). FAIL if the individual Class B allocations are not disclosed or are materially incorrect."
+  },
+  {
+   "id": "C-083",
+   "title": "S-1 discloses office lease obligations",
+   "match_criteria": "PASS if the S-1 discloses lease obligations for at least 3 of the following 4 offices: (1) Austin HQ (expiring August 2029, $3.8M/year), (2) San Francisco (expiring March 2027, $2.1M/year), (3) London (expiring January 2028, \u00a3680,000/year), and (4) Bangalore (expiring June 2026, \u20b942M/year). FAIL if fewer than 3 of the 4 leases are disclosed."
+  }
+ ],
+ "error": null
+}

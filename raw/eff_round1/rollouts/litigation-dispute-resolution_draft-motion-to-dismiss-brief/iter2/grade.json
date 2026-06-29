@@ -1,0 +1,34 @@
+{
+ "task": "litigation-dispute-resolution/draft-motion-to-dismiss-brief",
+ "ens_pass_rate": 0.9438202247191011,
+ "n_graded": 89,
+ "n_failed": 5,
+ "failed_criteria": [
+  {
+   "id": "C-007",
+   "title": "Motion brief \u2014 table of contents included",
+   "match_criteria": "PASS if the motion brief includes a table of contents listing the major sections/headings of the brief. FAIL if no table of contents is present."
+  },
+  {
+   "id": "C-019",
+   "title": "ISSUE_002 \u2014 Identifies FAC's failure to name specific individuals",
+   "match_criteria": "PASS if the motion brief argues that the FAC fails Rule 9(b) in part because it attributes statements generically to 'Meridian's sales team' or similar group pleading rather than identifying specific individuals who made the alleged misrepresentations. FAIL if this specificity deficiency is not raised."
+  },
+  {
+   "id": "C-025",
+   "title": "ISSUE_004 \u2014 DTPA consumer standing challenged under \u00a7 17.49(f)",
+   "match_criteria": "PASS if the motion brief argues that Arcadia lacks standing as a 'consumer' under the DTPA due to the \u00a7 17.49(f) exemption for transactions exceeding $500,000 where the claiming party has assets of $25 million or more. FAIL if the \u00a7 17.49(f) exemption is not raised."
+  },
+  {
+   "id": "C-058",
+   "title": "Motion brief \u2014 no oral modifications clause (Section 12.3) cited",
+   "match_criteria": "PASS if the motion brief references Section 12.3 (No Oral Modifications) as supporting the argument that pre-sale oral statements cannot modify or supplement the written agreement. FAIL if Section 12.3 is not cited."
+  },
+  {
+   "id": "C-082",
+   "title": "Motion brief \u2014 references negotiation emails showing Arcadia's awareness",
+   "match_criteria": "PASS if the motion brief references the contract negotiation email chain (Exhibit D / Bates Nos. MCS-00004217 through MCS-00004248) showing that Arcadia's counsel (Jonathan Breckenridge of Wexford Hale LLP) attempted to negotiate removal of the consequential damages waiver and expanded warranty terms, demonstrating Arcadia's awareness and acceptance of the contractual risk allocation. FAIL if the negotiation history is not cited."
+  }
+ ],
+ "error": null
+}

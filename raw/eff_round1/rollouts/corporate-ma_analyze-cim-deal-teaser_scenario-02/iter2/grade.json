@@ -1,0 +1,49 @@
+{
+ "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+ "ens_pass_rate": 0.8048780487804879,
+ "n_graded": 41,
+ "n_failed": 8,
+ "failed_criteria": [
+  {
+   "id": "C-001",
+   "title": "ISSUE_001: Identifies EBITDA bridge arithmetic error ($17.1M vs $16.8M)",
+   "match_criteria": "PASS if the memo identifies that the CIM states Adjusted EBITDA of $17.1M but the individual adjustments ($1.9M + $0.8M + $1.2M + $0.4M + $0.3M + $0.1M = $4.7M) added to reported EBITDA of $12.1M only sum to $16.8M, creating a $0.3M discrepancy. FAIL if this arithmetic error is not identified."
+  },
+  {
+   "id": "C-002",
+   "title": "ISSUE_001: Quantifies valuation impact of EBITDA arithmetic error",
+   "match_criteria": "PASS if the memo quantifies the valuation impact of the $0.3M EBITDA overstatement, noting that at 8.0x\u201310.0x multiples, this inflates implied enterprise value by approximately $2.4M\u2013$3.0M. FAIL if no valuation impact is discussed for the arithmetic error."
+  },
+  {
+   "id": "C-007",
+   "title": "ISSUE_003: Flags lease expiration and real estate deal structuring issue",
+   "match_criteria": "PASS if the memo notes that the HQ lease with Oakes expires in 2029 and that post-acquisition the buyer will need to either acquire the property from Oakes or negotiate a new lease, flagging this as a deal structuring consideration. FAIL if the lease expiration and related-party real estate structuring issue is not mentioned."
+  },
+  {
+   "id": "C-018",
+   "title": "ISSUE_008: Flags disconnect between projected capex decline and revenue growth",
+   "match_criteria": "PASS if the memo identifies the disconnect between projected FY2025 capex of $4.5M (a 37.5% decline from FY2024's $7.2M) and simultaneous projected revenue growth of 12.8%, suggesting either capex deferral to boost cash flow or artificial classification of growth vs. maintenance capex. FAIL if this capex-revenue disconnect is not identified."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_009b: Notes Prewitt lacks employment agreement or non-compete",
+   "match_criteria": "PASS if the memo notes that Janet Prewitt has no employment agreement or non-compete. FAIL if the absence of an employment agreement or non-compete for Prewitt is not mentioned."
+  },
+  {
+   "id": "C-024",
+   "title": "ISSUE_011: Flags backlog composition ambiguity (firm vs. soft)",
+   "match_criteria": "PASS if the memo identifies that the CIM's $42.6M contracted backlog figure does not distinguish between firm backlog (fully executed contracts with defined scope) and soft backlog (LOIs, verbal commitments, unissued task orders), undermining the credibility of revenue projections. FAIL if the backlog ambiguity is not flagged."
+  },
+  {
+   "id": "C-028",
+   "title": "ISSUE_012: Flags Meridian Lumber MSA expiration before expected closing",
+   "match_criteria": "PASS if the memo identifies that Meridian Lumber & Paper (#4 customer, $5.8M or 6.6% of revenue) has an MSA expiring December 2025, which is before or around the expected closing in Q4 2025. FAIL if the Meridian Lumber MSA expiration timing is not flagged."
+  },
+  {
+   "id": "C-029",
+   "title": "ISSUE_012: Quantifies revenue at risk from expired/expiring/at-will contracts",
+   "match_criteria": "PASS if the memo quantifies the combined revenue at risk from customers with expired (PNR $18.7M), expiring (Meridian $5.8M), or month-to-month (Willamette $4.9M) arrangements, totaling approximately $29-30M or roughly 34% of revenue. FAIL if the aggregate revenue at risk is not quantified."
+  }
+ ],
+ "error": null
+}

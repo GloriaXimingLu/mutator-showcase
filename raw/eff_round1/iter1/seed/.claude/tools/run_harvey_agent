@@ -1,0 +1,161 @@
+#!/usr/bin/env python3
+"""Thin client: run the frozen Harvey agent on a BATCH of TRAIN tasks, via the host broker.
+
+Usage:  .claude/tools/run_harvey_agent <task_id> [task_id2 ...]
+
+Pass several task ids to test one harness edit across many tasks AT ONCE — the broker runs them
+CONCURRENTLY (one shared overlay of your current harness/, each task -> its own rollout) and writes
+each deliverable to scratch/runs/<task_id>/deliverable.md. This is the cheap way to buy BREADTH:
+one call, N tasks in parallel, instead of N serial calls. A single task id still works.
+
+** ASYNC BY DEFAULT — survives the 10-min shell cap. ** A batch takes ~15-20 min (each rollout
+~9-10 min), longer than the Bash tool's 10-minute limit. So this command DETACHES a background worker
+and RETURNS IMMEDIATELY; the worker keeps running after the shell call ends, writes each deliverable
+to scratch/runs/<task>/, and writes a DONE marker `scratch/runs/.batch_<id>.done` (with the summary)
+when the whole batch finishes. **So: launch -> POLL for the marker (`test -f <printed path>`) ->
+THEN proxy_eval.** Do NOT proxy_eval the instant this returns — the deliverables aren't there yet.
+(This is what stops a batch's client being killed at 10 min while the broker keeps running + charging,
+losing the deliverables — the old failure mode.)
+
+Train-only by construction: the broker refuses the batch if any id isn't TRAIN (the held-out val
+set is unreachable). Metered ~$1/task; tasks beyond the remaining budget come back as
+``skipped_for_budget`` and an all-over-budget call is your "commit now" signal.
+"""
+import hashlib
+import json
+import os
+import subprocess
+import sys
+import urllib.error
+import urllib.request
+
+BROKER = os.environ.get("BROKER_URL", "http://172.17.0.1:4100")
+WS = os.environ.get("MUTATOR_WORKSPACE", "/workspace")
+
+
+def post(path, obj, timeout=2400):
+    req = urllib.request.Request(
+        BROKER + path,
+        data=json.dumps(obj).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.status, json.load(r)
+    except urllib.error.HTTPError as e:
+        return e.code, json.load(e)
+    except urllib.error.URLError as e:  # broker down / refused / DNS — a clean signal, not a traceback
+        return None, {"detail": "broker unreachable at %s (%s)" % (BROKER, getattr(e, "reason", e))}
+
+
+def _batch_id(task_ids):
+    # deterministic short id from the task set, so the foreground can print (and the mutator can poll)
+    # the marker path, and a re-launch of the same batch reuses it.
+    return hashlib.md5("\n".join(task_ids).encode("utf-8")).hexdigest()[:8]
+
+
+def _write_done(done_path, summary):
+    try:
+        with open(done_path, "w", encoding="utf-8") as f:
+            f.write(summary.rstrip("\n") + "\n")
+    except OSError:
+        pass
+
+
+def _worker(task_ids, done_path):
+    """The detached worker (survives the shell cap): POST the batch, write deliverables, mark DONE."""
+    hroot = os.path.join(WS, "harness")
+    harness = {}
+    for dirpath, _dirs, files in os.walk(hroot):
+        for fn in files:
+            fp = os.path.join(dirpath, fn)
+            try:
+                harness[os.path.relpath(fp, hroot)] = open(fp, encoding="utf-8").read()
+            except (OSError, UnicodeDecodeError):
+                pass  # skip unreadable / binary files
+    if not harness:
+        _write_done(done_path, "ERROR: no harness files under %s — is the workspace seeded?" % hroot)
+        return
+    code, body = post("/run_harvey_agent", {"task_ids": task_ids, "harness": harness})
+    if code is None:
+        _write_done(done_path, "ERROR: %s — is the experiment broker up?" % body.get("detail"))
+        return
+    if code == 402:
+        _write_done(done_path, "OVER_BUDGET (remaining $%.2f) — commit your best edit now, don't retry."
+                    % body.get("remaining", 0.0))
+        return
+    if code == 403:
+        _write_done(done_path, "REFUSED — %s (run_harvey_agent is TRAIN-only)" % body.get("detail", "not a TRAIN task"))
+        return
+    if code != 200:
+        _write_done(done_path, "ERROR %s — %s" % (code, body))
+        return
+    n_ok = 0
+    lines = []
+    for r in body.get("results", []):
+        task = r.get("task", "?")
+        if r.get("error"):
+            lines.append("FAILED %s: %s" % (task, r.get("detail", r["error"])))
+            continue
+        out = os.path.join(WS, "scratch/runs", task.replace("/", "_"))
+        os.makedirs(out, exist_ok=True)
+        dpath = os.path.join(out, "deliverable.md")
+        open(dpath, "w", encoding="utf-8").write(r.get("deliverable", ""))
+        turns = r.get("turns")
+        if turns is not None:  # the runaway signal — `check_runaway` reads turns.txt vs bare iter0
+            open(os.path.join(out, "turns.txt"), "w", encoding="utf-8").write(str(turns))
+        # surface the COST signal too: input_tokens is what the efficiency mission optimizes
+        lines.append("wrote %s  turns=%s  input_tokens=%s  total_tokens=%s"
+                     % (dpath, turns, r.get("input_tokens"), r.get("total_tokens")))
+        n_ok += 1
+    skipped = body.get("skipped_for_budget", [])
+    if skipped:
+        lines.append("skipped (over budget): %s" % ", ".join(skipped))
+    lines.append("ran %d/%d task(s), remaining $%.2f" % (n_ok, len(task_ids), body.get("remaining", 0.0)))
+    _write_done(done_path, "\n".join(lines))
+
+
+def main():
+    if len(sys.argv) < 2:
+        print("usage: run_harvey_agent <task_id> [task_id2 ...]   (a BATCH runs concurrently)", file=sys.stderr)
+        sys.exit(2)
+    task_ids = sys.argv[1:]
+    runs = os.path.join(WS, "scratch", "runs")
+    os.makedirs(runs, exist_ok=True)
+    done_path = os.path.join(runs, ".batch_%s.done" % _batch_id(task_ids))
+
+    if os.environ.get("_RHA_WORKER") == "1":
+        try:
+            _worker(task_ids, done_path)  # we ARE the detached worker
+        except Exception as e:  # a crash must STILL leave a marker, else the mutator polls forever
+            _write_done(done_path, "ERROR: run_harvey_agent worker crashed: %s" % e)
+        return
+
+    # Foreground: detach a worker that survives the 10-min shell cap, then return immediately.
+    try:
+        os.remove(done_path)  # clear any stale marker from a prior launch of this same batch
+    except OSError:
+        pass
+    log_path = os.path.join(runs, ".batch_%s.log" % _batch_id(task_ids))
+    env = dict(os.environ)
+    env["_RHA_WORKER"] = "1"
+    try:
+        with open(log_path, "w") as lf:
+            subprocess.Popen(
+                [sys.executable, os.path.abspath(__file__)] + task_ids,
+                env=env, stdout=lf, stderr=lf, stdin=subprocess.DEVNULL,
+                start_new_session=True,  # new session -> survives the foreground shell being killed at 10 min
+            )
+    except OSError as e:
+        print("could not launch background worker: %s" % e, file=sys.stderr)
+        sys.exit(5)
+    print("LAUNCHED %d task(s) in the BACKGROUND (survives the 10-min shell cap)." % len(task_ids))
+    print("Deliverables are NOT ready yet — WAIT ~15-20 min for the batch to finish, THEN proxy_eval.")
+    print("  poll for done : test -f %s   (marker holds the summary; appears when the batch completes)" % done_path)
+    print("  live log      : %s" % log_path)
+    print("  deliverables  : scratch/runs/<task>/deliverable.md (+ turns.txt) once done")
+
+
+if __name__ == "__main__":
+    main()

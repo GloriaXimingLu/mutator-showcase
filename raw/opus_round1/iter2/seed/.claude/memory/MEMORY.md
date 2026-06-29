@@ -1,0 +1,1 @@
+- [iter0 issue-spotting method](iter0-issue-spotting-method.md) — committed a generic system_prompt "Approach to the work" method (complete issue census + cross-doc check + scope grounding); +0.02 net proxy/6 tasks; next rung = enforced loop check if mode persists.

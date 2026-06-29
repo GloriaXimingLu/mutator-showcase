@@ -1,0 +1,44 @@
+{
+ "task": "immigration/compare-immigration",
+ "ens_pass_rate": 0.8372093023255814,
+ "n_graded": 43,
+ "n_failed": 7,
+ "failed_criteria": [
+  {
+   "id": "C-010",
+   "title": "Identifies job title discrepancy \u2014 Data Scientist titles vs. ML Engineer requirement",
+   "match_criteria": "PASS if the memo flags that Dr. Mehrotra's job titles at DataBridge ('Data Scientist I' and 'Data Scientist II') do not match the PERM requirement of experience in 'machine learning engineering or a closely related occupation,' and that she has never held the title 'Machine Learning Engineer.' FAIL if this title discrepancy at DataBridge is not identified."
+  },
+  {
+   "id": "C-011",
+   "title": "Identifies Evalpoint 'Software Engineer' title as not matching ML Engineer requirement",
+   "match_criteria": "PASS if the memo flags that Dr. Mehrotra's title at Evalpoint ('Software Engineer') does not match the PERM requirement of experience in 'machine learning engineering or a closely related occupation.' FAIL if the Evalpoint title discrepancy is not identified."
+  },
+  {
+   "id": "C-012",
+   "title": "Recommends remedial action for job title discrepancy (ISSUE_004)",
+   "match_criteria": "PASS if the memo recommends actions to address the title discrepancy, such as: obtaining a supplemental letter from the employer describing duties that map to ML engineering, securing an expert opinion letter, or ensuring the experience letters detail ML engineering duties. FAIL if no remedial action is recommended for the title gap."
+  },
+  {
+   "id": "C-023",
+   "title": "Identifies SOC code classification risk (ISSUE_009)",
+   "match_criteria": "PASS if the memo flags that the position is titled 'Senior Machine Learning Engineer' but classified under SOC 15-2051 (Data Scientists), and raises the concern that USCIS or DOL may question whether the role is more accurately classified under a different SOC code such as 15-1252 (Software Developers) or 15-1299 (Computer Occupations, All Other). FAIL if the SOC code classification issue is not raised."
+  },
+  {
+   "id": "C-024",
+   "title": "Discusses SOC code misclassification consequences",
+   "match_criteria": "PASS if the memo discusses the potential consequences of SOC code misclassification, such as invalidation of the prevailing wage determination and/or the PERM certification. FAIL if consequences are not mentioned."
+  },
+  {
+   "id": "C-027",
+   "title": "Identifies STEM OPT timing / cap-gap concern (ISSUE_011)",
+   "match_criteria": "PASS if the memo discusses timing concerns related to Dr. Mehrotra's STEM OPT expiring September 15, 2025, and the need to file the H-1B petition (planned by July 15, 2025) in time, including any analysis of whether cap-gap provisions apply or whether the H-1B is cap-subject vs. cap-exempt. FAIL if no timing or status-related concern is raised."
+  },
+  {
+   "id": "C-028",
+   "title": "Notes H-1B was selected in FY2026 cap lottery",
+   "match_criteria": "PASS if the memo references or acknowledges that the HR email indicates the H-1B petition was selected in the FY2026 cap lottery. FAIL if this fact from the HR email is not mentioned or incorporated into the timing analysis."
+  }
+ ],
+ "error": null
+}

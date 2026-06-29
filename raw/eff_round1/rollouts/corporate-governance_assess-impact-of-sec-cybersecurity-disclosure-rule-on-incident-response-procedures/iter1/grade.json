@@ -1,0 +1,49 @@
+{
+ "task": "corporate-governance/assess-impact-of-sec-cybersecurity-disclosure-rule-on-incident-response-procedures",
+ "ens_pass_rate": 0.8222222222222222,
+ "n_graded": 45,
+ "n_failed": 8,
+ "failed_criteria": [
+  {
+   "id": "C-010",
+   "title": "IRT composition gap \u2014 excludes Legal, Finance, IR, and Board",
+   "match_criteria": "PASS if the memo identifies that the CIRP's Incident Response Team includes only IT, IT Security, Facilities, and HR, and that Legal, Finance, Investor Relations, and/or Board/committee representatives are excluded. FAIL if this IRT composition deficiency is not identified."
+  },
+  {
+   "id": "C-011",
+   "title": "IRT composition gap flagged as critical",
+   "match_criteria": "PASS if the memo identifies the exclusion of Legal/Finance/IR/Board from the IRT as a critical gap (or uses equivalent severity language). FAIL if the gap is mentioned but not flagged as significant or critical."
+  },
+  {
+   "id": "C-014",
+   "title": "FY2023 10-K Item 1C Audit Committee oversight disclosure is misleading",
+   "match_criteria": "PASS if the memo identifies that the 10-K Item 1C statement that the 'Audit Committee receives quarterly updates on the Company's cybersecurity posture' is potentially misleading because: (a) the updates consist of only a single PowerPoint slide within a broader CTO technology presentation, (b) the Audit Committee has never received a dedicated cybersecurity briefing, and/or (c) Audit Committee minutes do not reflect substantive cybersecurity discussion. FAIL if this discrepancy is not identified."
+  },
+  {
+   "id": "C-016",
+   "title": "CISO reporting structure creates information bottleneck",
+   "match_criteria": "PASS if the memo identifies that the CISO (Derek Fong) reports to the CTO (Lauren Hessler), not to the General Counsel or directly to the Audit Committee, and that this reporting chain contributed to delayed legal and Board awareness during the incident. FAIL if the CISO reporting structure is not flagged as a governance concern."
+  },
+  {
+   "id": "C-017",
+   "title": "Recommends revised CISO reporting line or direct Audit Committee access",
+   "match_criteria": "PASS if the memo recommends establishing a direct reporting line from the CISO to the General Counsel, Audit Committee, or Board for material cybersecurity incidents, or otherwise restructuring the reporting chain to ensure timely escalation. FAIL if no recommendation is made to address the reporting structure."
+  },
+  {
+   "id": "C-023",
+   "title": "CIRP lacks legal hold or record preservation protocol",
+   "match_criteria": "PASS if the memo identifies that the CIRP contains no legal hold, evidence preservation, or chain-of-custody protocol, and flags this as a gap in light of potential SEC inquiries, shareholder litigation, or state AG investigations. FAIL if this gap is not identified."
+  },
+  {
+   "id": "C-024",
+   "title": "Recommends immediate implementation of litigation hold",
+   "match_criteria": "PASS if the memo recommends immediate implementation of a litigation hold or legal hold to preserve all incident-related communications, forensic evidence, and documents. FAIL if no such recommendation is made."
+  },
+  {
+   "id": "C-034",
+   "title": "Immediate recommendation: File Form 8-K Item 1.05 immediately/today",
+   "match_criteria": "PASS if the memo recommends filing a Form 8-K Item 1.05 disclosure immediately or within the next 24-48 hours as a top-priority immediate action item. FAIL if the 8-K filing is treated as a non-urgent or longer-term action item."
+  }
+ ],
+ "error": null
+}

@@ -1,0 +1,59 @@
+{
+ "task": "intellectual-property/rnw-ip-license-renewal",
+ "ens_pass_rate": 0.8529411764705882,
+ "n_graded": 68,
+ "n_failed": 10,
+ "failed_criteria": [
+  {
+   "id": "C-010",
+   "title": "ISSUE_003: Analyzes R&D disincentive from improvement clause reversal",
+   "match_criteria": "PASS if the memo identifies that the improvement clause reversal reduces Greenfield's incentive to invest in R&D on the licensed technology. FAIL if the R&D disincentive is not discussed."
+  },
+  {
+   "id": "C-016",
+   "title": "ISSUE_005: Analyzes competitive risk of non-exclusive data license",
+   "match_criteria": "PASS if the memo analyzes that output data in a bioinformatics context includes Greenfield's proprietary genomic analysis results and competitive intelligence, and a non-exclusive license means NovaTrait could theoretically license this data to Greenfield's competitors. FAIL if the competitive risk of non-exclusive licensing of output data is not discussed."
+  },
+  {
+   "id": "C-023",
+   "title": "ISSUE_007: Recommends 12-24 month wind-down period",
+   "match_criteria": "PASS if the memo recommends negotiating a wind-down period of at least 12 months (up to 24 months) for the biological materials return obligation. FAIL if no specific wind-down period is recommended or if the recommendation is for less than 12 months."
+  },
+  {
+   "id": "C-024",
+   "title": "ISSUE_008: Flags lack of contractual leverage over Prairielands",
+   "match_criteria": "PASS if the memo identifies that Greenfield may lack contractual leverage to impose new pass-through terms on Prairielands since the original sublicense contains no such provision. FAIL if this contractual gap is not discussed."
+  },
+  {
+   "id": "C-026",
+   "title": "ISSUE_010: Connects source code loss to vendor lock-in",
+   "match_criteria": "PASS if the memo analyzes that source code elimination creates complete dependency on NovaTrait for updates and bug fixes and eliminates any possibility of developing a proprietary fork, compounding vendor lock-in. FAIL if the lock-in analysis is absent."
+  },
+  {
+   "id": "C-027",
+   "title": "ISSUE_010: Links to ISSUE_004 (term misalignment compounding lock-in)",
+   "match_criteria": "PASS if the memo connects the source code access elimination to the License C term misalignment issue, analyzing how both together compound Greenfield's lock-in risk (losing source code now while facing potential non-renewal in as little as 5 years given License C's initial term expiring February 28, 2025). FAIL if these two issues are discussed in isolation without cross-reference."
+  },
+  {
+   "id": "C-030",
+   "title": "ISSUE_011: Identifies audit rights mismatch with Prairielands sublicense",
+   "match_criteria": "PASS if the memo identifies that Greenfield's audit rights over Prairielands (once per year, 45 days' notice) do not match NovaTrait's proposed audit rights over Greenfield (twice per year, 15 business days' notice), meaning Greenfield may be unable to satisfy NovaTrait audit requests regarding sublicensee sales. FAIL if this mismatch is not discussed."
+  },
+  {
+   "id": "C-040",
+   "title": "Financial: Identifies spreadsheet error in sensitivity analysis",
+   "match_criteria": "PASS if the memo identifies an error or inconsistency in the financial impact analysis spreadsheet where the sensitivity analysis tab incorrectly uses $202.67M as the base for the proposed terms scenario instead of the redefined $217.26M, understating projected royalties by approximately $910K in Year 1. FAIL if the spreadsheet error is not identified."
+  },
+  {
+   "id": "C-056",
+   "title": "Massachusetts law: References Massachusetts law as governing",
+   "match_criteria": "PASS if the memo references Massachusetts law as the governing law for the analysis, as specified in the task. FAIL if Massachusetts law is not mentioned."
+  },
+  {
+   "id": "C-068",
+   "title": "Cross-license: Discusses compounding lock-in effects",
+   "match_criteria": "PASS if the memo discusses how multiple proposed changes compound to increase Greenfield's lock-in (e.g., source code removal + term misalignment + data ownership grab + improvement clause reversal creating systemic dependency). FAIL if lock-in effects are discussed only in isolation per issue without recognizing the compounding pattern."
+  }
+ ],
+ "error": null
+}

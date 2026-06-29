@@ -1,0 +1,49 @@
+{
+ "task": "immigration/identify-h1b-qualification-issues",
+ "ens_pass_rate": 0.7948717948717948,
+ "n_graded": 39,
+ "n_failed": 8,
+ "failed_criteria": [
+  {
+   "id": "C-016",
+   "title": "Issue 5 Recommendation: Remove or narrow the alternative qualification language",
+   "match_criteria": "PASS if the memo recommends removing the alternative qualification language or narrowing it to specify particular related degree fields rather than 'any engineering discipline.' FAIL if no recommendation to modify this language is provided."
+  },
+  {
+   "id": "C-022",
+   "title": "Issue 8 Detail: Notes PWD would be invalid if SOC code is wrong",
+   "match_criteria": "PASS if the memo notes that if USCIS determines the SOC code is incorrect, the prevailing wage determination and LCA could be invalidated, requiring refiling. FAIL if the downstream consequences of a wrong SOC code are not discussed."
+  },
+  {
+   "id": "C-026",
+   "title": "Issue 11 Identified: No documented experience with TensorFlow, PyTorch, or AWS SageMaker",
+   "match_criteria": "PASS if the memo identifies that the job requirements specify experience with TensorFlow, PyTorch, and cloud-based ML deployment (AWS SageMaker), but the NovaStar experience letter only mentions scikit-learn, Python, and Tableau \u2014 and the only evidence of the required frameworks comes from the uncorroborated consulting period on the resume. FAIL if this gap in documented technical skills is not flagged."
+  },
+  {
+   "id": "C-027",
+   "title": "Issue 11 Document Citation: References NovaStar letter and/or resume",
+   "match_criteria": "PASS if the memo references the NovaStar experience letter (showing only scikit-learn, not TensorFlow/PyTorch/SageMaker) and/or the resume (where the required frameworks appear only in the uncorroborated consulting period) when discussing this skills gap. FAIL if neither document is cited in connection with this issue."
+  },
+  {
+   "id": "C-030",
+   "title": "Memo includes severity ratings for identified issues",
+   "match_criteria": "PASS if the memo includes severity or risk ratings (e.g., Critical, High, Medium, or similar tiered classification) for at least a majority of the identified issues. FAIL if no severity/risk ratings are assigned to any issues."
+  },
+  {
+   "id": "C-031",
+   "title": "Memo includes overall risk assessment of the petition",
+   "match_criteria": "PASS if the memo includes an overall risk assessment section or concluding evaluation of the petition's readiness and likelihood of RFE or denial in its current state. FAIL if the memo only lists individual issues without any holistic/overall assessment of the petition's filing risk."
+  },
+  {
+   "id": "C-033",
+   "title": "Issue 1 Severity: Rated Critical or High",
+   "match_criteria": "PASS if the degree field mismatch issue (ECE vs. CS/ML/AI requirement) is rated as Critical or High severity (or equivalent highest-tier rating). This is a fundamental eligibility issue. FAIL if it is rated as Medium, Low, or not given a severity rating."
+  },
+  {
+   "id": "C-034",
+   "title": "Issue 3 Severity: Rated Critical or High",
+   "match_criteria": "PASS if the immigration status gap / potential unauthorized employment issue is rated as Critical or High severity (or equivalent highest-tier rating). Potential unlawful presence or unauthorized employment is a serious admissibility concern. FAIL if it is rated as Medium, Low, or not given a severity rating."
+  }
+ ],
+ "error": null
+}

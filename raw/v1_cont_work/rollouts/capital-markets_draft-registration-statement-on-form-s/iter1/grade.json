@@ -1,0 +1,69 @@
+{
+ "task": "capital-markets/draft-registration-statement-on-form-s",
+ "ens_pass_rate": 0.8666666666666667,
+ "n_graded": 90,
+ "n_failed": 12,
+ "failed_criteria": [
+  {
+   "id": "C-008",
+   "title": "ISSUE_003: S-1 states whether company intends to rely on controlled company exemption",
+   "match_criteria": "PASS if the S-1 states whether the company intends to rely on the controlled company exemption. FAIL if the S-1 does not state the company's intention regarding reliance on the exemption."
+  },
+  {
+   "id": "C-011",
+   "title": "ISSUE_004: Discusses when EGC status may be lost",
+   "match_criteria": "PASS if either deliverable discusses conditions under which Crestline may lose EGC status, including at least one of: (a) revenue reaching $1.235 billion, (b) fifth anniversary of first equity sale, or (c) becoming a large accelerated filer (public float \u2265 $700M). FAIL if no mention is made of when EGC status could be lost."
+  },
+  {
+   "id": "C-016",
+   "title": "ISSUE_006: Flags preferred stock mezzanine classification issue",
+   "match_criteria": "PASS if the issues memorandum identifies that the CFO memo incorrectly refers to the $385.0M redeemable convertible preferred stock as part of 'total equity,' when it should be classified in mezzanine equity (between liabilities and stockholders' equity) on the historical balance sheet, and that the pro forma capitalization must show the reclassification upon IPO conversion. FAIL if this classification discrepancy is not flagged."
+  },
+  {
+   "id": "C-018",
+   "title": "ISSUE_006: S-1 capitalization table shows pro forma preferred stock conversion",
+   "match_criteria": "PASS if the S-1 capitalization table includes a pro forma presentation showing the preferred stock converting into common stock and the $385.0M reclassifying into stockholders' equity. FAIL if the pro forma conversion is not shown."
+  },
+  {
+   "id": "C-023",
+   "title": "ISSUE_009: S-1 principal stockholders table addresses Aldersgate gap",
+   "match_criteria": "PASS if the S-1 principal stockholders table either (a) includes Aldersgate Capital with its current ownership if above 5%, (b) notes that Aldersgate's status needs to be confirmed, or (c) explicitly addresses the disposition of Aldersgate's Series B shares. FAIL if Aldersgate Capital's absence is not addressed at all in the principal stockholders discussion."
+  },
+  {
+   "id": "C-041",
+   "title": "S-1 includes Capitalization table with actual and pro forma columns",
+   "match_criteria": "PASS if the S-1 includes a Capitalization section with a table showing at minimum an actual (historical) column and a pro forma as-adjusted (post-IPO) column. FAIL if the Capitalization section or table is absent or lacks both columns."
+  },
+  {
+   "id": "C-042",
+   "title": "S-1 Capitalization table includes key line items",
+   "match_criteria": "PASS if the S-1 Capitalization table includes line items for at least 4 of the following 5: cash, debt (term loan $40M), preferred stock ($385M), common stock/stockholders' equity, and total capitalization. FAIL if fewer than 4 of these line items are present."
+  },
+  {
+   "id": "C-052",
+   "title": "S-1 Management section lists CRO Chen with age and bio",
+   "match_criteria": "PASS if the S-1 Management section lists Chen (CRO) with age and biographical information. FAIL if Chen is omitted."
+  },
+  {
+   "id": "C-053",
+   "title": "S-1 Management section lists non-employee directors",
+   "match_criteria": "PASS if the S-1 Management section lists >=4 of the following 5 non-employee directors with ages and biographical information: Venkatesh, Moreno, Park, Kwon, Obi. FAIL if fewer than 4 are listed."
+  },
+  {
+   "id": "C-061",
+   "title": "S-1 includes Shares Eligible for Future Sale section discussing lock-up and Rule 144",
+   "match_criteria": "PASS if the S-1 includes a section discussing shares eligible for future sale, including the 180-day lock-up period and Rule 144 restrictions. FAIL if this section is absent or omits both the lock-up period and Rule 144 discussion."
+  },
+  {
+   "id": "C-071",
+   "title": "Financial figures: Gross proceeds at midpoint correctly stated as $360M",
+   "match_criteria": "PASS if gross proceeds at the midpoint price of $24.00 are stated as $360.0 million (15,000,000 \u00d7 $24.00). FAIL if a materially different gross proceeds figure is used."
+  },
+  {
+   "id": "C-075",
+   "title": "S-1 discloses term loan details",
+   "match_criteria": "PASS if the S-1 discloses the $50M term loan facility with Silicon Valley Credit Partners ($40M drawn), maturing December 2027, bearing interest at SOFR + 3.25%, with financial covenants (minimum liquidity $30M and ARR-based leverage ratio \u2264 2.0x). FAIL if the term loan is not disclosed or key terms are materially misstated."
+  }
+ ],
+ "error": null
+}

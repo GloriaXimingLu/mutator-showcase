@@ -1,0 +1,32 @@
+{
+  "model": "glm-5p2",
+  "task": "arbitration-international-dispute-resolution/identify-issues-in-arbitrator-disclosure-statement",
+  "run_id": "effround1_train_iter3/arbitration-international-dispute-resolution_identify-issues-in-arbitrator-disclosure-statement__da39a3ee5e",
+  "turn_count": 18,
+  "input_tokens": 1015869,
+  "output_tokens": 32918,
+  "total_tokens": 1048787,
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "wall_clock_seconds": 301.93,
+  "finished_cleanly": true,
+  "completed_at": "2026-06-28T21:36:38.614581+00:00",
+  "documents_read": 7,
+  "documents_read_list": [
+    "arbitrator-disclosure-statement.docx",
+    "arbitration-demand.docx",
+    "aaa-rules-excerpts.docx",
+    "entity-relationship-profiles.docx",
+    "arbitrator-appointment-data.xlsx",
+    "/workspace/skills/docx/scripts/generate_from_md.py",
+    "/workspace/output/arbitrator-disclosure-issues-memo.docx"
+  ],
+  "documents_skipped": 0,
+  "documents_skipped_list": [],
+  "total_documents": 5,
+  "bash_commands": 10,
+  "files_written": 2,
+  "files_edited": 0,
+  "glob_searches": 0,
+  "grep_searches": 0
+}

@@ -1,0 +1,34 @@
+{
+ "task": "tax/review-iss-tax-transaction-structure",
+ "ens_pass_rate": 0.8214285714285714,
+ "n_graded": 28,
+ "n_failed": 5,
+ "failed_criteria": [
+  {
+   "id": "C-010",
+   "title": "ISSUE_005: Flags Beacon ROFR triggered by change of control",
+   "match_criteria": "PASS if the report identifies that the Beacon Insights operating agreement contains a right of first refusal (ROFR) triggered on a change of control of Prism, that the merger constitutes such a change of control, and that the memorandum fails to analyze the tax consequences of a potential forced sale of the Beacon interest as a separate pre-closing taxable event outside the 338(h)(10) framework. FAIL if the report does not flag the Beacon ROFR and its tax implications."
+  },
+  {
+   "id": "C-015",
+   "title": "ISSUE_008a: Identifies missing California state tax analysis for California-resident shareholders",
+   "match_criteria": "PASS if the report identifies that the memorandum fails to analyze California-specific tax consequences for the two California-resident shareholders, including at least one of the following: California's 1.5% entity-level S corporation tax, gain pass-through apportionment to California, or the risk that if Prism's S election were found invalid, California would retroactively impose C corporation taxes. FAIL if the report does not flag any missing California shareholder tax analysis."
+  },
+  {
+   "id": "C-016",
+   "title": "ISSUE_008b: Notes California retroactive C corp tax risk if S election invalid",
+   "match_criteria": "PASS if the report notes the risk that if Prism's S election were found invalid, California could retroactively impose C corporation taxes. FAIL if this specific California retroactive risk is not mentioned."
+  },
+  {
+   "id": "C-021",
+   "title": "ISSUE_012a: Identifies missing New York state conformity analysis for 338(h)(10)",
+   "match_criteria": "PASS if the report identifies that the memorandum fails to analyze whether New York conforms to the federal Section 338(h)(10) election for S corporations, despite Prism having operations and employees in New York. FAIL if the report does not flag the missing New York state conformity analysis."
+  },
+  {
+   "id": "C-022",
+   "title": "ISSUE_012b: Identifies missing Virginia state conformity analysis for 338(h)(10)",
+   "match_criteria": "PASS if the report identifies that the memorandum fails to analyze whether Virginia conforms to the federal Section 338(h)(10) election for S corporations, despite Prism having operations and employees in Virginia. FAIL if the report does not flag the missing Virginia state conformity analysis."
+  }
+ ],
+ "error": null
+}

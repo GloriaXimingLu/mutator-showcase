@@ -1,0 +1,24 @@
+{
+ "task": "funds-asset-management/draft-fund-closing-certificate",
+ "ens_pass_rate": 0.9473684210526315,
+ "n_graded": 57,
+ "n_failed": 3,
+ "failed_criteria": [
+  {
+   "id": "C-024",
+   "title": "Certificate states correct equalization interest on Capital Call #1",
+   "match_criteria": "PASS if the certificate states the equalization interest on Capital Call #1 as approximately $705,863 (calculated as $28,500,000 \u00d7 8% \u00d7 113/365), or uses the correct inputs (catch-up amount of $28,500,000, 113 days from October 10, 2024 to January 31, 2025). FAIL if the certificate uses the administrator's incorrect figure or materially wrong amounts."
+  },
+  {
+   "id": "C-025",
+   "title": "Certificate states correct equalization interest on Capital Call #2",
+   "match_criteria": "PASS if the certificate states the equalization interest on Capital Call #2 as approximately $146,799 (calculated as $14,250,000 \u00d7 8% \u00d7 47/365), using the correct 47-day period from December 15, 2024 to January 31, 2025. FAIL if the certificate uses the administrator's incorrect figure of $143,671 (based on 46 days) or other materially wrong amounts."
+  },
+  {
+   "id": "C-056",
+   "title": "Certificate references Section 3(c)(7) exemption under Investment Company Act",
+   "match_criteria": "PASS if the certificate references or acknowledges the Fund's reliance on the Section 3(c)(7) exemption under the Investment Company Act of 1940 in connection with the qualified purchaser requirement. FAIL if there is no mention of the Section 3(c)(7) exemption."
+  }
+ ],
+ "error": null
+}

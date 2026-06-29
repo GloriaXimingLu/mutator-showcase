@@ -1,0 +1,54 @@
+{
+ "task": "capital-markets/draft-registration-statement-on-form-s",
+ "ens_pass_rate": 0.9,
+ "n_graded": 90,
+ "n_failed": 9,
+ "failed_criteria": [
+  {
+   "id": "C-008",
+   "title": "ISSUE_003: S-1 states whether company intends to rely on controlled company exemption",
+   "match_criteria": "PASS if the S-1 states whether the company intends to rely on the controlled company exemption. FAIL if the S-1 does not state the company's intention regarding reliance on the exemption."
+  },
+  {
+   "id": "C-016",
+   "title": "ISSUE_006: Flags preferred stock mezzanine classification issue",
+   "match_criteria": "PASS if the issues memorandum identifies that the CFO memo incorrectly refers to the $385.0M redeemable convertible preferred stock as part of 'total equity,' when it should be classified in mezzanine equity (between liabilities and stockholders' equity) on the historical balance sheet, and that the pro forma capitalization must show the reclassification upon IPO conversion. FAIL if this classification discrepancy is not flagged."
+  },
+  {
+   "id": "C-019",
+   "title": "ISSUE_007: Flags 409A valuation / discounted option issue",
+   "match_criteria": "PASS if the issues memorandum identifies that 2,400,000 options granted in Q1 2023 at $9.50/share were based on a stale 409A valuation from September 30, 2022, while the contemporaneous March 31, 2023 409A valuation was $14.20/share. The memo should note the potential that these options constitute discounted options under IRC Section 409A, potentially triggering 20% excise tax penalties for option holders. FAIL if the 409A pricing discrepancy and Section 409A risk are not flagged."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_007: S-1 discloses Section 409A exposure in risk factors or notes",
+   "match_criteria": "PASS if the S-1 includes disclosure (in risk factors, financial statement notes, or both) addressing the potential Section 409A issue with the Q1 2023 option grants, including the risk of excise tax penalties and/or any tax indemnification obligations. FAIL if the S-1 contains no disclosure of the 409A valuation concern."
+  },
+  {
+   "id": "C-031",
+   "title": "ISSUE_013: Addresses federal forum provision for Securities Act claims",
+   "match_criteria": "PASS if the S-1 discloses the exclusive forum provision designating federal district courts for Securities Act claims (as distinct from the Delaware Court of Chancery for state-law corporate claims), and references or acknowledges the legal basis for enforceability (Salzberg v. Sciabacucchi or the general permissibility of federal forum provisions under Delaware law). FAIL if the federal forum provision for Securities Act claims is not disclosed or discussed."
+  },
+  {
+   "id": "C-041",
+   "title": "S-1 includes Capitalization table with actual and pro forma columns",
+   "match_criteria": "PASS if the S-1 includes a Capitalization section with a table showing at minimum an actual (historical) column and a pro forma as-adjusted (post-IPO) column. FAIL if the Capitalization section or table is absent or lacks both columns."
+  },
+  {
+   "id": "C-042",
+   "title": "S-1 Capitalization table includes key line items",
+   "match_criteria": "PASS if the S-1 Capitalization table includes line items for at least 4 of the following 5: cash, debt (term loan $40M), preferred stock ($385M), common stock/stockholders' equity, and total capitalization. FAIL if fewer than 4 of these line items are present."
+  },
+  {
+   "id": "C-061",
+   "title": "S-1 includes Shares Eligible for Future Sale section discussing lock-up and Rule 144",
+   "match_criteria": "PASS if the S-1 includes a section discussing shares eligible for future sale, including the 180-day lock-up period and Rule 144 restrictions. FAIL if this section is absent or omits both the lock-up period and Rule 144 discussion."
+  },
+  {
+   "id": "C-075",
+   "title": "S-1 discloses term loan details",
+   "match_criteria": "PASS if the S-1 discloses the $50M term loan facility with Silicon Valley Credit Partners ($40M drawn), maturing December 2027, bearing interest at SOFR + 3.25%, with financial covenants (minimum liquidity $30M and ARR-based leverage ratio \u2264 2.0x). FAIL if the term loan is not disclosed or key terms are materially misstated."
+  }
+ ],
+ "error": null
+}

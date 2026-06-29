@@ -1,0 +1,59 @@
+{
+ "task": "real-estate/draft-development-agreement",
+ "ens_pass_rate": 0.9038461538461539,
+ "n_graded": 104,
+ "n_failed": 10,
+ "failed_criteria": [
+  {
+   "id": "C-002",
+   "title": "ISSUE_001: Percentage (20%) is the controlling affordable housing standard",
+   "match_criteria": "PASS if the draft establishes the 20% percentage as the controlling standard for affordable housing (not a fixed unit count), so that if unit counts change during design development the affordable obligation adjusts proportionally. FAIL if the draft uses only a fixed unit count (e.g., 100 or 106 units) without tying it to the 20% percentage."
+  },
+  {
+   "id": "C-003",
+   "title": "ISSUE_001: Recalculation mechanism if unit counts change",
+   "match_criteria": "PASS if the draft includes a mechanism or provision for recalculating the number of required affordable units if total residential unit counts change during design development or phase rescoping. FAIL if there is no such recalculation mechanism."
+  },
+  {
+   "id": "C-019",
+   "title": "ISSUE_007: Identifies missing performance security for Phases II-IV",
+   "match_criteria": "PASS if the draft identifies that the City Council Resolution condition #4 requires a $15 million performance bond or letter of credit for Phase I only, and that the term sheet and resolution are silent on security requirements for Phases II ($76M), III ($88M), and IV ($71M). FAIL if this gap is not identified."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_007: Includes performance security provisions for later phases",
+   "match_criteria": "PASS if the draft addresses performance security for subsequent phases \u2014 whether by requiring bonds/LCs for each phase, setting amounts/formulas, providing release mechanisms upon phase completion, or allowing the Phase I security to be replaced/supplemented. FAIL if the draft addresses Phase I security but is entirely silent on Phases II\u2013IV."
+  },
+  {
+   "id": "C-027",
+   "title": "ISSUE_009: Identifies LEED certification timing vs. Substantial Completion",
+   "match_criteria": "PASS if the draft identifies the issue that LEED Gold certification (Resolution condition #6) typically occurs months after building completion due to post-construction verification, and that tying LEED certification to Substantial Completion could disrupt the phasing timeline (since the next phase's commencement deadline runs from Substantial Completion). FAIL if this timing issue is not identified."
+  },
+  {
+   "id": "C-029",
+   "title": "ISSUE_009: Separate LEED certification deadline post-completion",
+   "match_criteria": "PASS if the draft establishes a separate deadline for achieving LEED Gold certification after Substantial Completion (e.g., 12 months post-Substantial Completion or similar reasonable period). FAIL if there is no separate LEED certification deadline."
+  },
+  {
+   "id": "C-034",
+   "title": "ISSUE_011: Identifies force majeure 18-month cap ambiguity",
+   "match_criteria": "PASS if the draft identifies the ambiguity in whether the 18-month aggregate force majeure cap applies per-phase or project-wide, and notes that a project-wide cap may be insufficient for a multi-phase project spanning 8-10 years. FAIL if this ambiguity is not identified."
+  },
+  {
+   "id": "C-035",
+   "title": "ISSUE_011: Clarifies force majeure cap application (per-phase)",
+   "match_criteria": "PASS if the draft clarifies that the force majeure extension cap applies on a per-phase basis (or otherwise addresses the cascading delay risk across phases), rather than leaving an ambiguous project-wide aggregate cap. FAIL if the draft simply recites '18-month aggregate' without clarifying per-phase vs. project-wide application."
+  },
+  {
+   "id": "C-036",
+   "title": "ISSUE_011: Addresses cascading delay across phases",
+   "match_criteria": "PASS if the draft addresses the scenario where force majeure delays in earlier phases cascade and compress timelines for later phases (e.g., extending subsequent phase commencement deadlines correspondingly). FAIL if cascading delay risk is not addressed."
+  },
+  {
+   "id": "C-100",
+   "title": "City termination right for failure to commence Phase I within 6 months",
+   "match_criteria": "PASS if the draft includes City's right to terminate if Developer fails to commence Phase I within 6 months of land conveyance. FAIL if this termination trigger is omitted."
+  }
+ ],
+ "error": null
+}

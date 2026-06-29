@@ -1,0 +1,31 @@
+{
+  "model": "glm-5p2",
+  "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+  "run_id": "effround1_train_iter2/corporate-ma_analyze-cim-deal-teaser_scenario-02__da39a3ee5e",
+  "turn_count": 20,
+  "input_tokens": 1293178,
+  "output_tokens": 43440,
+  "total_tokens": 1336618,
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "wall_clock_seconds": 542.36,
+  "finished_cleanly": true,
+  "completed_at": "2026-06-28T18:20:12.170262+00:00",
+  "documents_read": 6,
+  "documents_read_list": [
+    "cascade-cim.docx",
+    "ces-financial-exhibits.xlsx",
+    "ces-customer-backlog-report.docx",
+    "greenleaf-process-letter.docx",
+    "thornfield-sector-memo.docx",
+    "/workspace/output/buy-side-cim-analysis-memo.docx"
+  ],
+  "documents_skipped": 0,
+  "documents_skipped_list": [],
+  "total_documents": 5,
+  "bash_commands": 12,
+  "files_written": 2,
+  "files_edited": 0,
+  "glob_searches": 0,
+  "grep_searches": 0
+}

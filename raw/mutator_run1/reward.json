@@ -1,0 +1,17 @@
+{
+  "resolved": true,
+  "resolved_status": "EDITED",
+  "reward": 1,
+  "skill_files_changed": [
+    "/workspace/harness/skill/initial_skill.md"
+  ],
+  "skill_files_added": [],
+  "skill_files_emptied": [],
+  "lessons_written": [
+    "/workspace/.claude/memory/MEMORY.md",
+    "/workspace/.claude/memory/emit-artifact-omissions-ledger.md"
+  ],
+  "instance_id": "harvey-mutator-v0",
+  "error": null,
+  "exit_status": "finished"
+}

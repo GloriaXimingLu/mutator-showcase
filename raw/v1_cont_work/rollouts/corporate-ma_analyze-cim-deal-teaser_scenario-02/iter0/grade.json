@@ -1,0 +1,24 @@
+{
+ "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+ "ens_pass_rate": 0.926829268292683,
+ "n_graded": 41,
+ "n_failed": 3,
+ "failed_criteria": [
+  {
+   "id": "C-018",
+   "title": "ISSUE_008: Flags disconnect between projected capex decline and revenue growth",
+   "match_criteria": "PASS if the memo identifies the disconnect between projected FY2025 capex of $4.5M (a 37.5% decline from FY2024's $7.2M) and simultaneous projected revenue growth of 12.8%, suggesting either capex deferral to boost cash flow or artificial classification of growth vs. maintenance capex. FAIL if this capex-revenue disconnect is not identified."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_009b: Notes Prewitt lacks employment agreement or non-compete",
+   "match_criteria": "PASS if the memo notes that Janet Prewitt has no employment agreement or non-compete. FAIL if the absence of an employment agreement or non-compete for Prewitt is not mentioned."
+  },
+  {
+   "id": "C-024",
+   "title": "ISSUE_011: Flags backlog composition ambiguity (firm vs. soft)",
+   "match_criteria": "PASS if the memo identifies that the CIM's $42.6M contracted backlog figure does not distinguish between firm backlog (fully executed contracts with defined scope) and soft backlog (LOIs, verbal commitments, unissued task orders), undermining the credibility of revenue projections. FAIL if the backlog ambiguity is not flagged."
+  }
+ ],
+ "error": null
+}

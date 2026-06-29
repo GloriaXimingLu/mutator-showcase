@@ -1,0 +1,33 @@
+{
+  "model": "glm-5p2",
+  "task": "corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application",
+  "run_id": "effround1_train_iter3/corporate-governance_extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application__da39a3ee5e",
+  "turn_count": 18,
+  "input_tokens": 1706726,
+  "output_tokens": 38946,
+  "total_tokens": 1745672,
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "wall_clock_seconds": 412.77,
+  "finished_cleanly": true,
+  "completed_at": "2026-06-28T21:36:31.487912+00:00",
+  "documents_read": 8,
+  "documents_read_list": [
+    "evanston-municipal-code-ch9-art5.docx",
+    "application-checklist-submission-guide.docx",
+    "evanston-dispensary-permit-application.docx",
+    "state-conditional-license.docx",
+    "community-engagement-sessions-report.docx",
+    "lease-summary-key-terms.docx",
+    "greenleaf-business-plan-summary.docx",
+    "insurance-bonding-status-memo.docx"
+  ],
+  "documents_skipped": 0,
+  "documents_skipped_list": [],
+  "total_documents": 8,
+  "bash_commands": 12,
+  "files_written": 1,
+  "files_edited": 0,
+  "glob_searches": 0,
+  "grep_searches": 0
+}

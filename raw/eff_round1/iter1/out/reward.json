@@ -1,0 +1,20 @@
+{
+  "resolved": true,
+  "resolved_status": "EDITED",
+  "reward": 1,
+  "files_changed": [
+    "/workspace/harness/agent_loop.py",
+    "/workspace/harness/system_prompt.md"
+  ],
+  "files_added": [
+    "/workspace/harness/__pycache__/agent_loop.cpython-312.pyc"
+  ],
+  "files_removed": [],
+  "files_emptied": [],
+  "lessons_written": [
+    "/workspace/.claude/memory/README.md"
+  ],
+  "instance_id": "harvey-mutator-v0",
+  "error": null,
+  "exit_status": "error"
+}

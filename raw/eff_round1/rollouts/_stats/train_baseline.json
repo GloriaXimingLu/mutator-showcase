@@ -1,0 +1,186 @@
+{
+ "n": 30,
+ "per_task": {
+  "environmental-esg/identify-issues-in-phase-one-environmental-site-assessment": {
+   "input_tokens": 1740992,
+   "total_tokens": 1778578,
+   "turns": 18,
+   "accuracy": 0.16981132075471697
+  },
+  "employment-labor/draft-markup-of-settlement-agreement": {
+   "input_tokens": 3293455,
+   "total_tokens": 3376506,
+   "turns": 40,
+   "accuracy": 0.5961538461538461
+  },
+  "immigration/identify-h1b-qualification-issues": {
+   "input_tokens": 563431,
+   "total_tokens": 590551,
+   "turns": 16,
+   "accuracy": 0.7435897435897436
+  },
+  "trusts-estates-private-client/extract-key-exhibits-from-document-production": {
+   "input_tokens": 913767,
+   "total_tokens": 941097,
+   "turns": 18,
+   "accuracy": 0.7666666666666667
+  },
+  "contracts/corporate-ma/joint-venture-agreement-term-negotiation/scenario-02": {
+   "input_tokens": 3487923,
+   "total_tokens": 3527729,
+   "turns": 32,
+   "accuracy": 0.7678571428571429
+  },
+  "capital-markets/draft-registration-statement-on-form-s": {
+   "input_tokens": 2406717,
+   "total_tokens": 2466912,
+   "turns": 21,
+   "accuracy": 0.7888888888888889
+  },
+  "real-estate/draft-settlement-statement": {
+   "input_tokens": 2309819,
+   "total_tokens": 2355760,
+   "turns": 25,
+   "accuracy": 0.8064516129032258
+  },
+  "immigration/compare-immigration": {
+   "input_tokens": 592406,
+   "total_tokens": 620256,
+   "turns": 17,
+   "accuracy": 0.813953488372093
+  },
+  "corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application": {
+   "input_tokens": 2613652,
+   "total_tokens": 2680665,
+   "turns": 22,
+   "accuracy": 0.8235294117647058
+  },
+  "contracts/banking/intercreditor-agreement-term-negotiation": {
+   "input_tokens": 2795546,
+   "total_tokens": 2833755,
+   "turns": 29,
+   "accuracy": 0.8269230769230769
+  },
+  "litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice": {
+   "input_tokens": 1895726,
+   "total_tokens": 1975341,
+   "turns": 22,
+   "accuracy": 0.8367346938775511
+  },
+  "corporate-governance/assess-impact-of-sec-cybersecurity-disclosure-rule-on-incident-response-procedures": {
+   "input_tokens": 844563,
+   "total_tokens": 870585,
+   "turns": 14,
+   "accuracy": 0.8444444444444444
+  },
+  "arbitration-international-dispute-resolution/identify-arbitration-agreement-issues": {
+   "input_tokens": 759009,
+   "total_tokens": 787002,
+   "turns": 14,
+   "accuracy": 0.9
+  },
+  "arbitration-international-dispute-resolution/identify-issues-in-arbitrator-disclosure-statement": {
+   "input_tokens": 631483,
+   "total_tokens": 657228,
+   "turns": 13,
+   "accuracy": 0.9736842105263158
+  },
+  "capital-markets/draft-underwriting-agreement": {
+   "input_tokens": 2448832,
+   "total_tokens": 2505198,
+   "turns": 26,
+   "accuracy": 0.9058823529411765
+  },
+  "contracts/commercial-vendor-customer/saas-api-subscription-term-negotiation/scenario-01": {
+   "input_tokens": 3068967,
+   "total_tokens": 3103585,
+   "turns": 20,
+   "accuracy": 0.92
+  },
+  "corporate-governance/compare-state-paid-leave-requirements-across-seven-jurisdictions": {
+   "input_tokens": 1752374,
+   "total_tokens": 1802851,
+   "turns": 23,
+   "accuracy": 0.9666666666666667
+  },
+  "corporate-ma/analyze-cim-deal-teaser/scenario-02": {
+   "input_tokens": 3277003,
+   "total_tokens": 3356988,
+   "turns": 34,
+   "accuracy": 0.8536585365853658
+  },
+  "corporate-ma/review-governance-diligence/scenario-01": {
+   "input_tokens": 1374991,
+   "total_tokens": 1421343,
+   "turns": 18,
+   "accuracy": 0.9629629629629629
+  },
+  "data-privacy-cybersecurity/audit-privacy-policy-compliance/scenario-01": {
+   "input_tokens": 895743,
+   "total_tokens": 920610,
+   "turns": 18,
+   "accuracy": 0.86
+  },
+  "funds-asset-management/draft-fund-closing-certificate": {
+   "input_tokens": 2046278,
+   "total_tokens": 2099627,
+   "turns": 23,
+   "accuracy": 0.8947368421052632
+  },
+  "healthcare-life-sciences/identify-issues-in-fda-pre": {
+   "input_tokens": 961899,
+   "total_tokens": 988514,
+   "turns": 15,
+   "accuracy": 0.8936170212765957
+  },
+  "intellectual-property/extract-key-terms-from-technology-licensing-term-sheet": {
+   "input_tokens": 511179,
+   "total_tokens": 535164,
+   "turns": 14,
+   "accuracy": 0.9841269841269841
+  },
+  "intellectual-property/rnw-ip-license-renewal": {
+   "input_tokens": 1829171,
+   "total_tokens": 1858931,
+   "turns": 20,
+   "accuracy": 0.8529411764705882
+  },
+  "international-trade-sanctions/draft-ofac-specific-license-application": {
+   "input_tokens": 938569,
+   "total_tokens": 967723,
+   "turns": 23,
+   "accuracy": 0.921875
+  },
+  "litigation-dispute-resolution/draft-interrogatories": {
+   "input_tokens": 1420760,
+   "total_tokens": 1447918,
+   "turns": 19,
+   "accuracy": 0.94
+  },
+  "litigation-dispute-resolution/draft-motion-to-dismiss-brief": {
+   "input_tokens": 5616265,
+   "total_tokens": 5714773,
+   "turns": 39,
+   "accuracy": 0.898876404494382
+  },
+  "real-estate/draft-development-agreement": {
+   "input_tokens": 1921859,
+   "total_tokens": 1951218,
+   "turns": 22,
+   "accuracy": 0.9134615384615384
+  },
+  "tax/review-iss-tax-transaction-structure": {
+   "input_tokens": 1642271,
+   "total_tokens": 1704781,
+   "turns": 17,
+   "accuracy": 0.9285714285714286
+  },
+  "trusts-estates-private-client/analyze-counterparty-markup-of-postnuptial-agreement": {
+   "input_tokens": 1118056,
+   "total_tokens": 1164493,
+   "turns": 15,
+   "accuracy": 0.9130434782608695
+  }
+ },
+ "source": "glm_headroom30 bare train rollouts"
+}

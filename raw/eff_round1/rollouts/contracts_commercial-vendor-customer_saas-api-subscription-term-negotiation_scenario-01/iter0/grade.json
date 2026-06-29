@@ -1,0 +1,29 @@
+{
+ "task": "contracts/commercial-vendor-customer/saas-api-subscription-term-negotiation/scenario-01",
+ "ens_pass_rate": 0.92,
+ "n_graded": 50,
+ "n_failed": 4,
+ "failed_criteria": [
+  {
+   "id": "C-002",
+   "title": "Rationale explains why 1.5\u00d7 is the convergence point",
+   "match_criteria": "PASS if the negotiation rationale for the general liability cap explains that 1.5\u00d7 is the convergence point by referencing: (a) Vendor's opening at 1\u00d7 (~$9.6M), (b) Customer's opening at 2\u00d7 (~$19.2M), (c) Vendor's counter at 1.5\u00d7 (~$14.4M), (d) Meridian playbook's absolute floor of 1.5\u00d7 ACV, and (e) Sutter's red line that the cap must not fall below 1.5\u00d7. FAIL if the rationale does not explain why 1.5\u00d7 is the natural convergence point or omits multiple key supporting reasons."
+  },
+  {
+   "id": "C-008",
+   "title": "Audit rights: annual independent Tier 2 audit with semi-annual Tier 1 reports",
+   "match_criteria": "PASS if the audit rights compromise provides for at least an annual independent third-party audit at Langford Tier 2 level (model architecture documentation, training data provenance, validation results, test query capability) with semi-annual Tier 1 monitoring reports. FAIL if routine audits are less frequent than annual, or if the Tier 2 scope elements are not specified, or if semi-annual Tier 1 reports are omitted."
+  },
+  {
+   "id": "C-022",
+   "title": "SLA: quarterly measurement with escalating service credits below 5\u201315% range",
+   "match_criteria": "PASS if benchmarks are measured quarterly with escalating service credits that are meaningful but below the Customer's proposed 5%\u201315% of quarterly fees range. FAIL if measurement is not quarterly, or if credits are at or above the 5%\u201315% range, or if there are no credits at all."
+  },
+  {
+   "id": "C-024",
+   "title": "SLA rationale: explains why 'commercially reasonable efforts' is insufficient",
+   "match_criteria": "PASS if the rationale explains why the Vendor's 'commercially reasonable efforts' standard is insufficient given regulatory obligations and patient safety concerns. FAIL if this explanation is missing."
+  }
+ ],
+ "error": null
+}

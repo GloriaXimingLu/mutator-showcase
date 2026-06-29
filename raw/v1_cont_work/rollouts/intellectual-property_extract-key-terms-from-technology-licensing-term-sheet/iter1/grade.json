@@ -1,0 +1,29 @@
+{
+ "task": "intellectual-property/extract-key-terms-from-technology-licensing-term-sheet",
+ "ens_pass_rate": 0.9365079365079365,
+ "n_graded": 63,
+ "n_failed": 4,
+ "failed_criteria": [
+  {
+   "id": "C-006",
+   "title": "Flags uncapped IP indemnification as risk disproportionate to Whitmore's revenue",
+   "match_criteria": "PASS if the memo identifies that Whitmore's IP indemnification obligation is uncapped (not subject to the mutual liability cap) and flags this as a risk, noting the disproportionate exposure for a company with $47.3M in annual revenue. FAIL if the uncapped IP indemnification is not identified as a risk."
+  },
+  {
+   "id": "C-020",
+   "title": "Notes interaction between perpetual wind-down license and source code escrow",
+   "match_criteria": "PASS if the memo notes the interaction between the perpetual post-termination wind-down license and the source code escrow provisions, explaining that together they could allow KBI to terminate the relationship while retaining indefinite technology access. FAIL if this interaction is not identified."
+  },
+  {
+   "id": "C-024",
+   "title": "Flags source code escrow 90-day maintenance gap trigger as too broad",
+   "match_criteria": "PASS if the memo flags the escrow release condition of 'failure to provide maintenance and support for 90 consecutive days' as dangerously broad, noting that it does not exclude force majeure events, disputes over maintenance scope, or KBI-caused disruptions (such as KBI's failure to pay maintenance fees), meaning source code could be released even where Whitmore is not at fault. FAIL if this escrow trigger is not identified as problematic."
+  },
+  {
+   "id": "C-049",
+   "title": "Rates derivative works joint ownership as Critical or High risk",
+   "match_criteria": "PASS if the memo rates the derivative works joint ownership issue as Critical or High severity (or equivalent top-tier risk rating). FAIL if it is rated Medium or lower, or not rated."
+  }
+ ],
+ "error": null
+}

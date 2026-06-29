@@ -1,0 +1,250 @@
+#!/usr/bin/env python3
+"""Thin client: evaluate your CURRENT harness/ on the held-out DEV set (ENSEMBLE-graded) — the commit gate.
+
+Usage:  .claude/tools/dev_eval [task_id ...]
+    no args   -> the FULL dev set  (the commit gate — this is what decides a commit)
+    task ids  -> a subset of dev   (NOT a commit basis — a noisy SMALL-SAMPLE read; the full set decides.
+                                    every id MUST be a dev id)
+
+WHAT IT IS (and how it differs from proxy_eval):
+  - proxy_eval = a single cheap gpt-5-mini judge on a TRAIN task. Noisy, for in-loop triage only.
+  - dev_eval   = run the frozen Harvey agent on each DEV task with your current harness/, then grade
+    each with the ENSEMBLE judge — the SAME grader the canonical (held-out) eval uses. So the dev
+    score is measured the way the real verdict is, on tasks you never tune on.
+  Use TRAIN (proxy_eval) to EXPLORE; use DEV (dev_eval) to DECIDE. Do not search against dev — pick
+  your best 1-2 candidates on train, then dev_eval them. See CLAUDE.md (§ Train vs Dev).
+
+** ASYNC — survives the 10-min shell cap. ** A full dev eval is ~30 rollouts (~15-25 min). The
+command DETACHES a background worker and returns at once, printing a done-marker path. Workflow:
+launch -> poll `test -f <marker>` -> `cat` it for the dev_score -> commit (or not).
+
+Metered ~$1.1 per dev task (rollout + ensemble grade), charged per task up to the cap. The held-out
+val set is never reachable here (dev_eval refuses any non-dev id); dev is disjoint from train.
+"""
+import hashlib
+import json
+import os
+import subprocess
+import sys
+import time
+import urllib.error
+import urllib.request
+
+BROKER = os.environ.get("BROKER_URL", "http://172.17.0.1:4100")
+WS = os.environ.get("MUTATOR_WORKSPACE", "/workspace")
+_GATE_PLUS_COMMIT_S = 5400 + 600  # ~90 min full dev gate + ~10 min commit margin (keep in sync with `budget`)
+
+
+def _wall_block():
+    """WALL-CLOCK forcing function (symmetric with the dollar 402): if there isn't time to FINISH a full
+    dev gate (~90 min) + commit before the soft deadline, return a refusal string; else None. Makes the
+    silent wall-clock budget *enforce* rather than merely advise — the mutator can't start a doomed gate."""
+    raw = os.environ.get("MUTATOR_DEADLINE_EPOCH")
+    try:
+        dead = int(raw) if raw else 0
+    except (TypeError, ValueError):
+        dead = 0
+    if not dead:
+        return None  # no deadline tracked -> don't block
+    rem = dead - time.time()
+    if rem < _GATE_PLUS_COMMIT_S:
+        return ("WALL-CLOCK LOW (~%dm to your soft deadline): a FULL dev gate runs ~90m and would NOT "
+                "finish before the hard timeout, so this is REFUSED. Commit your best ALREADY-VALIDATED "
+                "candidate now (or keep bare). If you truly need a quick read, run a SMALL dev SUBSET "
+                "(`dev_eval <task_id> ...`) — but it's a noisy, non-committal signal, not a commit basis."
+                % int(max(0, rem) // 60))
+    return None
+
+
+def post(path, obj, timeout=7200):  # full dev set (~30 rollouts) can run ~50min; headroom for the long-context tail
+    req = urllib.request.Request(
+        BROKER + path, data=json.dumps(obj).encode("utf-8"),
+        headers={"Content-Type": "application/json"}, method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.status, json.load(r)
+    except urllib.error.HTTPError as e:
+        return e.code, json.load(e)
+    except urllib.error.URLError as e:  # broker down/refused — a clean signal, not a traceback
+        return None, {"detail": "broker unreachable at %s (%s)" % (BROKER, getattr(e, "reason", e))}
+
+
+def _bid(task_ids):
+    return hashlib.md5(("\n".join(task_ids) or "ALLDEV").encode("utf-8")).hexdigest()[:8]
+
+
+def _write(path, s):
+    try:
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(s.rstrip("\n") + "\n")
+    except OSError:
+        pass
+
+
+def _read_harness():
+    hroot = os.path.join(WS, "harness")
+    h = {}
+    for dp, _d, fs in os.walk(hroot):
+        for fn in fs:
+            fp = os.path.join(dp, fn)
+            try:
+                h[os.path.relpath(fp, hroot)] = open(fp, encoding="utf-8").read()
+            except (OSError, UnicodeDecodeError):
+                pass
+    return h
+
+
+def _thrash_report(per_task):
+    """Per-task THRASH check: a mean cost cut can HIDE tasks where eviction thrashes (evict -> re-fetch
+    loop) and blows up turns/tokens. Compare each dev task to the bare dev baseline; FLAG any >=1.5x bare
+    turns/tokens, but label THRASH (hard reject) ONLY on a re-fetch LOOP (turns up AND tokens re-inflated)
+    — a tokens-only/turns-flat rise is a re-read/variance -> watch. Reads the seeded baseline; no broker."""
+    try:
+        bl = json.load(open(os.path.join(WS, "rollouts", "_stats", "dev_baseline.json"))).get("per_task", {})
+    except Exception:
+        return ["THRASH CHECK: skipped (no bare baseline at rollouts/_stats/dev_baseline.json)"]
+    flagged, no_base = [], []
+    for r in per_task:
+        if r.get("pass_rate") is None:
+            continue
+        task = r.get("task")
+        b = bl.get(task)
+        if not b:  # no bare reference for this dev task -> cost UNKNOWN, must NOT read as 'clean'
+            no_base.append(task)
+            continue
+        bt, bi, it, ii = b.get("turns"), b.get("input_tokens"), r.get("turns"), r.get("input_tokens")
+        tr = (it / bt) if (bt and it) else None
+        ir = (ii / bi) if (bi and ii) else None
+        worst = max([x for x in (tr, ir) if x is not None], default=0)
+        if worst >= 1.5:
+            flagged.append((task, tr, ir, worst))
+    flagged.sort(key=lambda x: -x[3])
+
+    def _is_loop(tr, ir):  # re-fetch LOOP = turns up AND context re-inflated; tokens-only/turns-flat = re-read
+        if tr is None or ir is None:
+            return False  # need BOTH signals to confirm a loop
+        return (tr >= 2 and ir >= 1.5) or (ir >= 3 and tr >= 1.5)  # 2nd arm: big token blowup w/ turns only 1.5-2x
+
+    loops = [f for f in flagged if _is_loop(f[1], f[2])]
+    nb = (["  (no bare baseline for %d dev task(s): %s — cost UNKNOWN, not counted as clean)"
+           % (len(no_base), ", ".join(str(t) for t in no_base[:6]))] if no_base else [])
+    if not flagged:
+        return ["THRASH CHECK: clean — no dev task exceeds 1.5x bare turns/tokens."] + nb
+    if loops:
+        head = ("THRASH CHECK: %d dev task(s) show a re-fetch LOOP (turns AND tokens up) the mean cut HIDES. "
+                "A re-fetch loop is a HARD REJECT: fix it (pin recently re-fetched content / cap re-fetches / "
+                "stop evicting hot content) before committing, even if the mean looks good." % len(loops))
+    else:
+        head = ("THRASH CHECK: %d dev task(s) flagged >=1.5x bare, but NONE is a re-fetch loop (turns ~flat) — "
+                "likely a one-time re-read or GLM run-to-run variance. WEIGH vs the savings, not an auto-reject." % len(flagged))
+    out = [head, "  (turns AND tokens up = re-fetch LOOP -> HARD REJECT; tokens up with turns ~flat = re-read/variance -> weigh)"]
+    for t, tr, ir, w in flagged[:6]:
+        out.append("  %-6s turns=%sx tokens=%sx  %s"
+                   % ("THRASH" if _is_loop(tr, ir) else "watch", ("%.1f" % tr) if tr else "?", ("%.1f" % ir) if ir else "?", t))
+    return out + nb
+
+
+def _worker(task_ids, done_path):
+    """Detached worker (survives the shell cap): POST the current harness to /dev_eval, write the score."""
+    harness = _read_harness()
+    if not harness:
+        _write(done_path, "ERROR: no harness files under %s/harness — is the workspace seeded?" % WS)
+        return
+    req = {"harness": harness}
+    if task_ids:
+        req["task_ids"] = task_ids
+    code, body = post("/dev_eval", req)
+    if code is None:
+        _write(done_path, "ERROR: %s — is the experiment broker up?" % body.get("detail"))
+        return
+    if code == 402:
+        _write(done_path, "OVER_BUDGET (remaining $%.2f) — commit your best edit now." % body.get("remaining", 0.0))
+        return
+    if code == 403:
+        _write(done_path, "REFUSED — %s (dev_eval is DEV-only; val + train are unreachable here)" % body.get("detail", ""))
+        return
+    if code != 200:
+        _write(done_path, "ERROR %s — %s" % (code, body))
+        return
+    c = body.get("cost", {})
+    lines = [
+        "dev_score=%s   ACCURACY GATE (mean ENSEMBLE pass-rate over %d/%d dev tasks)"
+        % (body.get("dev_score"), body.get("n_graded", 0), body.get("n_requested", 0)),
+        "cost: mean_input_tokens=%s  mean_total_tokens=%s  mean_turns=%s   <- the EFFICIENCY objective"
+        % (c.get("mean_input_tokens"), c.get("mean_total_tokens"), c.get("mean_turns")),
+        "COMMIT only if ALL THREE hold: dev_score >= bare-noise (accuracy, HARD) AND mean_input_tokens "
+        "clearly below bare (cost) AND no per-task THRASH below (a >=2x re-fetch loop is a reject). "
+        "bare baseline: rollouts/_stats/dev_baseline.json.",
+    ]
+    if task_ids:  # a subset run is a SMALL-SAMPLE read: noisy on generalization, easy to overfit
+        lines.insert(0, "PARTIAL DEV: %d-task subset — a SMALL-SAMPLE signal. A gain on a handful of dev tasks "
+                        "is easily overfit (it can look as good as a real generalization win by luck). Before you "
+                        "COMMIT, spend budget on a LARGE dev batch — the full set is best; a big random batch is "
+                        "the floor — so the held-out read is reliable, not a few-task fluke." % len(task_ids))
+    lines += _thrash_report(body.get("per_task", []))  # per-task blowups the mean hides
+    for r in body.get("per_task", []):
+        if r.get("pass_rate") is not None:
+            lines.append("  acc=%.3f  in_tok=%s  turns=%s  %s"
+                         % (r["pass_rate"], r.get("input_tokens"), r.get("turns"), r["task"]))
+        else:
+            lines.append("  FAILED %s: %s" % (r.get("task"), r.get("error", r.get("detail"))))
+    if body.get("skipped_for_budget"):
+        lines.append("skipped (over budget): %s" % ", ".join(body["skipped_for_budget"]))
+    lines.append("remaining $%.2f" % body.get("remaining", 0.0))
+    try:  # also persist the structured result for a programmatic read
+        json.dump(body, open(os.path.join(WS, "scratch", "dev_eval_%s.json" % _bid(task_ids)), "w"), indent=1)
+    except OSError:
+        pass
+    _write(done_path, "\n".join(lines))
+
+
+def main():
+    task_ids = sys.argv[1:]
+    runs = os.path.join(WS, "scratch", "runs")
+    os.makedirs(runs, exist_ok=True)
+    done_path = os.path.join(runs, ".dev_%s.done" % _bid(task_ids))
+
+    if os.environ.get("_DEV_WORKER") == "1":
+        try:
+            _worker(task_ids, done_path)  # we ARE the detached worker
+        except Exception as e:  # a crash must STILL leave a marker, else the mutator polls forever
+            _write(done_path, "ERROR: dev_eval worker crashed: %s" % e)
+        return
+
+    # WALL-CLOCK forcing function: refuse to START a full gate that can't finish before the deadline
+    # (symmetric with the dollar 402). A subset (task_ids given) is shorter, so let it through — the
+    # mutator can judge; only a full gate (no args) is blocked.
+    if not task_ids:
+        block = _wall_block()
+        if block:
+            print(block)
+            return
+
+    try:
+        os.remove(done_path)  # clear any stale marker from a prior launch of this same scope
+    except OSError:
+        pass
+    log_path = os.path.join(runs, ".dev_%s.log" % _bid(task_ids))
+    env = dict(os.environ)
+    env["_DEV_WORKER"] = "1"
+    try:
+        with open(log_path, "w") as lf:
+            subprocess.Popen(
+                [sys.executable, os.path.abspath(__file__)] + task_ids,
+                env=env, stdout=lf, stderr=lf, stdin=subprocess.DEVNULL,
+                start_new_session=True,  # survives the foreground shell being killed at 10 min
+            )
+    except OSError as e:
+        print("could not launch background worker: %s" % e, file=sys.stderr)
+        sys.exit(5)
+    scope = "FULL dev set" if not task_ids else "%d dev task(s)" % len(task_ids)
+    print("LAUNCHED dev_eval on the %s in the BACKGROUND (survives the 10-min shell cap)." % scope)
+    print("This is the COMMIT GATE (ensemble-graded, like the real verdict). WAIT ~15-25 min, then read the score.")
+    print("  poll for done : test -f %s" % done_path)
+    print("  live log      : %s" % log_path)
+    print("  then          : cat the marker for dev_score; commit only on a clear dev win (see CLAUDE.md).")
+
+
+if __name__ == "__main__":
+    main()

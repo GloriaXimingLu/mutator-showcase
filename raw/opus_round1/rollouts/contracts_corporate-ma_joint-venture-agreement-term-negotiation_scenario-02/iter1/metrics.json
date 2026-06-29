@@ -1,0 +1,41 @@
+{
+  "model": "glm-5p2",
+  "task": "contracts/corporate-ma/joint-venture-agreement-term-negotiation/scenario-02",
+  "run_id": "opusround1_train_iter1/contracts_corporate-ma_joint-venture-agreement-term-negotiation_scenario-02__da39a3ee5e",
+  "turn_count": 20,
+  "input_tokens": 2792989,
+  "output_tokens": 44613,
+  "total_tokens": 2837602,
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "wall_clock_seconds": 512.01,
+  "finished_cleanly": true,
+  "completed_at": "2026-06-27T20:28:15.654114+00:00",
+  "documents_read": 13,
+  "documents_read_list": [
+    "falk-to-escalante-negotiation-email.eml",
+    "escalante-to-falk-response.eml",
+    "cordero-to-falk-internal-guidance.eml",
+    "kastor-position-summary.docx",
+    "meridian-negotiation-playbook.docx",
+    "non-compete-enforceability-memo.docx",
+    "term-sheet-executed.docx",
+    "mkpoly-jva-v3-clean.docx",
+    "mkpoly-jva-v4-redline-tracked.docx",
+    "frazier-whitmore-valuation-benchmarks.xlsx",
+    "capital-contribution-schedule.xlsx",
+    "ip-schedule-contributed.xlsx",
+    "/workspace/output/mkpoly-jva-compromise-provisions.docx"
+  ],
+  "documents_skipped": 2,
+  "documents_skipped_list": [
+    "mkpoly-jva-v4-redline.docx",
+    "standard-jva-template.docx"
+  ],
+  "total_documents": 14,
+  "bash_commands": 10,
+  "files_written": 2,
+  "files_edited": 0,
+  "glob_searches": 0,
+  "grep_searches": 0
+}

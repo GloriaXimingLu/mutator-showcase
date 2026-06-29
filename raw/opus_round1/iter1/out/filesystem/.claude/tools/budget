@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+"""Thin client: print the budget ledger from the host broker. FREE — call it before spending.
+
+Usage:  .claude/tools/budget
+
+Reports spent / remaining / cap and the per-tool unit costs straight from the authoritative
+host-side ledger (you cannot fake it from in here — that's the point). Use it to self-pace by
+spending the cap DOWN on evidence (breadth — several distinct tasks per candidate, CLAUDE.md §3);
+low remaining is your "commit your best now" cue, not a reason to have under-spent.
+"""
+import json
+import os
+import sys
+import urllib.error
+import urllib.request
+
+BROKER = os.environ.get("BROKER_URL", "http://172.17.0.1:4100")
+
+
+def main():
+    try:
+        with urllib.request.urlopen(BROKER + "/budget", timeout=30) as r:
+            b = json.load(r)
+    except urllib.error.URLError as e:
+        print("budget: broker unreachable at %s (%s)" % (BROKER, e), file=sys.stderr)
+        sys.exit(1)
+    print("budget: spent $%.4f / cap $%.2f  ->  remaining $%.4f" % (b["spent"], b["cap"], b["remaining"]))
+    print("  by source : %s" % b["by_source"])
+    print(
+        "  unit costs: run_harvey_agent $%.2f/task, proxy_eval $%.2f/deliverable"
+        % (b["unit_costs"]["run_harvey_agent"], b["unit_costs"]["proxy_eval"])
+    )
+
+
+if __name__ == "__main__":
+    main()

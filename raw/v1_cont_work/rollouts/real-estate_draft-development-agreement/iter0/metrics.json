@@ -1,0 +1,33 @@
+{
+  "model": "glm-5p2",
+  "task": "real-estate/draft-development-agreement",
+  "run_id": "cont_train_iter0/real-estate_draft-development-agreement__da39a3ee5e",
+  "turn_count": 16,
+  "input_tokens": 1424630,
+  "output_tokens": 35249,
+  "total_tokens": 1459879,
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "wall_clock_seconds": 363.61,
+  "finished_cleanly": true,
+  "completed_at": "2026-06-26T23:45:47.902294+00:00",
+  "documents_read": 8,
+  "documents_read_list": [
+    "city-council-resolution-r2025-017.docx",
+    "construction-loan-term-sheet.docx",
+    "lakeshore-side-letter.docx",
+    "negotiated-term-sheet.docx",
+    "phase-ii-esa-summary.docx",
+    "rfp-response-narrative.docx",
+    "tif-district-summary-memo.docx",
+    "/workspace/output/development-agreement-draft.docx"
+  ],
+  "documents_skipped": 0,
+  "documents_skipped_list": [],
+  "total_documents": 7,
+  "bash_commands": 10,
+  "files_written": 2,
+  "files_edited": 0,
+  "glob_searches": 0,
+  "grep_searches": 0
+}

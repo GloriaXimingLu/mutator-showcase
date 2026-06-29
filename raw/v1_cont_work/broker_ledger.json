@@ -1,0 +1,201 @@
+{
+ "cap": 40.0,
+ "spent": 17.239999999999995,
+ "by_source": {
+  "run_harvey_agent": 17.0,
+  "proxy_eval": 0.23999999999999996
+ },
+ "events": [
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "environmental-esg/identify-issues-in-phase-one-environmental-site-assessment",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/environmental-esg_identify-issues-in-phase-one-environmental-site-assessment__glm-5p2__3e284558e6",
+   "turns": 64
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/corporate-ma_analyze-cim-deal-teaser_scenario-02__glm-5p2__3e284558e6",
+   "turns": 64
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/litigation-dispute-resolution_assess-reasonableness-of-staffing-levels-on-litigation-invoice__glm-5p2__3e284558e6",
+   "turns": 61
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "environmental-esg/identify-issues-in-phase-one-environmental-site-assessment",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/environmental-esg_identify-issues-in-phase-one-environmental-site-assessment__glm-5p2__b72fe4fb6c",
+   "turns": 44
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/corporate-ma_analyze-cim-deal-teaser_scenario-02__glm-5p2__b72fe4fb6c",
+   "turns": 47
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/litigation-dispute-resolution_assess-reasonableness-of-staffing-levels-on-litigation-invoice__glm-5p2__b72fe4fb6c",
+   "turns": 81
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "environmental-esg/identify-issues-in-phase-one-environmental-site-assessment",
+   "pass_rate": 0.1509433962264151
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice",
+   "pass_rate": 0.8163265306122449
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+   "pass_rate": 0.9512195121951219
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice",
+   "pass_rate": 0.8163265306122449
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "environmental-esg/identify-issues-in-phase-one-environmental-site-assessment",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/environmental-esg_identify-issues-in-phase-one-environmental-site-assessment__glm-5p2__f7a10c9b7a",
+   "turns": 29
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/corporate-ma_analyze-cim-deal-teaser_scenario-02__glm-5p2__f7a10c9b7a",
+   "turns": 27
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/litigation-dispute-resolution_assess-reasonableness-of-staffing-levels-on-litigation-invoice__glm-5p2__f7a10c9b7a",
+   "turns": 39
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "environmental-esg/identify-issues-in-phase-one-environmental-site-assessment",
+   "pass_rate": 0.16981132075471697
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice",
+   "pass_rate": 0.8979591836734694
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+   "pass_rate": 0.8780487804878049
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "real-estate/draft-development-agreement",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/real-estate_draft-development-agreement__glm-5p2__f7a10c9b7a",
+   "turns": 43
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "arbitration-international-dispute-resolution/identify-arbitration-agreement-issues",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/arbitration-international-dispute-resolution_identify-arbitration-agreement-issues__glm-5p2__f7a10c9b7a",
+   "turns": 31
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "tax/review-iss-tax-transaction-structure",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/tax_review-iss-tax-transaction-structure__glm-5p2__f7a10c9b7a",
+   "turns": 43
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "corporate-governance/compare-state-paid-leave-requirements-across-seven-jurisdictions",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/corporate-governance_compare-state-paid-leave-requirements-across-seven-jurisdictions__glm-5p2__f7a10c9b7a",
+   "turns": 45
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "employment-labor/draft-markup-of-settlement-agreement",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/employment-labor_draft-markup-of-settlement-agreement__glm-5p2__f7a10c9b7a",
+   "turns": 49
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "corporate-governance/compare-state-paid-leave-requirements-across-seven-jurisdictions",
+   "pass_rate": 0.9666666666666667
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "real-estate/draft-development-agreement",
+   "pass_rate": 0.9230769230769231
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "arbitration-international-dispute-resolution/identify-arbitration-agreement-issues",
+   "pass_rate": 0.9
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "tax/review-iss-tax-transaction-structure",
+   "pass_rate": 0.9285714285714286
+  },
+  {
+   "source": "proxy_eval",
+   "cost": 0.02,
+   "task": "employment-labor/draft-markup-of-settlement-agreement",
+   "pass_rate": 0.5384615384615384
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "employment-labor/draft-markup-of-settlement-agreement",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/employment-labor_draft-markup-of-settlement-agreement__glm-5p2__e0f100fe58",
+   "turns": 42
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "corporate-governance/compare-state-paid-leave-requirements-across-seven-jurisdictions",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/corporate-governance_compare-state-paid-leave-requirements-across-seven-jurisdictions__glm-5p2__e0f100fe58",
+   "turns": 56
+  },
+  {
+   "source": "run_harvey_agent",
+   "cost": 1.0,
+   "task": "litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice",
+   "run_dir": "/home/ubuntu/ttt/baseline-submodules/harvey-labs/results/mutator_exp/litigation-dispute-resolution_assess-reasonableness-of-staffing-levels-on-litigation-invoice__glm-5p2__e0f100fe58",
+   "turns": 30
+  }
+ ]
+}

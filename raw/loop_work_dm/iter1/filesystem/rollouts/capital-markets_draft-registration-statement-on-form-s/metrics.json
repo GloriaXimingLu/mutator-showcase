@@ -1,0 +1,33 @@
+{
+  "model": "glm-5p2",
+  "task": "capital-markets/draft-registration-statement-on-form-s",
+  "run_id": "dm_train_iter1/capital-markets_draft-registration-statement-on-form-s__2730b32105",
+  "turn_count": 16,
+  "input_tokens": 1983089,
+  "output_tokens": 98045,
+  "total_tokens": 2081134,
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "wall_clock_seconds": 1208.19,
+  "finished_cleanly": true,
+  "completed_at": "2026-06-26T02:37:34.689794+00:00",
+  "documents_read": 8,
+  "documents_read_list": [
+    "audited-financial-statements-fy2023-2024.docx",
+    "cfo-ipo-readiness-memo.docx",
+    "charter-and-bylaws.docx",
+    "term-loan-summary.docx",
+    "underwriting-term-sheet-and-lockup.docx",
+    "management-questionnaire-responses.docx",
+    "equity-plan-summary-and-grants.xlsx",
+    "ipo-roadshow-draft-presentation.pptx"
+  ],
+  "documents_skipped": 0,
+  "documents_skipped_list": [],
+  "total_documents": 8,
+  "bash_commands": 9,
+  "files_written": 2,
+  "files_edited": 0,
+  "glob_searches": 0,
+  "grep_searches": 0
+}

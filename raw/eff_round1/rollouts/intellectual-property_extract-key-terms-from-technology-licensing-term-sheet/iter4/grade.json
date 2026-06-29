@@ -1,0 +1,8 @@
+{
+ "task": "intellectual-property/extract-key-terms-from-technology-licensing-term-sheet",
+ "ens_pass_rate": 1.0,
+ "n_graded": 63,
+ "n_failed": 0,
+ "failed_criteria": [],
+ "error": null
+}

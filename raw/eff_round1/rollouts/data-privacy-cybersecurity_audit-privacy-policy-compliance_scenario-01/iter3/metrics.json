@@ -1,0 +1,31 @@
+{
+  "model": "glm-5p2",
+  "task": "data-privacy-cybersecurity/audit-privacy-policy-compliance/scenario-01",
+  "run_id": "effround1_train_iter3/data-privacy-cybersecurity_audit-privacy-policy-compliance_scenario-01__da39a3ee5e",
+  "turn_count": 14,
+  "input_tokens": 728604,
+  "output_tokens": 27779,
+  "total_tokens": 756383,
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "wall_clock_seconds": 286.11,
+  "finished_cleanly": true,
+  "completed_at": "2026-06-28T21:44:58.598970+00:00",
+  "documents_read": 6,
+  "documents_read_list": [
+    "vaultline-privacy-policy.docx",
+    "brightly-data-sharing-agreement.docx",
+    "vaultline-data-inventory.xlsx",
+    "incident-response-log-aug2024.docx",
+    "investor-dd-privacy-memo.eml",
+    "/workspace/output/privacy-issue-identification-memo.docx"
+  ],
+  "documents_skipped": 0,
+  "documents_skipped_list": [],
+  "total_documents": 5,
+  "bash_commands": 8,
+  "files_written": 2,
+  "files_edited": 0,
+  "glob_searches": 0,
+  "grep_searches": 0
+}

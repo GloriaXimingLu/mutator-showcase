@@ -1,0 +1,98 @@
+#!/usr/bin/env python3
+"""Thin client: run the frozen Harvey agent on a BATCH of TRAIN tasks, via the host broker.
+
+Usage:  .claude/tools/run_harvey_agent <task_id> [task_id2 ...]
+
+Pass several task ids to test one harness edit across many tasks AT ONCE — the broker runs them
+CONCURRENTLY (one shared overlay of your current harness/, each task -> its own rollout) and writes
+each deliverable to scratch/runs/<task_id>/deliverable.md. This is the cheap way to buy BREADTH:
+one call, N tasks in parallel, instead of N serial calls. A single task id still works.
+
+Train-only by construction: the broker refuses the batch if any id isn't TRAIN (the held-out val
+set is unreachable). Metered ~$1/task; tasks beyond the remaining budget come back as
+``skipped_for_budget`` and an all-over-budget call is your "commit now" signal.
+"""
+import json
+import os
+import sys
+import urllib.error
+import urllib.request
+
+BROKER = os.environ.get("BROKER_URL", "http://172.17.0.1:4100")
+WS = os.environ.get("MUTATOR_WORKSPACE", "/workspace")
+
+
+def post(path, obj, timeout=2400):
+    req = urllib.request.Request(
+        BROKER + path,
+        data=json.dumps(obj).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.status, json.load(r)
+    except urllib.error.HTTPError as e:
+        return e.code, json.load(e)
+    except urllib.error.URLError as e:  # broker down / refused / DNS — a clean signal, not a traceback
+        print(
+            "broker unreachable at %s (%s) — is the experiment broker up?" % (BROKER, getattr(e, "reason", e)),
+            file=sys.stderr,
+        )
+        sys.exit(5)
+
+
+def main():
+    if len(sys.argv) < 2:
+        print("usage: run_harvey_agent <task_id> [task_id2 ...]   (a BATCH runs concurrently)", file=sys.stderr)
+        sys.exit(2)
+    task_ids = sys.argv[1:]
+    hroot = os.path.join(WS, "harness")
+    harness = {}
+    for dirpath, _dirs, files in os.walk(hroot):
+        for fn in files:
+            fp = os.path.join(dirpath, fn)
+            try:
+                harness[os.path.relpath(fp, hroot)] = open(fp, encoding="utf-8").read()
+            except (OSError, UnicodeDecodeError):
+                pass  # skip unreadable / binary files
+    if not harness:
+        print("no harness files under %s — is the workspace seeded?" % hroot, file=sys.stderr)
+        sys.exit(2)
+    code, body = post("/run_harvey_agent", {"task_ids": task_ids, "harness": harness})
+    if code == 402:
+        print(
+            "OVER_BUDGET (remaining $%.2f) — commit your best edit now, don't retry." % body.get("remaining", 0.0),
+            file=sys.stderr,
+        )
+        sys.exit(3)
+    if code == 403:
+        print("REFUSED — %s" % body.get("detail", "not a TRAIN task"), file=sys.stderr)
+        sys.exit(4)
+    if code != 200:
+        print("ERROR %s — %s" % (code, body), file=sys.stderr)
+        sys.exit(1)
+    # batch response: write each deliverable to its own scratch dir; report failures + budget skips.
+    n_ok = 0
+    for r in body.get("results", []):
+        task = r.get("task", "?")
+        if r.get("error"):
+            print("  FAILED %s: %s" % (task, r.get("detail", r["error"])), file=sys.stderr)
+            continue
+        out = os.path.join(WS, "scratch/runs", task.replace("/", "_"))
+        os.makedirs(out, exist_ok=True)
+        dpath = os.path.join(out, "deliverable.md")
+        open(dpath, "w", encoding="utf-8").write(r.get("deliverable", ""))
+        turns = r.get("turns")
+        if turns is not None:  # the runaway signal — `check_runaway` reads turns.txt vs bare iter0
+            open(os.path.join(out, "turns.txt"), "w", encoding="utf-8").write(str(turns))
+        print("wrote %s  turns=%s  DELIVERABLE_PATH=%s" % (dpath, turns, dpath))
+        n_ok += 1
+    skipped = body.get("skipped_for_budget", [])
+    if skipped:
+        print("  skipped (over budget): %s" % ", ".join(skipped), file=sys.stderr)
+    print("ran %d/%d task(s), remaining $%.2f" % (n_ok, len(task_ids), body.get("remaining", 0.0)))
+
+
+if __name__ == "__main__":
+    main()

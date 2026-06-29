@@ -1,0 +1,19 @@
+{
+ "task": "trusts-estates-private-client/analyze-counterparty-markup-of-postnuptial-agreement",
+ "ens_pass_rate": 0.9565217391304348,
+ "n_graded": 46,
+ "n_failed": 2,
+ "failed_criteria": [
+  {
+   "id": "C-005",
+   "title": "Quantifies ISSUE_002: Up to $600,000 loss to Wife",
+   "match_criteria": "PASS if the memorandum quantifies the financial impact of deleting the reimbursement right as approximately $600,000 (Wife loses half of her $1,200,000 premarital contribution if it is split 50/50 as generic marital property instead of being reimbursed). FAIL if this dollar impact is not stated or is materially incorrect."
+  },
+  {
+   "id": "C-043",
+   "title": "Correctly states RSU details: 12,000 shares at $38/share = $456,000",
+   "match_criteria": "PASS if the memorandum correctly references the RSUs as 12,000 shares valued at approximately $456,000 (or $38/share) when analyzing the RSU division change. FAIL if RSU figures are materially misstated."
+  }
+ ],
+ "error": null
+}

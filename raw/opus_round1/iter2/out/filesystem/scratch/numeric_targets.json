@@ -1,0 +1,10 @@
+{
+  "real-estate/draft-settlement-statement": {
+    "note": "figures bare(iter0) failed; correct values from rubric (fail) criteria",
+    "targets": ["2558.40", "28798.40", "270.02", "18000.00", "32670.02", "2012.60", "1083294.84", "2864198.55", "2884472.16", "1036494.45"]
+  },
+  "trusts-estates-private-client/extract-key-exhibits-from-document-production": {
+    "note": "figures bare(iter0) failed",
+    "targets": ["123300", "23400", "12300", "193200", "619900", "241700"]
+  }
+}

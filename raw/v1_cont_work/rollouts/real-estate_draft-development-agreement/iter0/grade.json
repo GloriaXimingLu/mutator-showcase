@@ -1,0 +1,109 @@
+{
+ "task": "real-estate/draft-development-agreement",
+ "ens_pass_rate": 0.8076923076923077,
+ "n_graded": 104,
+ "n_failed": 20,
+ "failed_criteria": [
+  {
+   "id": "C-002",
+   "title": "ISSUE_001: Percentage (20%) is the controlling affordable housing standard",
+   "match_criteria": "PASS if the draft establishes the 20% percentage as the controlling standard for affordable housing (not a fixed unit count), so that if unit counts change during design development the affordable obligation adjusts proportionally. FAIL if the draft uses only a fixed unit count (e.g., 100 or 106 units) without tying it to the 20% percentage."
+  },
+  {
+   "id": "C-003",
+   "title": "ISSUE_001: Recalculation mechanism if unit counts change",
+   "match_criteria": "PASS if the draft includes a mechanism or provision for recalculating the number of required affordable units if total residential unit counts change during design development or phase rescoping. FAIL if there is no such recalculation mechanism."
+  },
+  {
+   "id": "C-019",
+   "title": "ISSUE_007: Identifies missing performance security for Phases II-IV",
+   "match_criteria": "PASS if the draft identifies that the City Council Resolution condition #4 requires a $15 million performance bond or letter of credit for Phase I only, and that the term sheet and resolution are silent on security requirements for Phases II ($76M), III ($88M), and IV ($71M). FAIL if this gap is not identified."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_007: Includes performance security provisions for later phases",
+   "match_criteria": "PASS if the draft addresses performance security for subsequent phases \u2014 whether by requiring bonds/LCs for each phase, setting amounts/formulas, providing release mechanisms upon phase completion, or allowing the Phase I security to be replaced/supplemented. FAIL if the draft addresses Phase I security but is entirely silent on Phases II\u2013IV."
+  },
+  {
+   "id": "C-027",
+   "title": "ISSUE_009: Identifies LEED certification timing vs. Substantial Completion",
+   "match_criteria": "PASS if the draft identifies the issue that LEED Gold certification (Resolution condition #6) typically occurs months after building completion due to post-construction verification, and that tying LEED certification to Substantial Completion could disrupt the phasing timeline (since the next phase's commencement deadline runs from Substantial Completion). FAIL if this timing issue is not identified."
+  },
+  {
+   "id": "C-029",
+   "title": "ISSUE_009: Separate LEED certification deadline post-completion",
+   "match_criteria": "PASS if the draft establishes a separate deadline for achieving LEED Gold certification after Substantial Completion (e.g., 12 months post-Substantial Completion or similar reasonable period). FAIL if there is no separate LEED certification deadline."
+  },
+  {
+   "id": "C-030",
+   "title": "ISSUE_009: Consequences for failure to achieve LEED Gold",
+   "match_criteria": "PASS if the draft specifies consequences for failure to achieve LEED Gold certification (e.g., cure periods, acceptance of alternative certifications/equivalents, financial penalties, or liquidated damages). FAIL if no consequences are specified."
+  },
+  {
+   "id": "C-034",
+   "title": "ISSUE_011: Identifies force majeure 18-month cap ambiguity",
+   "match_criteria": "PASS if the draft identifies the ambiguity in whether the 18-month aggregate force majeure cap applies per-phase or project-wide, and notes that a project-wide cap may be insufficient for a multi-phase project spanning 8-10 years. FAIL if this ambiguity is not identified."
+  },
+  {
+   "id": "C-035",
+   "title": "ISSUE_011: Clarifies force majeure cap application (per-phase)",
+   "match_criteria": "PASS if the draft clarifies that the force majeure extension cap applies on a per-phase basis (or otherwise addresses the cascading delay risk across phases), rather than leaving an ambiguous project-wide aggregate cap. FAIL if the draft simply recites '18-month aggregate' without clarifying per-phase vs. project-wide application."
+  },
+  {
+   "id": "C-038",
+   "title": "ISSUE_012: Addresses abatement asymmetry for later phases",
+   "match_criteria": "PASS if the draft includes a provision addressing the tax abatement asymmetry \u2014 such as requiring the City to consider in good faith extending abatement to later phases, acknowledging that TIF reimbursement is expected to offset the absence of abatement for later phases, or otherwise flagging this as an open negotiation point. FAIL if the abatement is limited to Phase I with no acknowledgment of the asymmetry or any provision regarding later phases."
+  },
+  {
+   "id": "C-050",
+   "title": "Correct Phase I total residential units (320)",
+   "match_criteria": "PASS if the draft includes Phase I with 320 residential units. FAIL if the total Phase I residential unit count is materially incorrect or omitted."
+  },
+  {
+   "id": "C-051",
+   "title": "Correct Phase I affordable unit breakdown (64 affordable out of 320)",
+   "match_criteria": "PASS if the draft includes Phase I with 64 affordable units (and correspondingly 256 market-rate units). FAIL if the Phase I affordable/market-rate breakdown is materially incorrect or omitted."
+  },
+  {
+   "id": "C-052",
+   "title": "Correct Phase I retail square footage (45,000 sq ft)",
+   "match_criteria": "PASS if the draft includes Phase I with 45,000 sq ft of retail. FAIL if this figure is materially incorrect or omitted."
+  },
+  {
+   "id": "C-073",
+   "title": "Includes equity demonstration requirement ($85M within 60 days)",
+   "match_criteria": "PASS if the draft includes a requirement that Developer demonstrate committed equity of at least $85,000,000 within 60 days of the resolution (i.e., by approximately April 19, 2025), consistent with Resolution condition #1. FAIL if this requirement is omitted or the amount/timeline is incorrect."
+  },
+  {
+   "id": "C-081",
+   "title": "Correct Phase II office square footage (280,000 sq ft)",
+   "match_criteria": "PASS if the draft includes Phase II with 280,000 sq ft of office space. FAIL if this figure is materially incorrect or omitted."
+  },
+  {
+   "id": "C-082",
+   "title": "Correct Phase II retail square footage (18,000 sq ft)",
+   "match_criteria": "PASS if the draft includes Phase II with 18,000 sq ft of retail space. FAIL if this figure is materially incorrect or omitted."
+  },
+  {
+   "id": "C-085",
+   "title": "Correct Phase III total residential units (210)",
+   "match_criteria": "PASS if the draft includes Phase III with 210 residential units. FAIL if the total Phase III residential unit count is materially incorrect or omitted."
+  },
+  {
+   "id": "C-086",
+   "title": "Correct Phase III affordable unit breakdown (42 affordable out of 210)",
+   "match_criteria": "PASS if the draft includes Phase III with 42 affordable units (and correspondingly 168 market-rate units). FAIL if the Phase III affordable/market-rate breakdown is materially incorrect or omitted."
+  },
+  {
+   "id": "C-087",
+   "title": "Correct Phase III hotel (150-room select-service)",
+   "match_criteria": "PASS if the draft includes a 150-room select-service hotel in Phase III. FAIL if this detail is materially incorrect or omitted."
+  },
+  {
+   "id": "C-092",
+   "title": "Correct Phase IV parking structure (600 spaces)",
+   "match_criteria": "PASS if the draft includes Phase IV with a 600-space parking structure. FAIL if this component is materially incorrect or omitted."
+  }
+ ],
+ "error": null
+}

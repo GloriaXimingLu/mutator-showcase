@@ -1,0 +1,59 @@
+{
+ "task": "corporate-ma/analyze-cim-deal-teaser/scenario-02",
+ "ens_pass_rate": 0.7560975609756098,
+ "n_graded": 41,
+ "n_failed": 10,
+ "failed_criteria": [
+  {
+   "id": "C-001",
+   "title": "ISSUE_001: Identifies EBITDA bridge arithmetic error ($17.1M vs $16.8M)",
+   "match_criteria": "PASS if the memo identifies that the CIM states Adjusted EBITDA of $17.1M but the individual adjustments ($1.9M + $0.8M + $1.2M + $0.4M + $0.3M + $0.1M = $4.7M) added to reported EBITDA of $12.1M only sum to $16.8M, creating a $0.3M discrepancy. FAIL if this arithmetic error is not identified."
+  },
+  {
+   "id": "C-002",
+   "title": "ISSUE_001: Quantifies valuation impact of EBITDA arithmetic error",
+   "match_criteria": "PASS if the memo quantifies the valuation impact of the $0.3M EBITDA overstatement, noting that at 8.0x\u201310.0x multiples, this inflates implied enterprise value by approximately $2.4M\u2013$3.0M. FAIL if no valuation impact is discussed for the arithmetic error."
+  },
+  {
+   "id": "C-003",
+   "title": "ISSUE_002: Flags replacement CEO compensation assumption as too low",
+   "match_criteria": "PASS if the memo questions the CIM's assumption that a replacement CEO would cost only $0.5M, noting that market-rate CEO compensation for a ~$87-90M revenue environmental services company would be meaningfully higher (in the range of $0.8M\u2013$1.2M or similar). FAIL if the $0.5M replacement CEO figure is accepted without challenge."
+  },
+  {
+   "id": "C-004",
+   "title": "ISSUE_002: Recalculates defensible owner compensation add-back",
+   "match_criteria": "PASS if the memo recalculates the owner compensation add-back using a more realistic replacement CEO salary, arriving at a defensible add-back lower than $1.9M (e.g., approximately $1.2M\u2013$1.6M), thereby reducing Adjusted EBITDA by roughly $0.3M\u2013$0.7M. FAIL if no recalculation is provided."
+  },
+  {
+   "id": "C-018",
+   "title": "ISSUE_008: Flags disconnect between projected capex decline and revenue growth",
+   "match_criteria": "PASS if the memo identifies the disconnect between projected FY2025 capex of $4.5M (a 37.5% decline from FY2024's $7.2M) and simultaneous projected revenue growth of 12.8%, suggesting either capex deferral to boost cash flow or artificial classification of growth vs. maintenance capex. FAIL if this capex-revenue disconnect is not identified."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_009b: Notes Prewitt lacks employment agreement or non-compete",
+   "match_criteria": "PASS if the memo notes that Janet Prewitt has no employment agreement or non-compete. FAIL if the absence of an employment agreement or non-compete for Prewitt is not mentioned."
+  },
+  {
+   "id": "C-024",
+   "title": "ISSUE_011: Flags backlog composition ambiguity (firm vs. soft)",
+   "match_criteria": "PASS if the memo identifies that the CIM's $42.6M contracted backlog figure does not distinguish between firm backlog (fully executed contracts with defined scope) and soft backlog (LOIs, verbal commitments, unissued task orders), undermining the credibility of revenue projections. FAIL if the backlog ambiguity is not flagged."
+  },
+  {
+   "id": "C-026",
+   "title": "ISSUE_012: Identifies overall customer concentration risk",
+   "match_criteria": "PASS if the memo identifies that the top 5 customers account for approximately 52.5% of revenue and the top 10 account for approximately 71% of revenue, characterizing this as a significant customer concentration risk. FAIL if customer concentration percentages are not discussed."
+  },
+  {
+   "id": "C-033",
+   "title": "Provides FY2024 revenue figures or percentages by segment (at least two correct)",
+   "match_criteria": "PASS if the memo provides FY2024 revenue figures or percentages for CES's segments and at least two of the following three are within 5% of the stated values: Remediation $48.2M (55.2%), Industrial Cleaning $27.8M (31.8%), Emergency Response $11.3M (12.9%), total $87.3M. FAIL if revenue breakdown is omitted or fewer than two segment figures are within 5% of stated values."
+  },
+  {
+   "id": "C-038",
+   "title": "Correctly reports PFAS revenue trajectory (FY2022-FY2024)",
+   "match_criteria": "PASS if the memo reports at least two of the following three historical PFAS revenue figures within 10% of stated values: FY2022 ~$1.1M, FY2023 ~$3.4M, FY2024 ~$6.2M. FAIL if PFAS historical revenue is not referenced or fewer than two figures are within 10% of stated values."
+  }
+ ],
+ "error": null
+}

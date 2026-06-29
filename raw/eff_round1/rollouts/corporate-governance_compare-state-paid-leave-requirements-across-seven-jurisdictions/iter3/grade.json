@@ -1,0 +1,89 @@
+{
+ "task": "corporate-governance/compare-state-paid-leave-requirements-across-seven-jurisdictions",
+ "ens_pass_rate": 0.7333333333333333,
+ "n_graded": 60,
+ "n_failed": 16,
+ "failed_criteria": [
+  {
+   "id": "C-006",
+   "title": "ISSUE_002: Matrix includes waiting period comparison across all seven states",
+   "match_criteria": "PASS if the compliance matrix includes a row or dimension for sick leave waiting period/eligibility to use, comparing the company's 120-day policy against the requirements of all seven jurisdictions. FAIL if the waiting period dimension is absent from the matrix."
+  },
+  {
+   "id": "C-014",
+   "title": "ISSUE_005: Matrix compares wage replacement rates across all seven states",
+   "match_criteria": "PASS if the compliance matrix includes a dimension for paid family leave wage replacement rate and weekly cap, showing the company's current 50%/$850 policy alongside the statutory requirements for all seven jurisdictions. FAIL if wage replacement comparison is missing from the matrix or if fewer than five of the seven states are covered."
+  },
+  {
+   "id": "C-021",
+   "title": "ISSUE_008: Identifies 2-day doctor's note threshold as non-compliant in NJ",
+   "match_criteria": "PASS if the memo identifies that requiring a doctor's note for sick leave absences exceeding 2 consecutive days violates New Jersey's Earned Sick Leave Act, which limits employer documentation requests to absences of 3 or more consecutive days. FAIL if this NJ-specific documentation threshold issue is not identified."
+  },
+  {
+   "id": "C-033",
+   "title": "ISSUE_013: References internal email about CO remote employees asking about PTO payout",
+   "match_criteria": "PASS if the memo references the internal email thread where Marcus Delgado flagged that three Colorado employees being hired as remote workers before the facility opens have asked about PTO payout on termination under CO law. FAIL if the email evidence of the CO PTO payout concern is not referenced."
+  },
+  {
+   "id": "C-034",
+   "title": "ISSUE_013: Matrix includes PTO payout on separation comparison across all seven states",
+   "match_criteria": "PASS if the compliance matrix includes a dimension for PTO/vacation payout upon separation, comparing the company's current policy against requirements in all seven jurisdictions. FAIL if PTO payout on separation is absent from the matrix."
+  },
+  {
+   "id": "C-039",
+   "title": "Matrix covers all seven jurisdictions",
+   "match_criteria": "PASS if the compliance matrix includes columns or sections for all seven jurisdictions: New Jersey, New York, Connecticut, Massachusetts, Colorado, Oregon, and Washington. FAIL if any of the seven states is missing from the matrix."
+  },
+  {
+   "id": "C-040",
+   "title": "Matrix includes paid sick leave dimensions",
+   "match_criteria": "PASS if the compliance matrix includes paid sick leave comparison dimensions covering at least: accrual rate, annual cap/maximum, waiting period, carryover, covered uses, covered family members, and documentation/verification rules. FAIL if fewer than five of these seven paid sick leave dimensions are present."
+  },
+  {
+   "id": "C-041",
+   "title": "Matrix includes paid family leave dimensions",
+   "match_criteria": "PASS if the compliance matrix includes paid family leave comparison dimensions covering at least: eligibility requirements, maximum duration, wage replacement rate/formula, qualifying reasons, and notice requirements. FAIL if fewer than four of these five paid family leave dimensions are present."
+  },
+  {
+   "id": "C-042",
+   "title": "Matrix includes paid medical leave dimensions",
+   "match_criteria": "PASS if the compliance matrix includes a paid medical leave section covering at least: availability (whether the state requires it), duration, and wage replacement. FAIL if paid medical leave is absent from the matrix."
+  },
+  {
+   "id": "C-043",
+   "title": "Matrix includes employer obligations dimensions",
+   "match_criteria": "PASS if the compliance matrix includes employer obligations covering at least registration/enrollment, contributions/withholding, and recordkeeping or posting/notice requirements. FAIL if employer obligations are absent or cover fewer than two of these sub-dimensions."
+  },
+  {
+   "id": "C-044",
+   "title": "Matrix includes column showing current Vantage policy for comparison",
+   "match_criteria": "PASS if the compliance matrix includes a column, row, or clear annotation showing Vantage's current company policy for each dimension, enabling side-by-side comparison with state requirements. FAIL if the company's current policy provisions are not displayed alongside the state requirements."
+  },
+  {
+   "id": "C-045",
+   "title": "Matrix includes gap indicators or color coding",
+   "match_criteria": "PASS if the compliance matrix uses color coding, symbols, or explicit gap indicators to visually flag where the company's current policy does not meet state requirements. FAIL if there is no visual or explicit indication of compliance gaps in the matrix."
+  },
+  {
+   "id": "C-050",
+   "title": "Memo correctly states company headcount figures",
+   "match_criteria": "PASS if the memo correctly references the company's employee counts: total current 2,140 employees, with NJ (890), NY (680), CT (570), and planned expansion adding approximately 420 employees (MA 130, CO 95, OR 110, WA 85) for a projected total of approximately 2,560. Minor rounding is acceptable; material errors in headcount figures are a FAIL."
+  },
+  {
+   "id": "C-054",
+   "title": "Both deliverables are produced",
+   "match_criteria": "PASS if the agent produces both a compliance matrix (multi-state-compliance-matrix.xlsx) and a gap analysis memo (gap-analysis-memo.docx). FAIL if either deliverable is missing."
+  },
+  {
+   "id": "C-059",
+   "title": "Memo addresses the pending NJ DOL complaint as requiring immediate action",
+   "match_criteria": "PASS if the memo identifies the pending NJ DOL complaint (Carla Mu\u00f1oz, Case No. NJ-ESL-2025-04117) as requiring immediate/urgent action in the remediation plan, separate from the broader policy revision project. FAIL if the complaint is not mentioned in the remediation plan or is not flagged as requiring immediate attention."
+  },
+  {
+   "id": "C-060",
+   "title": "Matrix accurately states company's current sick leave family member definition",
+   "match_criteria": "PASS if the compliance matrix correctly states that the company's current sick leave policy limits covered family members to spouse, child, and parent. FAIL if the company's current policy definition is misstated in the matrix."
+  }
+ ],
+ "error": null
+}

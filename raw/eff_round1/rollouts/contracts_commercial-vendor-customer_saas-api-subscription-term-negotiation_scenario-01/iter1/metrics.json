@@ -1,0 +1,38 @@
+{
+  "model": "glm-5p2",
+  "task": "contracts/commercial-vendor-customer/saas-api-subscription-term-negotiation/scenario-01",
+  "run_id": "effround1_train_iter1/contracts_commercial-vendor-customer_saas-api-subscription-term-negotiation_scenario-01__da39a3ee5e",
+  "turn_count": 28,
+  "input_tokens": 3025289,
+  "output_tokens": 58304,
+  "total_tokens": 3083593,
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "wall_clock_seconds": 786.74,
+  "finished_cleanly": true,
+  "completed_at": "2026-06-28T10:19:24.639878+00:00",
+  "documents_read": 11,
+  "documents_read_list": [
+    "contested-terms-matrix.xlsx",
+    "delgado-internal-memo-negotiation-priorities.eml",
+    "instruction-email-sutter-to-team.eml",
+    "meridian-negotiation-playbook.docx",
+    "nj-ai-healthcare-transparency-act-summary.docx",
+    "langford-audit-scope-proposal.docx",
+    "exhibit-c-service-levels.xlsx",
+    "exhibit-d-data-governance.docx",
+    "cognitive-foundry-contract-standards-summary.docx",
+    "master-ai-services-agreement-customer-redline.docx",
+    "vendor-response-redline.docx"
+  ],
+  "documents_skipped": 1,
+  "documents_skipped_list": [
+    "master-ai-services-agreement-vendor-draft.docx"
+  ],
+  "total_documents": 12,
+  "bash_commands": 12,
+  "files_written": 2,
+  "files_edited": 8,
+  "glob_searches": 0,
+  "grep_searches": 0
+}

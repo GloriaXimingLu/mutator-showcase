@@ -1,0 +1,195 @@
+{
+ "task": "capital-markets/draft-registration-statement-on-form-s",
+ "ens_pass_rate": 0.7888888888888889,
+ "n_graded": 90,
+ "n_failed": 19,
+ "failed_criteria": [
+  {
+   "id": "C-011",
+   "title": "ISSUE_004: Discusses when EGC status may be lost",
+   "match_criteria": "PASS if either deliverable discusses conditions under which Crestline may lose EGC status, including at least one of: (a) revenue reaching $1.235 billion, (b) fifth anniversary of first equity sale, or (c) becoming a large accelerated filer (public float \u2265 $700M). FAIL if no mention is made of when EGC status could be lost."
+  },
+  {
+   "id": "C-016",
+   "title": "ISSUE_006: Flags preferred stock mezzanine classification issue",
+   "match_criteria": "PASS if the issues memorandum identifies that the CFO memo incorrectly refers to the $385.0M redeemable convertible preferred stock as part of 'total equity,' when it should be classified in mezzanine equity (between liabilities and stockholders' equity) on the historical balance sheet, and that the pro forma capitalization must show the reclassification upon IPO conversion. FAIL if this classification discrepancy is not flagged."
+  },
+  {
+   "id": "C-018",
+   "title": "ISSUE_006: S-1 capitalization table shows pro forma preferred stock conversion",
+   "match_criteria": "PASS if the S-1 capitalization table includes a pro forma presentation showing the preferred stock converting into common stock and the $385.0M reclassifying into stockholders' equity. FAIL if the pro forma conversion is not shown."
+  },
+  {
+   "id": "C-019",
+   "title": "ISSUE_007: Flags 409A valuation / discounted option issue",
+   "match_criteria": "PASS if the issues memorandum identifies that 2,400,000 options granted in Q1 2023 at $9.50/share were based on a stale 409A valuation from September 30, 2022, while the contemporaneous March 31, 2023 409A valuation was $14.20/share. The memo should note the potential that these options constitute discounted options under IRC Section 409A, potentially triggering 20% excise tax penalties for option holders. FAIL if the 409A pricing discrepancy and Section 409A risk are not flagged."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_007: S-1 discloses Section 409A exposure in risk factors or notes",
+   "match_criteria": "PASS if the S-1 includes disclosure (in risk factors, financial statement notes, or both) addressing the potential Section 409A issue with the Q1 2023 option grants, including the risk of excise tax penalties and/or any tax indemnification obligations. FAIL if the S-1 contains no disclosure of the 409A valuation concern."
+  },
+  {
+   "id": "C-023",
+   "title": "ISSUE_009: S-1 principal stockholders table addresses Aldersgate gap",
+   "match_criteria": "PASS if the S-1 principal stockholders table either (a) includes Aldersgate Capital with its current ownership if above 5%, (b) notes that Aldersgate's status needs to be confirmed, or (c) explicitly addresses the disposition of Aldersgate's Series B shares. FAIL if Aldersgate Capital's absence is not addressed at all in the principal stockholders discussion."
+  },
+  {
+   "id": "C-024",
+   "title": "ISSUE_010: Issues memo addresses term loan change-of-control provision and IPO non-trigger",
+   "match_criteria": "PASS if the issues memorandum identifies the term loan change-of-control provision and confirms or discusses that it is not triggered by the IPO because existing holders retain ~71.8% voting power (above the 50% threshold). FAIL if the change-of-control provision is not discussed."
+  },
+  {
+   "id": "C-041",
+   "title": "S-1 includes Capitalization table with actual and pro forma columns",
+   "match_criteria": "PASS if the S-1 includes a Capitalization section with a table showing at minimum an actual (historical) column and a pro forma as-adjusted (post-IPO) column. FAIL if the Capitalization section or table is absent or lacks both columns."
+  },
+  {
+   "id": "C-042",
+   "title": "S-1 Capitalization table includes key line items",
+   "match_criteria": "PASS if the S-1 Capitalization table includes line items for at least 4 of the following 5: cash, debt (term loan $40M), preferred stock ($385M), common stock/stockholders' equity, and total capitalization. FAIL if fewer than 4 of these line items are present."
+  },
+  {
+   "id": "C-043",
+   "title": "S-1 Dilution section states pro forma NTBV per share before offering",
+   "match_criteria": "PASS if the S-1 includes a Dilution section stating pro forma net tangible book value per share before offering of approximately $1.06 (at the midpoint price of $24.00), with tolerance of $0.10. FAIL if the Dilution section is absent or if the before-offering figure deviates by more than $0.10."
+  },
+  {
+   "id": "C-052",
+   "title": "S-1 Management section lists CRO Chen with age and bio",
+   "match_criteria": "PASS if the S-1 Management section lists Chen (CRO) with age and biographical information. FAIL if Chen is omitted."
+  },
+  {
+   "id": "C-053",
+   "title": "S-1 Management section lists non-employee directors",
+   "match_criteria": "PASS if the S-1 Management section lists >=4 of the following 5 non-employee directors with ages and biographical information: Venkatesh, Moreno, Park, Kwon, Obi. FAIL if fewer than 4 are listed."
+  },
+  {
+   "id": "C-054",
+   "title": "S-1 Executive Compensation section discloses CEO Ramaswamy's compensation",
+   "match_criteria": "PASS if the S-1 Executive Compensation section discloses CEO Ramaswamy's compensation including base salary of $425,000, cash bonus of $212,500, and 180,000 RSUs. FAIL if Ramaswamy's compensation details are absent or materially incorrect."
+  },
+  {
+   "id": "C-055",
+   "title": "S-1 Executive Compensation section discloses CFO Hartwell's compensation",
+   "match_criteria": "PASS if the S-1 Executive Compensation section discloses CFO Hartwell's compensation including base salary of $385,000, cash bonus of $173,250, and 120,000 RSUs. FAIL if Hartwell's compensation details are absent or materially incorrect."
+  },
+  {
+   "id": "C-065",
+   "title": "S-1 includes Legal Matters section",
+   "match_criteria": "PASS if the S-1 includes a Legal Matters section identifying Thorncroft & Wexler LLP as issuer's counsel and Whitaker & Simms LLP as underwriters' counsel. FAIL if Legal Matters section is absent or omits counsel identification."
+  },
+  {
+   "id": "C-071",
+   "title": "Financial figures: Gross proceeds at midpoint correctly stated as $360M",
+   "match_criteria": "PASS if gross proceeds at the midpoint price of $24.00 are stated as $360.0 million (15,000,000 \u00d7 $24.00). FAIL if a materially different gross proceeds figure is used."
+  },
+  {
+   "id": "C-075",
+   "title": "S-1 discloses term loan details",
+   "match_criteria": "PASS if the S-1 discloses the $50M term loan facility with Silicon Valley Credit Partners ($40M drawn), maturing December 2027, bearing interest at SOFR + 3.25%, with financial covenants (minimum liquidity $30M and ARR-based leverage ratio \u2264 2.0x). FAIL if the term loan is not disclosed or key terms are materially misstated."
+  },
+  {
+   "id": "C-076",
+   "title": "S-1 discloses Class B share allocation between founders",
+   "match_criteria": "PASS if the S-1 states that Ramaswamy holds 12,200,000 Class B shares and Litvak holds 8,600,000 Class B shares (total 20,800,000 Class B shares). FAIL if the individual Class B allocations are not disclosed or are materially incorrect."
+  },
+  {
+   "id": "C-083",
+   "title": "S-1 discloses office lease obligations",
+   "match_criteria": "PASS if the S-1 discloses lease obligations for at least 3 of the following 4 offices: (1) Austin HQ (expiring August 2029, $3.8M/year), (2) San Francisco (expiring March 2027, $2.1M/year), (3) London (expiring January 2028, \u00a3680,000/year), and (4) Bangalore (expiring June 2026, \u20b942M/year). FAIL if fewer than 3 of the 4 leases are disclosed."
+  }
+ ],
+ "per_criterion": {
+  "C-001": "pass",
+  "C-002": "pass",
+  "C-003": "pass",
+  "C-004": "pass",
+  "C-005": "pass",
+  "C-006": "pass",
+  "C-007": "pass",
+  "C-008": "pass",
+  "C-009": "pass",
+  "C-010": "pass",
+  "C-011": "fail",
+  "C-012": "pass",
+  "C-013": "pass",
+  "C-014": "pass",
+  "C-015": "pass",
+  "C-016": "fail",
+  "C-017": "pass",
+  "C-018": "fail",
+  "C-019": "fail",
+  "C-020": "fail",
+  "C-021": "pass",
+  "C-022": "pass",
+  "C-023": "fail",
+  "C-024": "fail",
+  "C-025": "pass",
+  "C-026": "pass",
+  "C-027": "pass",
+  "C-028": "pass",
+  "C-029": "pass",
+  "C-030": "pass",
+  "C-031": "pass",
+  "C-032": "pass",
+  "C-033": "pass",
+  "C-034": "pass",
+  "C-035": "pass",
+  "C-036": "pass",
+  "C-037": "pass",
+  "C-038": "pass",
+  "C-039": "pass",
+  "C-040": "pass",
+  "C-041": "fail",
+  "C-042": "fail",
+  "C-043": "fail",
+  "C-044": "pass",
+  "C-045": "pass",
+  "C-046": "pass",
+  "C-047": "pass",
+  "C-048": "pass",
+  "C-049": "pass",
+  "C-050": "pass",
+  "C-051": "pass",
+  "C-052": "fail",
+  "C-053": "fail",
+  "C-054": "fail",
+  "C-055": "fail",
+  "C-056": "pass",
+  "C-057": "pass",
+  "C-058": "pass",
+  "C-059": "pass",
+  "C-060": "pass",
+  "C-061": "pass",
+  "C-062": "pass",
+  "C-063": "pass",
+  "C-064": "pass",
+  "C-065": "fail",
+  "C-066": "pass",
+  "C-067": "pass",
+  "C-068": "pass",
+  "C-069": "pass",
+  "C-070": "pass",
+  "C-071": "fail",
+  "C-072": "pass",
+  "C-073": "pass",
+  "C-074": "pass",
+  "C-075": "fail",
+  "C-076": "fail",
+  "C-077": "pass",
+  "C-078": "pass",
+  "C-079": "pass",
+  "C-080": "pass",
+  "C-081": "pass",
+  "C-082": "pass",
+  "C-083": "fail",
+  "C-084": "pass",
+  "C-085": "pass",
+  "C-086": "pass",
+  "C-087": "pass",
+  "C-088": "pass",
+  "C-089": "pass",
+  "C-090": "pass"
+ }
+}

@@ -1,0 +1,1196 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>v1_cont_work — Mutator Run</title>
+<style>/* base design system — extracted from mutator_report/index.html, extended for the showcase */
+:root{
+    --bg:#0e1116; --panel:#161b22; --panel2:#1c232d; --ink:#e6edf3; --muted:#9aa7b4;
+    --line:#2a323d; --accent:#5aa9ff; --good:#3fb950; --bad:#f85149; --warn:#d29922;
+    --glm:#a371f7; --opus:#f0883e; --code:#0b0f14;
+    --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;font-size:15px}
+  a{color:var(--accent);text-decoration:none}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+  header.hero{padding:50px 0 28px;border-bottom:1px solid var(--line)}
+  .kicker{color:var(--accent);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+  h1{font-size:30px;line-height:1.18;margin:8px 0 12px;letter-spacing:-.01em}
+  h2{font-size:23px;margin:46px 0 6px;letter-spacing:-.01em}
+  h3{font-size:17px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:15.5px;max-width:800px}
+  .summary{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:18px 22px;margin:24px 0}
+  .summary p{margin:.5em 0}
+  .summary .head{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);font-weight:700;margin-bottom:4px}
+  nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 6px}
+  nav.toc a{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:13px;color:var(--muted)}
+  nav.toc a:hover{color:#fff;border-color:var(--accent)}
+  .muted{color:var(--muted)}
+  .legend{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin:14px 0 0;font-size:12.5px;color:var(--muted)}
+  .legend .pill{font-size:11px}
+  .grid{display:grid;gap:16px}
+  @media(min-width:760px){.cols-2{grid-template-columns:1fr 1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .pill{display:inline-block;font-size:11px;font-weight:600;padding:2px 9px;border-radius:999px;vertical-align:middle}
+  .pill.glm{background:rgba(163,113,247,.16);color:#c8a8ff;border:1px solid rgba(163,113,247,.4)}
+  .pill.opus{background:rgba(240,136,62,.16);color:#ffb27a;border:1px solid rgba(240,136,62,.4)}
+  .pill.up{background:rgba(63,185,80,.16);color:#6ee787;border:1px solid rgba(63,185,80,.4)}
+  .pill.bad{background:rgba(248,81,73,.16);color:#ff9a93;border:1px solid rgba(248,81,73,.4)}
+  .pill.null{background:rgba(210,153,34,.14);color:#e3b341;border:1px solid rgba(210,153,34,.4)}
+  .pill.dn{background:rgba(248,81,73,.10);color:#ff9a93;border:1px solid rgba(248,81,73,.3)}
+  .setup{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:16px 0}
+  .setup dl{display:grid;grid-template-columns:max-content 1fr;gap:7px 16px;margin:6px 0 0;font-size:13.5px}
+  .setup dt{color:#c8d3de;font-weight:600;font-family:var(--mono);font-size:12px;padding-top:1px}
+  .setup dd{margin:0;color:var(--muted)}
+  .setup dd b{color:var(--ink)}
+  .note{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:13px 18px;margin:16px 0;font-size:13.5px;color:var(--muted)}
+  .note b{color:var(--ink)}
+  .iter{border:1px solid var(--line);border-radius:12px;margin:16px 0;overflow:hidden}
+  .iter .head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;background:var(--panel2);flex-wrap:wrap}
+  .iter .head .t{font-weight:600;font-size:16px}
+  .iter .body{padding:16px 18px;display:grid;gap:14px}
+  @media(min-width:780px){.iter .body{grid-template-columns:1.18fr .82fr}}
+  .lbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  code,pre{font-family:var(--mono);font-size:12.5px}
+  pre{background:var(--code);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow:auto;color:#cdd9e5;margin:8px 0}
+  pre .c{color:#8b98a5}
+  details{background:var(--code);border:1px solid var(--line);border-radius:8px;margin:8px 0}
+  details summary{cursor:pointer;padding:9px 13px;color:var(--accent);font-size:13px;font-weight:600;user-select:none}
+  details[open] summary{border-bottom:1px solid var(--line)}
+  details .in{padding:4px 14px 12px}
+  .tree{font-family:var(--mono);font-size:12.5px;color:#cdd9e5;white-space:pre;line-height:1.5;overflow:auto}
+  .tree .d{color:var(--accent)} .tree .new{color:var(--good)} .tree .cmt{color:#8b98a5}
+  table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0}
+  th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+  th{background:var(--panel2);color:var(--muted);font-weight:600}
+  td.n{font-variant-numeric:tabular-nums;text-align:right}
+  /* delta chart */
+  .dc{margin:18px 0 6px;border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--panel)}
+  .dc-cap{font-size:13px;color:var(--muted);margin:0 0 12px}
+  .dc-cap b{color:var(--ink)}
+  .dc-ticks{position:relative;height:14px;margin:0 0 4px}
+  .dc-ticks span{position:absolute;transform:translateX(-50%);font-size:10px;color:var(--muted)}
+  .dc-row{margin:11px 0}
+  .dc-name{font-size:12.5px;color:var(--ink);margin-bottom:4px}
+  .dc-name .mut{color:var(--muted)}
+  .dc-track{position:relative;height:22px;background:#0b0f14;border-radius:5px;border:1px solid var(--line)}
+  .dc-band{position:absolute;top:0;bottom:0;background:rgba(210,153,34,.20);border-left:1px dashed rgba(210,153,34,.55);border-right:1px dashed rgba(210,153,34,.55)}
+  .dc-zero{position:absolute;top:-3px;bottom:-3px;width:2px;background:#6b7682}
+  .dc-bar{position:absolute;top:3px;bottom:3px;border-radius:3px}
+  .dc-val{position:absolute;top:3px;font-size:11px;font-weight:700;line-height:16px}
+  .dc-foot{font-size:11.5px;color:var(--muted);margin-top:12px;border-top:1px solid var(--line);padding-top:9px}
+  .obs{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}
+  .obs .num{font-size:22px;font-weight:700;color:var(--accent);min-width:28px;line-height:1.2}
+  .obs h3{margin:0 0 4px;font-size:16px}
+  .tl{position:relative;margin:14px 0 6px;padding-left:22px}
+  .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .tl .step{position:relative;margin:0 0 16px}
+  .tl .step::before{content:"";position:absolute;left:-19px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--bg)}
+  .tag{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  footer{color:var(--muted);font-size:13px;padding:34px 0 60px;border-top:1px solid var(--line);margin-top:40px}
+  .src{border-left:3px solid var(--line);padding:2px 0 2px 14px;color:var(--muted);margin:10px 0;font-size:13px}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 2px}
+  @media(max-width:560px){.flow{grid-template-columns:repeat(2,1fr)}}
+  .flow .b{background:var(--code);border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:12.5px;position:relative}
+  .flow .b::after{content:"→";position:absolute;right:-9px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:14px}
+  .flow .b:nth-child(4)::after{content:""}
+  @media(max-width:560px){.flow .b:nth-child(2)::after{content:""}}
+  .flow .b b{color:var(--ink);font-size:12.5px}
+  .flow .b span{color:var(--muted)}
+
+/* run.css — per-run page components (extends base.css) */
+.rhero{padding:34px 0 24px;border-bottom:1px solid var(--line)}
+.back{font-size:13px;color:var(--muted);display:inline-block;margin-bottom:14px}
+.back:hover{color:var(--accent)}
+.rhero h1{display:flex;align-items:center;gap:11px;flex-wrap:wrap;font-size:27px}
+.rheadline{color:#cdd9e5;font-size:14.5px;max-width:880px;line-height:1.55;margin:8px 0 0}
+.effort{font-family:var(--mono);font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
+.loading{padding:60px 0;color:var(--muted);text-align:center}
+section{margin:40px 0 10px}
+.diffspin,.fsv-empty,.drill-empty{color:var(--muted);font-size:13px;padding:14px;font-style:italic}
+.nodiff{color:var(--muted);font-size:13px;padding:11px 13px;background:var(--code);border:1px dashed var(--line);border-radius:8px}
+.warnchip{color:#ffb27a;font-size:11px;border:1px solid rgba(240,136,62,.4);border-radius:5px;padding:0 6px}
+
+/* ---- iteration timeline ---- */
+.itblock{border:1px solid var(--line);border-radius:12px;margin:14px 0;overflow:hidden;background:var(--panel)}
+.itblock.bare{opacity:.85}
+.itb-head{display:flex;align-items:center;gap:12px;padding:13px 16px;background:var(--panel2);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.itn{flex:0 0 28px;height:28px;border-radius:50%;background:var(--code);border:1px solid var(--line);color:var(--accent);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;font-family:var(--mono)}
+.itb-t{font-weight:600;font-size:15.5px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.itb-nums{margin-left:auto;display:inline-flex;gap:11px;align-items:center;flex-wrap:wrap}
+.inum{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}.inum b{color:var(--ink)}
+.itb-did{padding:12px 16px 4px;font-size:13.5px;color:#cdd9e5;line-height:1.55}
+.itb-did b{color:#fff}.itb-did code{background:var(--code);padding:0 4px;border-radius:4px;color:#cdd9e5}
+.itb-change{padding:4px 16px 12px;font-size:12px;color:var(--muted)}
+.itb-change .ck{font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-right:7px;color:var(--muted)}
+.itb-change code{color:#9db4cc}
+.chip{font-family:var(--mono);font-size:11px;border-radius:4px;padding:0 5px;margin:0 1px}
+.chip.add{color:#6ee787;background:rgba(63,185,80,.13)}.chip.del{color:#ff9a93;background:rgba(248,81,73,.13)}
+.itb-diffs{padding:0 16px 12px;display:grid;gap:7px}
+.diffbox{margin:0;background:var(--code)}
+.diffbox summary{display:flex;align-items:center;gap:10px;padding:8px 12px;font-family:var(--mono);font-size:12.5px;color:#cdd9e5}
+.diffbox summary .dfile{color:var(--accent)} .dstat{margin-left:auto}
+.diffbody{padding:0}
+.diff{font-family:var(--mono);font-size:12px;line-height:1.5;overflow-x:auto;max-height:520px;overflow-y:auto;border-top:1px solid var(--line)}
+.dl{white-space:pre;padding:0 10px}
+.dl .sgn{display:inline-block;width:14px;color:var(--muted);user-select:none}
+.dl.add{background:rgba(63,185,80,.10);color:#caf2d0}.dl.add .sgn{color:#3fb950}
+.dl.del{background:rgba(248,81,73,.10);color:#ffd2cf}.dl.del .sgn{color:#f85149}
+.dl.ctx{color:#8b98a5}
+.dl.hunk{color:#6b7682;background:#0b0f14;font-style:italic;padding:3px 10px}
+
+/* ---- tabs ---- */
+.tabbar{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 0}
+.tab{background:var(--panel2);border:1px solid var(--line);border-radius:8px 8px 0 0;padding:8px 14px;color:var(--muted);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+.tab.on{background:var(--panel);color:var(--ink);border-bottom-color:var(--panel)}
+.tab:hover{color:var(--ink)}
+.tcount{font-weight:400;font-size:11px;color:var(--muted);font-family:var(--mono)}
+
+/* ---- mutator trajectory ---- */
+.trajholder{border:1px solid var(--line);border-radius:0 10px 10px 10px;padding:16px;background:var(--panel)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:9px;margin-bottom:12px}
+.tile{background:var(--code);border:1px solid var(--line);border-radius:9px;padding:9px 11px;text-align:center}
+.tile .tv{font-size:17px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.15}
+.tile .tl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
+.tile.exp .tv{color:var(--accent)}.tile.gate .tv{color:#7ee787}.tile.ok .tv{color:#6ee787}
+.tile.warn .tv{color:#ffb27a}.tile.muted .tv{color:var(--muted)}
+.trajnote{font-size:12.5px;color:var(--muted);margin:0 0 12px;padding:9px 13px;background:var(--panel2);border:1px solid var(--line);border-radius:8px}
+.trajnote b{color:var(--ink)}
+.trajtl{max-height:640px;overflow-y:auto;padding-right:8px;border:1px solid var(--line);border-radius:9px;background:#0b0f14;padding:14px 14px 14px 18px}
+.trajtl::-webkit-scrollbar{width:10px}.trajtl::-webkit-scrollbar-thumb{background:var(--line);border-radius:5px}
+.tprompt{background:var(--code);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:10px 13px;margin:0 0 14px}
+.tp-h{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-bottom:5px}
+.tp-b{margin:0;font-size:12px;max-height:160px;overflow:auto;color:#9db4cc;border:0;background:transparent;padding:0}
+.tsteps{position:relative;padding-left:20px}
+.tsteps::before{content:"";position:absolute;left:5px;top:4px;bottom:4px;width:2px;background:var(--line)}
+.tstep{position:relative;margin:0 0 12px}
+.tstep::before{content:"";position:absolute;left:-19px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--line);box-shadow:0 0 0 3px var(--panel)}
+.t-text{font-size:13px;color:#cdd9e5;line-height:1.5;margin-bottom:6px;white-space:pre-wrap}
+.t-call{background:var(--code);border:1px solid var(--line);border-radius:8px;padding:8px 11px}
+.t-call.run_harvey_agent{border-left:3px solid var(--accent)}
+.t-call.dev_eval{border-left:3px solid var(--good)}
+.t-call.proxy_eval{border-left:3px solid var(--warn)}
+.t-call.wrote{border-left:3px solid var(--glm)}
+.t-call.task{border-left:3px solid var(--opus)}
+.t-tool{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);background:rgba(90,169,255,.12);border-radius:4px;padding:1px 6px;margin-right:6px}
+.t-tool.wrote{color:#c8a8ff;background:rgba(163,113,247,.14)}.t-tool.task{color:#ffb27a;background:rgba(240,136,62,.14)}
+.t-desc{font-size:12px;color:var(--muted)}
+.btag{font-family:var(--mono);font-size:10px;font-weight:700;border-radius:4px;padding:1px 6px;margin-right:6px;text-transform:uppercase;letter-spacing:.03em}
+.btag.run_harvey_agent{color:#9cc7ff;background:rgba(90,169,255,.16)}
+.btag.dev_eval{color:#7ee787;background:rgba(63,185,80,.16)}
+.btag.proxy_eval{color:#e3b341;background:rgba(210,153,34,.16)}
+.btag.budget,.btag.check_runaway,.btag.cost_rank{color:var(--muted);background:var(--panel2)}
+.t-cmd{margin:6px 0 0;font-size:11.5px;max-height:130px;overflow:auto}
+.t-res{margin:6px 0 0;background:#0b0f14}
+.t-res summary{font-size:11.5px;padding:5px 9px;color:var(--muted)}
+.t-res pre{margin:0;max-height:240px;font-size:11px}
+.t-res pre.del{background:rgba(248,81,73,.08)}.t-res pre.add{background:rgba(63,185,80,.08)}
+.lessons{margin:18px 0 0;border-top:1px solid var(--line);padding-top:14px}
+.lz-h{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--glm);margin-bottom:8px}
+.lz-h code{background:var(--code);padding:0 4px;border-radius:4px;color:#c8a8ff}
+.lesson{background:var(--code);border-left:3px solid var(--glm)}
+.lesson summary{color:#c8a8ff;font-family:var(--mono);font-size:12px}
+.lz-b{padding:4px 14px 12px;font-size:13px}
+.finalmsg{margin:14px 0 0;background:var(--code)}
+.finalmsg summary{color:var(--accent);font-size:12.5px}
+.fm-b{padding:6px 14px 12px;font-size:13px}
+
+/* ---- helps vs harms ---- */
+.hhsum{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:6px 0 14px;font-size:13px}
+.hh-c{padding:4px 11px;border-radius:8px;border:1px solid var(--line);color:var(--muted)}
+.hh-c b{font-size:15px;margin-right:4px}
+.hh-c.good{color:#7ee787;border-color:rgba(63,185,80,.4);background:rgba(63,185,80,.07)}
+.hh-c.bad{color:#ff9a93;border-color:rgba(248,81,73,.4);background:rgba(248,81,73,.07)}
+.hh-c.warn{color:#e3b341;border-color:rgba(210,153,34,.4);background:rgba(210,153,34,.07)}
+.hh-net{margin-left:auto;color:var(--muted)}.hh-net b{color:var(--ink)}
+.valpool{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:11px;background:var(--panel);padding:13px 16px;margin:0 0 16px}
+.vp-h{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:5px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.vp-h b{color:#fff}
+.vp-tag{font-size:10.5px;font-weight:600;color:var(--accent);border:1px solid rgba(90,169,255,.4);background:rgba(90,169,255,.1);border-radius:999px;padding:1px 8px;text-transform:none}
+.vp-note{font-size:12.5px;color:var(--muted);margin-bottom:11px;line-height:1.5}.vp-note b{color:#cdd9e5}
+.vp-bar{display:flex;align-items:center;gap:10px;margin:4px 0}
+.vp-bar.bare{opacity:.7}
+.vp-i{flex:0 0 92px;font-size:11px;color:var(--muted);font-family:var(--mono)}
+.vp-track{flex:1;height:15px;background:#0b0f14;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.vp-fill{height:100%;border-radius:0}
+.vp-v{flex:0 0 168px;font-size:11.5px;text-align:right;font-variant-numeric:tabular-nums;color:#cdd9e5}
+.vp-best{font-size:9.5px;font-weight:700;color:#6ee787;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.12);border-radius:999px;padding:0 6px;margin-left:5px;text-transform:uppercase;letter-spacing:.03em}
+.vp-of{font-size:9.5px;font-weight:700;color:#e3b341;border:1px solid rgba(210,153,34,.4);background:rgba(210,153,34,.12);border-radius:999px;padding:0 6px;margin-left:4px;text-transform:uppercase;letter-spacing:.03em}
+.hhchart{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--panel)}
+.hh-axis{position:relative;height:14px;margin-bottom:6px}
+.hh-axis span{position:absolute;transform:translateX(-50%);font-size:10px;color:var(--muted)}
+.hh-row{display:flex;align-items:center;gap:10px;margin:3px 0;border-radius:5px;padding:1px 2px}
+.hh-row:hover{background:var(--panel2)}
+.hh-name{flex:0 0 230px;font-size:11.5px;color:#cdd9e5;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hh-track{position:relative;flex:1;height:18px;background:#0b0f14;border-radius:4px;border:1px solid var(--line)}
+.hh-band{position:absolute;top:0;bottom:0;background:rgba(210,153,34,.16);border-left:1px dashed rgba(210,153,34,.5);border-right:1px dashed rgba(210,153,34,.5)}
+.hh-zero{position:absolute;top:-2px;bottom:-2px;width:2px;background:#6b7682}
+.hh-bar{position:absolute;top:2px;bottom:2px;border-radius:3px;opacity:.92}
+.hh-val{position:absolute;top:2px;font-size:10.5px;font-weight:700;line-height:14px;font-variant-numeric:tabular-nums}
+@media(max-width:680px){.hh-name{flex-basis:120px}}
+/* drill-down */
+.drill{margin:14px 0 0;border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:0}
+.drill-empty{padding:18px}
+.drill-h{padding:12px 16px;font-family:var(--mono);font-size:13px;color:var(--accent);background:var(--panel2);border-bottom:1px solid var(--line);border-radius:12px 12px 0 0}
+.drill-grid{display:grid;gap:16px;padding:14px 16px}
+@media(min-width:720px){.drill-grid{grid-template-columns:1fr 1fr}}
+.drill-trace .lbl,.drill-rolls .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:8px}
+.gt{display:flex;align-items:center;gap:9px;margin:5px 0}
+.gt-i{flex:0 0 84px;font-size:11px;color:var(--muted);font-family:var(--mono)}
+.gt-bar{flex:1;height:13px;background:#0b0f14;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.gt-fill{height:100%;background:linear-gradient(90deg,#2a6f3a,#3fb950)}
+.gt-v{flex:0 0 38px;font-size:11.5px;text-align:right;font-variant-numeric:tabular-nums;color:#cdd9e5}
+.splitabsent{font-size:11.5px;color:var(--muted);background:var(--code);border:1px dashed var(--line);border-radius:7px;padding:8px 11px;margin:0 0 10px;line-height:1.45}
+.splitabsent b{color:#cdd9e5}
+.splittab{margin:0 0 10px;font-size:11.5px}
+.splittab th{font-size:10.5px;padding:4px 7px}.splittab td{padding:4px 7px}
+.drill-verd{margin-top:6px}
+.verdbtn,.verdbtn:hover{background:var(--code);border:1px solid var(--accent);color:var(--accent);border-radius:7px;padding:7px 11px;font-size:12px;cursor:pointer;font-family:inherit}
+.verd-h{font-size:12.5px;margin:8px 0;color:var(--muted)}.verd-h b{color:var(--ink)}
+.verdlist{display:grid;gap:4px;max-height:360px;overflow:auto}
+.vrow{display:grid;grid-template-columns:max-content max-content 1fr;gap:8px;align-items:start;font-size:12px;padding:5px 8px;border-radius:6px;background:var(--code)}
+.vrow.ok{border-left:3px solid var(--good)}.vrow.no{border-left:3px solid var(--bad)}
+.vbadge{font-family:var(--mono);font-size:9.5px;font-weight:700;padding:1px 5px;border-radius:4px}
+.vrow.ok .vbadge{color:#6ee787;background:rgba(63,185,80,.16)}.vrow.no .vbadge{color:#ff9a93;background:rgba(248,81,73,.16)}
+.vid{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.vt{color:#cdd9e5}
+.vmatch{grid-column:1/-1;font-size:11px;color:var(--muted);margin-top:3px;line-height:1.45}
+.drill-rolls{padding:0 16px 14px}
+.rollbtn{background:var(--panel2);border:1px solid var(--line);color:var(--muted);border-radius:7px;padding:6px 11px;font-size:12px;cursor:pointer;margin:0 6px 6px 0;font-family:inherit}
+.rollbtn:hover{color:var(--ink);border-color:var(--accent)}
+.rollbtn.on{background:var(--accent);color:#04111f;border-color:var(--accent)}
+
+/* ---- cost ---- */
+.costgrid{display:grid;gap:14px}
+@media(min-width:760px){.costgrid{grid-template-columns:1fr 1fr}}
+.costcard{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:14px 16px}
+.cc-h{font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:4px;display:flex;justify-content:space-between;align-items:baseline}
+.cc-sub,.cc-h .cc-sub{font-size:10.5px;color:var(--warn);font-weight:400;text-transform:uppercase;letter-spacing:.04em}
+.clegend{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 10px}
+.cl{font-size:10.5px;color:var(--muted);display:inline-flex;align-items:center;gap:5px}
+.cl i{width:9px;height:9px;border-radius:2px;display:inline-block}
+.crow{display:flex;align-items:center;gap:9px;margin:5px 0}
+.ci{flex:0 0 78px;font-size:11px;color:var(--muted);font-family:var(--mono)}
+.cbar{flex:1;height:15px;background:#0b0f14;border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex}
+.cseg{height:100%}
+.cv{flex:0 0 132px;font-size:11px;text-align:right;font-variant-numeric:tabular-nums;color:#cdd9e5}
+.cexp{font-size:10px;color:var(--muted)}
+.cc-foot{font-size:11px;color:var(--muted);margin-top:10px;border-top:1px solid var(--line);padding-top:8px;line-height:1.45}
+.cc-foot b{color:#cdd9e5}
+
+/* ---- filesystem ---- */
+.fsholder{border:1px solid var(--line);border-radius:0 10px 10px 10px;background:var(--panel);min-height:120px}
+.fsgrid{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:760px){.fsgrid{grid-template-columns:300px 1fr}}
+.fstree{padding:12px;border-right:1px solid var(--line);max-height:560px;overflow:auto}
+.ftree{list-style:none;margin:0;padding:0}.ftree.nested{margin-left:13px;border-left:1px solid var(--line);padding-left:6px}
+.fdir{cursor:pointer;font-size:12.5px;color:#cdd9e5;padding:2px 4px;border-radius:5px;font-family:var(--mono)}
+.fdir:hover{background:var(--panel2)}.caret{display:inline-block;width:11px;color:var(--accent)}
+.fcount{font-size:10px;color:var(--muted)}
+.ffile{cursor:pointer;font-size:12px;color:var(--muted);padding:2px 4px 2px 16px;border-radius:5px;font-family:var(--mono);display:flex;justify-content:space-between;gap:8px}
+.ffile:hover{background:var(--panel2);color:var(--ink)}
+.ffile.on{background:rgba(90,169,255,.12);color:var(--accent)}
+.fsize{font-size:10px;color:var(--muted)}
+.fsview{padding:14px 16px;max-height:560px;overflow:auto}
+.fsv-h{font-family:var(--mono);font-size:12.5px;color:var(--accent);margin-bottom:8px;word-break:break-all}
+.fsv-meta{color:var(--muted);font-size:11px;margin-left:6px}
+.fsv-big{color:var(--muted);font-size:13px}
+.fsv-code{margin:0;font-size:11.5px;line-height:1.5}
+.fsv-md{font-size:13px;line-height:1.55}
+.fsv-md h3,.fsv-md h4,.fsv-md h5{margin:12px 0 4px;color:var(--ink)}
+.fsv-md code{background:var(--code);padding:0 4px;border-radius:4px;color:#cdd9e5;font-size:12px}
+.fsv-md pre{margin:8px 0}.fsv-md ul{margin:6px 0;padding-left:20px}.fsv-md p{margin:.5em 0;color:#cdd9e5}
+.fsv-md .mdtr{font-family:var(--mono);font-size:11.5px;color:#9db4cc;white-space:pre}
+
+/* ---- rollouts ---- */
+.rollctrl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}
+.rollsel{background:var(--code);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:8px 11px;font-size:13px;font-family:inherit;max-width:360px}
+.rolliters{display:inline-flex;flex-wrap:wrap}
+.rollview{margin-top:8px}
+.rollview.big{min-height:60px}
+.ro-head{margin-bottom:12px}
+.ro-task{font-family:var(--mono);font-size:13px;color:var(--accent);margin-bottom:9px;word-break:break-all}
+.ro-iter{color:var(--muted);font-size:11px;border:1px solid var(--line);border-radius:5px;padding:0 6px}
+.ro-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px}
+.ro-tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin-bottom:0}
+.rotab{background:transparent;border:0;border-bottom:2px solid transparent;color:var(--muted);font-size:13px;padding:8px 12px;cursor:pointer;font-family:inherit}
+.rotab.on{color:var(--ink);border-bottom-color:var(--accent)}
+.ro-pane{padding:12px 0}.ro-pane.hide{display:none}
+.ro-pane[data-pane="transcript"],.ro-pane[data-pane="deliverable"]{max-height:560px;overflow-y:auto;border:1px solid var(--line);border-radius:9px;padding:12px;background:#0b0f14}
+.deliv-src{font-size:11px;color:var(--muted);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.deliv-src code{color:#9db4cc;background:var(--code);padding:0 4px;border-radius:4px}
+.trans{display:grid;gap:8px}
+.tr{border-radius:8px;font-size:12.5px}
+.tr.sys,.tr.tool{background:var(--code);border:1px solid var(--line)}
+.tr.sys summary,.tr.tool summary{font-size:11.5px;color:var(--muted);padding:7px 11px;font-family:var(--mono)}
+.tr.user{background:var(--panel2);border:1px solid var(--line);padding:10px 12px}
+.tr.asst{background:var(--code);border:1px solid var(--line);border-left:3px solid var(--accent);padding:10px 12px}
+.tr-r{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:5px;display:flex;justify-content:space-between}
+.tr-tok{font-family:var(--mono);font-size:10px;text-transform:none}
+.tr-t{font-size:12.5px;color:#cdd9e5;line-height:1.5;white-space:pre-wrap;margin-bottom:6px}
+.ract{margin:6px 0 0;font-size:12px}
+.ract-n{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;border-radius:4px;padding:1px 6px;margin-right:7px}
+.ract.bash .ract-n{color:#9cc7ff;background:rgba(90,169,255,.14)}
+.ract.read .ract-n{color:var(--muted);background:var(--panel2)}
+.ract.write .ract-n{color:#c8a8ff;background:rgba(163,113,247,.16)}
+.ract.edit .ract-n{color:#ffb27a;background:rgba(240,136,62,.16)}
+.ract-f{font-family:var(--mono);font-size:11px;color:#cdd9e5}
+.tr-cmd{margin:5px 0 0;font-size:11px;color:#9cc7ff;max-height:200px;overflow:auto}
+.tr.user pre,.tr.sys pre,.tr.tool pre{margin:0;font-size:11px;max-height:300px;overflow:auto}
+.tr.tool pre{padding:0 11px 11px}
+
+/* ---- insight ---- */
+.insightsec{background:rgba(90,169,255,.05);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin:36px 0}
+.ins-h{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);font-weight:700;margin-bottom:8px}
+.insightsec ul{margin:0;padding-left:20px}.insightsec li{margin:8px 0;font-size:13.5px;color:#cdd9e5;line-height:1.55}
+.insightsec li b{color:#fff}
+</style></head><body>
+<header class="rhero"><div class="wrap">
+  <a class="back" href="../index.html">← all runs</a>
+  <div class="kicker">Mutator run · full artifacts</div>
+  <h1 id="hd-name"></h1>
+  <p class="rheadline" id="hd-headline"></p>
+  <div id="hd-setup"></div>
+  <nav class="toc" id="hd-nav"></nav>
+</div></header>
+<div class="wrap" id="app">
+  <div class="loading">Loading run data…</div>
+</div>
+<footer><div class="wrap">
+  Internal showcase · every number on this page traces to an artifact under
+  <code>raw/v1_cont_work/</code> · Harvey LAB (MIT). Heavy detail (filesystem bodies,
+  full trajectories, per-task rollouts) is loaded on demand.
+</div></footer>
+<script id="bootstrap" type="application/json">{"run":"v1_cont_work","index":{"run":"v1_cont_work","family":"v1","meta":{"name":"v1_cont_work"},"series":{"train":[{"iter":0,"combined_score":0.8283237336390493},{"iter":1,"combined_score":0.840096234228901}],"val":[{"iter":0,"combined_score":0.7839621077577651},{"iter":1,"combined_score":0.8232316446461082}]},"full_stats":{"iters":[{"iter":0,"train":0.8283237336390493,"val":0.7839621077577651},{"iter":1,"train":0.840096234228901,"val":0.8232316446461082}],"overfit_iters":[],"best_by_val":{"iter":1,"train":0.840096234228901,"val":0.8232316446461082},"best_by_train":{"iter":1,"train":0.840096234228901,"val":0.8232316446461082}},"iters":[{"n":1,"reward":{"status":"EDITED","reward":1,"exit_status":"error","error":null,"files_changed":["/workspace/harness/agent_loop.py","/workspace/harness/system_prompt.md"],"files_added":[],"files_emptied":[],"n_lessons":1},"diff_summary":[{"file":"harness/agent_loop.py","added":55,"removed":1},{"file":"harness/system_prompt.md","added":40,"removed":0}],"fs_summary":{"files":17,"dirs":9,"bytes":195879},"traj_stats":{"model":"glm-5p2","iterations":242,"cost":0.0,"wall_sec":3620.79,"exit_status":"error","success":false,"n_messages":243,"tool_dist":{"Bash":105,"Read":4,"Edit":4,"TaskOutput":3},"broker":{"run_harvey_agent":9,"dev_eval":0,"proxy_eval":2,"budget":7,"check_runaway":0,"cost_rank":0},"final_message":"Executed TaskOutput chatcmpl-tool-8355e6cdf769b00e"}},{"n":2,"reward":{"status":"EDITED","reward":1,"exit_status":"error","error":null,"files_changed":["/workspace/harness/agent_loop.py","/workspace/harness/system_prompt.md"],"files_added":[],"files_emptied":[],"n_lessons":1},"diff_summary":[{"file":"harness/agent_loop.py","added":43,"removed":38},{"file":"harness/system_prompt.md","added":44,"removed":8}],"fs_summary":{"files":30,"dirs":12,"bytes":544352},"traj_stats":{"model":"glm-5p2","iterations":195,"cost":0.0,"wall_sec":7221.58,"exit_status":"error","success":false,"n_messages":196,"tool_dist":{"Bash":52,"Read":13,"Edit":14,"TaskOutput":12,"Write":1},"broker":{"run_harvey_agent":7,"dev_eval":0,"proxy_eval":4,"budget":5,"check_runaway":5,"cost_rank":0},"final_message":"Executed TaskOutput chatcmpl-tool-920968a8bc5caa41"}}],"helps_harms":{"tasks":[{"task":"litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice","category":"litigation-dispute-resolution","bare":0.9183673469387755,"latest":0.8163265306122449,"delta_bare":-0.102,"delta_prev":-0.102,"grades":{"0":0.9183673469387755,"1":0.8163265306122449},"span":0.102,"roll":{"0":"iter0","1":"iter1"},"rolldir":"litigation-dispute-resolution_assess-reasonableness-of-staffing-levels-on-litigation-invoice"},{"task":"arbitration-international-dispute-resolution/identify-arbitration-agreement-issues","category":"arbitration-international-dispute-resolution","bare":0.9,"latest":0.825,"delta_bare":-0.075,"delta_prev":-0.075,"grades":{"0":0.9,"1":0.825},"span":0.075,"roll":{"0":"iter0","1":"iter1"},"rolldir":"arbitration-international-dispute-resolution_identify-arbitration-agreement-issues"},{"task":"corporate-ma/analyze-cim-deal-teaser/scenario-02","category":"corporate-ma","bare":0.926829268292683,"latest":0.8536585365853658,"delta_bare":-0.0732,"delta_prev":-0.0732,"grades":{"0":0.926829268292683,"1":0.8536585365853658},"span":0.0732,"roll":{"0":"iter0","1":"iter1"},"rolldir":"corporate-ma_analyze-cim-deal-teaser_scenario-02"},{"task":"trusts-estates-private-client/analyze-counterparty-markup-of-postnuptial-agreement","category":"trusts-estates-private-client","bare":0.9565217391304348,"latest":0.9130434782608695,"delta_bare":-0.0435,"delta_prev":-0.0435,"grades":{"0":0.9565217391304348,"1":0.9130434782608695},"span":0.0435,"roll":{"0":"iter0","1":"iter1"},"rolldir":"trusts-estates-private-client_analyze-counterparty-markup-of-postnuptial-agreement"},{"task":"tax/review-iss-tax-transaction-structure","category":"tax","bare":0.9285714285714286,"latest":0.8928571428571429,"delta_bare":-0.0357,"delta_prev":-0.0357,"grades":{"0":0.9285714285714286,"1":0.8928571428571429},"span":0.0357,"roll":{"0":"iter0","1":"iter1"},"rolldir":"tax_review-iss-tax-transaction-structure"},{"task":"intellectual-property/extract-key-terms-from-technology-licensing-term-sheet","category":"intellectual-property","bare":0.9682539682539683,"latest":0.9365079365079365,"delta_bare":-0.0317,"delta_prev":-0.0317,"grades":{"0":0.9682539682539683,"1":0.9365079365079365},"span":0.0317,"roll":{"0":"iter0","1":"iter1"},"rolldir":"intellectual-property_extract-key-terms-from-technology-licensing-term-sheet"},{"task":"capital-markets/draft-underwriting-agreement","category":"capital-markets","bare":0.8941176470588236,"latest":0.8705882352941177,"delta_bare":-0.0235,"delta_prev":-0.0235,"grades":{"0":0.8941176470588236,"1":0.8705882352941177},"span":0.0235,"roll":{"0":"iter0","1":"iter1"},"rolldir":"capital-markets_draft-underwriting-agreement"},{"task":"contracts/commercial-vendor-customer/saas-api-subscription-term-negotiation/scenario-01","category":"contracts","bare":0.94,"latest":0.92,"delta_bare":-0.02,"delta_prev":-0.02,"grades":{"0":0.94,"1":0.92},"span":0.02,"roll":{"0":"iter0","1":"iter1"},"rolldir":"contracts_commercial-vendor-customer_saas-api-subscription-term-negotiation_scenario-01"},{"task":"data-privacy-cybersecurity/audit-privacy-policy-compliance/scenario-01","category":"data-privacy-cybersecurity","bare":0.92,"latest":0.9,"delta_bare":-0.02,"delta_prev":-0.02,"grades":{"0":0.92,"1":0.9},"span":0.02,"roll":{"0":"iter0","1":"iter1"},"rolldir":"data-privacy-cybersecurity_audit-privacy-policy-compliance_scenario-01"},{"task":"litigation-dispute-resolution/draft-interrogatories","category":"litigation-dispute-resolution","bare":0.98,"latest":0.96,"delta_bare":-0.02,"delta_prev":-0.02,"grades":{"0":0.98,"1":0.96},"span":0.02,"roll":{"0":"iter0","1":"iter1"},"rolldir":"litigation-dispute-resolution_draft-interrogatories"},{"task":"employment-labor/draft-markup-of-settlement-agreement","category":"employment-labor","bare":0.6538461538461539,"latest":0.6346153846153846,"delta_bare":-0.0192,"delta_prev":-0.0192,"grades":{"0":0.6538461538461539,"1":0.6346153846153846},"span":0.0192,"roll":{"0":"iter0","1":"iter1"},"rolldir":"employment-labor_draft-markup-of-settlement-agreement"},{"task":"funds-asset-management/draft-fund-closing-certificate","category":"funds-asset-management","bare":0.8947368421052632,"latest":0.8771929824561403,"delta_bare":-0.0175,"delta_prev":-0.0175,"grades":{"0":0.8947368421052632,"1":0.8771929824561403},"span":0.0175,"roll":{"0":"iter0","1":"iter1"},"rolldir":"funds-asset-management_draft-fund-closing-certificate"},{"task":"contracts/banking/intercreditor-agreement-term-negotiation","category":"contracts","bare":0.8269230769230769,"latest":0.8269230769230769,"delta_bare":0.0,"delta_prev":0.0,"grades":{"0":0.8269230769230769,"1":0.8269230769230769},"span":0.0,"roll":{"0":"iter0","1":"iter1"},"rolldir":"contracts_banking_intercreditor-agreement-term-negotiation"},{"task":"corporate-ma/review-governance-diligence/scenario-01","category":"corporate-ma","bare":0.8703703703703703,"latest":0.8703703703703703,"delta_bare":0.0,"delta_prev":0.0,"grades":{"0":0.8703703703703703,"1":0.8703703703703703},"span":0.0,"roll":{"0":"iter0","1":"iter1"},"rolldir":"corporate-ma_review-governance-diligence_scenario-01"},{"task":"healthcare-life-sciences/identify-issues-in-fda-pre","category":"healthcare-life-sciences","bare":0.8936170212765957,"latest":0.8936170212765957,"delta_bare":0.0,"delta_prev":0.0,"grades":{"0":0.8936170212765957,"1":0.8936170212765957},"span":0.0,"roll":{"0":"iter0","1":"iter1"},"rolldir":"healthcare-life-sciences_identify-issues-in-fda-pre"},{"task":"immigration/compare-immigration","category":"immigration","bare":0.7674418604651163,"latest":0.7674418604651163,"delta_bare":0.0,"delta_prev":0.0,"grades":{"0":0.7674418604651163,"1":0.7674418604651163},"span":0.0,"roll":{"0":"iter0","1":"iter1"},"rolldir":"immigration_compare-immigration"},{"task":"intellectual-property/rnw-ip-license-renewal","category":"intellectual-property","bare":0.8676470588235294,"latest":0.8676470588235294,"delta_bare":0.0,"delta_prev":0.0,"grades":{"0":0.8676470588235294,"1":0.8676470588235294},"span":0.0,"roll":{"0":"iter0","1":"iter1"},"rolldir":"intellectual-property_rnw-ip-license-renewal"},{"task":"real-estate/draft-settlement-statement","category":"real-estate","bare":0.8225806451612904,"latest":0.8225806451612904,"delta_bare":0.0,"delta_prev":0.0,"grades":{"0":0.8225806451612904,"1":0.8225806451612904},"span":0.0,"roll":{"0":"iter0","1":"iter1"},"rolldir":"real-estate_draft-settlement-statement"},{"task":"trusts-estates-private-client/extract-key-exhibits-from-document-production","category":"trusts-estates-private-client","bare":0.8,"latest":0.8166666666666667,"delta_bare":0.0167,"delta_prev":0.0167,"grades":{"0":0.8,"1":0.8166666666666667},"span":0.0167,"roll":{"0":"iter0","1":"iter1"},"rolldir":"trusts-estates-private-client_extract-key-exhibits-from-document-production"},{"task":"corporate-governance/assess-impact-of-sec-cybersecurity-disclosure-rule-on-incident-response-procedures","category":"corporate-governance","bare":0.7555555555555555,"latest":0.7777777777777778,"delta_bare":0.0222,"delta_prev":0.0222,"grades":{"0":0.7555555555555555,"1":0.7777777777777778},"span":0.0222,"roll":{"0":"iter0","1":"iter1"},"rolldir":"corporate-governance_assess-impact-of-sec-cybersecurity-disclosure-rule-on-incident-response-procedures"},{"task":"immigration/identify-h1b-qualification-issues","category":"immigration","bare":0.7692307692307693,"latest":0.7948717948717948,"delta_bare":0.0256,"delta_prev":0.0256,"grades":{"0":0.7692307692307693,"1":0.7948717948717948},"span":0.0256,"roll":{"0":"iter0","1":"iter1"},"rolldir":"immigration_identify-h1b-qualification-issues"},{"task":"contracts/corporate-ma/joint-venture-agreement-term-negotiation/scenario-02","category":"contracts","bare":0.7678571428571429,"latest":0.8035714285714286,"delta_bare":0.0357,"delta_prev":0.0357,"grades":{"0":0.7678571428571429,"1":0.8035714285714286},"span":0.0357,"roll":{"0":"iter0","1":"iter1"},"rolldir":"contracts_corporate-ma_joint-venture-agreement-term-negotiation_scenario-02"},{"task":"environmental-esg/identify-issues-in-phase-one-environmental-site-assessment","category":"environmental-esg","bare":0.09433962264150944,"latest":0.1509433962264151,"delta_bare":0.0566,"delta_prev":0.0566,"grades":{"0":0.09433962264150944,"1":0.1509433962264151},"span":0.0566,"roll":{"0":"iter0","1":"iter1"},"rolldir":"environmental-esg_identify-issues-in-phase-one-environmental-site-assessment"},{"task":"litigation-dispute-resolution/draft-motion-to-dismiss-brief","category":"litigation-dispute-resolution","bare":0.8651685393258427,"latest":0.9325842696629213,"delta_bare":0.0674,"delta_prev":0.0674,"grades":{"0":0.8651685393258427,"1":0.9325842696629213},"span":0.0674,"roll":{"0":"iter0","1":"iter1"},"rolldir":"litigation-dispute-resolution_draft-motion-to-dismiss-brief"},{"task":"international-trade-sanctions/draft-ofac-specific-license-application","category":"international-trade-sanctions","bare":0.890625,"latest":0.96875,"delta_bare":0.0781,"delta_prev":0.0781,"grades":{"0":0.890625,"1":0.96875},"span":0.0781,"roll":{"0":"iter0","1":"iter1"},"rolldir":"international-trade-sanctions_draft-ofac-specific-license-application"},{"task":"arbitration-international-dispute-resolution/identify-issues-in-arbitrator-disclosure-statement","category":"arbitration-international-dispute-resolution","bare":0.9210526315789473,"latest":1.0,"delta_bare":0.0789,"delta_prev":0.0789,"grades":{"0":0.9210526315789473,"1":1.0},"span":0.0789,"roll":{"0":"iter0","1":"iter1"},"rolldir":"arbitration-international-dispute-resolution_identify-issues-in-arbitrator-disclosure-statement"},{"task":"capital-markets/draft-registration-statement-on-form-s","category":"capital-markets","bare":0.7777777777777778,"latest":0.8666666666666667,"delta_bare":0.0889,"delta_prev":0.0889,"grades":{"0":0.7777777777777778,"1":0.8666666666666667},"span":0.0889,"roll":{"0":"iter0","1":"iter1"},"rolldir":"capital-markets_draft-registration-statement-on-form-s"},{"task":"real-estate/draft-development-agreement","category":"real-estate","bare":0.8076923076923077,"latest":0.9230769230769231,"delta_bare":0.1154,"delta_prev":0.1154,"grades":{"0":0.8076923076923077,"1":0.9230769230769231},"span":0.1154,"roll":{"0":"iter0","1":"iter1"},"rolldir":"real-estate_draft-development-agreement"},{"task":"corporate-governance/compare-state-paid-leave-requirements-across-seven-jurisdictions","category":"corporate-governance","bare":0.75,"latest":0.8666666666666667,"delta_bare":0.1167,"delta_prev":0.1167,"grades":{"0":0.75,"1":0.8666666666666667},"span":0.1167,"roll":{"0":"iter0","1":"iter1"},"rolldir":"corporate-governance_compare-state-paid-leave-requirements-across-seven-jurisdictions"},{"task":"corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application","category":"corporate-governance","bare":0.7205882352941176,"latest":0.8529411764705882,"delta_bare":0.1324,"delta_prev":0.1324,"grades":{"0":0.7205882352941176,"1":0.8529411764705882},"span":0.1324,"roll":{"0":"iter0","1":"iter1"},"rolldir":"corporate-governance_extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application"}],"baseline_iter":0,"latest_iter":1,"iters":[0,1],"train_mean_by_iter":{"0":0.8283,"1":0.8401},"splits":{"train":{"0":{"combined":0.8283237336390493,"n_tasks":30,"tasks":{"environmental-esg/identify-issues-in-phase-one-environmental-site-assessment":{"pass_rate":0.09433962264150944,"n":53},"immigration/identify-h1b-qualification-issues":{"pass_rate":0.7692307692307693,"n":39},"immigration/compare-immigration":{"pass_rate":0.7674418604651163,"n":43},"trusts-estates-private-client/extract-key-exhibits-from-document-production":{"pass_rate":0.8,"n":60},"contracts/corporate-ma/joint-venture-agreement-term-negotiation/scenario-02":{"pass_rate":0.7678571428571429,"n":56},"capital-markets/draft-registration-statement-on-form-s":{"pass_rate":0.7777777777777778,"n":90},"real-estate/draft-settlement-statement":{"pass_rate":0.8225806451612904,"n":62},"employment-labor/draft-markup-of-settlement-agreement":{"pass_rate":0.6538461538461539,"n":52},"corporate-governance/assess-impact-of-sec-cybersecurity-disclosure-rule-on-incident-response-procedures":{"pass_rate":0.7555555555555555,"n":45},"corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application":{"pass_rate":0.7205882352941176,"n":68},"contracts/banking/intercreditor-agreement-term-negotiation":{"pass_rate":0.8269230769230769,"n":52},"arbitration-international-dispute-resolution/identify-issues-in-arbitrator-disclosure-statement":{"pass_rate":0.9210526315789473,"n":38},"capital-markets/draft-underwriting-agreement":{"pass_rate":0.8941176470588236,"n":85},"contracts/commercial-vendor-customer/saas-api-subscription-term-negotiation/scenario-01":{"pass_rate":0.94,"n":50},"arbitration-international-dispute-resolution/identify-arbitration-agreement-issues":{"pass_rate":0.9,"n":40},"litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice":{"pass_rate":0.9183673469387755,"n":49},"corporate-ma/review-governance-diligence/scenario-01":{"pass_rate":0.8703703703703703,"n":54},"corporate-ma/analyze-cim-deal-teaser/scenario-02":{"pass_rate":0.926829268292683,"n":41},"healthcare-life-sciences/identify-issues-in-fda-pre":{"pass_rate":0.8936170212765957,"n":47},"data-privacy-cybersecurity/audit-privacy-policy-compliance/scenario-01":{"pass_rate":0.92,"n":50},"corporate-governance/compare-state-paid-leave-requirements-across-seven-jurisdictions":{"pass_rate":0.75,"n":60},"funds-asset-management/draft-fund-closing-certificate":{"pass_rate":0.8947368421052632,"n":57},"intellectual-property/rnw-ip-license-renewal":{"pass_rate":0.8676470588235294,"n":68},"litigation-dispute-resolution/draft-interrogatories":{"pass_rate":0.98,"n":50},"international-trade-sanctions/draft-ofac-specific-license-application":{"pass_rate":0.890625,"n":64},"intellectual-property/extract-key-terms-from-technology-licensing-term-sheet":{"pass_rate":0.9682539682539683,"n":63},"real-estate/draft-development-agreement":{"pass_rate":0.8076923076923077,"n":104},"litigation-dispute-resolution/draft-motion-to-dismiss-brief":{"pass_rate":0.8651685393258427,"n":89},"trusts-estates-private-client/analyze-counterparty-markup-of-postnuptial-agreement":{"pass_rate":0.9565217391304348,"n":46},"tax/review-iss-tax-transaction-structure":{"pass_rate":0.9285714285714286,"n":28}}},"1":{"combined":0.840096234228901,"n_tasks":30,"tasks":{"immigration/identify-h1b-qualification-issues":{"pass_rate":0.7948717948717948,"n":39},"immigration/compare-immigration":{"pass_rate":0.7674418604651163,"n":43},"contracts/corporate-ma/joint-venture-agreement-term-negotiation/scenario-02":{"pass_rate":0.8035714285714286,"n":56},"real-estate/draft-settlement-statement":{"pass_rate":0.8225806451612904,"n":62},"environmental-esg/identify-issues-in-phase-one-environmental-site-assessment":{"pass_rate":0.1509433962264151,"n":53},"trusts-estates-private-client/extract-key-exhibits-from-document-production":{"pass_rate":0.8166666666666667,"n":60},"employment-labor/draft-markup-of-settlement-agreement":{"pass_rate":0.6346153846153846,"n":52},"capital-markets/draft-registration-statement-on-form-s":{"pass_rate":0.8666666666666667,"n":90},"corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application":{"pass_rate":0.8529411764705882,"n":68},"arbitration-international-dispute-resolution/identify-arbitration-agreement-issues":{"pass_rate":0.825,"n":40},"corporate-governance/assess-impact-of-sec-cybersecurity-disclosure-rule-on-incident-response-procedures":{"pass_rate":0.7777777777777778,"n":45},"arbitration-international-dispute-resolution/identify-issues-in-arbitrator-disclosure-statement":{"pass_rate":1.0,"n":38},"contracts/banking/intercreditor-agreement-term-negotiation":{"pass_rate":0.8269230769230769,"n":52},"capital-markets/draft-underwriting-agreement":{"pass_rate":0.8705882352941177,"n":85},"litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice":{"pass_rate":0.8163265306122449,"n":49},"contracts/commercial-vendor-customer/saas-api-subscription-term-negotiation/scenario-01":{"pass_rate":0.92,"n":50},"data-privacy-cybersecurity/audit-privacy-policy-compliance/scenario-01":{"pass_rate":0.9,"n":50},"corporate-ma/analyze-cim-deal-teaser/scenario-02":{"pass_rate":0.8536585365853658,"n":41},"funds-asset-management/draft-fund-closing-certificate":{"pass_rate":0.8771929824561403,"n":57},"corporate-ma/review-governance-diligence/scenario-01":{"pass_rate":0.8703703703703703,"n":54},"corporate-governance/compare-state-paid-leave-requirements-across-seven-jurisdictions":{"pass_rate":0.8666666666666667,"n":60},"intellectual-property/extract-key-terms-from-technology-licensing-term-sheet":{"pass_rate":0.9365079365079365,"n":63},"healthcare-life-sciences/identify-issues-in-fda-pre":{"pass_rate":0.8936170212765957,"n":47},"international-trade-sanctions/draft-ofac-specific-license-application":{"pass_rate":0.96875,"n":64},"intellectual-property/rnw-ip-license-renewal":{"pass_rate":0.8676470588235294,"n":68},"litigation-dispute-resolution/draft-interrogatories":{"pass_rate":0.96,"n":50},"real-estate/draft-development-agreement":{"pass_rate":0.9230769230769231,"n":104},"litigation-dispute-resolution/draft-motion-to-dismiss-brief":{"pass_rate":0.9325842696629213,"n":89},"trusts-estates-private-client/analyze-counterparty-markup-of-postnuptial-agreement":{"pass_rate":0.9130434782608695,"n":46},"tax/review-iss-tax-transaction-structure":{"pass_rate":0.8928571428571429,"n":28}}}},"val":{"0":{"combined":0.7839621077577651,"n_tasks":30,"tasks":{"banking-finance/identify-issues-in-borrower-financial-statements":{"pass_rate":0.7096774193548387,"n":31},"antitrust-competition/draft-market-definition-analysis-memorandum":{"pass_rate":0.3090909090909091,"n":55},"corporate-ma/draft-distribution-waterfall-memorandum":{"pass_rate":0.7115384615384616,"n":52},"structured-finance-securitization/identify-issues-in-sale-and-contribution-agreement":{"pass_rate":0.47368421052631576,"n":38},"structured-finance-securitization/draft-security-agreement":{"pass_rate":0.8148148148148148,"n":81},"tax/identify-tax-issues-in-irs-closing-agreement":{"pass_rate":0.48484848484848486,"n":33},"intellectual-property/extract-filing-dates-from-patent-schedule":{"pass_rate":0.7380952380952381,"n":42},"litigation-dispute-resolution/categorize-document-production-set-by-relevance-and-privilege":{"pass_rate":0.8507462686567164,"n":67},"corporate-governance/draft-response-to-government-information-request":{"pass_rate":0.7714285714285715,"n":35},"corporate-governance/identify-issues-in-entity-compliance-checklist":{"pass_rate":0.9090909090909091,"n":33},"intellectual-property/extract-open-source-license-obligations-from-targets-disclosure-schedule":{"pass_rate":0.8363636363636363,"n":55},"capital-markets/review-form-10":{"pass_rate":0.7894736842105263,"n":38},"trusts-estates-private-client/draft-markup-of-counterparty-prenuptial-agreement":{"pass_rate":0.5416666666666666,"n":48},"structured-finance-securitization/compare-closing-checklist-against-transaction-documents":{"pass_rate":0.875,"n":40},"intellectual-property/analyze-restrictive-covenant-enforceability-across-multiple-jurisdictions":{"pass_rate":0.8813559322033898,"n":59},"contracts/commercial-vendor-customer/vendor-services-agreement-first-turn-redline/scenario-01":{"pass_rate":0.7592592592592593,"n":54},"capital-markets/draft-current-report-on-form-8":{"pass_rate":0.8701298701298701,"n":77},"contracts/employment-compensation/equity-incentive-plan-first-draft":{"pass_rate":0.8387096774193549,"n":93},"intellectual-property/review-patent-complaint":{"pass_rate":0.7647058823529411,"n":34},"litigation-dispute-resolution/extract-privileged-communications-from-production-set":{"pass_rate":0.8181818181818182,"n":66},"contracts/ip-licensing/license-agreement-subsequent-turn-redline/scenario-03":{"pass_rate":0.94,"n":50},"litigation-dispute-resolution/extract-scope-terms-from-matter-plan":{"pass_rate":0.7631578947368421,"n":76},"corporate-ma/assess-litigation-and-regulatory-risk-from-targets-pending-matters":{"pass_rate":0.9183673469387755,"n":49},"corporate-ma/review-governance-diligence/scenario-02":{"pass_rate":0.8135593220338984,"n":59},"corporate-ma/analyze-term-sheet-markup/scenario-01":{"pass_rate":0.84375,"n":64},"contracts/banking/credit-support-annex-term-negotiation":{"pass_rate":0.875,"n":48},"contracts/banking/repo-securities-lending-subsequent-turn-redline/scenario-02":{"pass_rate":0.9629629629629629,"n":54},"intellectual-property/extract-license-grant-terms-from-executed-technology-agreements":{"pass_rate":0.8811881188118812,"n":101},"contracts/pe-funds/fund-side-letter-subsequent-turn-redline":{"pass_rate":0.873015873015873,"n":63},"emerging-companies-venture-capital/draft-convertible-note-purchase-agreement":{"pass_rate":0.9,"n":70}}},"1":{"combined":0.8232316446461082,"n_tasks":30,"tasks":{"structured-finance-securitization/draft-security-agreement":{"pass_rate":0.8395061728395061,"n":81},"antitrust-competition/draft-market-definition-analysis-memorandum":{"pass_rate":0.32727272727272727,"n":55},"banking-finance/identify-issues-in-borrower-financial-statements":{"pass_rate":0.7096774193548387,"n":31},"structured-finance-securitization/identify-issues-in-sale-and-contribution-agreement":{"pass_rate":0.5,"n":38},"tax/identify-tax-issues-in-irs-closing-agreement":{"pass_rate":0.6060606060606061,"n":33},"corporate-ma/draft-distribution-waterfall-memorandum":{"pass_rate":0.75,"n":52},"trusts-estates-private-client/draft-markup-of-counterparty-prenuptial-agreement":{"pass_rate":0.9583333333333334,"n":48},"corporate-governance/identify-issues-in-entity-compliance-checklist":{"pass_rate":0.8181818181818182,"n":33},"litigation-dispute-resolution/categorize-document-production-set-by-relevance-and-privilege":{"pass_rate":0.7014925373134329,"n":67},"corporate-governance/draft-response-to-government-information-request":{"pass_rate":0.8857142857142857,"n":35},"contracts/commercial-vendor-customer/vendor-services-agreement-first-turn-redline/scenario-01":{"pass_rate":0.7962962962962963,"n":54},"intellectual-property/extract-filing-dates-from-patent-schedule":{"pass_rate":0.7619047619047619,"n":42},"intellectual-property/analyze-restrictive-covenant-enforceability-across-multiple-jurisdictions":{"pass_rate":0.7288135593220338,"n":59},"intellectual-property/extract-open-source-license-obligations-from-targets-disclosure-schedule":{"pass_rate":0.8727272727272727,"n":55},"capital-markets/review-form-10":{"pass_rate":0.7894736842105263,"n":38},"structured-finance-securitization/compare-closing-checklist-against-transaction-documents":{"pass_rate":0.95,"n":40},"litigation-dispute-resolution/extract-privileged-communications-from-production-set":{"pass_rate":0.803030303030303,"n":66},"capital-markets/draft-current-report-on-form-8":{"pass_rate":0.9090909090909091,"n":77},"contracts/ip-licensing/license-agreement-subsequent-turn-redline/scenario-03":{"pass_rate":0.96,"n":50},"contracts/banking/repo-securities-lending-subsequent-turn-redline/scenario-02":{"pass_rate":0.9629629629629629,"n":54},"intellectual-property/review-patent-complaint":{"pass_rate":0.8529411764705882,"n":34},"intellectual-property/extract-license-grant-terms-from-executed-technology-agreements":{"pass_rate":0.8910891089108911,"n":101},"litigation-dispute-resolution/extract-scope-terms-from-matter-plan":{"pass_rate":0.9473684210526315,"n":76},"corporate-ma/review-governance-diligence/scenario-02":{"pass_rate":0.8813559322033898,"n":59},"corporate-ma/assess-litigation-and-regulatory-risk-from-targets-pending-matters":{"pass_rate":0.8775510204081632,"n":49},"corporate-ma/analyze-term-sheet-markup/scenario-01":{"pass_rate":0.953125,"n":64},"contracts/banking/credit-support-annex-term-negotiation":{"pass_rate":0.8333333333333334,"n":48},"contracts/pe-funds/fund-side-letter-subsequent-turn-redline":{"pass_rate":0.9047619047619048,"n":63},"contracts/employment-compensation/equity-incentive-plan-first-draft":{"pass_rate":0.967741935483871,"n":93},"emerging-companies-venture-capital/draft-convertible-note-purchase-agreement":{"pass_rate":0.9571428571428572,"n":70}}}},"canary":{"2":{"combined":0.11320754716981132,"n_tasks":1,"tasks":{"environmental-esg/identify-issues-in-phase-one-environmental-site-assessment":{"pass_rate":0.11320754716981132,"n":53}}}}}},"cost":{"per_iter":[{"iter":2,"cap":40.0,"spent":17.239999999999995,"by_source":{"run_harvey_agent":17.0,"proxy_eval":0.24},"n_experiments":17,"n_dev":0}],"cost_bare":null,"roll_tokens":{"1":{"mean_input":5030026.933333334,"mean_turns":45.5,"n":30},"0":{"mean_input":1886688.5,"mean_turns":21.9,"n":30}},"bare_per_task":{}},"rollouts":{"index":{"arbitration-international-dispute-resolution/identify-arbitration-agreement-issues":{"0":"arbitration-international-dispute-resolution_identify-arbitration-agreement-issues__iter0","1":"arbitration-international-dispute-resolution_identify-arbitration-agreement-issues__iter1"},"arbitration-international-dispute-resolution/identify-issues-in-arbitrator-disclosure-statement":{"0":"arbitration-international-dispute-resolution_identify-issues-in-arbitrator-disclosure-statement__iter0","1":"arbitration-international-dispute-resolution_identify-issues-in-arbitrator-disclosure-statement__iter1"},"capital-markets/draft-registration-statement-on-form-s":{"0":"capital-markets_draft-registration-statement-on-form-s__iter0","1":"capital-markets_draft-registration-statement-on-form-s__iter1"},"capital-markets/draft-underwriting-agreement":{"0":"capital-markets_draft-underwriting-agreement__iter0","1":"capital-markets_draft-underwriting-agreement__iter1"},"contracts/banking/intercreditor-agreement-term-negotiation":{"0":"contracts_banking_intercreditor-agreement-term-negotiation__iter0","1":"contracts_banking_intercreditor-agreement-term-negotiation__iter1"},"contracts/commercial-vendor-customer/saas-api-subscription-term-negotiation/scenario-01":{"0":"contracts_commercial-vendor-customer_saas-api-subscription-term-negotiation_scenario-01__iter0","1":"contracts_commercial-vendor-customer_saas-api-subscription-term-negotiation_scenario-01__iter1"},"contracts/corporate-ma/joint-venture-agreement-term-negotiation/scenario-02":{"0":"contracts_corporate-ma_joint-venture-agreement-term-negotiation_scenario-02__iter0","1":"contracts_corporate-ma_joint-venture-agreement-term-negotiation_scenario-02__iter1"},"corporate-governance/assess-impact-of-sec-cybersecurity-disclosure-rule-on-incident-response-procedures":{"0":"corporate-governance_assess-impact-of-sec-cybersecurity-disclosure-rule-on-incident-response-procedures__iter0","1":"corporate-governance_assess-impact-of-sec-cybersecurity-disclosure-rule-on-incident-response-procedures__iter1"},"corporate-governance/compare-state-paid-leave-requirements-across-seven-jurisdictions":{"0":"corporate-governance_compare-state-paid-leave-requirements-across-seven-jurisdictions__iter0","1":"corporate-governance_compare-state-paid-leave-requirements-across-seven-jurisdictions__iter1"},"corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application":{"0":"corporate-governance_extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application__iter0","1":"corporate-governance_extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application__iter1"},"corporate-ma/analyze-cim-deal-teaser/scenario-02":{"0":"corporate-ma_analyze-cim-deal-teaser_scenario-02__iter0","1":"corporate-ma_analyze-cim-deal-teaser_scenario-02__iter1"},"corporate-ma/review-governance-diligence/scenario-01":{"0":"corporate-ma_review-governance-diligence_scenario-01__iter0","1":"corporate-ma_review-governance-diligence_scenario-01__iter1"},"data-privacy-cybersecurity/audit-privacy-policy-compliance/scenario-01":{"0":"data-privacy-cybersecurity_audit-privacy-policy-compliance_scenario-01__iter0","1":"data-privacy-cybersecurity_audit-privacy-policy-compliance_scenario-01__iter1"},"employment-labor/draft-markup-of-settlement-agreement":{"0":"employment-labor_draft-markup-of-settlement-agreement__iter0","1":"employment-labor_draft-markup-of-settlement-agreement__iter1"},"environmental-esg/identify-issues-in-phase-one-environmental-site-assessment":{"0":"environmental-esg_identify-issues-in-phase-one-environmental-site-assessment__iter0","1":"environmental-esg_identify-issues-in-phase-one-environmental-site-assessment__iter1"},"funds-asset-management/draft-fund-closing-certificate":{"0":"funds-asset-management_draft-fund-closing-certificate__iter0","1":"funds-asset-management_draft-fund-closing-certificate__iter1"},"healthcare-life-sciences/identify-issues-in-fda-pre":{"0":"healthcare-life-sciences_identify-issues-in-fda-pre__iter0","1":"healthcare-life-sciences_identify-issues-in-fda-pre__iter1"},"immigration/compare-immigration":{"0":"immigration_compare-immigration__iter0","1":"immigration_compare-immigration__iter1"},"immigration/identify-h1b-qualification-issues":{"0":"immigration_identify-h1b-qualification-issues__iter0","1":"immigration_identify-h1b-qualification-issues__iter1"},"intellectual-property/extract-key-terms-from-technology-licensing-term-sheet":{"0":"intellectual-property_extract-key-terms-from-technology-licensing-term-sheet__iter0","1":"intellectual-property_extract-key-terms-from-technology-licensing-term-sheet__iter1"},"intellectual-property/rnw-ip-license-renewal":{"0":"intellectual-property_rnw-ip-license-renewal__iter0","1":"intellectual-property_rnw-ip-license-renewal__iter1"},"international-trade-sanctions/draft-ofac-specific-license-application":{"0":"international-trade-sanctions_draft-ofac-specific-license-application__iter0","1":"international-trade-sanctions_draft-ofac-specific-license-application__iter1"},"litigation-dispute-resolution/assess-reasonableness-of-staffing-levels-on-litigation-invoice":{"0":"litigation-dispute-resolution_assess-reasonableness-of-staffing-levels-on-litigation-invoice__iter0","1":"litigation-dispute-resolution_assess-reasonableness-of-staffing-levels-on-litigation-invoice__iter1"},"litigation-dispute-resolution/draft-interrogatories":{"0":"litigation-dispute-resolution_draft-interrogatories__iter0","1":"litigation-dispute-resolution_draft-interrogatories__iter1"},"litigation-dispute-resolution/draft-motion-to-dismiss-brief":{"0":"litigation-dispute-resolution_draft-motion-to-dismiss-brief__iter0","1":"litigation-dispute-resolution_draft-motion-to-dismiss-brief__iter1"},"real-estate/draft-development-agreement":{"0":"real-estate_draft-development-agreement__iter0","1":"real-estate_draft-development-agreement__iter1"},"real-estate/draft-settlement-statement":{"0":"real-estate_draft-settlement-statement__iter0","1":"real-estate_draft-settlement-statement__iter1"},"tax/review-iss-tax-transaction-structure":{"0":"tax_review-iss-tax-transaction-structure__iter0","1":"tax_review-iss-tax-transaction-structure__iter1"},"trusts-estates-private-client/analyze-counterparty-markup-of-postnuptial-agreement":{"0":"trusts-estates-private-client_analyze-counterparty-markup-of-postnuptial-agreement__iter0","1":"trusts-estates-private-client_analyze-counterparty-markup-of-postnuptial-agreement__iter1"},"trusts-estates-private-client/extract-key-exhibits-from-document-production":{"0":"trusts-estates-private-client_extract-key-exhibits-from-document-production__iter0","1":"trusts-estates-private-client_extract-key-exhibits-from-document-production__iter1"}}},"noise":0.013},"iter_narr":{"0":{"label":"bare","status":"baseline","did":"The unmodified harness.","change":"\u2014"},"1":{"label":"completion-gate / self-audit","status":"committed","did":"A self-audit / completion-gate edit: before finalizing, the agent re-checks its own answer for coverage and missed issues. Held-out val 0.784 \u2192 0.823 (+0.039).","change":"harness \u2014 completion-gate / self-audit step"},"2":{"label":"canary-aborted","status":"aborted","did":"The next edit ran the agent away: the runaway-turns canary tripped on every retry (turns 106 / 75 / 54 vs bare 15 \u2014 7.1\u00d7 / 5.0\u00d7 / 3.6\u00d7 \u2014 across attempts 2 / 2b / 2c, one hitting a 124 timeout) and aborted the iteration before the gate (not committed). The edit also tanked canary pass-rate (0.11 on the final attempt).","change":"\u2014 (aborted by runaway-turns canary)"}},"insight":[],"setup":{"objective":"Raise Harvey's pass-rate. GLM-5.2 as the mutator (via a LiteLLM shim), v1 continuity loop with host-side cost-capped broker isolation.","budget":"broker exp-cap $40 (mutator per-call ceiling --max-budget-usd 60) \u00b7 ~$17 total spent","extras":"held-out val \u00b7 runaway canary (3\u00d7 turns \u2192 abort)"},"meta":{"name":"v1_cont_work","mutator":"GLM-5.2","mutator_pill":"glm","effort":"\u2014","headline":""}}</script>
+<script>/* run.js — per-run page app. Renders from the inlined index; lazy-loads detail. */
+(function () {
+"use strict";
+var BOOT = JSON.parse(document.getElementById("bootstrap").textContent);
+var RUN = BOOT.run, IX = BOOT.index, NARR = BOOT.iter_narr, NOISE = IX.noise || 0.013;
+var DATADIR = "../../data/" + RUN + "/";        // page lives in site/runs/, data in data/
+var _cache = {};                                  // path -> Promise(json)
+
+function fetchJSON(rel) {
+  if (_cache[rel]) return _cache[rel];
+  _cache[rel] = fetch(DATADIR + rel).then(function (r) {
+    if (!r.ok) throw new Error(rel + " " + r.status);
+    return r.json();
+  });
+  return _cache[rel];
+}
+function el(tag, cls, html) {
+  var e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (html != null) e.innerHTML = html;
+  return e;
+}
+function esc(s) {
+  return ("" + (s == null ? "" : s)).replace(/[&<>"]/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+  });
+}
+function fmt(x, n) { return x == null ? "—" : (+x).toFixed(n == null ? 3 : n); }
+function pct(x, n) { return x == null ? "—" : (x >= 0 ? "+" : "") + (x * 100).toFixed(n == null ? 1 : n) + "%"; }
+function shortTask(t) { var p = ("" + t).split("/"); return p[p.length - 1]; }
+function commas(n) { return n == null ? "—" : (+n).toLocaleString("en-US"); }
+function tokM(n) { return n == null ? "—" : (n / 1e6).toFixed(2) + "M"; }
+
+var STATUS_PILL = {
+  "committed": ["up", "committed"],
+  "committed (no-op)": ["null", "committed · no change"],
+  "committed · OVERFIT": ["null", "committed · overfit"],
+  "not committed": ["dn", "reverted"],
+  "aborted": ["bad", "canary-aborted"],
+  "failed": ["bad", "crashed"],
+  "baseline": ["", "baseline"],
+  "trial": ["null", "trial"]
+};
+function statusPill(s) {
+  var m = STATUS_PILL[s] || ["", s || ""];
+  return '<span class="pill ' + m[0] + '">' + esc(m[1]) + "</span>";
+}
+
+/* ---------------------------------------------------------------- header */
+function renderHeader() {
+  var m = BOOT.meta;
+  document.getElementById("hd-name").innerHTML =
+    esc(m.name) + ' <span class="pill ' + m.mutator_pill + '">' + esc(m.mutator) + "</span>" +
+    (m.effort && m.effort !== "—" ? ' <span class="effort">' + esc(m.effort) + "</span>" : "");
+  document.getElementById("hd-headline").innerHTML = m.headline;
+  var s = BOOT.setup, dl = "";
+  [["objective", s.objective], ["budget", s.budget], ["loop", s.extras]].forEach(function (kv) {
+    if (kv[1]) dl += "<dt>" + esc(kv[0]) + "</dt><dd>" + kv[1] + "</dd>";
+  });
+  document.getElementById("hd-setup").innerHTML =
+    '<div class="setup"><dl>' + dl + "</dl></div>";
+  var indep = IX.family === "v0_aggregate" || IX.family === "v0_single";
+  var nav = [["timeline", indep ? "The trials" : "Iteration timeline"], ["traj", "Mutator trajectory"]];
+  if (IX.helps_harms) nav.push(["helps", "Helps vs harms"]);
+  var cost = IX.cost || {};
+  if ((cost.per_iter || []).length || Object.keys(cost.roll_tokens || {}).length) nav.push(["cost", "Cost"]);
+  nav.push(["fs", "Filesystem"]);
+  if (Object.keys((IX.rollouts || {}).index || {}).length) nav.push(["rollouts", "Task rollouts"]);
+  document.getElementById("hd-nav").innerHTML = nav.map(function (n) {
+    return '<a href="#sec-' + n[0] + '">' + n[1] + "</a>";
+  }).join("");
+}
+
+/* ---------------------------------------------------------------- score helpers */
+function seriesMap() {
+  var out = {};
+  if (!IX.series) return out;
+  (IX.series.train || []).forEach(function (r) { (out[r.iter] = out[r.iter] || {}).train = r.combined_score; });
+  (IX.series.val || []).forEach(function (r) { (out[r.iter] = out[r.iter] || {}).val = r.combined_score; });
+  return out;
+}
+function deltaPill(d) {
+  if (d == null) return "";
+  if (d > NOISE) return '<span class="pill up">▲ ' + pct(d) + "</span>";
+  if (d < -NOISE) return '<span class="pill bad">▼ ' + pct(d) + "</span>";
+  return '<span class="pill null">≈ ' + pct(d) + " (noise)</span>";
+}
+
+/* ================================================================ SECTION 1: timeline + diff */
+function sectionTimeline(root) {
+  var sec = el("section"); sec.id = "sec-timeline";
+  var indep = IX.family === "v0_aggregate" || IX.family === "v0_single";
+  sec.appendChild(el("h2", null, indep ? "The trials" : "Iteration timeline"));
+  sec.appendChild(el("p", "sub", indep ?
+    "Each trial is an <b>independent</b> single-shot mutator run (no continuity, no inner eval): it reads the " +
+    "failure evidence, makes one generic edit to the skill, writes a lesson, and stops. The diff below is each " +
+    "trial's skill vs the empty bare stub. Open a diff to inspect it." :
+    "Each iteration: what the mutator changed in the harness, the held-out scores, and the exact code diff " +
+    "vs the previous iteration (iter&nbsp;1 is diffed against the bare template). Open a diff to inspect it."));
+
+  var sm = seriesMap(), bareV = sm[0] ? sm[0].val : null;
+  // bare row
+  if (sm[0]) {
+    var b = el("div", "itblock bare");
+    b.innerHTML = '<div class="itb-head"><div class="itn">0</div>' +
+      '<div class="itb-t">bare harness <span class="pill" style="color:var(--muted);border:1px solid var(--line)">baseline</span></div>' +
+      '<div class="itb-nums">' + scoreNums(0, sm, bareV) + "</div></div>" +
+      '<div class="itb-did">The unmodified Harvey harness — the baseline every iteration is scored against.</div>';
+    sec.appendChild(b);
+  }
+
+  IX.iters.forEach(function (it) {
+    var n = it.n, nar = NARR[n] || {}, blk = el("div", "itblock");
+    var pillS = nar.status ? statusPill(nar.status) : "";
+    blk.innerHTML =
+      '<div class="itb-head"><div class="itn">' + n + "</div>" +
+      '<div class="itb-t">' + esc(nar.label || ("iter " + n)) + " " + pillS + "</div>" +
+      '<div class="itb-nums">' + scoreNums(n, sm, bareV) + "</div></div>" +
+      (nar.did ? '<div class="itb-did">' + nar.did + "</div>" : "") +
+      changeLine(it, nar);
+    // diff holder
+    var diffWrap = el("div", "itb-diffs");
+    if (it.diff_summary && it.diff_summary.length) {
+      it.diff_summary.forEach(function (ds, i) {
+        diffWrap.appendChild(diffToggle(n, ds, i));
+      });
+    } else {
+      diffWrap.appendChild(el("div", "nodiff",
+        "No harness file changed this iteration — byte-identical to the previous iter " +
+        "(the mutator tested an edit, found it a non-improvement, and committed nothing)."));
+    }
+    blk.appendChild(diffWrap);
+    sec.appendChild(blk);
+  });
+  root.appendChild(sec);
+}
+function scoreNums(n, sm, bareV) {
+  var r = sm[n];
+  if (!r) return "";
+  var d = (r.val != null && bareV != null && n > 0) ? r.val - bareV : null;
+  var s = "";
+  if (r.train != null) s += '<span class="inum">train <b>' + fmt(r.train) + "</b></span>";
+  if (r.val != null) s += '<span class="inum">val <b>' + fmt(r.val) + "</b></span>";
+  s += deltaPill(d);
+  return s;
+}
+function changeLine(it, nar) {
+  var files = (it.reward.files_changed || []).map(function (f) { return f.split("/").slice(-2).join("/"); });
+  var added = (it.reward.files_added || []).filter(function (f) { return f.indexOf("__pycache__") < 0; });
+  var lessons = it.reward.n_lessons || 0;
+  var bits = [];
+  if (it.diff_summary && it.diff_summary.length) {
+    var na = 0, nd = 0; it.diff_summary.forEach(function (d) { na += d.added; nd += d.removed; });
+    bits.push('<span class="chip add">+' + na + "</span><span class=\"chip del\">−" + nd + "</span> across " +
+      it.diff_summary.map(function (d) { return "<code>" + esc(d.file) + "</code>"; }).join(", "));
+  }
+  if (lessons) bits.push(lessons + " lesson" + (lessons > 1 ? "s" : "") + " written");
+  if (it.reward.exit_status && it.reward.exit_status !== "finished")
+    bits.push('<span class="warnchip">exit: ' + esc(it.reward.exit_status) + "</span>");
+  return '<div class="itb-change"><span class="ck">change</span>' +
+    (nar.change ? "<code>" + esc(nar.change) + "</code> · " : "") + bits.join(" · ") + "</div>";
+}
+function diffToggle(n, ds, i) {
+  var d = el("details", "diffbox");
+  d.innerHTML = '<summary><span class="dfile">' + esc(ds.file) + "</span>" +
+    '<span class="dstat"><span class="chip add">+' + ds.added + '</span><span class="chip del">−' + ds.removed +
+    "</span></span></summary>" + '<div class="diffbody" data-iter="' + n + '" data-i="' + i + '">' +
+    '<div class="diffspin">loading diff…</div></div>';
+  d.addEventListener("toggle", function () {
+    if (!d.open) return;
+    var body = d.querySelector(".diffbody");
+    if (body.dataset.loaded) return;
+    body.dataset.loaded = "1";
+    fetchJSON("iter" + n + ".json").then(function (det) {
+      var dd = (det.diffs || [])[i];
+      body.innerHTML = dd ? renderDiff(dd) : "<div class='nodiff'>diff unavailable</div>";
+    }).catch(function (e) { body.innerHTML = "<div class='nodiff'>error: " + esc(e.message) + "</div>"; });
+  });
+  return d;
+}
+function renderDiff(dd) {
+  var rows = (dd.hunks || []).map(function (h) {
+    if (h.t === "hunk") return '<div class="dl hunk">' + esc(h.x) + "</div>";
+    var sign = h.t === "add" ? "+" : h.t === "del" ? "−" : " ";
+    return '<div class="dl ' + h.t + '"><span class="sgn">' + sign + "</span>" + esc(h.x) + "</div>";
+  }).join("");
+  return '<div class="diff">' + rows + "</div>";
+}
+
+/* ================================================================ SECTION 2: mutator trajectory */
+function sectionTrajectory(root) {
+  var sec = el("section"); sec.id = "sec-traj";
+  sec.appendChild(el("h2", null, "Mutator trajectory"));
+  sec.appendChild(el("p", "sub",
+    "What the mutator actually did each iteration — its reasoning, the experiments it launched " +
+    "(<code>run_harvey_agent</code> rollouts, <code>dev_eval</code> held-out gate, <code>proxy_eval</code>), and what it wrote. " +
+    "Pick an iteration, then expand the timeline."));
+
+  var bar = el("div", "tabbar");
+  IX.iters.forEach(function (it, i) {
+    var b = el("button", "tab" + (i === 0 ? " on" : ""), "iter " + it.n);
+    b.dataset.iter = it.n;
+    b.addEventListener("click", function () {
+      bar.querySelectorAll(".tab").forEach(function (x) { x.classList.remove("on"); });
+      b.classList.add("on"); showTraj(it.n, holder);
+    });
+    bar.appendChild(b);
+  });
+  sec.appendChild(bar);
+  var holder = el("div", "trajholder");
+  sec.appendChild(holder);
+  root.appendChild(sec);
+  showTraj(IX.iters[0].n, holder);
+}
+function statTile(label, val, cls) {
+  return '<div class="tile ' + (cls || "") + '"><div class="tv">' + val + '</div><div class="tl">' + label + "</div></div>";
+}
+function showTraj(n, holder) {
+  var it = IX.iters.filter(function (x) { return x.n === n; })[0];
+  var st = it.traj_stats || {};
+  var br = st.broker || {};
+  holder.innerHTML = "";
+  // headline tiles
+  var tiles = el("div", "tiles");
+  tiles.innerHTML =
+    statTile("mutator", esc(st.model || "—"), "") +
+    statTile("agent turns", commas(st.iterations), "") +
+    statTile("mutator $", (st.cost != null && st.cost > 0) ? "$" + (+st.cost).toFixed(2) : "n/a", "") +
+    statTile("wall", st.wall_sec != null ? (st.wall_sec / 60).toFixed(0) + " min" : "—", "") +
+    statTile("run_harvey_agent", br.run_harvey_agent || 0, "exp") +
+    statTile("dev_eval", br.dev_eval || 0, (br.dev_eval ? "gate" : "muted")) +
+    statTile("proxy_eval", br.proxy_eval || 0, "") +
+    statTile("exit", esc(st.exit_status || "—"), st.exit_status === "finished" ? "ok" : "warn");
+  holder.appendChild(tiles);
+  var note = el("div", "trajnote");
+  if (!br.dev_eval) note.innerHTML = "⚠ This iteration ran <b>0 dev_eval</b> — it never executed the held-out commit gate.";
+  else note.innerHTML = "Ran the held-out <b>dev_eval</b> gate " + br.dev_eval + "× this iteration.";
+  holder.appendChild(note);
+
+  var tl = el("div", "trajtl"); tl.innerHTML = '<div class="diffspin">loading mutator session…</div>';
+  holder.appendChild(tl);
+  fetchJSON("iter" + n + ".json").then(function (det) {
+    renderTrajTimeline(tl, (det.trajectory || {}).steps || [], (det.trajectory || {}).stats || st, det.lessons || []);
+  }).catch(function (e) { tl.innerHTML = "<div class='nodiff'>error: " + esc(e.message) + "</div>"; });
+}
+function brokerTag(b) {
+  var map = { run_harvey_agent: "experiment", dev_eval: "held-out gate", proxy_eval: "proxy", budget: "budget", check_runaway: "canary", cost_rank: "cost-rank" };
+  return '<span class="btag ' + b + '">' + (map[b] || b) + "</span>";
+}
+function renderTrajTimeline(tl, steps, stats, lessons) {
+  tl.innerHTML = "";
+  // collapse: show a compact timeline; full detail per step on click
+  var wrap = el("div", "tsteps");
+  steps.forEach(function (s, i) {
+    if (s.kind === "prompt") {
+      wrap.appendChild(el("div", "tprompt", '<div class="tp-h">mutator task prompt</div><pre class="tp-b">' + esc(s.text) + "</pre>"));
+      return;
+    }
+    var c = s.call;
+    var step = el("div", "tstep");
+    var head = "";
+    if (s.text) head += '<div class="t-text">' + esc(s.text) + "</div>";
+    if (c) {
+      var label;
+      if (c.name === "Bash") {
+        label = (c.broker ? brokerTag(c.broker) + " " : "") +
+          '<span class="t-tool">Bash</span>' + (c.desc ? '<span class="t-desc">' + esc(c.desc) + "</span>" : "");
+        var body = '<pre class="t-cmd">' + esc(c.cmd) + "</pre>";
+        if (s.result != null) body += '<details class="t-res"><summary>result</summary><pre>' + esc(s.result) + "</pre></details>";
+        step.innerHTML = head + '<div class="t-call ' + (c.broker || "") + '">' + label + body + "</div>";
+      } else if (c.name === "Write" || c.name === "Edit") {
+        label = '<span class="t-tool wrote">' + c.name + "</span><span class=\"t-desc\">" + esc(c.file) + "</span>";
+        var b2 = "";
+        if (c.name === "Write") b2 = '<details class="t-res"><summary>wrote ' + esc((c.file || "").split("/").pop()) + '</summary><pre>' + esc(c.preview) + "</pre></details>";
+        else b2 = '<details class="t-res"><summary>edit</summary><pre class="del">' + esc(c.old) + '</pre><pre class="add">' + esc(c.new) + "</pre></details>";
+        step.innerHTML = head + '<div class="t-call wrote">' + label + b2 + "</div>";
+      } else if (c.name === "Task") {
+        label = '<span class="t-tool task">Task</span><span class="t-desc">' + esc(c.desc) + "</span>";
+        step.innerHTML = head + '<div class="t-call task">' + label +
+          '<details class="t-res"><summary>subagent prompt</summary><pre>' + esc(c.preview) + "</pre></details></div>";
+      } else {
+        label = '<span class="t-tool">' + esc(c.name) + "</span>" + (c.file ? '<span class="t-desc">' + esc(c.file) + "</span>" : "");
+        step.innerHTML = head + '<div class="t-call">' + label + "</div>";
+      }
+    } else {
+      step.innerHTML = head;
+    }
+    if (head || c) wrap.appendChild(step);
+  });
+  tl.appendChild(wrap);
+
+  // lessons written this iter
+  if (lessons && lessons.length) {
+    var lz = el("div", "lessons");
+    lz.appendChild(el("div", "lz-h", "Lessons written to <code>.claude/memory</code> this iteration"));
+    lessons.forEach(function (L) {
+      var d = el("details", "lesson");
+      d.innerHTML = "<summary>" + esc(L.name) + "</summary><div class='lz-b'>" + mdLite(L.body) + "</div>";
+      lz.appendChild(d);
+    });
+    tl.appendChild(lz);
+  }
+  // final message
+  if (stats && stats.final_message) {
+    var fm = el("details", "finalmsg");
+    fm.innerHTML = "<summary>mutator's final summary message</summary><div class='fm-b'>" + mdLite(stats.final_message) + "</div>";
+    tl.appendChild(fm);
+  }
+}
+
+/* ================================================================ SECTION 3: helps vs harms */
+function sectionHelps(root) {
+  var sec = el("section"); sec.id = "sec-helps";
+  sec.appendChild(el("h2", null, "Helps vs harms — per task"));
+  var hh = IX.helps_harms;
+  if (!hh) {
+    sec.appendChild(el("p", "sub",
+      "This run is a v0 single/ladder mutator with no inner train/val evaluation, so there is no per-task " +
+      "held-out scoring to break down. See the iteration timeline and trajectory for what changed."));
+    root.appendChild(sec);
+    return;
+  }
+  sec.appendChild(el("p", "sub",
+    "Per-task pass-rate of the final harness vs the bare baseline (iter&nbsp;" + hh.baseline_iter + "), across the " +
+    hh.tasks.length + " <b>train</b> tasks (the mutator's workbench). Green = the harness helped that task; red = it harmed it. " +
+    "The ±" + (NOISE * 100).toFixed(1) + "% band is GLM run-to-run noise — bars inside it are not real moves. " +
+    "Click a task to see its per-iteration grade trace, its per-criterion verdicts, and its rollout."));
+  // held-out val pool callout (disjoint task set — the real generalization verdict)
+  var valpanel = valPoolPanel(hh);
+  if (valpanel) sec.appendChild(valpanel);
+
+  // summary counts
+  var helped = 0, harmed = 0, flat = 0;
+  hh.tasks.forEach(function (t) {
+    var d = t.delta_bare;
+    if (d > NOISE) helped++; else if (d < -NOISE) harmed++; else flat++;
+  });
+  var sumbar = el("div", "hhsum");
+  sumbar.innerHTML =
+    '<span class="hh-c good"><b>' + helped + "</b> helped</span>" +
+    '<span class="hh-c warn"><b>' + flat + "</b> within noise</span>" +
+    '<span class="hh-c bad"><b>' + harmed + "</b> harmed</span>" +
+    '<span class="hh-net">net mean Δ vs bare: <b>' + pct(meanDelta(hh.tasks)) + "</b> (train)</span>";
+  sec.appendChild(sumbar);
+
+  // diverging bars
+  var SPAN = 0.25;
+  function x(d) { return Math.max(0, Math.min(100, 50 + (d / SPAN) * 50)); }
+  var chart = el("div", "hhchart");
+  var band = '<div class="hh-band" style="left:' + x(-NOISE) + "%;right:" + (100 - x(NOISE)) + '%"></div>';
+  chart.innerHTML = '<div class="hh-axis"><span style="left:0%">−25%</span><span style="left:25%">−12%</span>' +
+    '<span style="left:50%">bare</span><span style="left:75%">+12%</span><span style="left:100%">+25%</span></div>';
+  hh.tasks.forEach(function (t) {
+    var d = t.delta_bare == null ? 0 : t.delta_bare;
+    var col = d > NOISE ? "var(--good)" : (d < -NOISE ? "var(--bad)" : "var(--warn)");
+    var z = x(0), xd = x(d), lo = Math.min(z, xd), hi = Math.max(z, xd);
+    var row = el("div", "hh-row");
+    row.innerHTML =
+      '<div class="hh-name" title="' + esc(t.task) + '">' + esc(shortTask(t.task)) + "</div>" +
+      '<div class="hh-track">' + band + '<div class="hh-zero" style="left:' + z + '%"></div>' +
+      '<div class="hh-bar" style="left:' + lo + "%;width:" + Math.max(0.5, hi - lo) + "%;background:" + col + '"></div>' +
+      '<div class="hh-val" style="left:' + (d >= 0 ? Math.min(hi + 1, 92) : Math.max(lo - 8, 1)) + "%;color:" + col + '">' +
+      pct(d) + "</div></div>";
+    row.style.cursor = "pointer";
+    row.addEventListener("click", function () { openTaskDrill(t); });
+    chart.appendChild(row);
+  });
+  sec.appendChild(chart);
+  // drill-down panel
+  var drill = el("div", "drill"); drill.id = "hh-drill";
+  drill.innerHTML = '<div class="drill-empty">Select a task above to inspect it.</div>';
+  sec.appendChild(drill);
+  root.appendChild(sec);
+}
+function valPoolPanel(hh) {
+  var sp = hh.splits || {}; var by = sp.val; if (!by) return null;
+  var iters = Object.keys(by).sort(function (a, b) { return a - b; });
+  if (!iters.length) return null;
+  var sm = seriesMap();
+  // prefer the val split's own iter-0 combined as bare; fall back to series.json iter0
+  var bareV = (by[0] && by[0].combined != null) ? by[0].combined : (sm[0] ? sm[0].val : null);
+  var p = el("div", "valpool");
+  // build a small bar of combined val score per iter vs bare (iter 0 is the bare row, shown separately)
+  var fs = IX.full_stats || {};
+  var bestVal = (fs.best_by_val || {}).iter;
+  var overfit = fs.overfit_iters || [];
+  var bars = iters.filter(function (i) { return +i !== 0; }).map(function (i) {
+    var c = by[i].combined;
+    var d = (c != null && bareV != null) ? c - bareV : null;
+    var col = d == null ? "var(--muted)" : (d > NOISE ? "var(--good)" : (d < -NOISE ? "var(--bad)" : "var(--warn)"));
+    var tag = "";
+    if (+i === +bestVal) tag += '<span class="vp-best">best by val</span>';
+    if (overfit.indexOf(+i) >= 0) tag += '<span class="vp-of">overfit</span>';
+    return '<div class="vp-bar"><div class="vp-i">iter ' + i + "</div>" +
+      '<div class="vp-track"><div class="vp-fill" style="width:' + ((c || 0) * 100).toFixed(0) + "%;background:" + col + '"></div></div>' +
+      '<div class="vp-v">' + (c != null ? (c * 100).toFixed(1) + "%" : "—") + (d != null ? ' <span style="color:' + col + '">' + pct(d) + "</span>" : "") + " " + tag + "</div></div>";
+  }).join("");
+  var bareBar = bareV != null ?
+    '<div class="vp-bar bare"><div class="vp-i">iter 0 · bare</div><div class="vp-track"><div class="vp-fill" style="width:' +
+    (bareV * 100).toFixed(0) + '%;background:#6b7682"></div></div><div class="vp-v">' + (bareV * 100).toFixed(1) + "%</div></div>" : "";
+  p.innerHTML =
+    '<div class="vp-h">Held-out <b>val</b> pool — the real generalization verdict <span class="vp-tag">disjoint 30 tasks the mutator never sees</span></div>' +
+    '<div class="vp-note">The chart above is the <b>train</b> pool. <b>val is a separate, non-overlapping task set</b> — ' +
+    "it is the invisible verdict the mutator never optimizes against. Combined val score per iteration:</div>" +
+    bareBar + bars;
+  return p;
+}
+function meanDelta(tasks) {
+  var s = 0, n = 0; tasks.forEach(function (t) { if (t.delta_bare != null) { s += t.delta_bare; n++; } });
+  return n ? s / n : null;
+}
+function openTaskDrill(t) {
+  var drill = document.getElementById("hh-drill");
+  // grade trace across iters
+  var its = IX.helps_harms.iters || [];
+  var trace = its.map(function (i) {
+    var g = t.grades[i];
+    return '<div class="gt"><div class="gt-i">iter ' + i + (i === 0 ? " · bare" : "") + '</div>' +
+      '<div class="gt-bar"><div class="gt-fill" style="width:' + ((g || 0) * 100).toFixed(0) + '%"></div></div>' +
+      '<div class="gt-v">' + (g == null ? "—" : (g * 100).toFixed(0) + "%") + "</div></div>";
+  }).join("");
+  // val split pass rates (lean, from index)
+  var sp = (IX.helps_harms.splits || {});
+  function inSplit(split) {
+    var by = sp[split]; if (!by) return false;
+    return Object.keys(by).some(function (i) { return (by[i].tasks || {})[t.task]; });
+  }
+  function splitCell(split) {
+    var by = sp[split]; if (!by) return "";
+    var iters = Object.keys(by).sort(function (a, b) { return a - b; });
+    if (!inSplit(split)) {
+      return '<div class="splitabsent">Not in the <b>' + (split === "val" ? "held-out val" : split) +
+        '</b> pool — train / val are disjoint task sets, so this task is only scored on one side.</div>';
+    }
+    var cells = iters.map(function (i) {
+      var td = (by[i].tasks || {})[t.task];
+      return '<td class="n">' + (td && td.pass_rate != null ? (td.pass_rate * 100).toFixed(0) + "%" : "—") + "</td>";
+    }).join("");
+    var hdr = iters.map(function (i) { return "<th>iter " + i + "</th>"; }).join("");
+    return '<table class="splittab"><tr><th>' + (split === "val" ? "held-out val" : split) + " pass-rate</th>" + hdr +
+      "</tr><tr><td>pass</td>" + cells + "</tr></table>";
+  }
+  var dirToken = t.rolldir;
+  var rollBtns = Object.keys(t.roll || {}).sort(function (a, b) { return a - b; }).map(function (i) {
+    return '<button class="rollbtn" data-key="' + esc(dirToken + "__" + t.roll[i]) + '" data-task="' + esc(t.task) +
+      '">rollout · iter ' + i + "</button>";
+  }).join("");
+  var verdSplit = inSplit("val") ? "val" : (inSplit("train") ? "train" : null);
+  var verdBtn = verdSplit
+    ? '<button class="verdbtn" data-split="' + verdSplit + '">load ' +
+      (verdSplit === "val" ? "held-out val" : "train") + " verdicts (per criterion) →</button>"
+    : "";
+  drill.innerHTML =
+    '<div class="drill-h">' + esc(t.task) + "</div>" +
+    '<div class="drill-grid"><div class="drill-trace"><div class="lbl">grade trace (train rollout, per iter)</div>' + trace + "</div>" +
+    '<div class="drill-splits">' + splitCell("val") + splitCell("train") +
+    '<div class="drill-verd" data-task="' + esc(t.task) + '">' + verdBtn + "</div>" +
+    "</div></div>" +
+    '<div class="drill-rolls"><div class="lbl">harvested rollouts</div>' + rollBtns + "</div>" +
+    '<div class="rollview"></div>';
+  drill.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  var vbtn = drill.querySelector(".verdbtn");
+  if (vbtn) vbtn.addEventListener("click", function () { loadVerdicts(t.task, vbtn.dataset.split, drill.querySelector(".drill-verd")); });
+  drill.querySelectorAll(".rollbtn").forEach(function (b) {
+    b.addEventListener("click", function () {
+      drill.querySelectorAll(".rollbtn").forEach(function (x) { x.classList.remove("on"); });
+      b.classList.add("on");
+      openRollout(b.dataset.key, drill.querySelector(".rollview"));
+    });
+  });
+}
+function loadVerdicts(task, split, holder) {
+  holder.innerHTML = "<div class='diffspin'>loading verdicts…</div>";
+  fetchJSON("verdicts.json").then(function (v) {
+    split = split || (v.val ? "val" : (v.train ? "train" : Object.keys(v)[0]));
+    var by = v[split]; var iters = Object.keys(by).sort(function (a, b) { return b - a; });
+    var latest = iters[0];
+    var td = (by[latest].tasks || {})[task];
+    if (!td) { holder.innerHTML = "<div class='nodiff'>no verdicts for this task in " + split + "</div>"; return; }
+    var pass = 0, fail = 0;
+    var rows = (td.criteria || []).map(function (c) {
+      var ok = c.verdict === "PASS"; if (ok) pass++; else fail++;
+      return '<div class="vrow ' + (ok ? "ok" : "no") + '"><span class="vbadge">' + (ok ? "PASS" : "FAIL") + "</span>" +
+        '<span class="vid">' + esc(c.id) + "</span><span class=\"vt\">" + esc(c.title) + "</span></div>";
+    }).join("");
+    holder.innerHTML = '<div class="verd-h">held-out <b>' + split + "</b> iter " + latest + " · " +
+      '<span class="good">' + pass + " PASS</span> / <span class=\"bad\">" + fail + " FAIL</span></div>" +
+      '<div class="verdlist">' + rows + "</div>";
+  }).catch(function (e) { holder.innerHTML = "<div class='nodiff'>error: " + esc(e.message) + "</div>"; });
+}
+
+/* ================================================================ SECTION 3b: cost */
+function sectionCost(root) {
+  var cost = IX.cost || {};
+  var per = cost.per_iter || [], rt = cost.roll_tokens || {};
+  if (!per.length && !Object.keys(rt).length) return;
+  var sec = el("section"); sec.id = "sec-cost";
+  sec.appendChild(el("h2", null, "Cost — search spend & rollout tokens"));
+  sec.appendChild(el("p", "sub",
+    "Two costs. <b>Left:</b> how much money the mutator spent <i>searching</i> each iteration " +
+    "(its <code>run_harvey_agent</code> experiments + held-out <code>dev_eval</code> gate, from the broker ledger). " +
+    "<b>Right:</b> the mean input-token cost of the Harvey agent's rollouts per iteration — the thing an efficiency " +
+    "run is trying to cut. (One rollout per task = noisy; the committed number is the dev gate.)"));
+  var grid = el("div", "costgrid");
+  // left: mutator search spend
+  if (per.length) {
+    var maxsp = Math.max.apply(null, per.map(function (p) { return p.spent || 0; })) || 1;
+    var rows = per.map(function (p) {
+      var bs = p.by_source || {};
+      var seg = function (k, col) {
+        var v = bs[k] || 0; if (!v) return "";
+        return '<div class="cseg" style="width:' + (v / maxsp * 100) + "%;background:" + col + '" title="' + k + " $" + v.toFixed(0) + '"></div>';
+      };
+      // n_dev counts dev_eval ROLLOUT EVENTS in the broker ledger, NOT the dev-set size.
+      // The dev SET is 30 tasks; a gate pass = 30 rollouts, so n_dev=60 means the gate ran
+      // twice in the iteration (on different candidate configs). Label it so the 30-task
+      // dev set is never mistaken for a 60-item set.
+      var nd = p.n_dev || 0;
+      var passes = nd ? Math.round(nd / 30) : 0;
+      var devTxt = nd ? (passes > 1 ? (passes + "× dev gate (30 tasks)") : "1× dev gate (30 tasks)")
+                      : "0 dev gate";
+      return '<div class="crow"><div class="ci">iter ' + p.iter + "</div>" +
+        '<div class="cbar">' + seg("run_harvey_agent", "var(--accent)") + seg("dev_eval", "var(--good)") + seg("proxy_eval", "var(--warn)") + "</div>" +
+        '<div class="cv">$' + (p.spent || 0).toFixed(0) + ' <span class="cexp" title="' + nd + ' dev_eval rollout events = 30-task dev gate × ' + (passes || 0) + '">' + (p.n_experiments || 0) + " exp · " + devTxt + "</span></div></div>";
+    }).join("");
+    grid.appendChild(el("div", "costcard",
+      '<div class="cc-h">mutator search spend / iter</div>' +
+      '<div class="clegend"><span class="cl"><i style="background:var(--accent)"></i>run_harvey_agent</span>' +
+      '<span class="cl"><i style="background:var(--good)"></i>dev_eval</span><span class="cl"><i style="background:var(--warn)"></i>proxy_eval</span></div>' +
+      rows));
+  }
+  // right: rollout input-token trend
+  var ritems = Object.keys(rt).map(Number).sort(function (a, b) { return a - b; });
+  if (ritems.length) {
+    var bare = rt[0] ? rt[0].mean_input : null;
+    var maxtok = Math.max.apply(null, ritems.map(function (i) { return rt[i].mean_input; }));
+    var rows2 = ritems.map(function (i) {
+      var v = rt[i].mean_input, d = (bare ? (v - bare) / bare : null);
+      var col = i === 0 ? "#6b7682" : (d < -NOISE ? "var(--good)" : (d > NOISE ? "var(--bad)" : "var(--warn)"));
+      return '<div class="crow"><div class="ci">iter ' + i + (i === 0 ? " · bare" : "") + "</div>" +
+        '<div class="cbar"><div class="cseg" style="width:' + (v / maxtok * 100) + "%;background:" + col + '"></div></div>' +
+        '<div class="cv">' + (v / 1e6).toFixed(2) + "M" + (d != null && i > 0 ? ' <span style="color:' + col + '">' + pct(d) + "</span>" : "") + "</div></div>";
+    }).join("");
+    grid.appendChild(el("div", "costcard",
+      '<div class="cc-h">mean Harvey rollout input tokens / iter <span class="cc-sub">train · noisy</span></div>' +
+      rows2 +
+      '<div class="cc-foot">⚠ One rollout per task — single-iter swings are GLM noise. The committed efficiency ' +
+      "result was measured on the held-out <b>dev gate</b> (see the run's headline), not this train trace.</div>"));
+  }
+  sec.appendChild(grid);
+  root.appendChild(sec);
+}
+
+/* ================================================================ SECTION 4: filesystem browser */
+function sectionFS(root) {
+  var sec = el("section"); sec.id = "sec-fs";
+  sec.appendChild(el("h2", null, "Filesystem — the workspace each iteration produced"));
+  sec.appendChild(el("p", "sub",
+    "The captured <code>/workspace</code> the mutator left at the end of each iteration: the mutated " +
+    "<code>harness/</code>, its <code>.claude/</code> tools + memory lessons, and its <code>scratch/</code> " +
+    "experiments. Pick an iteration, browse the tree, click a file to view it."));
+  var bar = el("div", "tabbar");
+  IX.iters.forEach(function (it, i) {
+    var b = el("button", "tab" + (i === 0 ? " on" : ""), "iter " + it.n +
+      ' <span class="tcount">' + it.fs_summary.files + " files · " + (it.fs_summary.bytes / 1024).toFixed(0) + "KB</span>");
+    b.dataset.iter = it.n;
+    b.addEventListener("click", function () {
+      bar.querySelectorAll(".tab").forEach(function (x) { x.classList.remove("on"); });
+      b.classList.add("on"); showFS(it.n, holder);
+    });
+    bar.appendChild(b);
+  });
+  sec.appendChild(bar);
+  var holder = el("div", "fsholder");
+  sec.appendChild(holder);
+  root.appendChild(sec);
+  showFS(IX.iters[0].n, holder);
+}
+function showFS(n, holder) {
+  holder.innerHTML = "<div class='diffspin'>loading filesystem…</div>";
+  fetchJSON("iter" + n + ".json").then(function (det) {
+    holder.innerHTML = "";
+    var grid = el("div", "fsgrid");
+    var tree = el("div", "fstree");
+    var view = el("div", "fsview");
+    view.innerHTML = '<div class="fsv-empty">Select a file from the tree.</div>';
+    grid.appendChild(tree); grid.appendChild(view);
+    holder.appendChild(grid);
+    if (det.fs_tree) renderTree(det.fs_tree, tree, view, "");
+    else tree.innerHTML = "<div class='nodiff'>no filesystem captured</div>";
+  }).catch(function (e) { holder.innerHTML = "<div class='nodiff'>error: " + esc(e.message) + "</div>"; });
+}
+function renderTree(node, container, view, path) {
+  var ul = el("ul", "ftree");
+  (node.children || []).forEach(function (ch) { addNode(ch, ul, view, path); });
+  container.innerHTML = "";
+  container.appendChild(ul);
+}
+function addNode(node, ul, view, parent) {
+  var li = el("li");
+  var p = parent + "/" + node.name;
+  if (node.type === "dir") {
+    var hdr = el("div", "fdir", '<span class="caret">▸</span> ' + esc(node.name) +
+      ' <span class="fcount">' + countFiles(node) + "</span>");
+    var kids = el("ul", "ftree nested");
+    (node.children || []).forEach(function (ch) { addNode(ch, kids, view, p); });
+    var open = (node.name === "harness" || node.name === ".claude" || node.name === "memory" || node.name === "tools");
+    if (!open) kids.style.display = "none";
+    if (open) hdr.querySelector(".caret").textContent = "▾";
+    hdr.addEventListener("click", function () {
+      var vis = kids.style.display !== "none";
+      kids.style.display = vis ? "none" : "block";
+      hdr.querySelector(".caret").textContent = vis ? "▸" : "▾";
+    });
+    li.appendChild(hdr); li.appendChild(kids);
+  } else {
+    var f = el("div", "ffile", esc(node.name) + ' <span class="fsize">' + (node.size / 1024).toFixed(1) + "K</span>");
+    f.addEventListener("click", function () {
+      ul.closest(".fstree").querySelectorAll(".ffile.on").forEach(function (x) { x.classList.remove("on"); });
+      f.classList.add("on");
+      showFile(node, p, view);
+    });
+    li.appendChild(f);
+  }
+  ul.appendChild(li);
+}
+function countFiles(node) {
+  var n = 0;
+  (function rec(x) { (x.children || []).forEach(function (c) { if (c.type === "file") n++; else rec(c); }); })(node);
+  return n;
+}
+function showFile(node, path, view) {
+  if (node.body == null) {
+    view.innerHTML = '<div class="fsv-h">' + esc(path) + '</div><div class="fsv-big">Binary or large file (' +
+      (node.size / 1024).toFixed(1) + " KB) — not inlined.</div>";
+    return;
+  }
+  var body;
+  if (node.lang === "md") body = '<div class="fsv-md">' + mdLite(node.body) + "</div>";
+  else body = '<pre class="fsv-code lang-' + node.lang + '">' + esc(node.body) + "</pre>";
+  view.innerHTML = '<div class="fsv-h">' + esc(path) + ' <span class="fsv-meta">' + (node.size / 1024).toFixed(1) + "K · " + node.lang + "</span></div>" + body;
+}
+
+/* ================================================================ SECTION 5: rollouts (global) */
+function sectionRollouts(root) {
+  var sec = el("section"); sec.id = "sec-rollouts";
+  sec.appendChild(el("h2", null, "Harvey task rollouts"));
+  var idx = IX.rollouts.index || {};
+  var tasks = Object.keys(idx).sort();
+  if (!tasks.length) {
+    sec.appendChild(el("p", "sub", "No harvested task rollouts for this run (v0 trials did not harvest per-task trajectories)."));
+    root.appendChild(sec); return;
+  }
+  sec.appendChild(el("p", "sub",
+    "Every harvested Harvey-agent rollout: the turns, tool calls, token cost, ensemble grade, and the deliverable " +
+    "memo it produced — for each task × iteration. Loaded on demand (there are " +
+    tasks.reduce(function (a, t) { return a + Object.keys(idx[t]).length; }, 0) + " rollouts). " +
+    "Pick a task and an iteration."));
+  var ctrl = el("div", "rollctrl");
+  var sel = el("select", "rollsel");
+  tasks.forEach(function (t) { var o = el("option"); o.value = t; o.textContent = shortTask(t); sel.appendChild(o); });
+  ctrl.appendChild(sel);
+  var iterbar = el("span", "rolliters");
+  ctrl.appendChild(iterbar);
+  sec.appendChild(ctrl);
+  var view = el("div", "rollview big");
+  view.innerHTML = '<div class="fsv-empty">Pick a task and iteration.</div>';
+  sec.appendChild(view);
+  function refreshIters() {
+    var t = sel.value, its = Object.keys(idx[t]).sort(function (a, b) { return a - b; });
+    iterbar.innerHTML = its.map(function (i) {
+      return '<button class="rollbtn" data-key="' + esc(idx[t][i]) + '">iter ' + i + (i === "0" ? " · bare" : "") + "</button>";
+    }).join("");
+    iterbar.querySelectorAll(".rollbtn").forEach(function (b) {
+      b.addEventListener("click", function () {
+        iterbar.querySelectorAll(".rollbtn").forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); openRollout(b.dataset.key, view);
+      });
+    });
+  }
+  sel.addEventListener("change", refreshIters);
+  refreshIters();
+  root.appendChild(sec);
+}
+function openRollout(key, view) {
+  view.innerHTML = '<div class="diffspin">loading rollout…</div>';
+  fetchJSON("rollouts/" + key + ".json").then(function (r) { renderRollout(r, view); })
+    .catch(function (e) { view.innerHTML = "<div class='nodiff'>error: " + esc(e.message) + "</div>"; });
+}
+function renderRollout(r, view) {
+  var m = r.metrics || {}, g = r.grade || {};
+  var head = '<div class="ro-head"><div class="ro-task">' + esc(r.task) + ' <span class="ro-iter">' + esc(r.iter) + "</span></div>" +
+    '<div class="ro-tiles">' +
+    statTile("ens pass-rate", g.ens_pass_rate != null ? (g.ens_pass_rate * 100).toFixed(0) + "%" : "—", g.ens_pass_rate >= 0.75 ? "ok" : (g.ens_pass_rate < 0.6 ? "warn" : "")) +
+    statTile("turns", commas(m.turns), "") +
+    statTile("input tok", tokM(m.input_tokens), "") +
+    statTile("output tok", commas(m.output_tokens), "") +
+    statTile("docs read", (m.docs_read != null ? m.docs_read : "—") + "/" + (m.docs_total != null ? m.docs_total : "—"), "") +
+    statTile("failed crit", g.n_failed != null ? g.n_failed + "/" + g.n_graded : "—", g.n_failed ? "warn" : "ok") +
+    "</div></div>";
+  var tabs = '<div class="ro-tabs"><button class="rotab on" data-p="transcript">transcript (' + (r.turns || []).length + ")</button>" +
+    '<button class="rotab" data-p="deliverable">deliverable</button>' +
+    '<button class="rotab" data-p="failed">failed criteria (' + (g.n_failed || 0) + ")</button></div>";
+  var delivHtml = r.deliverable
+    ? '<div class="deliv-src">artifact: <code>' + esc(r.deliverable_src || "deliverable.md") + "</code> — the memo the Harvey agent wrote (graded)</div>" +
+      '<div class="fsv-md">' + mdLite(r.deliverable) + "</div>"
+    : "<div class='nodiff'>No markdown artifact harvested for this iter (only the binary .docx was written).</div>";
+  view.innerHTML = head + tabs + '<div class="ro-pane" data-pane="transcript">' + renderTranscript(r.turns || []) + "</div>" +
+    '<div class="ro-pane hide" data-pane="deliverable">' + delivHtml + "</div>" +
+    '<div class="ro-pane hide" data-pane="failed">' + renderFailed(g.failed || []) + "</div>";
+  view.querySelectorAll(".rotab").forEach(function (b) {
+    b.addEventListener("click", function () {
+      view.querySelectorAll(".rotab").forEach(function (x) { x.classList.remove("on"); });
+      b.classList.add("on");
+      view.querySelectorAll(".ro-pane").forEach(function (p) { p.classList.toggle("hide", p.dataset.pane !== b.dataset.p); });
+    });
+  });
+}
+function renderTranscript(turns) {
+  return '<div class="trans">' + turns.map(function (t) {
+    if (t.role === "system") return '<details class="tr sys"><summary>system prompt</summary><pre>' + esc(t.text) + "</pre></details>";
+    if (t.role === "user") return '<div class="tr user"><div class="tr-r">task</div><pre>' + esc(t.text) + "</pre></div>";
+    if (t.role === "assistant") {
+      var tc = (t.tool_calls || []).map(rollAction).join("");
+      var tok = (t.it != null) ? '<span class="tr-tok">' + tokM(t.it) + " in · " + commas(t.ot) + " out</span>" : "";
+      return '<div class="tr asst"><div class="tr-r">assistant ' + tok + "</div>" + (t.text ? "<div class='tr-t'>" + esc(t.text) + "</div>" : "") + tc + "</div>";
+    }
+    if (t.role === "tool") return '<details class="tr tool"><summary>' + esc(t.name || "tool") + " result</summary><pre>" + esc(t.result) + "</pre></details>";
+    return "";
+  }).join("") + "</div>";
+}
+function rollAction(c) {
+  if (c.name === "bash")
+    return '<div class="ract bash"><span class="ract-n">bash</span><pre class="tr-cmd">$ ' + esc(c.cmd) + "</pre></div>";
+  if (c.name === "read")
+    return '<div class="ract read"><span class="ract-n">read</span> <span class="ract-f">' + esc(c.file) + "</span></div>";
+  if (c.name === "write")
+    return '<div class="ract write"><span class="ract-n">write</span> <span class="ract-f">' + esc(c.file) + "</span>" +
+      '<details class="t-res"><summary>content</summary><pre>' + esc(c.preview) + "</pre></details></div>";
+  if (c.name === "edit")
+    return '<div class="ract edit"><span class="ract-n">edit</span> <span class="ract-f">' + esc(c.file) + "</span>" +
+      '<details class="t-res"><summary>diff</summary><pre class="del">' + esc(c.old) + '</pre><pre class="add">' + esc(c.new) + "</pre></details></div>";
+  return '<div class="ract"><span class="ract-n">' + esc(c.name) + "</span></div>";
+}
+function renderFailed(failed) {
+  if (!failed.length) return "<div class='nodiff'>No failed criteria — all graded criteria passed.</div>";
+  return '<div class="verdlist">' + failed.map(function (c) {
+    return '<div class="vrow no"><span class="vbadge">FAIL</span><span class="vid">' + esc(c.id) + "</span>" +
+      '<span class="vt">' + esc(c.title) + '</span><div class="vmatch">' + esc(c.match) + "</div></div>";
+  }).join("") + "</div>";
+}
+
+/* ---------------------------------------------------------------- tiny markdown */
+function mdLite(s) {
+  if (s == null) return "";
+  var lines = ("" + s).split("\n"), out = [], inCode = false, code = [];
+  function flush() { if (code.length) { out.push("<pre>" + esc(code.join("\n")) + "</pre>"); code = []; } }
+  for (var i = 0; i < lines.length; i++) {
+    var L = lines[i];
+    if (/^```/.test(L)) { if (inCode) { flush(); inCode = false; } else { inCode = true; } continue; }
+    if (inCode) { code.push(L); continue; }
+    if (/^#{1,6}\s/.test(L)) { var lvl = L.match(/^#+/)[0].length; out.push("<h" + Math.min(lvl + 2, 6) + ">" + inl(L.replace(/^#+\s/, "")) + "</h" + Math.min(lvl + 2, 6) + ">"); }
+    else if (/^\s*[-*]\s/.test(L)) out.push("<li>" + inl(L.replace(/^\s*[-*]\s/, "")) + "</li>");
+    else if (/^\s*\d+\.\s/.test(L)) out.push("<li>" + inl(L.replace(/^\s*\d+\.\s/, "")) + "</li>");
+    else if (/^\s*$/.test(L)) out.push("");
+    else if (/^\|.*\|/.test(L)) out.push("<div class='mdtr'>" + esc(L) + "</div>");
+    else out.push("<p>" + inl(L) + "</p>");
+  }
+  flush();
+  // wrap consecutive <li> in <ul>
+  var html = out.join("\n").replace(/(<li>[\s\S]*?<\/li>)(?=\n(?!<li>)|$)/g, function (m) { return "<ul>" + m + "</ul>"; });
+  return html;
+  function inl(t) {
+    return esc(t).replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")
+      .replace(/(?:^|[^*])\*([^*]+)\*/g, function (mm, p1) { return mm.replace("*" + p1 + "*", "<i>" + p1 + "</i>"); });
+  }
+}
+
+/* ---------------------------------------------------------------- insight footer */
+function sectionInsight(root) {
+  if (!BOOT.insight || !BOOT.insight.length) return;
+  var sec = el("section", "insightsec");
+  sec.innerHTML = '<div class="ins-h">What we learned from this run</div><ul>' +
+    BOOT.insight.map(function (b) { return "<li>" + b + "</li>"; }).join("") + "</ul>";
+  root.appendChild(sec);
+}
+
+/* ---------------------------------------------------------------- boot */
+function main() {
+  renderHeader();
+  var app = document.getElementById("app");
+  app.innerHTML = "";
+  sectionTimeline(app);
+  sectionTrajectory(app);
+  sectionHelps(app);
+  sectionCost(app);
+  sectionFS(app);
+  sectionRollouts(app);
+  sectionInsight(app);
+  // demo deep-link: ?demo=1 auto-populates the interactive viewers (used for screenshots)
+  if (/[?&]demo=1/.test(location.search)) setTimeout(demoOpen, 400);
+}
+function demoOpen() {
+  // open the most-harmed and most-helped task drill (last item = most helped)
+  var hh = IX.helps_harms;
+  if (hh && hh.tasks.length) {
+    openTaskDrill(hh.tasks[hh.tasks.length - 1]);
+    var d = document.getElementById("hh-drill");
+    if (d) {
+      var vb = d.querySelector(".verdbtn"); if (vb) vb.click();
+      var rb = d.querySelector(".rollbtn"); if (rb) rb.click();
+    }
+  }
+  // open a filesystem file: agent_loop.py if present
+  var ffiles = document.querySelectorAll(".fstree .ffile");
+  for (var i = 0; i < ffiles.length; i++) {
+    if (/agent_loop\.py/.test(ffiles[i].textContent)) { ffiles[i].click(); break; }
+  }
+  // open first global rollout, then its deliverable tab
+  var grb = document.querySelector("#sec-rollouts .rolliters .rollbtn");
+  if (grb) { grb.click(); setTimeout(function () {
+    var dt = document.querySelector("#sec-rollouts .rotab[data-p='deliverable']");
+    if (dt) dt.click();
+  }, 300); }
+  // open the first diff
+  var db = document.querySelector(".diffbox"); if (db) db.open = true;
+}
+main();
+})();
+</script>
+</body></html>

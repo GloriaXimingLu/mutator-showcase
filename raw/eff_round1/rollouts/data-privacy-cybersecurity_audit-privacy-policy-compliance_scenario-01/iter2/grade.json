@@ -1,0 +1,39 @@
+{
+ "task": "data-privacy-cybersecurity/audit-privacy-policy-compliance/scenario-01",
+ "ens_pass_rate": 0.88,
+ "n_graded": 50,
+ "n_failed": 6,
+ "failed_criteria": [
+  {
+   "id": "C-001",
+   "title": "ISSUE_001: Identifies missing CPRA Notice at Collection",
+   "match_criteria": "PASS if the memo identifies that Vaultline's privacy policy lacks a separate 'Notice at Collection' as required by CPRA. The memo must note this is a required disclosure under Cal. Civ. Code \u00a7 1798.100(a) or CPRA regulations. FAIL if the memo does not identify the absence of a Notice at Collection."
+  },
+  {
+   "id": "C-008",
+   "title": "ISSUE_002: Identifies insufficient request submission methods",
+   "match_criteria": "PASS if the memo identifies that the privacy policy provides only one method (email) for submitting CCPA requests, when CCPA regulations require two or more designated methods. FAIL if this deficiency is not mentioned."
+  },
+  {
+   "id": "C-030",
+   "title": "ISSUE_011: References FTC enforcement or CPRA purpose limitation",
+   "match_criteria": "PASS if the memo references FTC enforcement precedent or guidance regarding material changes to privacy policies requiring affirmative consent, or references CPRA's restrictions on using personal information for purposes materially different from those disclosed at collection. A reference to FTC unfairness/deception standards in this context also qualifies. FAIL if neither FTC guidance nor CPRA purpose limitation is referenced in connection with the modification clause."
+  },
+  {
+   "id": "C-034",
+   "title": "ISSUE_014: Identifies age restriction inconsistency (17+ vs. under 13)",
+   "match_criteria": "PASS if the memo identifies the inconsistency between the Terms of Service (app for users aged 17+) and the privacy policy (states app is 'not intended for children under 13'), and flags the ambiguity regarding users aged 13-16. FAIL if this inconsistency is not identified."
+  },
+  {
+   "id": "C-035",
+   "title": "ISSUE_014: Notes regulatory implications of age inconsistency",
+   "match_criteria": "PASS if the memo discusses any regulatory implication of the age inconsistency, such as potential COPPA concerns for under-13 users, California Age-Appropriate Design Code (AADC) obligations for minors aged 13-17, or the need to align the two documents. FAIL if no regulatory implication is discussed."
+  },
+  {
+   "id": "C-050",
+   "title": "ISSUE: Identifies generic security disclosure without concrete practices",
+   "match_criteria": "PASS if the memo identifies that the privacy policy's security disclosure uses only generic language (e.g., 'commercially reasonable security measures') and does not specify any concrete security practices such as encryption standards, access controls, or security certifications/frameworks. FAIL if this lack of specificity in the security disclosure is not flagged."
+  }
+ ],
+ "error": null
+}

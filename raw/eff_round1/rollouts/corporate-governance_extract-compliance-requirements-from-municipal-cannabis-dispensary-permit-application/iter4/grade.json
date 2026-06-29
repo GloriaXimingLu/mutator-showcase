@@ -1,0 +1,79 @@
+{
+ "task": "corporate-governance/extract-compliance-requirements-from-municipal-cannabis-dispensary-permit-application",
+ "ens_pass_rate": 0.7941176470588235,
+ "n_graded": 68,
+ "n_failed": 14,
+ "failed_criteria": [
+  {
+   "id": "C-005",
+   "title": "Matrix includes required column: Obligation Phase",
+   "match_criteria": "PASS if the matrix/table includes a column categorizing each requirement as pre-submission, pre-issuance, or post-issuance (or equivalent phase classification). FAIL if no such column exists."
+  },
+  {
+   "id": "C-006",
+   "title": "Matrix includes required column: Responsible Party",
+   "match_criteria": "PASS if the matrix/table includes a column identifying the responsible party or action owner for each requirement. FAIL if no such column exists."
+  },
+  {
+   "id": "C-007",
+   "title": "Matrix includes required column: Deadline/Trigger",
+   "match_criteria": "PASS if the matrix/table includes a column for the deadline or trigger event for each requirement. FAIL if no such column exists."
+  },
+  {
+   "id": "C-014",
+   "title": "ISSUE_002: Identifies conflict between ordinance and application form on expunged convictions",
+   "match_criteria": "PASS if the agent identifies the inconsistency between City ordinance Section 9-5-22(D)(3) (stating expunged convictions are not disqualifying) and the application form's Question 14B (requiring disclosure of expunged, sealed, or pardoned convictions). FAIL if this conflict/inconsistency is not flagged."
+  },
+  {
+   "id": "C-015",
+   "title": "ISSUE_002: Recommends disclosure with protective cover letter",
+   "match_criteria": "PASS if the agent recommends full disclosure of Okonkwo's expunged conviction while also submitting a cover letter or accompanying explanation citing the ordinance's expungement protection, or recommends raising the inconsistency with the City to avoid scoring prejudice. FAIL if neither approach is recommended."
+  },
+  {
+   "id": "C-023",
+   "title": "ISSUE_005: Flags permit revocation consequence for non-compliance with R3 hiring",
+   "match_criteria": "PASS if the agent flags that failure to maintain the 50% R3 hiring threshold could result in permit revocation or jeopardize social equity status. FAIL if no consequence for non-compliance is mentioned."
+  },
+  {
+   "id": "C-026",
+   "title": "ISSUE_006: Notes mentorship overlap with annual permit renewal",
+   "match_criteria": "PASS if the agent identifies that the 2-year mentorship program spans across permit renewal periods (annual renewal at 12 months), and that social equity status is re-verified at each renewal, meaning failure to remain in the mentorship program could jeopardize the social equity designation at the first renewal. FAIL if this timing overlap and renewal risk is not flagged."
+  },
+  {
+   "id": "C-027",
+   "title": "ISSUE_007: Flags Ramachandran residency and social equity qualification",
+   "match_criteria": "PASS if the agent flags that Felix Ramachandran resides in Wilmette (not Evanston), holds 40% ownership, and that the agent recommends verifying whether the City's ordinance or Illinois Cannabis Regulation and Tax Act requires all owners above a certain threshold to individually qualify for social equity status, or whether Okonkwo's 60% qualifying ownership is sufficient. FAIL if Ramachandran's non-Evanston residency is not identified as a potential issue for social equity qualification."
+  },
+  {
+   "id": "C-030",
+   "title": "ISSUE_009: Flags difficulty obtaining cannabis crime/theft coverage",
+   "match_criteria": "PASS if the agent flags that the required $500,000 cannabis-specific crime/theft insurance coverage is difficult to obtain because standard commercial crime policies typically exclude cannabis businesses due to federal Schedule I status, and that specialized cannabis insurers must be used. FAIL if the agent does not flag the difficulty or limited market for this specific coverage."
+  },
+  {
+   "id": "C-032",
+   "title": "ISSUE_010: Identifies abbreviated first reporting period",
+   "match_criteria": "PASS if the agent identifies that quarterly compliance self-audit reports are due within 15 days of each calendar quarter end, and that if the permit is issued mid-quarter (e.g., mid-August), the first audit will cover only a partial quarter (e.g., August 15 \u2013 September 30), with results due October 15. The agent should recommend establishing audit procedures immediately upon permit issuance. FAIL if the abbreviated first reporting period issue is not identified."
+  },
+  {
+   "id": "C-052",
+   "title": "Identifies special use approval / ZBA process requirement",
+   "match_criteria": "PASS if the matrix includes the requirement for special use approval from the Zoning Board of Appeals (ZBA) for a cannabis dispensary in the C1a Commercial Mixed-Use district, including the multi-step process (application with site plan, notice to property owners within 500 feet, public hearing, ZBA recommendation, City Council vote). FAIL if the special use / ZBA requirement is omitted."
+  },
+  {
+   "id": "C-058",
+   "title": "Identifies Liquor & Cannabis Board public hearing requirement",
+   "match_criteria": "PASS if the matrix includes the requirement for a public hearing before the Liquor & Cannabis Board within 45 days of application completeness determination. FAIL if this requirement is omitted."
+  },
+  {
+   "id": "C-061",
+   "title": "Identifies scoring rubric categories and social equity bonus",
+   "match_criteria": "PASS if the matrix or executive summary references the 250-point scoring rubric (with categories such as Business Plan, Security Plan, Community Benefits, Financial Viability, Diversity Plan, Environmental Plan, Experience/Qualifications) and the 20-point social equity bonus (270 possible). FAIL if the scoring structure is not mentioned at all."
+  },
+  {
+   "id": "C-062",
+   "title": "Identifies Ridgeline Community Bank quarterly attestations",
+   "match_criteria": "PASS if the matrix includes the requirement for quarterly compliance attestations to Ridgeline Community Bank as part of the cannabis banking program. FAIL if this banking compliance obligation is not mentioned."
+  }
+ ],
+ "error": null
+}

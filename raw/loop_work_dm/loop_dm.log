@@ -1,0 +1,100 @@
+
+=== ITER 0 : OUTER (mutate) ===
++ (cd /home/ubuntu/ttt-nanorollout) uv run python -m nanorollout.adapters.outer_loop.run_mutator_claude --seed /home/ubuntu/loop_seed
+2026-06-26 00:13:49,698 - nanorollout.runner - INFO - [harvey-mutator-v0] Starting environment: docker
+2026-06-26 00:13:50,988 - nanorollout.runner - INFO - [harvey-mutator-v0] Running harvey-mutator-claude-v0
+2026-06-26 00:15:34,814 - nanorollout.runner - INFO - [harvey-mutator-v0] Running eval
+{
+  "exit_status": "finished",
+  "structural_gate_pass": true,
+  "mutated_workspace": "/home/ubuntu/loop_work_dm/iter0/filesystem",
+  "trace_messages": 52,
+  "output_dir": "/home/ubuntu/loop_work_dm/iter0"
+}
+
+Mutated workspace: /home/ubuntu/loop_work_dm/iter0/filesystem
+Inspect the edit:  diff -ru /home/ubuntu/loop_seed /home/ubuntu/loop_work_dm/iter0/filesystem
+=== ITER 0 : INNER TRAIN eval (orig-30 headroom) ===
++ (cd /home/ubuntu/ttt/baseline-submodules/harvey-labs/judge_opt) /home/ubuntu/ttt/.venv/bin/python standard_eval.py --skill /home/ubuntu/loop_work_dm/iter0/filesystem/harness/skill/initial_skill.md --tasks /home/ubuntu/loop_train30.txt --prefix
+STANDARD EVAL  skill=/home/ubuntu/loop_work_dm/iter0/filesystem/harness/skill/initial_skill.md  prefix=dm_train_iter0  tasks=30
+  done immigration/identify-h1b-qualification-issues        pass=0.667
+  done immigration/compare-immigration                      pass=0.744
+  done real-estate/draft-settlement-statement               pass=0.823
+  done trusts-estates-private-client/extract-key-exhibits-f pass=0.717
+  done environmental-esg/identify-issues-in-phase-one-envir pass=0.17
+  done contracts/corporate-ma/joint-venture-agreement-term- pass=0.732
+  done employment-labor/draft-markup-of-settlement-agreemen pass=0.577
+  done corporate-governance/extract-compliance-requirements pass=0.838
+  done corporate-governance/assess-impact-of-sec-cybersecur pass=0.733
+  done capital-markets/draft-registration-statement-on-form pass=0.833
+  done arbitration-international-dispute-resolution/identif pass=0.875
+  done arbitration-international-dispute-resolution/identif pass=0.974
+  done litigation-dispute-resolution/assess-reasonableness- pass=0.837
+  done contracts/commercial-vendor-customer/saas-api-subscr pass=0.92
+  done capital-markets/draft-underwriting-agreement         pass=0.871
+  done data-privacy-cybersecurity/audit-privacy-policy-comp pass=0.86
+  done corporate-governance/compare-state-paid-leave-requir pass=0.95
+  done corporate-ma/review-governance-diligence/scenario-01 pass=0.87
+  done contracts/banking/intercreditor-agreement-term-negot pass=0.808
+  done corporate-ma/analyze-cim-deal-teaser/scenario-02     pass=0.878
+  done healthcare-life-sciences/identify-issues-in-fda-pre  pass=0.894
+  done litigation-dispute-resolution/draft-interrogatories  pass=0.96
+  done intellectual-property/extract-key-terms-from-technol pass=0.984
+  done funds-asset-management/draft-fund-closing-certificat pass=0.842
+  done international-trade-sanctions/draft-ofac-specific-li pass=0.922
+  done intellectual-property/rnw-ip-license-renewal         pass=0.912
+  done real-estate/draft-development-agreement              pass=0.885
+  done litigation-dispute-resolution/draft-motion-to-dismis pass=0.921
+  done trusts-estates-private-client/analyze-counterparty-m pass=0.935
+  done tax/review-iss-tax-transaction-structure             pass=0.893
+=== combined_score (mean ensemble pass-rate) = 0.8274 over 30 tasks -> /home/ubuntu/ttt/baseline-submodules/harvey-labs/judge_opt/standard_eval_dm_train_iter0.json ===
+STANDARD_EVAL_DONE
+=== ITER 0 : INNER VAL eval (fresh-30 headroom, held-out) ===
++ (cd /home/ubuntu/ttt/baseline-submodules/harvey-labs/judge_opt) /home/ubuntu/ttt/.venv/bin/python standard_eval.py --skill /home/ubuntu/loop_work_dm/iter0/filesystem/harness/skill/initial_skill.md --tasks /home/ubuntu/fresh_val.txt --prefix
+STANDARD EVAL  skill=/home/ubuntu/loop_work_dm/iter0/filesystem/harness/skill/initial_skill.md  prefix=dm_val_iter0  tasks=30
+  done structured-finance-securitization/draft-security-agr pass=0.827
+  done antitrust-competition/draft-market-definition-analys pass=0.345
+  done banking-finance/identify-issues-in-borrower-financia pass=0.71
+  done structured-finance-securitization/identify-issues-in pass=0.526
+  done intellectual-property/extract-filing-dates-from-pate pass=0.786
+  done trusts-estates-private-client/draft-markup-of-counte pass=1.0
+  done tax/identify-tax-issues-in-irs-closing-agreement     pass=0.636
+  done corporate-governance/identify-issues-in-entity-compl pass=0.818
+  done corporate-ma/draft-distribution-waterfall-memorandum pass=0.731
+  done corporate-governance/draft-response-to-government-in pass=0.857
+  done litigation-dispute-resolution/categorize-document-pr pass=0.91
+  done intellectual-property/extract-open-source-license-ob pass=0.909
+  done intellectual-property/analyze-restrictive-covenant-e pass=0.746
+  done capital-markets/review-form-10                       pass=0.789
+  done structured-finance-securitization/compare-closing-ch pass=0.875
+  done contracts/ip-licensing/license-agreement-subsequent- pass=0.92
+  done contracts/employment-compensation/equity-incentive-p pass=0.849
+  done contracts/commercial-vendor-customer/vendor-services pass=0.685
+  done litigation-dispute-resolution/extract-privileged-com pass=0.848
+  done capital-markets/draft-current-report-on-form-8       pass=0.857
+  done intellectual-property/review-patent-complaint        pass=0.853
+  done litigation-dispute-resolution/extract-scope-terms-fr pass=0.763
+  done intellectual-property/extract-license-grant-terms-fr pass=0.911
+  done corporate-ma/assess-litigation-and-regulatory-risk-f pass=0.837
+  done contracts/banking/credit-support-annex-term-negotiat pass=0.917
+  done corporate-ma/review-governance-diligence/scenario-02 pass=0.881
+  done corporate-ma/analyze-term-sheet-markup/scenario-01   pass=0.922
+  done contracts/pe-funds/fund-side-letter-subsequent-turn- pass=0.921
+  done contracts/banking/repo-securities-lending-subsequent pass=0.963
+  done emerging-companies-venture-capital/draft-convertible pass=0.9
+=== combined_score (mean ensemble pass-rate) = 0.8165 over 30 tasks -> /home/ubuntu/ttt/baseline-submodules/harvey-labs/judge_opt/standard_eval_dm_val_iter0.json ===
+STANDARD_EVAL_DONE
+=== ITER 0 : train=0.8274363421359477  val=0.8164683578569351 ===
+Traceback (most recent call last):
+  File "/home/ubuntu/loop_driver_dm.py", line 70, in <module>
+    main()
+  File "/home/ubuntu/loop_driver_dm.py", line 61, in main
+    n = L.assemble_rollouts(ev_train, mut_ws + "/rollouts")  # rollouts from TRAIN only
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/loop_driver.py", line 66, in assemble_rollouts
+    from standard_eval import deliverable_text
+  File "/home/ubuntu/ttt/baseline-submodules/harvey-labs/judge_opt/standard_eval.py", line 17, in <module>
+    from harvey_judge import judge
+  File "/home/ubuntu/ttt/baseline-submodules/harvey-labs/judge_opt/harvey_judge.py", line 25, in <module>
+    import anthropic
+ModuleNotFoundError: No module named 'anthropic'

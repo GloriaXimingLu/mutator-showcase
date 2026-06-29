@@ -1,0 +1,19 @@
+{
+ "task": "corporate-ma/review-governance-diligence/scenario-01",
+ "ens_pass_rate": 0.9629629629629629,
+ "n_graded": 54,
+ "n_failed": 2,
+ "failed_criteria": [
+  {
+   "id": "C-037",
+   "title": "ISSUE_011: Bylaws 66\u2154% amendment threshold noted",
+   "match_criteria": "PASS if the memo identifies that the Bylaws require a 66\u2154% stockholder vote (or Board action) for amendment, and discusses whether any pre-closing Bylaws amendments may be needed for the transaction and the implications of this supermajority threshold. FAIL if the Bylaws amendment threshold is not mentioned in connection with transaction planning."
+  },
+  {
+   "id": "C-039",
+   "title": "ISSUE_012: Voting Agreement does not obligate vote for Sale unless drag-along triggered",
+   "match_criteria": "PASS if the memo notes that the Voting Agreement obligates parties to vote for board composition but does not independently require them to vote in favor of a Sale of the Company \u2014 the obligation to vote in favor of a sale arises only if the drag-along under the Stockholders' Agreement is properly triggered. FAIL if this distinction is not addressed."
+  }
+ ],
+ "error": null
+}

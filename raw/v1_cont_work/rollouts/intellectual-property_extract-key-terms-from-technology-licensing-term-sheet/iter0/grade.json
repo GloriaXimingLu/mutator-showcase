@@ -1,0 +1,19 @@
+{
+ "task": "intellectual-property/extract-key-terms-from-technology-licensing-term-sheet",
+ "ens_pass_rate": 0.9682539682539683,
+ "n_graded": 63,
+ "n_failed": 2,
+ "failed_criteria": [
+  {
+   "id": "C-020",
+   "title": "Notes interaction between perpetual wind-down license and source code escrow",
+   "match_criteria": "PASS if the memo notes the interaction between the perpetual post-termination wind-down license and the source code escrow provisions, explaining that together they could allow KBI to terminate the relationship while retaining indefinite technology access. FAIL if this interaction is not identified."
+  },
+  {
+   "id": "C-024",
+   "title": "Flags source code escrow 90-day maintenance gap trigger as too broad",
+   "match_criteria": "PASS if the memo flags the escrow release condition of 'failure to provide maintenance and support for 90 consecutive days' as dangerously broad, noting that it does not exclude force majeure events, disputes over maintenance scope, or KBI-caused disruptions (such as KBI's failure to pay maintenance fees), meaning source code could be released even where Whitmore is not at fault. FAIL if this escrow trigger is not identified as problematic."
+  }
+ ],
+ "error": null
+}
