@@ -152,6 +152,12 @@ section > h2 .pill{width:14px;height:14px;padding:0;border-radius:4px}
 .chg-b .ba-l{color:#ff9a93} .chg-a .ba-l{color:#7ee787}
 .chg-arrow{align-self:center;text-align:center;color:var(--muted);font-size:18px}
 .chg-why{margin-top:10px;font-size:13px;color:var(--muted)} .chg-why b{color:var(--ink)}
+.hardnote{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:11px;padding:14px 18px;margin:14px 0 22px;font-size:13.5px;line-height:1.6;color:#cdd9e5}
+.hardnote b{color:#fff}
+.hardnote code{color:#9db4cc;background:rgba(0,0,0,.3);padding:0 4px;border-radius:4px}
+.hardnote-l{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);
+  font-weight:700;margin-bottom:7px}
 
 /* ===== overview / at-a-glance ===== */
 .ovstats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 20px}
@@ -390,6 +396,7 @@ section > h2 .pill{width:14px;height:14px;padding:0;border-radius:4px}
   <h2>Techniques</h2>
   <p class="sub">The mechanisms built around the mutator — each shown as what it replaced, what it became, and the
   failure or constraint that motivated it.</p>
+  <div class="hardnote"><span class="hardnote-l">New — under-exploration hardening</span>Added <b>after</b> the runs above, in response to eff_round1 iter&nbsp;4 — which committed an unvalidated edit at <b>$9 / 19&nbsp;min</b> of a <b>$160 / ~3&nbsp;h</b> budget and overfit. <b>Under-exploration guard:</b> a host-side backstop that, if the mutator writes its done-sentinel while <b>&gt;50% of its experiment budget and ≥1 dev-gate of wall-clock remain unspent</b>, treats it like a park and re-runs it (bounded, preserving committed work) with a “you stopped too early — pivot to a new lever” note — turning the soft CLAUDE.md “don't stop early” rule into a hard stop. <b>Soft budget reminder + adaptive gate estimate:</b> the in-container <code>budget</code> tool now reports both its wall-clock soft deadline and its dollar cap, and the “room for N more dev gates” estimate is measured from the last full gate's duration (the dev giants run ~45–50&nbsp;min, not a fixed 50-min guess). None of the three runs above used either guard.</div>
   <div class="chg-cat"><div class="chg-cat-h">Guidance — what the mutator is told</div><div class="chg">
                   <div class="chg-t">Ambition rewrite of CLAUDE.md</div>
                   <div class="chg-ba">
